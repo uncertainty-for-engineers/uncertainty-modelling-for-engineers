@@ -653,7 +653,7 @@ machine learning <a class="bibtex reference internal" href="../zbibliography.htm
 how the number of support constraints of a scenario program can be used
 to iteratively increase the number of sampled constraints, which
 requires fewer sampled constraints in total than
-<a href="#id23"><span class="problematic" id="id24">:sec:`ch3:reliability`</span></a> for equivalent <span class="math notranslate nohighlight">\(\epsilon\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>.
+<a class="reference internal" href="#equation-ch3-reliability">(18)</a> for equivalent <span class="math notranslate nohighlight">\(\epsilon\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>.
 For a non-convex program, the number of support constraints is not
 necessarily less than the dimensionality of the design variable, and
 therefore a new approach is required, which we describe in the following
@@ -661,7 +661,7 @@ section.</p>
 </div>
 <div class="section" id="non-convex-case">
 <h3>Non-convex case<a class="headerlink" href="#non-convex-case" title="Permalink to this headline">¶</a></h3>
-<p><a class="bibtex reference internal" href="../zbibliography.html#campi2018general" id="id25">[CGR18]</a> provide the following bound for the non-convex case:
+<p><a class="bibtex reference internal" href="../zbibliography.html#campi2018general" id="id23">[CGR18]</a> provide the following bound for the non-convex case:
 <span class="math notranslate nohighlight">\(P^n(V(\hat{z}_n)&gt;\epsilon(s))&lt;\beta,\)</span> where</p>
 <div class="math notranslate nohighlight" id="equation-thebound">
 <span class="eqno">(20)<a class="headerlink" href="#equation-thebound" title="Permalink to this equation">¶</a></span>\[\begin{split}\epsilon(s)=
@@ -675,7 +675,7 @@ bound is similar to the convex case since in general increasing <span class="mat
 should increase the size of the support set.</p>
 <p>Finding the cardinality of the support set is in general a
 computationally expensive task, since the scenario program must be
-solved <span class="math notranslate nohighlight">\(n\)</span> times. <a class="bibtex reference internal" href="../zbibliography.html#campi2015non" id="id26">[CGR15]</a> present a time-efficient algorithm which
+solved <span class="math notranslate nohighlight">\(n\)</span> times. <a class="bibtex reference internal" href="../zbibliography.html#campi2015non" id="id24">[CGR15]</a> present a time-efficient algorithm which
 only requires that the scenario problem is solved <span class="math notranslate nohighlight">\(s\)</span> times.</p>
 </div>
 <div class="section" id="a-posteriori-frequentist-analysis">
@@ -722,7 +722,7 @@ methods which are often used with neural networks.</p>
 </div>
 <div class="section" id="software-for-interval-predictor-models">
 <h2>Software for interval predictor models<a class="headerlink" href="#software-for-interval-predictor-models" title="Permalink to this headline">¶</a></h2>
-<p><a class="bibtex reference internal" href="../zbibliography.html#patelli2017cossan" id="id27">[PBTS17]</a> describe the first open source software
+<p><a class="bibtex reference internal" href="../zbibliography.html#patelli2017cossan" id="id25">[PBTS17]</a> describe the first open source software
 implementation of interval predictor models in the generalised
 uncertainty quantification software OpenCossan, which is
 written in Matlab. The OpenCossan software
@@ -732,8 +732,8 @@ IPMs to be automatically trained as approximations of expensive
 engineering models, and then used in other engineering calculations,
 e.g. design optimisation. A partial Python port of the
 OpenCossan IPM code was released as open source software
-by <a class="bibtex reference internal" href="../zbibliography.html#sadeghi-pyipm" id="id28">[Sad18]</a>.</p>
-<p>The introduced software has been applied in <a class="bibtex reference internal" href="../zbibliography.html#brandt2017meta" id="id29">[BBH+17]</a>, to study
+by <a class="bibtex reference internal" href="../zbibliography.html#sadeghi-pyipm" id="id26">[Sad18]</a>.</p>
+<p>The introduced software has been applied in <a class="bibtex reference internal" href="../zbibliography.html#brandt2017meta" id="id27">[BBH+17]</a>, to study
 fatigue damage estimation of offshore wind turbines jacket substructure.</p>
 </div>
 <div class="section" id="worked-example-linear-regression">
@@ -776,18 +776,16 @@ Therefore we will generate training data from a toy function <span class="math n
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     pcost       dcost       gap    pres   dres   k/t
- 0: -7.2760e-12  8.0036e-11  2e+06  1e-01  1e+02  1e+00
- 1:  1.9353e+04  2.1290e+04  5e+05  2e-02  2e+01  2e+03
- 2:  1.9279e+04  1.9694e+04  1e+05  6e-03  5e+00  4e+02
- 3:  1.9733e+04  1.9956e+04  4e+04  2e-03  2e+00  2e+02
- 4:  1.7924e+04  1.7992e+04  9e+03  6e-04  5e-01  7e+01
- 5:  1.7983e+04  1.8012e+04  4e+03  3e-04  2e-01  3e+01
- 6:  1.7845e+04  1.7854e+04  1e+03  9e-05  8e-02  9e+00
- 7:  1.7817e+04  1.7818e+04  3e+02  2e-05  2e-02  2e+00
- 8:  1.7811e+04  1.7811e+04  7e+01  5e-06  4e-03  3e-01
- 9:  1.7809e+04  1.7809e+04  1e+01  8e-07  7e-04  6e-02
-10:  1.7809e+04  1.7809e+04  1e-01  9e-09  7e-06  6e-04
-11:  1.7809e+04  1.7809e+04  1e-03  9e-11  7e-08  6e-06
+ 0: -1.4552e-11 -1.9645e-10  2e+06  1e-01  1e+02  1e+00
+ 1:  1.6760e+04  1.8680e+04  1e+06  5e-02  4e+01  2e+03
+ 2:  2.2297e+04  2.2319e+04  4e+04  2e-03  2e+00  2e+01
+ 3:  2.1053e+04  2.1116e+04  2e+04  1e-03  1e+00  6e+01
+ 4:  1.9449e+04  1.9471e+04  6e+03  4e-04  3e-01  2e+01
+ 5:  1.9475e+04  1.9488e+04  3e+03  2e-04  2e-01  1e+01
+ 6:  1.9338e+04  1.9340e+04  5e+02  3e-05  3e-02  2e+00
+ 7:  1.9317e+04  1.9318e+04  8e+00  5e-07  4e-04  4e-02
+ 8:  1.9317e+04  1.9317e+04  8e-02  5e-09  4e-06  4e-04
+ 9:  1.9317e+04  1.9317e+04  8e-04  5e-11  4e-08  4e-06
 Optimal solution found.
 </pre></div>
 </div>
