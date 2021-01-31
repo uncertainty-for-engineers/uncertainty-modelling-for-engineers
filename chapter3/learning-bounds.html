@@ -617,8 +617,7 @@ case that the optimisation program is convex:</p>
 the number of constraint samples in the training data set used to solve
 the scenario program, and <span class="math notranslate nohighlight">\(d\)</span> is the dimensionality of the design
 variable, <span class="math notranslate nohighlight">\(z\)</span>. For a fixed <span class="math notranslate nohighlight">\(d\)</span> and <span class="math notranslate nohighlight">\(n\)</span> we obtain a
-confidence-reliability plot as shown in
-<code class="xref eq docutils literal notranslate"><span class="pre">exampleConvex</span></code>. The plot demonstrates that by decreasing
+confidence-reliability relationship: by decreasing
 <span class="math notranslate nohighlight">\(\epsilon\)</span> slightly, <span class="math notranslate nohighlight">\(1-\beta\)</span> can be made to be insignificantly small.
 Other tighter bounds exist in the more recent scenario optimisation
 literature, e.g.
@@ -776,16 +775,15 @@ Therefore we will generate training data from a toy function <span class="math n
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     pcost       dcost       gap    pres   dres   k/t
- 0: -1.4552e-11 -1.9645e-10  2e+06  1e-01  1e+02  1e+00
- 1:  1.6760e+04  1.8680e+04  1e+06  5e-02  4e+01  2e+03
- 2:  2.2297e+04  2.2319e+04  4e+04  2e-03  2e+00  2e+01
- 3:  2.1053e+04  2.1116e+04  2e+04  1e-03  1e+00  6e+01
- 4:  1.9449e+04  1.9471e+04  6e+03  4e-04  3e-01  2e+01
- 5:  1.9475e+04  1.9488e+04  3e+03  2e-04  2e-01  1e+01
- 6:  1.9338e+04  1.9340e+04  5e+02  3e-05  3e-02  2e+00
- 7:  1.9317e+04  1.9318e+04  8e+00  5e-07  4e-04  4e-02
- 8:  1.9317e+04  1.9317e+04  8e-02  5e-09  4e-06  4e-04
- 9:  1.9317e+04  1.9317e+04  8e-04  5e-11  4e-08  4e-06
+ 0:  7.2760e-12 -2.9104e-11  2e+06  1e-01  1e+02  1e+00
+ 1:  2.1276e+04  2.2466e+04  3e+05  2e-02  1e+01  1e+03
+ 2:  2.0043e+04  2.0123e+04  3e+04  2e-03  1e+00  8e+01
+ 3:  2.0690e+04  2.0776e+04  2e+04  1e-03  9e-01  9e+01
+ 4:  1.9449e+04  1.9467e+04  3e+03  2e-04  2e-01  2e+01
+ 5:  1.9378e+04  1.9380e+04  5e+02  3e-05  2e-02  2e+00
+ 6:  1.9362e+04  1.9362e+04  6e+00  4e-07  3e-04  3e-02
+ 7:  1.9362e+04  1.9362e+04  6e-02  4e-09  3e-06  3e-04
+ 8:  1.9362e+04  1.9362e+04  6e-04  4e-11  3e-08  3e-06
 Optimal solution found.
 </pre></div>
 </div>
