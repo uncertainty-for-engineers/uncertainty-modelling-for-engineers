@@ -1,0 +1,552 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction &#8212; Uncertainty Modelling for Engineers</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Models of Uncertainty" href="chapter2/chapter2.html" />
+    <link rel="prev" title="How to use this book" href="intro.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/FORM.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Uncertainty Modelling for Engineers</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   How to use this book
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="chapter2/chapter2.html">
+   Models of Uncertainty
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter2/probabilistic.html">
+     Probabilistic models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter2/sets.html">
+     Set-based models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter2/imprecise.html">
+     Imprecise probabilistic models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter2/creating.html">
+     Creating models in practice
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter2/summary.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="chapter3/chapter3.html">
+   Machine Learning of Regression Models
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter3/parametric-models.html">
+     Parametric regression models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter3/non-parametric-models.html">
+     Non-parametric models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter3/learning-bounds.html">
+     Learning bounds on a model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter3/conclusion.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="chapter4/chapter4.html">
+   Reliability Analysis
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter4/random-variables.html">
+     Reliability analysis with random variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter4/convex-set.html">
+     Convex set models for reliability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter4/probability-boxes.html">
+     Reliability analysis with probability boxes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter4/summary.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="conclusion.html">
+   Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="zbibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/outline.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers/issues/new?title=Issue%20on%20page%20%2Foutline.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers/edit/master/outline.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   Motivation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#uncertainty-in-engineering-simulation">
+     Uncertainty in engineering simulation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reliability-engineering">
+     Reliability engineering
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#models-of-uncertainty">
+     Models of uncertainty
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#structure-of-this-book">
+   Structure of this Book
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="uncertainty-in-engineering-simulation">
+<h3>Uncertainty in engineering simulation<a class="headerlink" href="#uncertainty-in-engineering-simulation" title="Permalink to this headline">¶</a></h3>
+<p>Since the advent of the computer, engineering simulation has become an
+invaluable tool for the design and analysis of systems. Simulation
+allows engineers to bridge the gap between theoretical models of systems
+and empirical evidence, whilst making predictions about yet to be
+constructed systems <a class="bibtex reference internal" href="zbibliography.html#patelliopencossan" id="id1">[PTGW+18]</a>. Some important applications of
+this include structural engineering <a class="bibtex reference internal" href="zbibliography.html#sundararajan2012probabilistic" id="id2">[Sun12]</a>,
+aeronautical structures <a class="bibtex reference internal" href="zbibliography.html#sundararajan2012probabilistic" id="id3">[Sun12]</a>, and petroleum
+reservoir engineering <a class="bibtex reference internal" href="zbibliography.html#sadeghi-2018" id="id4">[SdeAngelisP18]</a>.</p>
+<p>The engineer’s theoretical model of the system’s physics can be defined
+by a mathematical function or a more complex simulation, and this
+theoretical model will depend upon associated parameters which determine
+the specific properties of the system under consideration. The physical
+model to be used may be motivated by the engineer’s expert judgement, or
+prescribed by a relevant design standard document. Provided the model’s
+parameters are known, the model can be used to make predictions about
+the system. In some cases, e.g. well known material properties, the
+parameters to be used will also be prescribed by the design standard
+document. If this is not the case, the engineer must identify these
+parameters from data or expert judgement. Hence, in many realistic
+situations these parameters will not be known exactly, and therefore
+will be associated with some uncertainty. If the system is not well
+understood, then the theoretical model of the system’s physics may
+itself be uncertain. However, in many cases this situation can be dealt
+with by adding more uncertain parameters to the model, thereby
+increasing the model’s degrees of freedom. This uncertainty will be
+reflected in the predictions made by the model, hence the ability of the
+system to meet some specified objective, e.g. safe operation, now
+becomes uncertain. In essence, this motivates the well known structural
+reliability analysis problem, where we wish to calculate the probability
+that the system under uncertainty doesn’t meet a specified objective,
+which is referred to as the failure probability of the system
+<a class="bibtex reference internal" href="zbibliography.html#melchers2018structural" id="id5">[MB18]</a>.</p>
+</div>
+<div class="section" id="reliability-engineering">
+<span id="rel-engineering-intro"></span><h3>Reliability engineering<a class="headerlink" href="#reliability-engineering" title="Permalink to this headline">¶</a></h3>
+<p>Researchers in the discipline of reliability engineering have proposed
+many techniques to solve the reliability analysis problem. Most
+generally, Monte Carlo simulation can solve any reliability analysis
+problem with arbitrary accuracy, given sufficient samples of the
+uncertain system parameters and evaluations of the system model
+<a class="bibtex reference internal" href="zbibliography.html#melchers2018structural" id="id6">[MB18]</a>. If the failure probability of the system is
+small, which is typical in most realistic engineering problems, then the
+number of model evaluations required increases significantly, and
+creates a bottleneck to the calculation. Therefore, in practice, more
+efficient methods are required to solve the reliability analysis problem
+for expensive computational models with many inputs. These include
+approximate methods, e.g. the First Order Reliability Method (FORM) and
+advanced simulation techniques, e.g. line sampling, which require fewer
+samples of the system model
+<a class="bibtex reference internal" href="zbibliography.html#sundararajan2012probabilistic" id="id7">[Sun12]</a> <a class="bibtex reference internal" href="zbibliography.html#de2015efficient" id="id8">[DA15]</a>.</p>
+<p>Alternatively, since the cost of the analysis depends strongly upon the
+cost of evaluating the system model, one may attempt to replace the
+expensive system model with a cheaper surrogate, known as a metamodel.
+This metamodel is usually obtained by using machine learning
+technologies to learn a function which is a sufficiently accurate
+representation of the true model. Well known metamodels applied in
+reliability engineering include neural networks, response surfaces
+(polynomial regression), polynomial chaos, and Kriging (Gaussian process
+emulators)
+<a class="bibtex reference internal" href="zbibliography.html#sundararajan2012probabilistic" id="id9">[Sun12]</a> <a class="bibtex reference internal" href="zbibliography.html#schobi2017surrogate" id="id10">[Schobi17]</a> <a class="bibtex reference internal" href="zbibliography.html#gomes" id="id11">[Gom19]</a>. If the
+metamodel is inaccurate then this can introduce additional uncertainty
+into the calculation, and typically this must be traded off against time
+required to create the metamodel. In any case, the uncertainty in the
+metamodel should be quantified and its influence on the failure
+probability of the system stated. As such, the problem is challenging
+and does not yet have an entirely satisfactory solution, although
+significant progress has been made in recent years.</p>
+</div>
+<div class="section" id="models-of-uncertainty">
+<h3>Models of uncertainty<a class="headerlink" href="#models-of-uncertainty" title="Permalink to this headline">¶</a></h3>
+<p>Many techniques exist for modelling uncertainty, and therefore the
+chosen uncertainty model is also, to an extent, an engineering
+judgement. This judgement is usually based on the type of uncertainty
+being modelled, and usually two types of uncertainty are considered;
+epistemic uncertainty and aleatory uncertainty
+<a class="bibtex reference internal" href="zbibliography.html#gal2016uncertainty" id="id12">[Gal16b]</a> <a class="bibtex reference internal" href="zbibliography.html#de2015efficient" id="id13">[DA15]</a>. Broadly speaking, epistemic
+uncertainty represents uncertainty which originates from a lack of
+knowledge, and aleatory uncertainty represents uncertainty which
+originates from natural variability, i.e. stochasticity.<a class="footnote-reference brackets" href="#id24" id="id14">2</a> Again, some
+guidelines are available in design standards or regulations, for example
+the United States Nuclear Regulatory Commission often suggests using
+Bayesian probability theory <a class="bibtex reference internal" href="zbibliography.html#us2009guidance" id="id15">[USNRCommission09]</a> <a class="bibtex reference internal" href="zbibliography.html#nureg2201" id="id16">[USNRCommission16]</a>.</p>
+<p>Bayesian probability theory is a logically consistent method of
+reasoning under uncertainty, though it has been shown to lack empirical
+justification in some circumstances, e.g. <a class="bibtex reference internal" href="zbibliography.html#balch2017satellite" id="id17">[BMF19]</a>. Efficient
+computational methods exist to identify many probabilistic models for
+uncertain variables in the Bayesian paradigm, in addition to convenient
+analytic techniques <a class="bibtex reference internal" href="zbibliography.html#jaynes2003probability" id="id18">[Jay03]</a>. In recent decades, several
+extensions to the traditional probabilistic models for uncertainty have
+been proposed, e.g. Dempster-Shafter Theory, probability boxes, and
+random sets <a class="bibtex reference internal" href="zbibliography.html#de2015efficient" id="id19">[DA15]</a> <a class="bibtex reference internal" href="zbibliography.html#sandia2002constructing" id="id20">[FKG+03]</a> (often referred
+to as specific manifestations of <em>imprecise probabilities</em>). These
+methods enable reasoning with imprecise data and a severe lack of prior
+information.</p>
+<p>Imprecise data consists of data where each measurement is not specified
+by a real number (sometimes referred to as crisp measurements), but
+instead the data falls within certain bounds which can be characterised.
+Scarce data refers to the case where insufficient data is available to
+accurately identify an unknown model parameter. Therefore our knowledge
+of the parameter places undue weight on our prior belief about the
+parameter. In such cases an engineer may wish to check the sensitivity
+of their model’s predictions to the chosen prior, and it is therefore
+essential that the engineer can accurately represent uncertainty in
+their prior belief about a parameter
+<a class="bibtex reference internal" href="zbibliography.html#berger1984robust" id="id21">[Ber84]</a> <a class="bibtex reference internal" href="zbibliography.html#berger1994overview" id="id22">[BMP+94]</a>. Crucially, imprecise
+probabilities offer a method of reasoning with uncertainty which is more
+flexible and hence requires fewer assumptions than traditional
+probabilistic methods.</p>
+<p>Despite these advantages, working with imprecise probabilities in
+practice introduces some new difficulties. Since the uncertainty model
+is more complex, the computational techniques required to perform
+computations are also more complex. Typically, this computation involves
+some optimisation in addition to the already expensive Monte Carlo
+simulation <a class="bibtex reference internal" href="zbibliography.html#de2015efficient" id="id23">[DA15]</a>. Hence, in recent years, researchers have
+described techniques to solve the reliability analysis problem with
+imprecise probability models which apply similar approximations to those
+used in the straightforward probabilistic case.</p>
+</div>
+</div>
+<div class="section" id="structure-of-this-book">
+<h2>Structure of this Book<a class="headerlink" href="#structure-of-this-book" title="Permalink to this headline">¶</a></h2>
+<p>The topics discussed in the previous section will be addressed in the following three chapters.</p>
+<p>Chapter <a class="reference internal" href="chapter2/chapter2.html#ch-uncertainty-models"><span class="std std-ref">Models of Uncertainty</span></a> reviews uncertainty models, i.e.
+models describing the uncertainty in a variable, or set of variables. We
+review techniques to construct these models from data, and expert
+opinion, and describe techniques for converting between common models.
+This chapter describes probability boxes in detail, and shows how
+traditional probability distributions emerge as a particular case of a
+probability box.</p>
+<p>Chapter <a class="reference internal" href="chapter3/chapter3.html#ch-machine-learning"><span class="std std-ref">Machine Learning of Regression Models</span></a> reviews machine learning techniques for
+creating regression models, which are used as metamodels in engineering.
+Regression models differ from the uncertainty models described in
+Chapter <a class="reference internal" href="chapter2/chapter2.html#ch-uncertainty-models"><span class="std std-ref">Models of Uncertainty</span></a>, as they model the behaviour of a
+uncertain variable which depends on the behaviour of another variable.
+In this chapter, the theory behind interval predictor models is
+described in detail, and compared to traditional techniques in
+statistical learning.</p>
+<p>Chapter <a class="reference internal" href="chapter4/chapter4.html#ch-reliability-analysis"><span class="std std-ref">Reliability Analysis</span></a> describes the well known
+reliability analysis problem in engineering, where one wishes to
+calculate the probability that the performance of a system under the
+influence of uncertainty meets a particular design condition.
+State-of-the-art techniques for efficiently solving this problem with
+random variables and probability box variables are reviewed.</p>
+<hr class="docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="id24"><span class="brackets"><a class="fn-backref" href="#id14">2</a></span></dt>
+<dd><p>Note that in some cases this distinction is unclear. For example
+when a very simple model is used for the behaviour of a coin, the
+outcome of the coin flip may appear to be random. However, one could
+imagine a situation where the kinematics of the coin can be
+simulated exactly using Newton’s laws of mechanics, and the only
+uncertainty in the outcome of the coin flip is caused by lack of
+knowledge in the coin’s initial position and velocity. Chaotic
+systems (e.g. the Lorenz attractor), where the future evolution of
+the system depends strongly on the initial conditions, may appear to
+be random, for example when the model considered for the system is
+insufficiently detailed and the initial conditions are not known
+with sufficient accuracy.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">How to use this book</a>
+    <a class='right-next' id="next-link" href="chapter2/chapter2.html" title="next page">Models of Uncertainty</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

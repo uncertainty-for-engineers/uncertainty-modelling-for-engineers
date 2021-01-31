@@ -1,0 +1,583 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reliability analysis with probability boxes &#8212; Uncertainty Modelling for Engineers</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter summary" href="summary.html" />
+    <link rel="prev" title="Convex set models for reliability" href="convex-set.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/FORM.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Uncertainty Modelling for Engineers</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   How to use this book
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../outline.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../chapter2/chapter2.html">
+   Models of Uncertainty
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/probabilistic.html">
+     Probabilistic models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/sets.html">
+     Set-based models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/imprecise.html">
+     Imprecise probabilistic models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/creating.html">
+     Creating models in practice
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/summary.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../chapter3/chapter3.html">
+   Machine Learning of Regression Models
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/parametric-models.html">
+     Parametric regression models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/non-parametric-models.html">
+     Non-parametric models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/learning-bounds.html">
+     Learning bounds on a model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/conclusion.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="chapter4.html">
+   Reliability Analysis
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="random-variables.html">
+     Reliability analysis with random variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="convex-set.html">
+     Convex set models for reliability
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Reliability analysis with probability boxes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="summary.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../conclusion.html">
+   Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../zbibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/chapter4/probability-boxes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers/issues/new?title=Issue%20on%20page%20%2Fchapter4/probability-boxes.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers/edit/master/chapter4/probability-boxes.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/uncertainty-for-engineers/uncertainty-modelling-for-engineers/master?urlpath=tree/chapter4/probability-boxes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/uncertainty-for-engineers/uncertainty-modelling-for-engineers/blob/master/chapter4/probability-boxes.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-definition">
+   Problem definition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methods-to-compute-the-failure-probability">
+   Methods to compute the failure probability
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#monte-carlo-estimators">
+     Monte Carlo estimators
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#imprecise-first-order-reliability-method">
+     Imprecise First Order Reliability Method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#line-sampling">
+     Line sampling
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#importance-sampling">
+     Importance sampling
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multi-level-metamodels">
+     Multi level metamodels
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interval-predictor-models">
+     Interval Predictor Models
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="reliability-analysis-with-probability-boxes">
+<h1>Reliability analysis with probability boxes<a class="headerlink" href="#reliability-analysis-with-probability-boxes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="problem-definition">
+<h2>Problem definition<a class="headerlink" href="#problem-definition" title="Permalink to this headline">¶</a></h2>
+<p>Probability boxes offer a hybrid of the convex set and probabilistic
+approaches for reliability analysis. In structural reliability analysis
+with probability boxes, the objective is to compute the failure
+probability in the same sense as with traditional random variables in
+<a class="reference internal" href="random-variables.html#sec-reliability-theory"><span class="std std-ref">Reliability theory</span></a>. However, it is now impossible to
+compute an exact value for the failure probability; only bounds on the
+failure probability are available <a class="bibtex reference internal" href="../zbibliography.html#alvarez2007infinite" id="id1">[Alv07]</a>. For
+distributional probability boxes,
+<span class="math notranslate nohighlight">\(f_{X_{\boldsymbol{\theta}}}({\boldsymbol{x}})\)</span> for
+<span class="math notranslate nohighlight">\(\boldsymbol{\theta} \in \Theta\)</span>, the bounds on the failure probability
+can be found by solving the integrals</p>
+<div class="math notranslate nohighlight" id="equation-eqn-pf-imprecisel">
+<span class="eqno">(30)<a class="headerlink" href="#equation-eqn-pf-imprecisel" title="Permalink to this equation">¶</a></span>\[\underline{P}_f = \operatorname{\underline{P}}[g(\boldsymbol{x})&lt;0] = \min_{\boldsymbol{\theta} \in \Theta}  \int_{\mathbb{R}^N} \mathbb{I}_f({\boldsymbol{x}}) f_{X_{\boldsymbol{\theta}}}({\boldsymbol{x}}) d{\boldsymbol{x}},   \]</div>
+<p>and</p>
+<div class="math notranslate nohighlight" id="equation-eqn-pf-impreciseu">
+<span class="eqno">(31)<a class="headerlink" href="#equation-eqn-pf-impreciseu" title="Permalink to this equation">¶</a></span>\[\overline{P}_f = \operatorname{\overline{P}}[g(\boldsymbol{x})&lt;0] = \max_{\boldsymbol{\theta} \in \Theta}  \int_{\mathbb{R}^N} \mathbb{I}_f({\boldsymbol{x}}) f_{X_{\boldsymbol{\theta}}}({\boldsymbol{x}}) d{\boldsymbol{x}}.   \]</div>
+<p>For distribution-free probability boxes given by
+<span class="math notranslate nohighlight">\([\underline{F}_i(x_i), \overline{F}_i(x_i)]\)</span>, each system variable can
+be written as a function of separate probabilistic and set based
+variables as
+<span class="math notranslate nohighlight">\(x_i' = \underline{F}_i^{-1}(\alpha_i) + (\overline{F}_i^{-1}(\alpha_i)-\underline{F}_i^{-1}(\alpha_i)){\theta}_i\)</span>,
+where the aleatory variable <span class="math notranslate nohighlight">\(\alpha=(\alpha_1,\alpha_2,\ldots)\)</span> is a
+uniformly distributed random vector with the same dimensionality as
+<span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span>, and <span class="math notranslate nohighlight">\(\boldsymbol{\theta} \in \Theta\)</span> is the unit
+hyper-cube with the same dimensionality as <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span>
+<a class="bibtex reference internal" href="../zbibliography.html#de2015efficient" id="id2">[DA15]</a>. This enables the performance function
+<span class="math notranslate nohighlight">\(g(\boldsymbol{x})\)</span> to be rewritten in terms of <span class="math notranslate nohighlight">\(\boldsymbol{\alpha}\)</span>
+and <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span>, i.e.
+<span class="math notranslate nohighlight">\(g(\boldsymbol{\alpha}, \boldsymbol{\theta})\)</span>. Bounds on the failure
+probability can then be obtained by evaluating</p>
+<div class="math notranslate nohighlight" id="equation-eqn-random-set-lower">
+<span class="eqno">(32)<a class="headerlink" href="#equation-eqn-random-set-lower" title="Permalink to this equation">¶</a></span>\[\underline{P}_f = \operatorname{\underline{P}}[g(\boldsymbol{x})&lt;0] = \operatorname{P}[\underline{g}(\boldsymbol{\alpha})&lt;0]\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight" id="equation-eqn-random-set-upper">
+<span class="eqno">(33)<a class="headerlink" href="#equation-eqn-random-set-upper" title="Permalink to this equation">¶</a></span>\[\overline{P}_f = \operatorname{\overline{P}}[g(\boldsymbol{x})&lt;0]= \operatorname{P}[\overline{g}(\boldsymbol{\alpha})&lt;0]  ,\]</div>
+<p>where the upper and lower performance function are obtained from
+<span class="math notranslate nohighlight">\(\underline{g}(\boldsymbol{\alpha}) = \min_{\boldsymbol{\theta} \in \Theta} g(\boldsymbol{\alpha}, \boldsymbol{\theta})\)</span>
+and
+<span class="math notranslate nohighlight">\(\overline{g}(\boldsymbol{\alpha}) = \max_{\boldsymbol{\theta} \in \Theta} g(\boldsymbol{\alpha}, \boldsymbol{\theta})\)</span></p>
+<p>By finding the envelope of a distributional probability box, the
+algorithm for computing the failure probability for the
+distribution-free case can be applied. As expected, <a class="bibtex reference internal" href="../zbibliography.html#fetz2016imprecise" id="id3">[FO16]</a>
+demonstrate that this results in overly conservative bounds on the
+failure probability, since clearly information is lost by taking the
+envelope of the distributional probability box. Therefore, only
+<a class="reference internal" href="#equation-eqn-pf-imprecisel">(30)</a> and
+<a class="reference internal" href="#equation-eqn-pf-impreciseu">(31)</a> should be applied when computing failure
+probabilities with distributional probability boxes.</p>
+</div>
+<div class="section" id="methods-to-compute-the-failure-probability">
+<span id="id4"></span><h2>Methods to compute the failure probability<a class="headerlink" href="#methods-to-compute-the-failure-probability" title="Permalink to this headline">¶</a></h2>
+<p>In this section we concentrate on methods to compute the failure
+probability for distributional probability boxes.</p>
+<div class="section" id="monte-carlo-estimators">
+<h3>Monte Carlo estimators<a class="headerlink" href="#monte-carlo-estimators" title="Permalink to this headline">¶</a></h3>
+<p>A Monte Carlo estimator can be applied for the integrals in the failure
+probability computation with distribution-free probability boxes
+(<a class="reference internal" href="#equation-eqn-pf-imprecisel">(30)</a> and
+<a class="reference internal" href="#equation-eqn-pf-impreciseu">(31)</a> to yield the bounds
+<span class="math notranslate nohighlight">\([\underline{P}_f, \overline{P}_f] = [\min_{\boldsymbol{\theta} \in \Theta} \frac{1}{N} \sum_{i=1}^{N} \mathbb{I}_f({\boldsymbol{x}^{(i)}_{\boldsymbol{\theta}}}), \max_{\boldsymbol{\theta} \in \Theta} \frac{1}{N} \sum_{i=1}^{N} \mathbb{I}_f({\boldsymbol{x}^{(i)}_{\boldsymbol{\theta}}})],\)</span>
+where the samples <span class="math notranslate nohighlight">\(\boldsymbol{x}^{(i)}_{\boldsymbol{\theta}}\)</span> are drawn
+from <span class="math notranslate nohighlight">\(f_{X_{\boldsymbol{\theta}}}({\boldsymbol{x}})\)</span>. This is the double
+loop Monte Carlo approach; an inner loop is used to compute a Monte
+Carlo estimator which is optimised over in the outer loop
+<a class="bibtex reference internal" href="../zbibliography.html#patelli2014uncertainty" id="id5">[PABA14]</a>. The outer loop optimisation can be evaluated
+using brute force grid sampling of <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span>, which is known
+as naïve double loop Monte Carlo simulation. It is usually more
+efficient to use an efficient global optimisation algorithm to evaluate
+the optimisation loop, such as Bayesian Optimisation, or a genetic
+algorithm <a class="bibtex reference internal" href="../zbibliography.html#de2015efficient" id="id6">[DA15]</a>.</p>
+<p>Evaluating the failure probability using double loop Monte Carlo
+simulation is computationally expensive, since now each inner loop Monte
+Carlo estimator must be computed multiple times. This is particularly
+the case when the problem dimensionality is large or the failure
+probability is small. <a class="bibtex reference internal" href="../zbibliography.html#troffaes2018imprecise" id="id7">[Tro18]</a> shows that the bias of the
+estimator is negative, and the magnitude of the bias decreases as more
+samples are made.</p>
+</div>
+<div class="section" id="imprecise-first-order-reliability-method">
+<span id="sec-imprecise-form"></span><h3>Imprecise First Order Reliability Method<a class="headerlink" href="#imprecise-first-order-reliability-method" title="Permalink to this headline">¶</a></h3>
+<p>A generalisation of FORM for systems with components which are described
+by probability boxes was introduced by <a class="bibtex reference internal" href="../zbibliography.html#qiu-probabilistic-2008" id="id8">[QYE08]</a>. The
+system’s performance function must be written in the load resistance
+form
+(<a class="reference internal" href="random-variables.html#equation-eqn-load-resistance">(22)</a>), and the system must have one strength
+and one load component. Therefore, the system variables consist of the
+resistance variable with mean
+<span class="math notranslate nohighlight">\(\mu_R\in[\underline{\mu_R}, \overline{\mu_R}]\)</span> and standard deviation
+<span class="math notranslate nohighlight">\(\sigma_R\in[\underline{\sigma_R}, \overline{\sigma_R}]\)</span>, and load
+variable with mean <span class="math notranslate nohighlight">\(\mu_L\in[\underline{\mu_L}, \overline{\mu_L}]\)</span> and
+standard deviation
+<span class="math notranslate nohighlight">\(\sigma_L\in[\underline{\sigma_L}, \overline{\sigma_L}]\)</span>. Then the
+failure probability lies in the interval
+<span class="math notranslate nohighlight">\([\underline{P}_f,\overline{P}_f]=[\phi(-\overline{\beta}), \phi(-\underline{\beta})]\)</span>,
+where
+<span class="math notranslate nohighlight">\(\overline{\beta}=\frac{\overline{\mu}_R-\underline{\mu_L}}{\underline{\sigma_L}^2+\underline{\sigma_R}^2},\)</span>
+and
+<span class="math notranslate nohighlight">\(\underline{\beta}=\frac{\underline{\mu}_R-\overline{\mu}_L}{\overline{\sigma}_L^2+\overline{\sigma}_R^2}.\)</span></p>
+<p>In more complex cases, one may need to solve an optimisation program to
+find the reliability index <a class="bibtex reference internal" href="../zbibliography.html#jiang2017probability" id="id9">[JZH17]</a>. For example, one
+could imagine a system which fails if the sum of many different products
+of probability box distributed variables falls below a threshold.</p>
+</div>
+<div class="section" id="line-sampling">
+<h3>Line sampling<a class="headerlink" href="#line-sampling" title="Permalink to this headline">¶</a></h3>
+<p><a class="bibtex reference internal" href="../zbibliography.html#de2015efficient" id="id10">[DA15]</a> describes two ways in which Line Sampling can be used
+to increase the efficiency of probability box propagation. Line Sampling
+can be applied as an alternative to the Monte Carlo estimator used to
+approximate the integral in the double loop approach
+(<a class="reference internal" href="#equation-eqn-pf-imprecisel">(30)</a> and
+<a class="reference internal" href="#equation-eqn-pf-impreciseu">(31)</a>). Alternatively, Line Sampling can be
+applied to the aleatory variables <span class="math notranslate nohighlight">\(\boldsymbol{\alpha}\)</span> for the upper
+and lower performance functions in
+<a class="reference internal" href="#equation-eqn-random-set-lower">(32)</a> and
+<a class="reference internal" href="#equation-eqn-random-set-upper">(33)</a>. When Line Sampling is applied in the
+aleatory space, the importance direction updating strategy proposed by
+<a class="bibtex reference internal" href="../zbibliography.html#de2015efficient" id="id11">[DA15]</a> significantly increases the accuracy of the
+computation. Judged by number of samples required for computation, Line
+Sampling is close to the state of the art. However, Line Sampling is
+ineffective on highly non-linear limit state surfaces.</p>
+</div>
+<div class="section" id="importance-sampling">
+<h3>Importance sampling<a class="headerlink" href="#importance-sampling" title="Permalink to this headline">¶</a></h3>
+<p>The Importance Sampling estimator in
+<a class="reference internal" href="random-variables.html#equation-eqn-importance-sampling">(28)</a> can be applied to greatly reduce
+the number of samples required when computing the failure probability
+for a system subject to probability box random variables
+<a class="bibtex reference internal" href="../zbibliography.html#fetz2016imprecise" id="id12">[FO16]</a>. The bounds on the failure probability are given by
+<span class="math notranslate nohighlight">\(\underline{P}_f=\min_{\boldsymbol{\theta} \in \Theta}{\int \mathbb{I}_f(\boldsymbol{x}) \frac{f_{X_{\boldsymbol{\theta}}}({\boldsymbol{x}})}{h(\boldsymbol{x})} h(\boldsymbol{x}) d\boldsymbol{x} } = \min_{\boldsymbol{\theta}} \frac{1}{N} \sum_{i=1}^N \mathbb{I}_f({\boldsymbol{x}}^{(i)}) \frac{f_{X_{\boldsymbol{\theta}}}({{\boldsymbol{x}}^{(i)}})}{h({\boldsymbol{x}}^{(i)})}\)</span>
+and
+<span class="math notranslate nohighlight">\(\overline{P}_f=\max_{\boldsymbol{\theta} \in \Theta}{\int \mathbb{I}_f(\boldsymbol{x}) \frac{f_{X_{\boldsymbol{\theta}}}({\boldsymbol{x}})}{h(\boldsymbol{x})} h(\boldsymbol{x}) d\boldsymbol{x} } = \max_{\boldsymbol{\theta}} \frac{1}{N} \sum_{i=1}^N \mathbb{I}_f({\boldsymbol{x}}^{(i)}) \frac{f_{X_{\boldsymbol{\theta}}}({{\boldsymbol{x}}^{(i)}})}{h({\boldsymbol{x}}^{(i)})},\)</span>
+where the samples <span class="math notranslate nohighlight">\({\boldsymbol{x}}^{(i)}\)</span> are drawn from the proposal
+distribution <span class="math notranslate nohighlight">\(h(\boldsymbol{x})\)</span>. The proposal distribution can be
+iteratively updated to provide more accurate results. <a class="bibtex reference internal" href="../zbibliography.html#decadt2019monte" id="id13">[DdCDB19]</a>
+demonstrates that the bias in both cases is negative and decreases in
+magnitude as more samples are collected. The Importance Sampling
+estimator requires a similar number of samples to Line Sampling.</p>
+</div>
+<div class="section" id="multi-level-metamodels">
+<h3>Multi level metamodels<a class="headerlink" href="#multi-level-metamodels" title="Permalink to this headline">¶</a></h3>
+<p>Multilevel Metamodelling requires the creation of two Gaussian Process
+emulators <a class="bibtex reference internal" href="../zbibliography.html#schobi2017structural" id="id14">[SchobiS17]</a>. The first metamodel is created for
+the performance function in the space of the system variables
+<span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span>, using Adaptive Kriging Monte Carlo simulation. The
+second metamodel is used to perform Bayesian Optimisation on the
+obtained failure probability from the first metamodel, in the epistemic
+space. This greatly reduces the amount of repeated similar evaluations
+of the system model, and hence the Multi-level metamodelling technique
+is close to state of the art when judged by number of required samples.</p>
+</div>
+<div class="section" id="interval-predictor-models">
+<h3>Interval Predictor Models<a class="headerlink" href="#interval-predictor-models" title="Permalink to this headline">¶</a></h3>
+<p><a class="bibtex reference internal" href="../zbibliography.html#sadeghi2020robust" id="id15">[SdAP20]</a> uses an IPM as a metamodel to propagate probability boxes.
+In the first two algorithms, the performance function is modelled as a function with unknown noise structure in the aleatory space and supplemented by a modified performance function.
+In the third algorithm, an Interval Predictor Model is constructed and a re-weighting strategy used to find bounds on the probability of failure.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapter4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="convex-set.html" title="previous page">Convex set models for reliability</a>
+    <a class='right-next' id="next-link" href="summary.html" title="next page">Chapter summary</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

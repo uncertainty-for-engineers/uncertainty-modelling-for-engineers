@@ -1,0 +1,858 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creating models in practice &#8212; Uncertainty Modelling for Engineers</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter summary" href="summary.html" />
+    <link rel="prev" title="Imprecise probabilistic models of uncertainty" href="imprecise.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/FORM.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Uncertainty Modelling for Engineers</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   How to use this book
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../outline.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="chapter2.html">
+   Models of Uncertainty
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="probabilistic.html">
+     Probabilistic models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sets.html">
+     Set-based models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="imprecise.html">
+     Imprecise probabilistic models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Creating models in practice
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="summary.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../chapter3/chapter3.html">
+   Machine Learning of Regression Models
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/parametric-models.html">
+     Parametric regression models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/non-parametric-models.html">
+     Non-parametric models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/learning-bounds.html">
+     Learning bounds on a model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/conclusion.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../chapter4/chapter4.html">
+   Reliability Analysis
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/random-variables.html">
+     Reliability analysis with random variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/convex-set.html">
+     Convex set models for reliability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/probability-boxes.html">
+     Reliability analysis with probability boxes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/summary.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../conclusion.html">
+   Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../zbibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/chapter2/creating.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers/issues/new?title=Issue%20on%20page%20%2Fchapter2/creating.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers/edit/master/chapter2/creating.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/uncertainty-for-engineers/uncertainty-modelling-for-engineers/master?urlpath=tree/chapter2/creating.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/uncertainty-for-engineers/uncertainty-modelling-for-engineers/blob/master/chapter2/creating.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choosing-a-model">
+   Choosing a model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#training-models-from-data">
+   Training models from data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-parametric-bayesian-probabilistic-models">
+     Creating parametric Bayesian probabilistic models
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#worked-example-elementary-probability-theory">
+     Worked example : elementary probability theory
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#frequentist-confidence-intervals">
+     Frequentist confidence intervals
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#non-parametric-prediction-intervals">
+     Non-parametric prediction intervals
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-parametric-imprecise-probability-models">
+     Creating parametric imprecise probability models
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-non-parametric-imprecise-probability-models">
+     Creating non-parametric imprecise probability models
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-uncertainty-models-without-data">
+   Creating uncertainty models without data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#probabilistic-elicitation">
+     Probabilistic elicitation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#non-probabilistic-elicitation">
+     Non-probabilistic elicitation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#validating-a-trained-model">
+   Validating a trained model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#validating-probabilistic-models">
+     Validating probabilistic models
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#validating-non-probabilistic-models">
+     Validating non-probabilistic models
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="creating-models-in-practice">
+<h1>Creating models in practice<a class="headerlink" href="#creating-models-in-practice" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="choosing-a-model">
+<h2>Choosing a model<a class="headerlink" href="#choosing-a-model" title="Permalink to this headline">¶</a></h2>
+<p>As discussed previously, it is essential to exercise engineering
+judgement when choosing an uncertainty model, both in terms of speed of
+computations which can be performed with the model and the
+appropriateness of the model’s representation of uncertainty. Engineers
+should also note that it is essential to exercise their judgement even
+after the theoretical uncertainty framework is chosen, since the set of
+hypotheses included in the uncertainty model has a strong affect on the
+conclusions drawn from analysis.</p>
+<p>For example, consider the following problem proposed by
+<a class="bibtex reference internal" href="../zbibliography.html#zadeh1979validity" id="id1">[Zad79]</a> two doctors examine a patient, but differ in their
+diagnoses. Doctor A believes the patient has a 99% chance of meningitis
+and 1% chance of concussion. Doctor B believes the patient has a 99%
+chance of tumor and 1% chance of concussion. Since the doctors’
+diagnoses strongly conflict with each other, a naïve application of
+Bayesian probability concludes that the patient most likely has
+concussion. Zadeh proposes that this problem can be solved with fuzzy
+logic. However, <a class="bibtex reference internal" href="../zbibliography.html#maskell2008bayesian" id="id2">[Mas08]</a> shows that Bayesian probabilities
+can, in fact, be used to solve the problem, by allowing the model to
+consider that the doctors may have made a mistake in their estimations
+of probabilities.</p>
+<p>Another interesting example is demonstrated by <a class="bibtex reference internal" href="../zbibliography.html#balch2016corrector" id="id3">[Bal16]</a> and
+<a class="bibtex reference internal" href="../zbibliography.html#balch2017satellite" id="id4">[BMF19]</a>; it is shown that using probability distributions to
+represent epistemic uncertainty in satellite conjunction analysis does
+not provide a useful description of the likelihood of collision between
+satellites, since the likelihood of collision appears to decrease when
+data with more incertitude is collected.</p>
+</div>
+<div class="section" id="training-models-from-data">
+<h2>Training models from data<a class="headerlink" href="#training-models-from-data" title="Permalink to this headline">¶</a></h2>
+<p>Here we provide a non-exhaustive review of methods to calibrate
+probabilistic and non-probabilistic generative uncertainty models, in
+order to set the context for the remainder of the thesis.</p>
+<div class="section" id="creating-parametric-bayesian-probabilistic-models">
+<h3>Creating parametric Bayesian probabilistic models<a class="headerlink" href="#creating-parametric-bayesian-probabilistic-models" title="Permalink to this headline">¶</a></h3>
+<p>Consider the probability distribution
+<span class="math notranslate nohighlight">\(p_\theta(x) = p(x^{(i)} | \theta)\)</span> with vector of parameters <span class="math notranslate nohighlight">\(\theta\)</span>,
+which we wish to identify based on a set of <span class="math notranslate nohighlight">\(n\)</span> training samples,
+<span class="math notranslate nohighlight">\(\mathcal{X}_\text{train} = \{ x^{(1)}, \ldots, x^{(n)} \}\)</span>, drawn from
+the random variable specified by <span class="math notranslate nohighlight">\(p_\theta(x)\)</span>. A distribution over the
+parameters <span class="math notranslate nohighlight">\(\theta\)</span>, given the data <span class="math notranslate nohighlight">\(\mathcal{X}_\text{train}\)</span> can be
+obtained by applying Bayes’ law:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-bayes-law-simple">
+<span class="eqno">(7)<a class="headerlink" href="#equation-eqn-bayes-law-simple" title="Permalink to this equation">¶</a></span>\[P(\theta | \mathcal{X}_\text{train}) = \frac{P(\mathcal{X}_\text{train} | \theta) p(\theta)}{P(\mathcal{X}_\text{train})}, \]</div>
+<p>where <span class="math notranslate nohighlight">\(p(\theta)\)</span> represents a prior distribution on <span class="math notranslate nohighlight">\(\theta\)</span>,
+<span class="math notranslate nohighlight">\(P(\mathcal{X}_\text{train}) = \int P(\mathcal{X}_\text{train} | \theta) d\theta\)</span>
+acts as a normalising constant, and the data likelihood can be written
+as <span class="math notranslate nohighlight">\(P(\mathcal{X}_\text{train} | \theta) = \prod_i p(x^{(i)} | \theta)\)</span>
+by assuming independence of training samples. This approach, known as
+Bayesian Hierarchical Modelling <a class="bibtex reference internal" href="../zbibliography.html#gelman2013bayesian" id="id5">[GSC+13]</a>, has desirable
+properties. For example, the epistemic uncertainty on <span class="math notranslate nohighlight">\(\theta\)</span> will
+decrease as more data becomes available which will be observed as a
+‘concentration’ of the posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span> around one
+point.</p>
+<p>Although simple analytical distributions are often used for the
+likelihood <span class="math notranslate nohighlight">\(P(\mathcal{X}_\text{train} | \theta)\)</span> (e.g. a Gaussian
+distribution with mean <span class="math notranslate nohighlight">\(\theta_1\)</span> and scale <span class="math notranslate nohighlight">\(\theta_2\)</span>). One can also
+extend the framework to consider more complex likelihood functions. For
+example, often the likelihood is
+<span class="math notranslate nohighlight">\(P(\mathcal{X}_\text{train} | \theta) = \int{P(\mathcal{X}_\text{train}|y) \delta(f(\theta) - y) dy}\)</span>,
+where <span class="math notranslate nohighlight">\(f(\theta)\)</span> is an arbitrarily expensive and complex function, for
+which we may not know the gradient, and <span class="math notranslate nohighlight">\(p(x^{(i)} | \theta)\)</span> is a
+simple probability density, for example a normal distribution, and
+<span class="math notranslate nohighlight">\(\delta(x)\)</span> is the Dirac delta function. This setting is referred to as
+an ‘inverse problem’ <a class="bibtex reference internal" href="../zbibliography.html#tarantola2005inverse" id="id6">[Tar05]</a>.</p>
+<p>The probability distributions over <span class="math notranslate nohighlight">\(\theta\)</span> represent epistemic
+uncertainty in <span class="math notranslate nohighlight">\(\theta\)</span>, whilst the data likelihood,
+<span class="math notranslate nohighlight">\(p(x^{(i)} | \theta)\)</span>, represents the natural stochasticity (aleatory
+uncertainty) of the data generating mechanism. Note that the prior
+distribution, <span class="math notranslate nohighlight">\(p(\theta)\)</span>, should be chosen to represent our prior
+knowledge of the parameter <span class="math notranslate nohighlight">\(\theta\)</span>, and in the case of no knowledge,
+should be set to an appropriate uninformative distribution. The
+distribution used for the uninformative prior should be chosen based on
+physical considerations regarding the parameter of interest, but is
+often somewhat arbitrarily assumed to be uniform
+<a class="bibtex reference internal" href="../zbibliography.html#jaynes2003probability" id="id7">[Jay03]</a>.</p>
+<p>The prior distribution is not the only place where prior knowledge
+enters into the probabilistic model; the model specification, i.e. the
+data likelihood, represents another form of prior knowledge which must
+be carefully considered with this approach <a class="bibtex reference internal" href="../zbibliography.html#jaynes2003probability" id="id8">[Jay03]</a>. It
+is particularly important to decide which parameters in the likelihood
+function should be modelled as uncertain, e.g. if the likelihood is
+assumed to be a Gaussian density, will a value be assumed for the
+standard deviation of the distribution, or will this be an element of
+<span class="math notranslate nohighlight">\(\theta\)</span>, and hence an uncertain parameter?</p>
+<p>We can derive point estimates for <span class="math notranslate nohighlight">\(\theta\)</span> from the Bayesian approach
+<a class="bibtex reference internal" href="../zbibliography.html#friedman2001elements" id="id9">[FHT01]</a>. The maximum a posteriori estimator for <span class="math notranslate nohighlight">\(\theta\)</span>
+is obtained by evaluating
+<span class="math notranslate nohighlight">\(\theta_\text{MAP} = \max_\theta P(\theta | \mathcal{X}_\text{train})\)</span>,
+where
+<span class="math notranslate nohighlight">\(P(\theta | \mathcal{X}_\text{train}) \propto P(\mathcal{X}_\text{train} | \theta) P(\theta)\)</span>.
+The maximum likelihood estimator for <span class="math notranslate nohighlight">\(\theta\)</span> is obtained by evaluating
+<span class="math notranslate nohighlight">\(\theta_\text{ML} = \max_\theta P(\mathcal{X}_\text{train} | \theta)\)</span>.
+Note that the maximum likelihood estimator is equivalent to the maximum
+a posteriori estimator when a uniform prior distribution is used. These
+estimators can be evaluated using any optimisation method. Stochastic
+Gradent Descent, a widely used optimisation method, will be discussed in
+<a class="reference internal" href="../chapter3/chapter3.html#ch-machine-learning"><span class="std std-ref">Machine Learning of Regression Models</span></a> since it is most often applied to
+regression models.</p>
+<p>We do not necessarily have to disregard uncertainty in <span class="math notranslate nohighlight">\(\theta\)</span> when
+using the maximum a posteriori approach, since the covariance of the
+distribution can be estimated by inverting the Hessian (matrix of second
+derivatives with respect to parameters <span class="math notranslate nohighlight">\(\theta\)</span>) of
+<span class="math notranslate nohighlight">\(P(\theta | \mathcal{X}_\text{train})\)</span>. This is known as the Laplace
+approximation. This estimate is exact in some well known cases, e.g. the
+case of a Gaussian likelihood and prior, where the optimisation loss
+(the logarithm of the posterior) becomes the mean squared error
+<a class="bibtex reference internal" href="../zbibliography.html#tarantola2005inverse" id="id10">[Tar05]</a>.</p>
+<p>In many cases the full posterior for <span class="math notranslate nohighlight">\(\theta\)</span> can be calculated
+analytically, for example where a conjugate prior is used so that the
+posterior distribution has the same functional form as the prior
+distribution. If this is not the case, and one wishes to compute the
+full posterior distribution, then a Markov Chain Monte Carlo (MCMC)
+method is often used to obtain samples from the posterior distribution,
+or other approximate numerical techniques are used.</p>
+<p>An MCMC algorithm constructs a Markov chain with the desired
+distribution as its equilibrium distribution, so that if the Markov
+chain is simulated for a sufficient time then the samples drawn are from
+the posterior distribution <a class="bibtex reference internal" href="../zbibliography.html#gelman2013bayesian" id="id11">[GSC+13]</a>. MCMC methods typically
+do not require the gradient of the posterior to be known, and are hence
+applicable to a wide class of problems. Unfortunately, MCMC simulation
+can be computationally infeasible when <span class="math notranslate nohighlight">\(\theta\)</span> has high dimensionality,
+or when the training dataset is large. Recently, efficient sampling
+based algorithms have been proposed to combat this problem
+<a class="bibtex reference internal" href="../zbibliography.html#green2017estimating" id="id12">[GM17]</a>.</p>
+<p>As an alternative to MCMC based methods, Variational Inference can be
+used to find the closest match between an approximating parametric
+‘proposal’ distribution and the true posterior distribution. This method
+typically requires the gradient of the likelihood function to be known,
+but scales very well to high dimensionality problems
+<a class="bibtex reference internal" href="../zbibliography.html#blundell2015weight" id="id13">[BCKW15]</a>.</p>
+<p>Approximate Bayesian Computation is an efficient computational method
+which can be used to sample from an approximation of the posterior
+distribution in the case that the likelihood is too expensive to compute
+<a class="bibtex reference internal" href="../zbibliography.html#csillery2010approximate" id="id14">[CsilleryBGFranccois10]</a>. <a class="bibtex reference internal" href="../zbibliography.html#sadeghi-2018" id="id15">[SdeAngelisP18]</a> demonstrate a similar method,
+where the true likelihood probability density function is replaced by an
+interval with associated probability, and show that bounds on the
+likelihood function can still be obtained in this case.</p>
+</div>
+<div class="section" id="worked-example-elementary-probability-theory">
+<h3>Worked example : elementary probability theory<a class="headerlink" href="#worked-example-elementary-probability-theory" title="Permalink to this headline">¶</a></h3>
+<p>We wish to measure the length of bolts in a box.
+It is known that all of the bolts in the box have the same length.
+Your colleague tells you that he thinks the bolts are about 1 metre long, and he is almost certain that the bolts are between 0.9 and 1.1 metres.
+Your ruler measures the bolts to the nearest 5 centimetres.
+You draw 10 bolts with lengths measuring <span class="math notranslate nohighlight">\(L = \{0.95m, 1m, 1m, 1m, 0.9m, 0.9m, 0.95m, 0.95m, 0.9m, 1m\}\)</span>.</p>
+<p>This problem can be solved most easily by modelling your colleague’s prior belief with a normal prior distribution:
+<span class="math notranslate nohighlight">\(P(l) = \mathcal{N}(\mu=1,\sigma=0.033)\)</span>, giving a <span class="math notranslate nohighlight">\(3\sigma\)</span> (99%) confidence interval to fit the colleague’s stated belief.</p>
+<p>The likelihood function describes the precision of the ruler
+<span class="math notranslate nohighlight">\(P(L | l) = \prod_i P(l_i | l) = \prod_i \mathcal{N}(\mu,\sigma=0.05)\)</span>,
+where the first equality holds because the measurements are made independently.</p>
+<p>Then the posterior is obtained easily since the Gaussian prior is conjugate to the Gaussian likelihood:
+<span class="math notranslate nohighlight">\(P(l|L) \propto P(L | l) P(l)\)</span></p>
+<p>The equations to analytically calculate the posterior hyperparameters are given <a class="reference external" href="https://en.wikipedia.org/w/index.php?title=Normal_distribution&amp;oldid=987184346#With_known_variance">here</a>.</p>
+<p>Using the sample mean and standard deviation:</p>
+<div class="math notranslate nohighlight">
+\[\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i = \frac{1}{10} (0.95 + 1 + 1 + 1 + 0.9 + 0.9 + 0.95 + 0.95 + 0.9 + 1) = 0.955 m \]</div>
+<div class="math notranslate nohighlight">
+\[\sigma = 0.0437798 m \]</div>
+<p>The posterior hyperparameters are:</p>
+<div class="math notranslate nohighlight">
+\[{\sigma^2_0}' = \frac{1}{\frac{n}{\sigma^2} + \frac{1}{\sigma_0^2}} = 0.0128 ^2 m^2\]</div>
+<div class="math notranslate nohighlight">
+\[\mu_0' = \frac{\frac{n\bar{x}}{\sigma^2} + \frac{\mu_0}{\sigma_0^2}}{\frac{n}{\sigma^2} + \frac{1}{\sigma_0^2}} = 0.962 m \]</div>
+<p>So you can be slightly more confident than your colleague about the length of the bolts in the box.
+Also, you believe the bolts are slightly shorter.</p>
+<p>Helpfully, this type of computation allows you to simulate how much data is required to obtain a certain level of confidence in the posterior distribution, by drawing more data from the posterior predictive distribution and performing inference with this simulated data.
+This can also be achieved by studying analytic formulae to predict what is known as the posterior concentration rate.</p>
+<p>Choosing a prior and likelihood function with support on the whole real line is probably a poor choice for a variable like length, which must be positive. How could the model be improved?</p>
+</div>
+<div class="section" id="frequentist-confidence-intervals">
+<h3>Frequentist confidence intervals<a class="headerlink" href="#frequentist-confidence-intervals" title="Permalink to this headline">¶</a></h3>
+<p>In this thesis, traditional frequentist statistics are not used, except
+for in the validation of some Interval Predictor Models, but for the
+interested reader we briefly describe here how a frequentist confidence
+interval can be obtained for <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p>In frequentist statistics, one aims to identify a region of parameter
+space which would contain the true value of the parameter with a
+specified frequency if the experiment was repeated, i.e. we aim to find
+the confidence interval
+<span class="math notranslate nohighlight">\(\Theta = [\underline{\theta}, \overline{\theta}]\)</span>, where
+<span class="math notranslate nohighlight">\(P(\theta \in \Theta) = 1 - \alpha\)</span>, and <span class="math notranslate nohighlight">\(\alpha\)</span> is an arbitrarily
+small probability.</p>
+</div>
+<div class="section" id="non-parametric-prediction-intervals">
+<h3>Non-parametric prediction intervals<a class="headerlink" href="#non-parametric-prediction-intervals" title="Permalink to this headline">¶</a></h3>
+<p>The maximum and minimum of a dataset (i.e.
+<span class="math notranslate nohighlight">\([\min_i{x_{(i)}},\max_i{x_{(i)}}]\)</span> when <span class="math notranslate nohighlight">\(x\)</span> is one dimensional) can be
+used to produce a prediction interval with coverage probability
+<span class="math notranslate nohighlight">\(\frac{n-1}{n+1}\)</span>, i.e. the probability that <span class="math notranslate nohighlight">\(x_{(n+1)}\)</span> will fall
+inside the prediction interval <a class="bibtex reference internal" href="../zbibliography.html#wilks1941determination" id="id16">[Wil41]</a>. A tighter
+prediction interval, with a lower coverage probability of
+<span class="math notranslate nohighlight">\(\frac{n + 1 - 2j}{n + 1}\)</span> can be obtained by using the <span class="math notranslate nohighlight">\(j\)</span>-th smallest
+and largest values in the dataset.</p>
+</div>
+<div class="section" id="creating-parametric-imprecise-probability-models">
+<span id="sec-robust-bayes"></span><h3>Creating parametric imprecise probability models<a class="headerlink" href="#creating-parametric-imprecise-probability-models" title="Permalink to this headline">¶</a></h3>
+<p>The application of Bayes’ law in
+<a class="reference internal" href="#equation-eqn-bayes-law-simple">(7)</a> assumes that the data
+<span class="math notranslate nohighlight">\(\mathcal{X}_\text{train}\)</span> consists of real, ‘crisp’, values. However,
+we can also apply Bayes’ law to imprecise, interval data. For example,
+consider the set of training data
+<span class="math notranslate nohighlight">\(\mathcal{X}_\text{train} = \{ [\underline{x}^{(1)}, \overline{x}^{(1)}], \ldots, [\underline{x}^{(n)}, \overline{x}^{(n)}] \}\)</span>.
+If an analytic equation is available for the posterior parameters then
+in many cases it is possible to obtain bounds on the posterior
+parameters given interval data. For example, if a Gaussian density is
+used for the likelihood and prior, then one may obtain bounds on the
+posterior normal distribution parameters analytically
+<a class="bibtex reference internal" href="../zbibliography.html#montgomery2009new" id="id17">[Mon09]</a>.</p>
+<p>The standard Bayesian paradigm can also be made robust by considering a
+set of prior distributions. This is known as Robust Bayes
+<a class="bibtex reference internal" href="../zbibliography.html#berger1985statistical" id="id18">[Ber85]</a>. Again, bounds on the posterior parameters are
+available analytically in many cases, e.g. the Imprecise Dirichlet
+model.</p>
+<p>Probability boxes can also be obtained by creating so-called confidence
+structures, which are encoded as probability boxes. Confidence boxes
+encode confidence intervals at all confidence levels. The binomial
+confidence bounds, which bound the success probability of a binomial
+random variable, are a particularly useful example which can be found by
+inverting the CDF of a binomial random variable <a class="bibtex reference internal" href="../zbibliography.html#ferson2014computing" id="id19">[FORaweB14]</a>.</p>
+</div>
+<div class="section" id="creating-non-parametric-imprecise-probability-models">
+<h3>Creating non-parametric imprecise probability models<a class="headerlink" href="#creating-non-parametric-imprecise-probability-models" title="Permalink to this headline">¶</a></h3>
+<p>Several methods exist to obtain non-parametric CDFs from data. The CDF
+can be estimated from <span class="math notranslate nohighlight">\(n\)</span> training samples,
+<span class="math notranslate nohighlight">\(\mathcal{X}_\text{train} = \{ x^{(1)}, \ldots, x^{(n)} \}\)</span>, using the
+empirical cumulative distribution function (eCDF), which is given by</p>
+<div class="math notranslate nohighlight">
+\[S_n(x) = \frac{1}{n} \sum_i^n \mathbb{I}_{x \ge x^{(i)}} (x),\]</div>
+<p>where
+<span class="math notranslate nohighlight">\(\mathbb{I}\)</span> is the indicator function, which is equal to <span class="math notranslate nohighlight">\(1\)</span> if the
+subscript statement is satisfied, and is otherwise equal to zero
+<a class="bibtex reference internal" href="../zbibliography.html#kolmogoroff1941confidence" id="id20">[Kol41]</a>. The eCDF is effectively the random
+variable which is formed by assigning probability density equally at the
+point value of each sample, and hence when plotted the eCDF looks like a
+staircase function. The eCDF can be generalised to the case of imprecise
+sampled data, by considering a separate eCDF for the upper and lower
+bounds of the samples. These upper and lower bounds represent the
+envelope of a probability box, and hence an empirical probability box is
+obtained <a class="bibtex reference internal" href="../zbibliography.html#sandia2002constructing" id="id21">[FKG+03]</a>.</p>
+<p>So-called concentration inequalities can be used to obtain bounds on the
+CDF of a random variable with a certain confidence. A probability box
+can be obtained for the random variable by choosing a cutoff confidence,
+such that the CDFs at that confidence will form the envelope of the
+probability box <a class="bibtex reference internal" href="../zbibliography.html#sandia2002constructing" id="id22">[FKG+03]</a>.</p>
+<p>The Kolmogorov-Smirnov statistic can be used to measure the confidence
+that the true CDF of a random variable differs by more than a certain
+probability from the eCDF obtained from sampled data (i.e. the vertical
+distance between the CDFs is compared) <a class="bibtex reference internal" href="../zbibliography.html#sematech2012handbook" id="id23">[NISTSEMATECH12]</a>. The
+Kolmogorov-Smirnov statistic is given by</p>
+<div class="math notranslate nohighlight">
+\[D = \sup_x |S_n(x) - F(x)|,\]</div>
+<p>where <span class="math notranslate nohighlight">\(F(x)\)</span> is the true CDF and the values for <span class="math notranslate nohighlight">\(D\)</span> can be obtained from
+<a class="bibtex reference internal" href="../zbibliography.html#kolmogoroff1941confidence" id="id24">[Kol41]</a>. Now a set of CDFs can be found with
+associated confidence. The Kolmogorov-Smirnov statistic can be applied
+to eCDF bounds obtained by considering imprecise data
+<a class="bibtex reference internal" href="../zbibliography.html#sandia2002constructing" id="id25">[FKG+03]</a>.</p>
+<p>Chebyshev’s inequality bounds the probability density of a random
+variable which can fall more than a certain number of standard
+deviations from the mean <a class="bibtex reference internal" href="../zbibliography.html#ross2014first" id="id26">[Ros14]</a>. Therefore knowledge of the
+mean and standard deviation of a random variable imposes bounds on its
+CDF. Chebyshev’s inequality is given by</p>
+<div class="math notranslate nohighlight">
+\[P((X-\mu) \ge k \sigma) \le \frac{1}{k^2},\]</div>
+<p>where <span class="math notranslate nohighlight">\(k&gt;1\)</span> is a real
+number, <span class="math notranslate nohighlight">\(\mu\)</span> is the mean of a random variable, and <span class="math notranslate nohighlight">\(\sigma\)</span> is the
+standard deviation of the random variable.</p>
+</div>
+</div>
+<div class="section" id="creating-uncertainty-models-without-data">
+<h2>Creating uncertainty models without data<a class="headerlink" href="#creating-uncertainty-models-without-data" title="Permalink to this headline">¶</a></h2>
+<p>When insufficient data is available to create a satisfactory uncertainty
+model using the techniques described in the previous section, one may
+resort to creating a model based on the opinions of experts. This
+process is known as expert elicitation <a class="bibtex reference internal" href="../zbibliography.html#sundararajan1995expert" id="id27">[Sun95]</a>. In
+this section we briefly outline how various uncertainty models can be
+obtained from expert opinion, in order to further justify and provide
+context for the uncertainty models used in this thesis. Expert
+elicitation is not the main focus of this thesis, and therefore this
+section may be skipped without consequence.</p>
+<div class="section" id="probabilistic-elicitation">
+<h3>Probabilistic elicitation<a class="headerlink" href="#probabilistic-elicitation" title="Permalink to this headline">¶</a></h3>
+<p>In the Bayesian Hierarchical Modelling paradigm, discussed in the
+previous section, the posterior distribution concentrates as data is
+received and gradually the prior has less influence on the posterior.
+The prior distribution represents the state of knowledge about a
+parameter before data is available, and if limited data is available
+then more care should be taken to choose an appropriate prior, i.e. the
+opinions of experts should be considered and assessed quantitatively.</p>
+<p>When eliciting multiple expert opinions one must attempt to aggregate
+the opinions of experts, regardless of the model chosen. Usually the
+opinions of experts are fused using quantitative rules
+<a class="bibtex reference internal" href="../zbibliography.html#sundararajan1995expert" id="id28">[Sun95]</a>, and feedback may be given to the experts in
+order to allow their opinions to be changed. <a class="bibtex reference internal" href="../zbibliography.html#oakley2010shelf" id="id29">[OOHagan10]</a> propose
+the SHELF framework which gives specific rules for how the opinions of
+experts should be elicited, and proposes that the opinions should be
+aggregated by a rational unbiased observer during the elicitation
+process.</p>
+</div>
+<div class="section" id="non-probabilistic-elicitation">
+<h3>Non-probabilistic elicitation<a class="headerlink" href="#non-probabilistic-elicitation" title="Permalink to this headline">¶</a></h3>
+<p>Imprecise probability models also have a role to play in expert
+elicitation. For example, if the model exhibits severe dependency on a
+probabilistic prior which can only be elicited approximately, one may
+wish to conduct a sensitivity analysis to the prior by considering a
+probability box prior, as discussed in
+<a class="reference internal" href="#sec-robust-bayes"><span class="std std-ref">Creating parametric imprecise probability models</span></a>.</p>
+<p>Other non-probabilistic models may be considered for a parameter, for
+example interval bounds on a parameter may be available from physical
+considerations. Alternatively, experts may prefer to specify their
+estimates as intervals, or may feel more comfortable specifying bounding
+CDFs (i.e. probability boxes). <a class="bibtex reference internal" href="../zbibliography.html#sandia2002constructing" id="id30">[FKG+03]</a> discuss several
+methods for aggregating probability boxes which can be chosen based on
+the desired properties of the analysis.</p>
+</div>
+</div>
+<div class="section" id="validating-a-trained-model">
+<span id="sec-validation-uq"></span><h2>Validating a trained model<a class="headerlink" href="#validating-a-trained-model" title="Permalink to this headline">¶</a></h2>
+<p>Once an uncertainty model has been obtained it is essential that the
+model is validated, to ensure that it suitably represents the analysts
+uncertainty. Even if one uses a Bayesian framework and trusts the priors
+and probability calculus, it is still possible that the model has been
+misspecified. For this reason, one should qualitatively inspect the
+results of the analysis, and quantitatively check that a probabilistic
+model is correctly calibrated using numerical techniques.</p>
+<div class="section" id="validating-probabilistic-models">
+<h3>Validating probabilistic models<a class="headerlink" href="#validating-probabilistic-models" title="Permalink to this headline">¶</a></h3>
+<p>Usually one partitions the data available for creating the model into
+the data set used for training the model, <span class="math notranslate nohighlight">\(\mathcal{X}_\text{train}\)</span>,
+and the data set used for testing, <span class="math notranslate nohighlight">\(\mathcal{X}_\text{test}\)</span> (containing
+<span class="math notranslate nohighlight">\(N_\text{test}\)</span> data points).</p>
+<p>If a probabilistic model is correctly calibrated then we expect the
+stated probabilities to represent the real frequencies with which events
+occur, for example if a set of events are predicted to occur with 0.9
+probability then we expect that they occur 90% of the time in reality.
+This can be verified by plotting the test data relative to the trained
+distribution. One method of achieving this is ‘binning’ the data into a
+histogram, and visually comparing the histogram to the plotted
+distribution for the trained model <a class="bibtex reference internal" href="../zbibliography.html#gelman2013bayesian" id="id31">[GSC+13]</a>.</p>
+<p>One may use the test set, <span class="math notranslate nohighlight">\(\mathcal{X}_\text{test}\)</span>, to compute various
+statistics of the model. For example, classical statistical tests can be
+used, such as the <span class="math notranslate nohighlight">\(\chi^2\)</span> summary statistic for the sum of squared
+errors which represents goodness of fit <a class="bibtex reference internal" href="../zbibliography.html#gelman2013bayesian" id="id32">[GSC+13]</a>. The test
+set can be used to compute the negative logarithmic predictive density
+for the model, i.e.
+<span class="math notranslate nohighlight">\(-\log{P(\mathcal{X}_\text{test} | \text{Model})} = -\log{\mathbb{E}_{P(\theta | \mathcal{X}_\text{train})} P(\mathcal{X}_\text{test} | \theta)}\)</span>,
+which can be used as a figure of merit for comparing models.</p>
+<p>If one wishes to compare two probabilistic models <span class="math notranslate nohighlight">\(\text{Model}_1\)</span> and
+<span class="math notranslate nohighlight">\(\text{Model}_2\)</span> then one may compare the evidence for the models by
+computing the Bayes Factor:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-bayes-factor">
+<span class="eqno">(8)<a class="headerlink" href="#equation-eqn-bayes-factor" title="Permalink to this equation">¶</a></span>\[\frac{P(\mathcal{X}_\text{train} | \text{Model}_1)}{P(\mathcal{X}_\text{train} | \text{Model}_2)} = \frac{ P(\text{Model}_1|\mathcal{X}_\text{train}) P(\text{Model}_2)}{P(\text{Model}_2|\mathcal{X}_\text{train})P(\text{Model}_1) },\]</div>
+<p>where the model evidence (or marginal likelihood)
+<span class="math notranslate nohighlight">\(P(\mathcal{X}_\text{train} | \text{Model})\)</span> is computed by evaluating
+the expectation of the data likelihood for the model over the posterior
+obtained in training
+(<span class="math notranslate nohighlight">\(P(\mathcal{X}_\text{train} | \text{Model}) = \mathbb{E}_{P(\theta | \mathcal{X}_\text{train})} P(\mathcal{X}_\text{train} | \theta) = \int P(\mathcal{X}_\text{train} | \theta) P(\theta | \mathcal{X}_\text{train}) d\theta\)</span>).
+If the Bayes factor is greater than one then <span class="math notranslate nohighlight">\(\text{Model}_1\)</span> is
+preferred, otherwise one should choose <span class="math notranslate nohighlight">\(\text{Model}_2\)</span>
+<a class="bibtex reference internal" href="../zbibliography.html#kruschke2014doing" id="id33">[Kru14]</a>. When <span class="math notranslate nohighlight">\(P(\text{Model}_2)=P(\text{Model}_1)\)</span> the
+prior belief in each model is equal and the Bayes factor becomes equal
+to the likelihood ratio. The likelihood ratio can also be computed for
+the test data set. One can also generate new data by sampling from the
+distribution
+<span class="math notranslate nohighlight">\(\mathbb{E}_{P(\theta | \mathcal{X}_\text{train})} p(x | \theta)\)</span> and
+comparing this to the training and test data. This is known as a
+posterior predictive check <a class="bibtex reference internal" href="../zbibliography.html#gelman2013bayesian" id="id34">[GSC+13]</a>.</p>
+</div>
+<div class="section" id="validating-non-probabilistic-models">
+<h3>Validating non-probabilistic models<a class="headerlink" href="#validating-non-probabilistic-models" title="Permalink to this headline">¶</a></h3>
+<p>If a convex-set or interval based model is compared to crisp data then
+one can check that all elements of the test set
+<span class="math notranslate nohighlight">\(\mathcal{X}_\text{test}\)</span> fall within the model. <a class="bibtex reference internal" href="../zbibliography.html#ferson2009validation" id="id35">[FOG09]</a>
+proposes that interval models are validated against interval data using
+the metric for comparison of two sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\Delta(A,B) = \inf_{a\in A, b\in B}{|a-b|},\]</div>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> would
+represent the trained convex model, and <span class="math notranslate nohighlight">\(B\)</span> would represent an element
+of <span class="math notranslate nohighlight">\(\mathcal{X}_\text{test}\)</span>. The mean of <span class="math notranslate nohighlight">\(\Delta(A,B)\)</span> over every
+element <span class="math notranslate nohighlight">\(B \in \mathcal{X}_\text{test}\)</span> could be used to validate
+against the entire test set, i.e.
+<span class="math notranslate nohighlight">\(\frac{1}{N_\text{test}} \sum_{B \in \mathcal{X}_\text{test}} \Delta(A,B)\)</span>.</p>
+<p>Following this, <a class="bibtex reference internal" href="../zbibliography.html#ferson2009validation" id="id36">[FOG09]</a> proposes a generalisation of the
+Wasserstein distance to measure the distance between an eCDF and a
+probability box, as a probability box validation metric. The proposed
+metric, termed mean absolute difference of deviates, is given by</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{E}_x \Delta([\underline{F}(x), \overline{F}(x)], [\underline{S_n}(x), \overline{S_n}(x)]),\]</div>
+<p>where <span class="math notranslate nohighlight">\([\underline{F}(x), \overline{F}(x)]\)</span> are the bounds of the
+probability box to be validated, and
+<span class="math notranslate nohighlight">\([\underline{S_n}(x), \overline{S_n}(x)]\)</span> are the bounds of the
+empirical probability box created from the training data, which becomes
+a single CDF in the case of crisp data (<span class="math notranslate nohighlight">\([{S_n}(x), {S_n}(x)]\)</span>). The
+metric reduces to zero when there is overlap of the probability boxes at
+every <span class="math notranslate nohighlight">\(x\)</span>. We compare models by computing the metric for each model, and
+then choosing the model with the lowest value for the metric.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapter2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="imprecise.html" title="previous page">Imprecise probabilistic models of uncertainty</a>
+    <a class='right-next' id="next-link" href="summary.html" title="next page">Chapter summary</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

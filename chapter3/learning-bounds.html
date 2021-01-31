@@ -1,0 +1,854 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning bounds on a model &#8212; Uncertainty Modelling for Engineers</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter summary" href="conclusion.html" />
+    <link rel="prev" title="Non-parametric models" href="non-parametric-models.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/FORM.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Uncertainty Modelling for Engineers</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   How to use this book
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../outline.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../chapter2/chapter2.html">
+   Models of Uncertainty
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/probabilistic.html">
+     Probabilistic models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/sets.html">
+     Set-based models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/imprecise.html">
+     Imprecise probabilistic models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/creating.html">
+     Creating models in practice
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/summary.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="chapter3.html">
+   Machine Learning of Regression Models
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="parametric-models.html">
+     Parametric regression models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="non-parametric-models.html">
+     Non-parametric models
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Learning bounds on a model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="conclusion.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../chapter4/chapter4.html">
+   Reliability Analysis
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/random-variables.html">
+     Reliability analysis with random variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/convex-set.html">
+     Convex set models for reliability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/probability-boxes.html">
+     Reliability analysis with probability boxes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/summary.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../conclusion.html">
+   Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../zbibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/chapter3/learning-bounds.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers/issues/new?title=Issue%20on%20page%20%2Fchapter3/learning-bounds.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers/edit/master/chapter3/learning-bounds.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/uncertainty-for-engineers/uncertainty-modelling-for-engineers/master?urlpath=tree/chapter3/learning-bounds.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/uncertainty-for-engineers/uncertainty-modelling-for-engineers/blob/master/chapter3/learning-bounds.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#training-interval-predictor-models">
+   Training interval predictor models
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convex-interval-predictor-models">
+     Convex interval predictor models
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#non-convex-interval-predictor-models">
+     Non-convex interval predictor models
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#validating-models-with-the-scenario-approach">
+   Validating models with the scenario approach
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convex-case">
+     Convex case
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#non-convex-case">
+     Non-convex case
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-posteriori-frequentist-analysis">
+     A posteriori frequentist analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#software-for-interval-predictor-models">
+   Software for interval predictor models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#worked-example-linear-regression">
+   Worked example : linear regression
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="learning-bounds-on-a-model">
+<h1>Learning bounds on a model<a class="headerlink" href="#learning-bounds-on-a-model" title="Permalink to this headline">¶</a></h1>
+<p>Instead of learning a probability distribution to describe the effect of
+one variable on another, one may instead attempt to learn a function
+which maps the input variables to an interval representing the possible
+range of the output. Such models are known as interval predictor models.
+Sometimes the predicted intervals have an associated confidence level
+(or a bound on the confidence level), and as such they can be considered
+as bounds on the quantiles of a random variable
+<a class="bibtex reference internal" href="../zbibliography.html#dabney2017distributional" id="id1">[DRBM17]</a>. Typically the obtained intervals represent
+an outer approximation, i.e. the intervals are overly wide and hence
+conservative in an engineering sense. An interval predictor model can be
+seen as prescribing the support of a Random Predictor Model, which is
+defined as a function which maps input variables to an output random
+variable. A Gaussian Process Model is a specific case of a Random
+Predictor Model.</p>
+<p>In this section, we describe how interval predictor models can be
+trained in practice. We then describe how the theory of scenario
+optimisation can be used to provide guaranteed bounds on the reliability
+of the trained interval predictor models, for the purpose of validation.</p>
+<div class="section" id="training-interval-predictor-models">
+<h2>Training interval predictor models<a class="headerlink" href="#training-interval-predictor-models" title="Permalink to this headline">¶</a></h2>
+<p>Let us consider a black box model (sometimes referred to as the Data
+Generating Mechanism or DGM) which acts on a vector of input variables
+<span class="math notranslate nohighlight">\(x \in \mathbb{R}^{n_x}\)</span> to produce an output <span class="math notranslate nohighlight">\(y \in \mathbb{R}\)</span>. We
+wish to obtain the two functions <span class="math notranslate nohighlight">\(\overline{y}(x)\)</span> and
+<span class="math notranslate nohighlight">\(\underline{y}(x)\)</span> which enclose a fraction, <span class="math notranslate nohighlight">\(\epsilon\)</span>, of samples from
+the DGM, i.e. samples of <span class="math notranslate nohighlight">\(y(x)\)</span> where <span class="math notranslate nohighlight">\(x\)</span> is sampled from some unknown
+probability density. The functions <span class="math notranslate nohighlight">\(\overline{y}(x)\)</span> and
+<span class="math notranslate nohighlight">\(\underline{y}(x)\)</span> are bounds on a prediction interval, and as such we
+wish them to be as tight as possible. This can be written as a so-called
+chance constrained optimisation program:
+<span class="math notranslate nohighlight">\(\operatorname{argmin}_{\boldsymbol{p}}{\{\mathbb{E}_x(\overline{y}_{\boldsymbol{p}}(x) - \underline{y}_{\boldsymbol{p}}(x)) : P\{\overline{y}_{\boldsymbol{p}}(x) &gt; y(x) &gt; \underline{y}_{\boldsymbol{p}}(x) \} \le \epsilon\}},\)</span>
+where <span class="math notranslate nohighlight">\(\boldsymbol{p}\)</span> is a vector of function parameters to be
+identified, and <span class="math notranslate nohighlight">\(\epsilon\)</span> is a parameter which constrains how often the
+constraints may be violated. Chance constrained optimisation programs
+can be solved by using a so-called scenario program, where the chance
+constraint is replaced with multiple sampled constraints based on data,
+i.e.</p>
+<div class="math notranslate nohighlight" id="equation-ch3-ipm-op">
+<span class="eqno">(11)<a class="headerlink" href="#equation-ch3-ipm-op" title="Permalink to this equation">¶</a></span>\[\operatorname{argmin}_{\boldsymbol{p}}{\{\mathbb{E}_x(\overline{y}_{\boldsymbol{p}}(x) - \underline{y}_{\boldsymbol{p}}(x)) : \overline{y}_{\boldsymbol{p}}(x^{(i)}) &gt; y^{(i)} &gt; \underline{y}_{\boldsymbol{p}}(x^{(i)}), i=1,...,N\}},\]</div>
+<p>where
+<span class="math notranslate nohighlight">\(\mathcal{X}_\text{train} = \{ \{x^{(1)}, y^{(1)}\}, ..., \{x^{(n)}, y^{(n)}\} \}\)</span>
+are sampled from the DGM. Most of the literature on scenario
+optimisation Theory aims to obtain bounds on <span class="math notranslate nohighlight">\(\epsilon\)</span>. Finding bounds
+on <span class="math notranslate nohighlight">\(\epsilon\)</span> using scenario optimisation is easier in practice than
+other similar methods in statistical learning theory, since no knowledge
+of the Vapnik-Chervonenkis dimension (a measure of the capacity of the
+model, which is difficult to determine exactly) is required.</p>
+<p>A key advantage over other machine learning techniques is that interval
+training data (i.e. where the training data inputs are given in the form
+<span class="math notranslate nohighlight">\(x^{(i)} \in [\underline{x}^{(i)}, \overline{x}^{(i)}]\)</span> due to epistemic
+uncertainty or some other reason) fits into the scenario optimisation
+framework coherently <a class="bibtex reference internal" href="../zbibliography.html#lacerda2017interval" id="id2">[LC17]</a>. This can be seen as
+equivalent to defending against the attack model of adversarial examples
+considered by <a class="bibtex reference internal" href="../zbibliography.html#madry2017towards" id="id3">[MMS+17]</a>, where the network is trained to produce
+the same outputs for small perturbations of the input data. The
+framework also permits robustness against uncertainty in training
+outputs, i.e. <span class="math notranslate nohighlight">\(y^{(i)} \in [\underline{y}^{(i)}, \overline{y}^{(i)}]\)</span>,
+where <span class="math notranslate nohighlight">\(y^{(i)}\)</span> is a single training example output.</p>
+<div class="section" id="convex-interval-predictor-models">
+<h3>Convex interval predictor models<a class="headerlink" href="#convex-interval-predictor-models" title="Permalink to this headline">¶</a></h3>
+<p>If the objective and constraints for the scenario program are convex
+then the program can be easily solved, and bounds can be put on
+<span class="math notranslate nohighlight">\(\epsilon\)</span>. We will approximate the DGM with an interval predictor model
+(IPM) which returns an interval for each vector <span class="math notranslate nohighlight">\(x\in X\)</span>, the set of
+inputs, given by</p>
+<div class="math notranslate nohighlight" id="equation-eq-2">
+<span class="eqno">(12)<a class="headerlink" href="#equation-eq-2" title="Permalink to this equation">¶</a></span>\[I_y(x,P)= \big\{ y=G(x,\boldsymbol{p}),\boldsymbol{p} \in P \big\},\]</div>
+<p>where <span class="math notranslate nohighlight">\(G\)</span> is an arbitrary function and <span class="math notranslate nohighlight">\(\boldsymbol{p}\)</span> is a parameter
+vector. By making an approximation for <span class="math notranslate nohighlight">\(G\)</span> and considering a linear
+parameter dependency <a class="reference internal" href="#equation-eq-2">(12)</a> becomes
+<span class="math notranslate nohighlight">\(I_y(x,P)=\big\{ y=\boldsymbol{p}^{T} \phi (x),\boldsymbol{p} \in P \big\} ,\)</span>
+where <span class="math notranslate nohighlight">\(\phi (x)\)</span> is a basis (polynomial and radial bases are commonly
+used), and <span class="math notranslate nohighlight">\(\boldsymbol{p}\)</span> is a member of a convex parameter set. The
+convex parameter set is usually assumed to be either ellipsoidal or
+hyper-rectangular <a class="bibtex reference internal" href="../zbibliography.html#campi2009interval" id="id4">[CCG09]</a>. <a class="bibtex reference internal" href="../zbibliography.html#crespo-interval-2016" id="id5">[CKG16]</a>
+demonstrates that hyper-rectangular parameters sets result in an IPM
+with bounds with a convenient analytical form. The hyper-rectangular
+parameter uncertainty set can be defined as
+<span class="math notranslate nohighlight">\(P=\big\{\boldsymbol{p}:\underline{\boldsymbol{p}} \leq \boldsymbol{p} \leq \overline{\boldsymbol{p}} \big\},\)</span>
+where <span class="math notranslate nohighlight">\(\underline{\boldsymbol{p}}\)</span> and <span class="math notranslate nohighlight">\(\overline{\boldsymbol{p}}\)</span> are
+parameter vectors specifying the defining vertices of the hyper
+rectangular uncertainty set. The IPM with linear parameter dependency on
+the hyper-rectangular uncertain set of parameters is defined by the
+interval
+<span class="math notranslate nohighlight">\(I_y(x,P)=[\underline{y}(x,\overline{\boldsymbol{p}},\underline{\boldsymbol{p}}),\overline{y}(x,\overline{\boldsymbol{p}},\underline{\boldsymbol{p}})],\)</span>
+where <span class="math notranslate nohighlight">\(\underline{y}\)</span> and <span class="math notranslate nohighlight">\(\overline{y}\)</span> are the lower and upper bounds
+of the IPM, respectively. Explicitly, the lower bound is given by
+<span class="math notranslate nohighlight">\(\underline{y}(x,\overline{\boldsymbol{p}},\underline{\boldsymbol{p}}) = \overline{\boldsymbol{p}} ^T \left(
+      \frac{\phi(x)-|\phi(x)|}{2}
+      \right)+\underline{\boldsymbol{p}} ^T \left(
+      \frac{\phi(x)+|\phi(x)|}{2}
+      \right),\)</span> and the upper bound is given by
+<span class="math notranslate nohighlight">\(\overline{y}(x,\overline{\boldsymbol{p}},\underline{\boldsymbol{p}}) = \overline{\boldsymbol{p}} ^T \left(
+      \frac{\phi(x)+|\phi(x)|}{2}
+      \right)+\underline{\boldsymbol{p}} ^T \left(
+      \frac{\phi(x)-|\phi(x)|}{2}
+      \right).\)</span> To identify the hyper-rectangular uncertainty set one
+trains the IPM by minimising the value of
+<span class="math notranslate nohighlight">\(\delta_y(x,\overline{\boldsymbol{p}},\underline{\boldsymbol{p}})=(\overline{\boldsymbol{p}}-\underline{\boldsymbol{p}})^T |\phi (x) |,\)</span>
+subject to the constraint that the training data points fall inside the
+bounds on the IPM, by solving the linear and convex optimisation problem</p>
+<div class="math notranslate nohighlight" id="equation-op">
+<span class="eqno">(13)<a class="headerlink" href="#equation-op" title="Permalink to this equation">¶</a></span>\[\big\{\hat{\underline{\boldsymbol{p}}} , \hat{\overline{\boldsymbol{p}}} \big\}=\operatorname{argmin}_{\boldsymbol{u},\boldsymbol{v}} \big\{\mathbb{E}_x[\delta_y(x,\boldsymbol{v},\boldsymbol{u})] : \underline{y}(x^{(i)},\boldsymbol{v},\boldsymbol{u}) \leq y^{(i)} \leq \overline{y}(x^{(i)},\boldsymbol{v},\boldsymbol{u}), \boldsymbol{u} \leq \boldsymbol{v} \big\}.\]</div>
+<p>The constraints ensure that all data points to be fitted lie within the
+bounds and that the upper bound is greater than the lower bound. This
+combination of objective function and constraints is linear and convex
+<a class="bibtex reference internal" href="../zbibliography.html#crespo-interval-2016" id="id6">[CKG16]</a>. In this thesis all interval predictor models
+have polynomial bases, i.e. <span class="math notranslate nohighlight">\(\phi(x)=\left[1,x^{i_2},x^{i_3},...\right]\)</span>
+with <span class="math notranslate nohighlight">\(x=[x_a,x_b,...]\)</span> and <span class="math notranslate nohighlight">\(i_j=[i_{j,a},i_{j,b},...]\)</span> with <span class="math notranslate nohighlight">\(i_j\ne i_k\)</span>
+for <span class="math notranslate nohighlight">\(j\ne k\)</span>.</p>
+<p>For illustrative purposes an example degree 2 IPM is shown without
+training data points in
+<a class="reference internal" href="#fig-sub1"><span class="std std-ref">The IPM’s hyper rectangular uncertainty set plotted in ‘parameter
+space’. The uniformly sampled parameter vectors of the polynomials shown
+in fig:sub2.</span></a>. The hyper rectangular uncertainty set
+corresponding to the IPM in
+<a class="reference internal" href="#fig-sub1"><span class="std std-ref">The IPM’s hyper rectangular uncertainty set plotted in ‘parameter
+space’. The uniformly sampled parameter vectors of the polynomials shown
+in fig:sub2.</span></a> is plotted in
+<a class="reference internal" href="#fig-sub2"><span class="std std-ref">The IPM’s hyper rectangular uncertainty set plotted in ‘parameter
+space’. The uniformly sampled parameter vectors of the polynomials shown
+in fig:sub1 are displayed as points in the uncertain
+set.</span></a>. The
+discontinuity observed in the upper and lower bounds is a consequence of
+the chosen basis, and can be avoided by choosing a basis where
+<span class="math notranslate nohighlight">\(\phi(x)=|\phi(x)|\)</span>.</p>
+<div class="figure align-default" id="fig-sub1">
+<a class="reference internal image-reference" href="../_images/ipm_explain_1.png"><img alt="../_images/ipm_explain_1.png" src="../_images/ipm_explain_1.png" style="height: 150px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">The IPM’s hyper rectangular uncertainty set plotted in ‘parameter
+space’. The uniformly sampled parameter vectors of the polynomials shown
+in <a class="reference internal" href="#fig-sub2"><span class="std std-ref">The IPM’s hyper rectangular uncertainty set plotted in ‘parameter
+space’. The uniformly sampled parameter vectors of the polynomials shown
+in fig:sub1 are displayed as points in the uncertain
+set.</span></a>.</span><a class="headerlink" href="#fig-sub1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="fig-sub2">
+<a class="reference internal image-reference" href="../_images/IPM_explain_2.png"><img alt="../_images/IPM_explain_2.png" src="../_images/IPM_explain_2.png" style="height: 150px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">The IPM’s hyper rectangular uncertainty set plotted in ‘parameter
+space’. The uniformly sampled parameter vectors of the polynomials shown
+in <a class="reference internal" href="#fig-sub1"><span class="std std-ref">The IPM’s hyper rectangular uncertainty set plotted in ‘parameter
+space’. The uniformly sampled parameter vectors of the polynomials shown
+in fig:sub2.</span></a> are displayed as points in the uncertain
+set.</span><a class="headerlink" href="#fig-sub2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="non-convex-interval-predictor-models">
+<h3>Non-convex interval predictor models<a class="headerlink" href="#non-convex-interval-predictor-models" title="Permalink to this headline">¶</a></h3>
+<p>In some circumstances engineers may wish to represent more complex
+functions with IPMs, and hence the functions used to represent the
+bounds of the IPM may have more trainable parameters. The interior point
+method used to solve linear optimisation programs, such as those used
+for convex IPMs, has complexity <span class="math notranslate nohighlight">\(d^2 n_\text{cons}\)</span>, where <span class="math notranslate nohighlight">\(d\)</span>
+represents the number of optimisation variables and <span class="math notranslate nohighlight">\(n_\text{cons}\)</span>
+represents the number of constraints in the optimisation (which in this
+case scales linearly with the number of training data points), and hence
+the method does not scale well to IPMs with large numbers of trainable
+parameters <a class="bibtex reference internal" href="../zbibliography.html#boyd2004convex" id="id7">[BV04]</a>.</p>
+<p>Neural networks enable uncertainty models to be created with vast
+numbers of parameters in a feasible computational time. Neural networks
+with interval outputs were proposed by <a class="bibtex reference internal" href="../zbibliography.html#ishibuchi1993architecture" id="id8">[ITO93]</a>, and
+further described by <a class="bibtex reference internal" href="../zbibliography.html#huang1998robust" id="id9">[HZH98]</a>. In these papers the learning
+takes place by identifying the weights <span class="math notranslate nohighlight">\(W\)</span>, which solve the following
+program:</p>
+<div class="math notranslate nohighlight" id="equation-eq-ishibuchi">
+<span class="eqno">(14)<a class="headerlink" href="#equation-eq-ishibuchi" title="Permalink to this equation">¶</a></span>\[\operatorname{argmin}_{\overline{W},\underline{W}}{[\mathbb{E}_x(\overline{y}(x)-\underline{y}(x)) :\overline{y}(x^{(i)})&gt;y^{(i)}&gt;\underline{y}(x^{(i)})\ \forall \ i]},\]</div>
+<p>where <span class="math notranslate nohighlight">\(\overline{y}(x)\)</span> and <span class="math notranslate nohighlight">\(\underline{y}(x)\)</span> are obtained from two
+independent neural networks, such that <span class="math notranslate nohighlight">\(\overline{y}(x)\)</span> and
+<span class="math notranslate nohighlight">\(\underline{y}(x)\)</span> are the output layers of networks, such as those
+defined by <a class="reference internal" href="parametric-models.html#equation-eq-net">(9)</a>. In practice this problem is solved by using a mean
+squared error loss function with a simple penalty function to model the
+constraints. In general, penalty methods require careful choice of
+hyper-parameters to guarantee convergence. These neural networks act in
+a similar way to interval predictor models, however the interval neural
+networks do not attempt to use the training data set to bound
+<span class="math notranslate nohighlight">\(\epsilon\)</span>. <a class="bibtex reference internal" href="../zbibliography.html#freitag2011recurrent" id="id10">[FGK11]</a> define similar networks with fuzzy
+parameters to operate on fuzzy data. The fuzzy neural networks are
+trained by minimising a least square loss function (a set inclusion
+constraint is not used), which can also be applied to time series data
+sets. These approaches are very different from the approach of
+<a class="bibtex reference internal" href="../zbibliography.html#patino2004interval" id="id11">[PatinoEBL04]</a>, where a traditional neural network loss function is
+intervalised using interval arithmetic.</p>
+<p><a class="bibtex reference internal" href="../zbibliography.html#campi2015non" id="id12">[CGR15]</a> extended the scenario approach to non-convex optimisation
+programs, and hence applied the approach to a single layer neural
+network, with a constant width interval prediction, which was trained
+using the interior-point algorithm in Matlab. In other words the
+following program is solved:</p>
+<div class="math notranslate nohighlight" id="equation-constantline">
+<span class="eqno">(15)<a class="headerlink" href="#equation-constantline" title="Permalink to this equation">¶</a></span>\[\operatorname{argmin}_{W,h}{[h : |y^{(i)}-\hat{y}(x^{(i)})|&lt;h\ \forall \ i]},\]</div>
+<p>where <span class="math notranslate nohighlight">\(h\)</span> is a real number, and <span class="math notranslate nohighlight">\(\hat{y}\)</span> represents the central line of
+the prediction obtained from the same network specified by
+<a class="reference internal" href="parametric-models.html#equation-eq-net">(9)</a>. The
+bounds on the prediction interval are therefore given by
+<span class="math notranslate nohighlight">\(\overline{y}(x) = \hat{y}(x) + h\)</span> and
+<span class="math notranslate nohighlight">\(\underline{y}(x) = \hat{y}(x) - h\)</span>. The constant width interval neural
+network expresses homoscedastic uncertainty. The solution to the
+optimisation program in
+<a class="reference internal" href="#equation-constantline">(15)</a> can also be obtained by finding the neural
+network weights which minimise the so-called maximum-error loss:</p>
+<div class="math notranslate nohighlight" id="equation-max-error-loss">
+<span class="eqno">(16)<a class="headerlink" href="#equation-max-error-loss" title="Permalink to this equation">¶</a></span>\[\mathcal{L}_{\text{max-error}} = \max_{i} |y^{(i)}-\hat{y}(x^{(i)})|, %\equiv \lim_{p \rightarrow \infty} \left( \sum_i |y^{(i)}-\hat{y}(x^{(i)})|^{p} \right) ^{\frac{1}{p}},\]</div>
+<p>where <span class="math notranslate nohighlight">\(h\)</span> is the minimum value of the loss.
+It is trivial to show this is true, since the set inclusion constraint
+in <a class="reference internal" href="#equation-constantline">(15)</a> requires that <span class="math notranslate nohighlight">\(h\)</span> is larger than the absolute
+error for each data point in the training set <a class="bibtex reference internal" href="../zbibliography.html#care201871" id="id13">[CareC18]</a>.</p>
+<p>In <a class="bibtex reference internal" href="../zbibliography.html#sadeghi2019efficient" id="id14">[SDAP19]</a> a back propagation algorithm for Neural Networks with interval predictions is proposed.
+A modified maximum-error loss is used.
+The approach can accommodate incertitude in the training data.
+A key result is that, by using minibatches, the complexity of the proposed approach does not directly depend upon the number of training data points as with other Interval Predictor Model methods.</p>
+</div>
+</div>
+<div class="section" id="validating-models-with-the-scenario-approach">
+<span id="sec-scenario"></span><h2>Validating models with the scenario approach<a class="headerlink" href="#validating-models-with-the-scenario-approach" title="Permalink to this headline">¶</a></h2>
+<p>We will first present an overview of the scenario optimisation theory
+for the validation of models in the convex case, before describing more
+general techniques which apply in the non-convex case.</p>
+<div class="section" id="convex-case">
+<h3>Convex case<a class="headerlink" href="#convex-case" title="Permalink to this headline">¶</a></h3>
+<p>Intuition tells us that the solution of the scenario program will be
+most accurate when the dimensionality of the design variable is low and
+we take as many samples of the constraints as possible (in fact, an
+infinite number of sampled constraints would allow us to reliably
+estimate
+<span class="math notranslate nohighlight">\(P\{\overline{y}_{\boldsymbol{p}}(x) &gt; y(x) &gt; \underline{y}_{\boldsymbol{p}}(x) \}\)</span>,
+and hence solve the program exactly). However, in practice obtaining
+these samples is often an expensive process. Fortunately, the theory of
+scenario optimisation provides robust bounds on the robustness of the
+obtained solution. The bounds generally take the following form:
+<span class="math notranslate nohighlight">\(P^n(V(\hat{z}_n)&gt;\epsilon)\le\beta.\)</span> This equation states that the
+probability of observing a bad set of data (i.e. a bad set of
+constraints) in future, such that our solution violates a proportion
+greater than <span class="math notranslate nohighlight">\(\epsilon\)</span> of the constraints (i.e. <span class="math notranslate nohighlight">\(V(\hat{z}_n)&gt;\epsilon\)</span>
+where <span class="math notranslate nohighlight">\(V(\hat{z}_n) = \frac{1}{n} \sum_i^n {V^{(i)}}\)</span> and <span class="math notranslate nohighlight">\(V^{(i)} = 1\)</span>
+only if
+<span class="math notranslate nohighlight">\(\overline{y}_{\boldsymbol{p}}(x) &gt; y(x) &gt; \underline{y}_{\boldsymbol{p}}(x)\)</span>),
+is no greater than <span class="math notranslate nohighlight">\(\beta\)</span>. The scenario approach gives a simple
+analytic form for the connection between <span class="math notranslate nohighlight">\(\epsilon\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> in the
+case that the optimisation program is convex:</p>
+<div class="math notranslate nohighlight" id="equation-convexrel">
+<span class="eqno">(17)<a class="headerlink" href="#equation-convexrel" title="Permalink to this equation">¶</a></span>\[\beta=\frac{1}{\epsilon}\frac{d}{n+1},\]</div>
+<p>where <span class="math notranslate nohighlight">\(n\)</span> is
+the number of constraint samples in the training data set used to solve
+the scenario program, and <span class="math notranslate nohighlight">\(d\)</span> is the dimensionality of the design
+variable, <span class="math notranslate nohighlight">\(z\)</span>. For a fixed <span class="math notranslate nohighlight">\(d\)</span> and <span class="math notranslate nohighlight">\(n\)</span> we obtain a
+confidence-reliability plot as shown in
+<code class="xref eq docutils literal notranslate"><span class="pre">exampleConvex</span></code>. The plot demonstrates that by decreasing
+<span class="math notranslate nohighlight">\(\epsilon\)</span> slightly, <span class="math notranslate nohighlight">\(1-\beta\)</span> can be made to be insignificantly small.
+Other tighter bounds exist in the more recent scenario optimisation
+literature, e.g.
+<a class="bibtex reference internal" href="../zbibliography.html#calafiore2010random" id="id15">[Cal10]</a> <a class="bibtex reference internal" href="../zbibliography.html#campi2008exact" id="id16">[CG08]</a> <a class="bibtex reference internal" href="../zbibliography.html#alamo2015randomized" id="id17">[ATLR15]</a>, for
+example</p>
+<div class="math notranslate nohighlight" id="equation-ch3-reliability">
+<span class="eqno">(18)<a class="headerlink" href="#equation-ch3-reliability" title="Permalink to this equation">¶</a></span>\[\beta = \sum_{i=0}^{d-1} \binom{n}{i} \epsilon^i (1-\epsilon)^{n-i}.\]</div>
+<p>Crucially the assessment of <span class="math notranslate nohighlight">\(V(\hat{z}_n)\)</span> is possible a priori,
+although other techniques exist <a class="bibtex reference internal" href="../zbibliography.html#barrera2016chance" id="id18">[BHdMM+16]</a>. <a class="bibtex reference internal" href="../zbibliography.html#care2015scenario" id="id19">[CareGC15]</a>
+analyse the reliability of solutions of the maximum error loss functions
+(<a class="reference internal" href="#equation-max-error-loss">(16)</a>) in the scenario framework when <span class="math notranslate nohighlight">\(\hat{y}(x)\)</span>
+is convex in <span class="math notranslate nohighlight">\(x\)</span> and the function weights.</p>
+<p>In the convex case, the a priori assessment is made possible by the fact
+that the number of support constraints (the number of constraints which
+if removed result in a more optimal solution) for a convex program is
+always bounded by the dimensionality of the design variable.
+<a class="bibtex reference internal" href="../zbibliography.html#campi2018wait" id="id20">[CG18]</a> explore this connection for convex programs in further
+detail, by analysing the number of support constraints after a solution
+is obtained. In fact, the bound in
+<a class="reference internal" href="#equation-ch3-reliability">(18)</a> if often overly conservative, because in
+many cases the number of support constraints is less than the
+dimensionality of the design variable, and hence a more accurate bound
+on the reliability of the IPM can be obtained. The improved bound is
+given by letting <span class="math notranslate nohighlight">\(\epsilon\)</span> be a function of the number of support
+constraints <span class="math notranslate nohighlight">\(s^*_n\)</span> such that <span class="math notranslate nohighlight">\(\epsilon(s^*_n)=1-t(s^*_n)\)</span>. Then for
+<span class="math notranslate nohighlight">\(0&lt;\beta&lt;1\)</span> and <span class="math notranslate nohighlight">\(0&lt;s^*_n&lt;d\)</span> the equation</p>
+<div class="math notranslate nohighlight" id="equation-wait">
+<span class="eqno">(19)<a class="headerlink" href="#equation-wait" title="Permalink to this equation">¶</a></span>\[\frac{\beta}{n+1}\sum_{m=k}^n{\binom{m}{k}t^{m-k}-\binom{n}{k}t^{n-k}}=0\]</div>
+<p>has one solution, <span class="math notranslate nohighlight">\(t(k)\)</span> in the interval <span class="math notranslate nohighlight">\([0,1]\)</span>.</p>
+<p>This idea has a deep connection with the concept of regularisation in
+machine learning <a class="bibtex reference internal" href="../zbibliography.html#campi2013random" id="id21">[CCare13]</a>. <a class="bibtex reference internal" href="../zbibliography.html#scenarioiterative2019" id="id22">[GarattiCampi19]</a> demonstrates
+how the number of support constraints of a scenario program can be used
+to iteratively increase the number of sampled constraints, which
+requires fewer sampled constraints in total than
+<a href="#id23"><span class="problematic" id="id24">:sec:`ch3:reliability`</span></a> for equivalent <span class="math notranslate nohighlight">\(\epsilon\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>.
+For a non-convex program, the number of support constraints is not
+necessarily less than the dimensionality of the design variable, and
+therefore a new approach is required, which we describe in the following
+section.</p>
+</div>
+<div class="section" id="non-convex-case">
+<h3>Non-convex case<a class="headerlink" href="#non-convex-case" title="Permalink to this headline">¶</a></h3>
+<p><a class="bibtex reference internal" href="../zbibliography.html#campi2018general" id="id25">[CGR18]</a> provide the following bound for the non-convex case:
+<span class="math notranslate nohighlight">\(P^n(V(\hat{z}_n)&gt;\epsilon(s))&lt;\beta,\)</span> where</p>
+<div class="math notranslate nohighlight" id="equation-thebound">
+<span class="eqno">(20)<a class="headerlink" href="#equation-thebound" title="Permalink to this equation">¶</a></span>\[\begin{split}\epsilon(s)=
+  \begin{cases}
+    1, &amp; \text{for } s=n, \\
+    1-\sqrt[n-s]{\frac{\beta}{n\binom{n}{s}}}, &amp; \text{otherwise,}
+  \end{cases}\end{split}\]</div>
+<p>and <span class="math notranslate nohighlight">\(s\)</span> is the cardinality of the support set (in
+other words, the number of support constraints). The behaviour of this
+bound is similar to the convex case since in general increasing <span class="math notranslate nohighlight">\(n\)</span>
+should increase the size of the support set.</p>
+<p>Finding the cardinality of the support set is in general a
+computationally expensive task, since the scenario program must be
+solved <span class="math notranslate nohighlight">\(n\)</span> times. <a class="bibtex reference internal" href="../zbibliography.html#campi2015non" id="id26">[CGR15]</a> present a time-efficient algorithm which
+only requires that the scenario problem is solved <span class="math notranslate nohighlight">\(s\)</span> times.</p>
+</div>
+<div class="section" id="a-posteriori-frequentist-analysis">
+<span id="sec-apost"></span><h3>A posteriori frequentist analysis<a class="headerlink" href="#a-posteriori-frequentist-analysis" title="Permalink to this headline">¶</a></h3>
+<p>When data is available in abundance, as is typically the case in most
+machine learning tasks where a neural network is currently used,
+<span class="math notranslate nohighlight">\(V(\hat{z}_n)\)</span> can be evaluated more easily by using a test set to
+collect samples from <span class="math notranslate nohighlight">\(V(\hat{z}_n)\)</span>. Estimating <span class="math notranslate nohighlight">\(V(\hat{z}_n)\)</span> is
+similar to estimating a probability of failure in the well known
+reliability theory. Therefore one can construct a Monte Carlo estimator
+of <span class="math notranslate nohighlight">\(V(\hat{z}_n)\)</span>, or use more advanced techniques from reliability
+analysis if it is possible to interact with the data generating
+mechanism. For example, if the number of test data points is large we
+can use the normal approximation Monte Carlo estimator of <span class="math notranslate nohighlight">\(V(\hat{z}_n)\)</span>
+with <span class="math notranslate nohighlight">\(V(\hat{z}_n)\approx \frac{N_v}{N_t}\)</span> and standard deviation
+<span class="math notranslate nohighlight">\(\sqrt{\frac{\frac{N_v}{N_t}(1-\frac{N_v}{N_t})}{N_t}}\)</span>, on a test set
+of size <span class="math notranslate nohighlight">\(N_t\)</span>, where <span class="math notranslate nohighlight">\(N_v\)</span> data points fall outside the interval bounds
+of the neural network.</p>
+<p>A particularly robust method of estimating the probability of a binary
+outcome involves using the binomial confidence bounds. In this case
+specifically, one can bound <span class="math notranslate nohighlight">\(V(\hat{z}_n)\)</span> with the desired confidence
+using the binomial confidence bounds:
+<span class="math notranslate nohighlight">\(\sum_{i=0}^{N_t-N_v}\binom{N_t}{i}(1-\underline{v})^i\underline{v}^{N_t-i}=\frac{\beta}{2}\)</span>
+and
+<span class="math notranslate nohighlight">\(\sum_{i=N_t-N_v}^{N_t}\binom{N_t}{i}(1-\overline{v})^i\overline{v}^{N_t-i}=\frac{\beta}{2},\)</span>
+where
+<span class="math notranslate nohighlight">\(P(V(\hat{z}_n)&lt;\overline{v} \cap V(\hat{z}_n)&gt;\underline{v})=\beta\)</span>.
+Estimating <span class="math notranslate nohighlight">\(V(\hat{z}_n)\)</span> using a test set also offers the advantage
+that when the neural network is used for predictions on a different data
+set, <span class="math notranslate nohighlight">\(V(\hat{z}_n)\)</span> can be evaluated easily. If the value of
+<span class="math notranslate nohighlight">\(V(\hat{z}_n)\)</span> obtained on the test set is higher than that on the
+training dataset, one can apply regularisation in order to implicitly
+reduce the size of the support set and increase <span class="math notranslate nohighlight">\(V(\hat{z}_n)\)</span> on the
+test set (e.g. dropout regularisation, or <span class="math notranslate nohighlight">\(\ell_2\)</span> regularisation on the
+weights).</p>
+<p>This methodology is ideal for models with a complex training scheme,
+where determining the support set would be prohibitively expensive. Note
+that the probabilistic assessment of the reliability of the model takes
+place separately from the training of the regression model, such that it
+is still robust, even if there is a problem with the regression model
+training. This is an important advantage over Variational Inference
+methods which are often used with neural networks.</p>
+</div>
+</div>
+<div class="section" id="software-for-interval-predictor-models">
+<h2>Software for interval predictor models<a class="headerlink" href="#software-for-interval-predictor-models" title="Permalink to this headline">¶</a></h2>
+<p><a class="bibtex reference internal" href="../zbibliography.html#patelli2017cossan" id="id27">[PBTS17]</a> describe the first open source software
+implementation of interval predictor models in the generalised
+uncertainty quantification software OpenCossan, which is
+written in Matlab. The OpenCossan software
+allows convex IPMs to be trained, with hyper-rectangular uncertainty
+sets. The OpenCossan software is modular and allows the
+IPMs to be automatically trained as approximations of expensive
+engineering models, and then used in other engineering calculations,
+e.g. design optimisation. A partial Python port of the
+OpenCossan IPM code was released as open source software
+by <a class="bibtex reference internal" href="../zbibliography.html#sadeghi-pyipm" id="id28">[Sad18]</a>.</p>
+<p>The introduced software has been applied in <a class="bibtex reference internal" href="../zbibliography.html#brandt2017meta" id="id29">[BBH+17]</a>, to study
+fatigue damage estimation of offshore wind turbines jacket substructure.</p>
+</div>
+<div class="section" id="worked-example-linear-regression">
+<h2>Worked example : linear regression<a class="headerlink" href="#worked-example-linear-regression" title="Permalink to this headline">¶</a></h2>
+<p>We repeat the previous linear regression example using the <code class="docutils literal notranslate"><span class="pre">PyIPM</span></code> Interval Predictor Model library.
+Since the IPM makes fewer assumptions than the parametric model we will require more data to learn an effective model.
+Therefore we will generate training data from a toy function <span class="math notranslate nohighlight">\(1000 x^2 + \epsilon\)</span>, where <span class="math notranslate nohighlight">\(\epsilon\)</span> is randomly distributed noise with standard deviation <span class="math notranslate nohighlight">\(20000\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">PyIPM</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">rainfall</span> <span class="o">=</span> <span class="mi">13</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">umbrellas</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="n">rainfall</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">20000</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">PyIPM</span><span class="o">.</span><span class="n">IPM</span><span class="p">(</span><span class="n">polynomial_degree</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">rainfall</span><span class="p">,</span> <span class="n">umbrellas</span><span class="p">)</span>
+
+<span class="n">x_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">upper_bound</span><span class="p">,</span> <span class="n">lower_bound</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_plot</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">rainfall</span><span class="p">,</span> <span class="n">umbrellas</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Training Data&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span>
+    <span class="n">x_plot</span><span class="p">,</span>
+    <span class="n">lower_bound</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">upper_bound</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;IPM&quot;</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;For a test set generated from the same function as the training data, &quot;</span>
+      <span class="s2">&quot;our model predictions will be enclose the test set with probability &quot;</span>
+      <span class="s2">&quot;greater than </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_model_reliability</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     pcost       dcost       gap    pres   dres   k/t
+ 0:  1.4552e-11 -3.6380e-10  2e+06  1e-01  1e+02  1e+00
+ 1:  1.8677e+04  2.1262e+04  7e+05  3e-02  3e+01  3e+03
+ 2:  2.0872e+04  2.0895e+04  3e+04  2e-03  2e+00  2e+01
+ 3:  1.8465e+04  1.8478e+04  8e+03  5e-04  4e-01  1e+01
+ 4:  1.8441e+04  1.8450e+04  3e+03  2e-04  2e-01  9e+00
+ 5:  1.8329e+04  1.8331e+04  8e+02  5e-05  5e-02  3e+00
+ 6:  1.8299e+04  1.8300e+04  8e+01  5e-06  4e-03  3e-01
+ 7:  1.8297e+04  1.8297e+04  8e-01  5e-08  5e-05  4e-03
+ 8:  1.8296e+04  1.8296e+04  8e-03  5e-10  5e-07  4e-05
+ 9:  1.8296e+04  1.8296e+04  8e-05  5e-12  5e-09  4e-07
+Optimal solution found.
+</pre></div>
+</div>
+<img alt="../_images/learning-bounds_2_1.png" src="../_images/learning-bounds_2_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For a test set generated from the same function as the training data, our model predictions will be enclose the test set with probability greater than 0.7704137287382764
+</pre></div>
+</div>
+</div>
+</div>
+<p>This example demonstrates the benefits of Interval Predictor Models: few assumptions are required, but a model which fits the data well can be obtained, alongside rigorous uncertainty quantification.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapter3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="non-parametric-models.html" title="previous page">Non-parametric models</a>
+    <a class='right-next' id="next-link" href="conclusion.html" title="next page">Chapter summary</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

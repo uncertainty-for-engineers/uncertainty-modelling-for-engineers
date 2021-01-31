@@ -1,0 +1,751 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bibliography &#8212; Uncertainty Modelling for Engineers</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Conclusion" href="conclusion.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/FORM.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Uncertainty Modelling for Engineers</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   How to use this book
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="outline.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="chapter2/chapter2.html">
+   Models of Uncertainty
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter2/probabilistic.html">
+     Probabilistic models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter2/sets.html">
+     Set-based models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter2/imprecise.html">
+     Imprecise probabilistic models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter2/creating.html">
+     Creating models in practice
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter2/summary.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="chapter3/chapter3.html">
+   Machine Learning of Regression Models
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter3/parametric-models.html">
+     Parametric regression models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter3/non-parametric-models.html">
+     Non-parametric models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter3/learning-bounds.html">
+     Learning bounds on a model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter3/conclusion.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="chapter4/chapter4.html">
+   Reliability Analysis
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter4/random-variables.html">
+     Reliability analysis with random variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter4/convex-set.html">
+     Convex set models for reliability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter4/probability-boxes.html">
+     Reliability analysis with probability boxes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter4/summary.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="conclusion.html">
+   Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/zbibliography.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers/issues/new?title=Issue%20on%20page%20%2Fzbibliography.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers/edit/master/zbibliography.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="bibliography">
+<h1>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this headline">¶</a></h1>
+<p id="bibtex-bibliography-zbibliography-0"><dl class="citation">
+<dt class="bibtex label" id="alamo2015randomized"><span class="brackets">ATLR15</span></dt>
+<dd><p>Teodoro Alamo, Roberto Tempo, Amalia Luque, and Daniel R Ramirez. Randomized methods for design of uncertain systems: sample complexity and sequential algorithms. <em>Automatica</em>, 52:160–172, 2015. <a class="reference external" href="https://doi.org/10.1016/j.automatica.2014.11.004">doi:10.1016/j.automatica.2014.11.004</a>.</p>
+</dd>
+<dt class="bibtex label" id="alvarez2006calculation"><span class="brackets">Alv06</span></dt>
+<dd><p>Diego A Alvarez. On the calculation of the bounds of probability of events using infinite random sets. <em>International journal of approximate reasoning</em>, 43(3):241–267, 2006. <a class="reference external" href="https://doi.org/10.1016/j.ijar.2006.04.005">doi:10.1016/j.ijar.2006.04.005</a>.</p>
+</dd>
+<dt class="bibtex label" id="alvarez2007infinite"><span class="brackets">Alv07</span></dt>
+<dd><p>Diego A Alvarez. <em>Infinite random sets and applications in uncertainty analysis</em>. PhD thesis, Ph. D. Thesis, Leopold-Franzens Universität Innsbruck, Innsbruck, Austria, 2007.</p>
+</dd>
+<dt class="bibtex label" id="au2001estimation"><span class="brackets">AB01</span></dt>
+<dd><p>Siu-Kui Au and James L Beck. Estimation of small failure probabilities in high dimensions by subset simulation. <em>Probabilistic engineering mechanics</em>, 16(4):263–277, 2001. <a class="reference external" href="https://doi.org/10.1016/S0266-8920(01)00019-4">doi:10.1016/S0266-8920(01)00019-4</a>.</p>
+</dd>
+<dt class="bibtex label" id="balch2016corrector"><span class="brackets">Bal16</span></dt>
+<dd><p>Michael S Balch. A corrector for probability dilution in satellite conjunction analysis. In <em>18th AIAA Non-Deterministic Approaches Conference</em>, 1445. 2016. <a class="reference external" href="https://doi.org/10.2514/6.2016-1445">doi:10.2514/6.2016-1445</a>.</p>
+</dd>
+<dt class="bibtex label" id="balch2017satellite"><span class="brackets">BMF19</span></dt>
+<dd><p>Michael Scott Balch, Ryan Martin, and Scott Ferson. Satellite conjunction analysis and the false confidence theorem. <em>Proceedings of the Royal Society A</em>, 475(2227):20180565, 2019. <a class="reference external" href="https://doi.org/10.1098/rspa.2018.0565">doi:10.1098/rspa.2018.0565</a>.</p>
+</dd>
+<dt class="bibtex label" id="barrera2016chance"><span class="brackets">BHdMM+16</span></dt>
+<dd><p>Javiera Barrera, Tito Homem-de-Mello, Eduardo Moreno, Bernardo K Pagnoncelli, and Gianpiero Canessa. Chance-constrained problems and rare events: an importance sampling approach. <em>Mathematical Programming</em>, 157(1):153–189, 2016. <a class="reference external" href="https://doi.org/10.1007/s10107-015-0942-x">doi:10.1007/s10107-015-0942-x</a>.</p>
+</dd>
+<dt class="bibtex label" id="ben1994convex"><span class="brackets">BH94</span></dt>
+<dd><p>Yakov Ben-Haim. Convex models of uncertainty: applications and implications. <em>Erkenntnis</em>, 41(2):139–156, 1994. <a class="reference external" href="https://doi.org/10.1007/BF01128824">doi:10.1007/BF01128824</a>.</p>
+</dd>
+<dt class="bibtex label" id="ben2013convex"><span class="brackets">BHE13</span></dt>
+<dd><p>Yakov Ben-Haim and Isaac Elishakoff. <em>Convex models of uncertainty in applied mechanics</em>. Volume 25. Elsevier, 2013. <a class="reference external" href="https://doi.org/10.1137/1035076">doi:10.1137/1035076</a>.</p>
+</dd>
+<dt class="bibtex label" id="berger1984robust"><span class="brackets">Ber84</span></dt>
+<dd><p>James Berger. <em>The robust Bayesian viewpoint (with discussion). Robustness of Bayesian Analysis</em>. Amsterdam: North Holland, 1984.</p>
+</dd>
+<dt class="bibtex label" id="berger1985statistical"><span class="brackets">Ber85</span></dt>
+<dd><p>James O Berger. <em>Statistical Decision Theory and Bayesian Analysis</em>. Springer Science &amp; Business Media, 1985. <a class="reference external" href="https://doi.org/10.1007/978-1-4757-4286-2">doi:10.1007/978-1-4757-4286-2</a>.</p>
+</dd>
+<dt class="bibtex label" id="berger1994overview"><span class="brackets">BMP+94</span></dt>
+<dd><p>James O Berger, Elías Moreno, Luis Raul Pericchi, M Jesús Bayarri, José M Bernardo, Juan A Cano, Julián De la Horra, Jacinto Martín, David Ríos-Insúa, Bruno Betrò, and others. An overview of robust Bayesian analysis. <em>Test</em>, 3(1):5–124, 1994. <a class="reference external" href="https://doi.org/10.1007/BF02562676">doi:10.1007/BF02562676</a>.</p>
+</dd>
+<dt class="bibtex label" id="berveiller2006stochastic"><span class="brackets">BSL06</span></dt>
+<dd><p>Marc Berveiller, Bruno Sudret, and Maurice Lemaire. Stochastic finite element: a non intrusive approach by regression. <em>European Journal of Computational Mechanics/Revue Européenne de Mécanique Numérique</em>, 15(1-3):81–92, 2006. <a class="reference external" href="https://doi.org/10.3166/remn.15.81-92">doi:10.3166/remn.15.81-92</a>.</p>
+</dd>
+<dt class="bibtex label" id="birnbaum1968importance"><span class="brackets">Bir68</span></dt>
+<dd><p>Zygmund William Birnbaum. On the importance of different components in a multicomponent system. Technical Report, Washington Univ Seattle Lab of Statistical Research, 1968.</p>
+</dd>
+<dt class="bibtex label" id="blundell2015weight"><span class="brackets">BCKW15</span></dt>
+<dd><p>Charles Blundell, Julien Cornebise, Koray Kavukcuoglu, and Daan Wierstra. Weight uncertainty in neural networks. <em>arXiv preprint arXiv:1505.05424</em>, 2015.</p>
+</dd>
+<dt class="bibtex label" id="boyd2004convex"><span class="brackets">BV04</span></dt>
+<dd><p>Stephen Boyd and Lieven Vandenberghe. <em>Convex optimization</em>. Cambridge University Press, 2004.</p>
+</dd>
+<dt class="bibtex label" id="brandt2017meta"><span class="brackets">BBH+17</span></dt>
+<dd><p>Sebastian Brandt, Matteo Broggi, Jan Hafele, Cristian Guillermo Gebhardt, Raimund Rolfes, and Michael Beer. Meta-models for fatigue damage estimation of offshore wind turbines jacket substructures. <em>Procedia engineering</em>, 199:1158–1163, 2017. <a class="reference external" href="https://doi.org/10.1016/j.proeng.2017.09.292">doi:10.1016/j.proeng.2017.09.292</a>.</p>
+</dd>
+<dt class="bibtex label" id="breitung2019geometry"><span class="brackets">Bre19</span></dt>
+<dd><p>Karl Breitung. The geometry of limit state function graphs and subset simulation: counterexamples. <em>Reliability Engineering &amp; System Safety</em>, 182:98–106, 2019. <a class="reference external" href="https://doi.org/10.1016/j.ress.2018.10.008">doi:10.1016/j.ress.2018.10.008</a>.</p>
+</dd>
+<dt class="bibtex label" id="bubeck2015convex"><span class="brackets">B+15</span></dt>
+<dd><p>Sébastien Bubeck and others. Convex optimization: algorithms and complexity. <em>Foundations and Trends® in Machine Learning</em>, 8(3-4):231–357, 2015. <a class="reference external" href="https://doi.org/10.1561/2200000050">doi:10.1561/2200000050</a>.</p>
+</dd>
+<dt class="bibtex label" id="bucher1990fast"><span class="brackets">BB90</span></dt>
+<dd><p>Christian G Bucher and U Bourgund. A fast and efficient response surface approach for structural reliability problems. <em>Structural safety</em>, 7(1):57–66, 1990. <a class="reference external" href="https://doi.org/10.1016/0167-4730(90)90012-E">doi:10.1016/0167-4730(90)90012-E</a>.</p>
+</dd>
+<dt class="bibtex label" id="calafiore2010random"><span class="brackets">Cal10</span></dt>
+<dd><p>Giuseppe Carlo Calafiore. Random convex programs. <em>SIAM Journal on Optimization</em>, 20(6):3427–3464, 2010. <a class="reference external" href="https://doi.org/10.1137/090773490">doi:10.1137/090773490</a>.</p>
+</dd>
+<dt class="bibtex label" id="campi2009interval"><span class="brackets">CCG09</span></dt>
+<dd><p>Marco C Campi, Giuseppe Calafiore, and Simone Garatti. Interval predictor models: identification and reliability. <em>Automatica</em>, 45(2):382–392, 2009. <a class="reference external" href="https://doi.org/10.1016/j.automatica.2008.09.004">doi:10.1016/j.automatica.2008.09.004</a>.</p>
+</dd>
+<dt class="bibtex label" id="campi2013random"><span class="brackets">CCare13</span></dt>
+<dd><p>Marco C Campi and Algo Caré. Random convex programs with l$_1$-regularization: sparsity and generalization. <em>SIAM Journal on Control and Optimization</em>, 51(5):3532–3557, 2013. <a class="reference external" href="https://doi.org/10.1137/110856204">doi:10.1137/110856204</a>.</p>
+</dd>
+<dt class="bibtex label" id="campi2008exact"><span class="brackets">CG08</span></dt>
+<dd><p>Marco C Campi and Simone Garatti. The exact feasibility of randomized solutions of uncertain convex programs. <em>SIAM Journal on Optimization</em>, 19(3):1211–1230, 2008. <a class="reference external" href="https://doi.org/10.1137/07069821X">doi:10.1137/07069821X</a>.</p>
+</dd>
+<dt class="bibtex label" id="campi2018wait"><span class="brackets">CG18</span></dt>
+<dd><p>Marco C Campi and Simone Garatti. Wait-and-judge scenario optimization. <em>Mathematical Programming</em>, 167(1):155–189, 2018. <a class="reference external" href="https://doi.org/10.1007/s10107-016-1056-9">doi:10.1007/s10107-016-1056-9</a>.</p>
+</dd>
+<dt class="bibtex label" id="campi2015non"><span class="brackets">CGR15</span></dt>
+<dd><p>Marco C Campi, Simone Garatti, and Federico A Ramponi. Non-convex scenario optimization with application to system identification. In <em>2015 54th IEEE Conference on Decision and Control (CDC)</em>, 4023–4028. IEEE, 2015. <a class="reference external" href="https://doi.org/10.1109/CDC.2015.7402845">doi:10.1109/CDC.2015.7402845</a>.</p>
+</dd>
+<dt class="bibtex label" id="campi2018general"><span class="brackets">CGR18</span></dt>
+<dd><p>Marco Claudio Campi, Simone Garatti, and Federico Alessandro Ramponi. A general scenario theory for nonconvex optimization and decision making. <em>IEEE Transactions on Automatic Control</em>, 63(12):4067–4078, 2018. <a class="reference external" href="https://doi.org/10.1109/TAC.2018.2808446">doi:10.1109/TAC.2018.2808446</a>.</p>
+</dd>
+<dt class="bibtex label" id="care201871"><span class="brackets">CareC18</span></dt>
+<dd><p>Algo Carè and Enrico Camporeale. Chapter 4 - regression. In Enrico Camporeale, Simon Wing, and Jay R. Johnson, editors, <em>Machine Learning Techniques for Space Weather</em>, pages 71 – 112. Elsevier, 2018. <a class="reference external" href="https://doi.org/10.1016/B978-0-12-811788-0.00004-4">doi:10.1016/B978-0-12-811788-0.00004-4</a>.</p>
+</dd>
+<dt class="bibtex label" id="care2015scenario"><span class="brackets">CareGC15</span></dt>
+<dd><p>Algo Carè, Simone Garatti, and Marco C Campi. Scenario min-max optimization and the risk of empirical costs. <em>SIAM Journal on Optimization</em>, 25(4):2061–2080, 2015. <a class="reference external" href="https://doi.org/10.1137/130928546">doi:10.1137/130928546</a>.</p>
+</dd>
+<dt class="bibtex label" id="chazelle1993"><span class="brackets">Cha93</span></dt>
+<dd><p>Bernard Chazelle. An optimal convex hull algorithm in any fixed dimension. <em>Discrete &amp; Computational Geometry</em>, 10(4):377–409, Dec 1993. <a class="reference external" href="https://doi.org/10.1007/BF02573985">doi:10.1007/BF02573985</a>.</p>
+</dd>
+<dt class="bibtex label" id="crespo2012unifying"><span class="brackets">CGK12</span></dt>
+<dd><p>Luis G Crespo, Daniel P Giesy, and Sean P Kenny. A unifying framework to uncertainty quantification of polynomial systems subject to aleatory and epistemic uncertainty. <em>Reliable Computing</em>, 17(2):97–127, 2012.</p>
+</dd>
+<dt class="bibtex label" id="crespo-interval-2016"><span class="brackets">CKG16</span></dt>
+<dd><p>Luis G Crespo, Sean P Kenny, and Daniel P Giesy. Interval predictor models with a linear parameter dependency. <em>Journal of Verification, Validation and Uncertainty Quantification</em>, 2016. <a class="reference external" href="https://doi.org/10.1115/1.4032070">doi:10.1115/1.4032070</a>.</p>
+</dd>
+<dt class="bibtex label" id="csillery2010approximate"><span class="brackets">CsilleryBGFranccois10</span></dt>
+<dd><p>Katalin Csilléry, Michael GB Blum, Oscar E Gaggiotti, and Olivier François. Approximate bayesian computation (abc) in practice. <em>Trends in ecology &amp; evolution</em>, 25(7):410–418, 2010. <a class="reference external" href="https://doi.org/10.1016/j.tree.2010.04.001">doi:10.1016/j.tree.2010.04.001</a>.</p>
+</dd>
+<dt class="bibtex label" id="dabney2017distributional"><span class="brackets">DRBM17</span></dt>
+<dd><p>Will Dabney, Mark Rowland, Marc G Bellemare, and Rémi Munos. Distributional reinforcement learning with quantile regression. <em>The Thirty-Second AAAI Conference on Artificial Intelligence (AAAI-18)</em>, 2017.</p>
+</dd>
+<dt class="bibtex label" id="de2015efficient"><span class="brackets">DA15</span></dt>
+<dd><p>Marco De Angelis. <em>Efficient Random Set Uncertainty Quantification by means of Advanced Sampling Techniques</em>. PhD thesis, University of Liverpool, 2015.</p>
+</dd>
+<dt class="bibtex label" id="de2015advanced"><span class="brackets">dAPB15</span></dt>
+<dd><p>Marco de Angelis, Edoardo Patelli, and Michael Beer. Advanced line sampling for efficient robust reliability analysis. <em>Structural safety</em>, 52:170–182, 2015. <a class="reference external" href="https://doi.org/10.1016/j.strusafe.2014.10.002">doi:10.1016/j.strusafe.2014.10.002</a>.</p>
+</dd>
+<dt class="bibtex label" id="decadt2019monte"><span class="brackets">DdCDB19</span></dt>
+<dd><p>Arne Decadt, Gert de Cooman, and Jasper De Bock. Monte carlo estimation for imprecise probabilities: basic properties. <em>arXiv preprint arXiv:1905.09301</em>, 2019.</p>
+</dd>
+<dt class="bibtex label" id="diaz2011gaussian"><span class="brackets">DDlO11</span></dt>
+<dd><p>Francisco Alejandro Diaz De la O. <em>Gaussian process emulators for the analysis of complex models in engineering</em>. PhD thesis, Swansea University, 2011.</p>
+</dd>
+<dt class="bibtex label" id="doersch2016tutorial"><span class="brackets">Doe16</span></dt>
+<dd><p>Carl Doersch. Tutorial on variational autoencoders. <em>arXiv preprint arXiv:1606.05908</em>, 2016.</p>
+</dd>
+<dt class="bibtex label" id="echard2011ak"><span class="brackets">EGL11</span></dt>
+<dd><p>B Echard, N Gayton, and M Lemaire. Ak-mcs: an active learning reliability method combining kriging and monte carlo simulation. <em>Structural Safety</em>, 33(2):145–154, 2011. <a class="reference external" href="https://doi.org/10.1016/j.strusafe.2011.01.002">doi:10.1016/j.strusafe.2011.01.002</a>.</p>
+</dd>
+<dt class="bibtex label" id="elishakoff2010optimization"><span class="brackets">EO10</span></dt>
+<dd><p>Isaac Elishakoff and Makoto Ohsaki. <em>Optimization and anti-optimization of structures under uncertainty</em>. World Scientific, 2010. <a class="reference external" href="https://doi.org/10.1142/p678">doi:10.1142/p678</a>.</p>
+</dd>
+<dt class="bibtex label" id="eslami2018neural"><span class="brackets">ERB+18</span></dt>
+<dd><p>S. M. Ali Eslami, Danilo Jimenez Rezende, Frederic Besse, Fabio Viola, Ari S Morcos, Marta Garnelo, Avraham Ruderman, Andrei A Rusu, Ivo Danihelka, Karol Gregor, and others. Neural scene representation and rendering. <em>Science</em>, 360(6394):1204–1210, 2018. <a class="reference external" href="https://doi.org/10.1126/science.aar6170">doi:10.1126/science.aar6170</a>.</p>
+</dd>
+<dt class="bibtex label" id="sadeghi-2019"><span class="brackets">FSB+19</span></dt>
+<dd><p>Matthias Faes, Jonathan Sadeghi, Matteo Broggi, Marco De Angelis, Edoardo Patelli, Michael Beer, and David Moens. On the robust estimation of small failure probabilities for strong non-linear models. <em>ASCE-ASME Journal of Risk and Uncertainty in Engineering Systems Part B: Mechanical Engineering</em>, 2019. URL: <a class="reference external" href="https://www.researchgate.net/publication/330765220_On_the_robust_estimation_of_small_failure_probabilities_for_strong_non-linear_models">https://www.researchgate.net/publication/330765220_On_the_robust_estimation_of_small_failure_probabilities_for_strong_non-linear_models</a>.</p>
+</dd>
+<dt class="bibtex label" id="sandia2002constructing"><span class="brackets">FKG+03</span></dt>
+<dd><p>Scott Ferson, Vladik Kreinovich, Lev Ginzburg, Davis S Myers, and Kari Sentz. Constructing probability boxes and dempster-shafer structures. Technical Report, Technical report, Sandia National Laboratories, 2003.</p>
+</dd>
+<dt class="bibtex label" id="ferson2009validation"><span class="brackets">FOG09</span></dt>
+<dd><p>Scott Ferson, William L Oberkampf, and Lev Ginzburg. Validation of imprecise probability models. <em>Int. J. Reliab. Saf</em>, 3(1-3):3–22, 2009. <a class="reference external" href="https://doi.org/10.1504/IJRS.2009.026832">doi:10.1504/IJRS.2009.026832</a>.</p>
+</dd>
+<dt class="bibtex label" id="ferson2014computing"><span class="brackets">FORaweB14</span></dt>
+<dd><p>Scott Ferson, Jason O’Rawe, and Michael Balch. Computing with confidence: imprecise posteriors and predictive distributions. In <em>Vulnerability, Uncertainty, and Risks: Quantification, Mitigation, and Management</em>, pages 895–904. 2014. <a class="reference external" href="https://doi.org/10.1061/9780784413609.091">doi:10.1061/9780784413609.091</a>.</p>
+</dd>
+<dt class="bibtex label" id="fetz2016imprecise"><span class="brackets">FO16</span></dt>
+<dd><p>Thomas Fetz and Michael Oberguggenberger. Imprecise random variables, random sets, and monte carlo simulation. <em>International Journal of Approximate Reasoning</em>, 78:252–264, 2016. <a class="reference external" href="https://doi.org/10.1016/j.ijar.2016.06.012">doi:10.1016/j.ijar.2016.06.012</a>.</p>
+</dd>
+<dt class="bibtex label" id="frazier2018tutorial"><span class="brackets">Fra18</span></dt>
+<dd><p>Peter I Frazier. A tutorial on bayesian optimization. <em>arXiv preprint arXiv:1807.02811</em>, 2018.</p>
+</dd>
+<dt class="bibtex label" id="freitag2011recurrent"><span class="brackets">FGK11</span></dt>
+<dd><p>Steffen Freitag, Wolfgang Graf, and Michael Kaliske. Recurrent neural networks for fuzzy data. <em>Integrated Computer-Aided Engineering</em>, 18(3):265–280, 2011. <a class="reference external" href="https://doi.org/10.3233/ICA-2011-0373">doi:10.3233/ICA-2011-0373</a>.</p>
+</dd>
+<dt class="bibtex label" id="friedman2001elements"><span class="brackets">FHT01</span></dt>
+<dd><p>Jerome Friedman, Trevor Hastie, and Robert Tibshirani. <em>The elements of statistical learning</em>. Volume 1. Springer series in statistics New York, 2001. <a class="reference external" href="https://doi.org/10.1007/BF02985802">doi:10.1007/BF02985802</a>.</p>
+</dd>
+<dt class="bibtex label" id="gal-github"><span class="brackets">Gal16a</span></dt>
+<dd><p>Yarin Gal. Heteroscedastic dropout uncertainty. <span><a class="reference external" href="#"></a></span>https://github.com/yaringal/HeteroscedasticDropoutUncertainty, 2016.</p>
+</dd>
+<dt class="bibtex label" id="gal2016uncertainty"><span class="brackets">Gal16b</span></dt>
+<dd><p>Yarin Gal. <em>Uncertainty in deep learning</em>. PhD thesis, PhD thesis, University of Cambridge, 2016.</p>
+</dd>
+<dt class="bibtex label" id="gal2016dropout"><span class="brackets">GG16a</span></dt>
+<dd><p>Yarin Gal and Zoubin Ghahramani. Dropout as a bayesian approximation: representing model uncertainty in deep learning. In <em>international conference on machine learning</em>, 1050–1059. 2016.</p>
+</dd>
+<dt class="bibtex label" id="gal2017concrete"><span class="brackets">GHK17</span></dt>
+<dd><p>Yarin Gal, Jiri Hron, and Alex Kendall. Concrete dropout. In <em>Advances in Neural Information Processing Systems</em>, 3581–3590. 2017.</p>
+</dd>
+<dt class="bibtex label" id="garnelo2018neural"><span class="brackets">GSR+18</span></dt>
+<dd><p>Marta Garnelo, Jonathan Schwarz, Dan Rosenbaum, Fabio Viola, Danilo J Rezende, SM Eslami, and Yee Whye Teh. Neural processes. <em>arXiv preprint arXiv:1807.01622</em>, 2018.</p>
+</dd>
+<dt class="bibtex label" id="gelman2013bayesian"><span class="brackets">GSC+13</span></dt>
+<dd><p>Andrew Gelman, Hal S Stern, John B Carlin, David B Dunson, Aki Vehtari, and Donald B Rubin. <em>Bayesian data analysis</em>. Chapman and Hall/CRC, 2013. <a class="reference external" href="https://doi.org/10.1201/b16018">doi:10.1201/b16018</a>.</p>
+</dd>
+<dt class="bibtex label" id="gomes"><span class="brackets">Gom19</span></dt>
+<dd><p>Wellison JS Gomes. Structural reliability analysis using adaptive artificial neural networks. <em>ASCE-ASME Journal of Risk and Uncertainty in Engineering Systems, Part B: Mechanical Engineering</em>, 2019. <a class="reference external" href="https://doi.org/10.1115/1.4044040">doi:10.1115/1.4044040</a>.</p>
+</dd>
+<dt class="bibtex label" id="goodfellow2014generative"><span class="brackets">GPAM+14</span></dt>
+<dd><p>Ian Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, and Yoshua Bengio. Generative adversarial nets. In <em>Advances in neural information processing systems</em>, 2672–2680. 2014.</p>
+</dd>
+<dt class="bibtex label" id="goodno2016mechanics"><span class="brackets">GG16b</span></dt>
+<dd><p>Barry J Goodno and James M Gere. <em>Mechanics of Materials</em>. Cengage Learning, 2016.</p>
+</dd>
+<dt class="bibtex label" id="green2017estimating"><span class="brackets">GM17</span></dt>
+<dd><p>PL Green and Simon Maskell. Estimating the parameters of dynamical systems from big data using sequential monte carlo samplers. <em>Mechanical Systems and Signal Processing</em>, 93:379–396, 2017. <a class="reference external" href="https://doi.org/10.1016/j.ymssp.2016.12.023">doi:10.1016/j.ymssp.2016.12.023</a>.</p>
+</dd>
+<dt class="bibtex label" id="hansen1975generalized"><span class="brackets">Han75</span></dt>
+<dd><p>Eldon R Hansen. A generalized interval arithmetic. In <em>International Symposium on Interval Mathematics</em>, 7–18. Springer, 1975. <a class="reference external" href="https://doi.org/10.1007/3-540-07170-9_2">doi:10.1007/3-540-07170-9_2</a>.</p>
+</dd>
+<dt class="bibtex label" id="hensman2013gaussian"><span class="brackets">HFL13</span></dt>
+<dd><p>James Hensman, Nicolò Fusi, and Neil D Lawrence. Gaussian processes for big data. In <em>Proceedings of the Twenty-Ninth Conference on Uncertainty in Artificial Intelligence</em>, 282–290. AUAI Press, 2013.</p>
+</dd>
+<dt class="bibtex label" id="huang1998robust"><span class="brackets">HZH98</span></dt>
+<dd><p>Lei Huang, Bai-Ling Zhang, and Qian Huang. Robust interval regression analysis using neural networks. <em>Fuzzy sets and systems</em>, 97(3):337–347, 1998. <a class="reference external" href="https://doi.org/10.1016/S0165-0114(96)00325-9">doi:10.1016/S0165-0114(96)00325-9</a>.</p>
+</dd>
+<dt class="bibtex label" id="huang2008"><span class="brackets">HH08</span></dt>
+<dd><p>Zhi-yue Huang and Bin-wu He. Volume of unit ball in an n-dimensional normed space and its asymptotic properties. <em>Journal of Shanghai University (English Edition)</em>, 12(2):107–109, Apr 2008. <a class="reference external" href="https://doi.org/10.1007/s11741-008-0204-1">doi:10.1007/s11741-008-0204-1</a>.</p>
+</dd>
+<dt class="bibtex label" id="iman2001appendixa"><span class="brackets">Ima14</span></dt>
+<dd><p>Ronald L. Iman. <em>Latin Hypercube Sampling</em>. New York: John Wiley &amp; Sons Ltd, 2014. URL: <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/9781118445112.stat03803">https://onlinelibrary.wiley.com/doi/abs/10.1002/9781118445112.stat03803</a>, <a class="reference external" href="https://doi.org/10.1002/9781118445112.stat03803">doi:10.1002/9781118445112.stat03803</a>.</p>
+</dd>
+<dt class="bibtex label" id="ishibuchi1993architecture"><span class="brackets">ITO93</span></dt>
+<dd><p>Hisao Ishibuchi, Hideo Tanaka, and Hidehiko Okada. An architecture of neural networks with interval weights and its application to fuzzy regression analysis. <em>Fuzzy Sets and Systems</em>, 57(1):27–39, 1993. <a class="reference external" href="https://doi.org/10.1016/0165-0114(93)90118-2">doi:10.1016/0165-0114(93)90118-2</a>.</p>
+</dd>
+<dt class="bibtex label" id="jaynes2003probability"><span class="brackets">Jay03</span></dt>
+<dd><p>Edwin T Jaynes. <em>Probability theory: The logic of science</em>. Cambridge University Press, 2003.</p>
+</dd>
+<dt class="bibtex label" id="jiang2017probability"><span class="brackets">JZH17</span></dt>
+<dd><p>C Jiang, J Zheng, and X Han. Probability-interval hybrid uncertainty analysis for structures with both aleatory and epistemic uncertainties: a review. <em>Structural and Multidisciplinary Optimization</em>, pages 1–18, 2017. <a class="reference external" href="https://doi.org/10.1007/s00158-017-1864-4">doi:10.1007/s00158-017-1864-4</a>.</p>
+</dd>
+<dt class="bibtex label" id="kaymaz2005application"><span class="brackets">Kay05</span></dt>
+<dd><p>Irfan Kaymaz. Application of kriging method to structural reliability problems. <em>Structural Safety</em>, 27(2):133–151, 2005. <a class="reference external" href="https://doi.org/10.1016/j.strusafe.2004.09.001">doi:10.1016/j.strusafe.2004.09.001</a>.</p>
+</dd>
+<dt class="bibtex label" id="kingma2014adam"><span class="brackets">KB14</span></dt>
+<dd><p>Diederik P Kingma and Jimmy Ba. Adam: a method for stochastic optimization. <em>arXiv preprint arXiv:1412.6980</em>, 2014.</p>
+</dd>
+<dt class="bibtex label" id="kolmogoroff1941confidence"><span class="brackets">Kol41</span></dt>
+<dd><p>Andrey Kolmogoroff. Confidence limits for an unknown distribution function. <em>The annals of mathematical statistics</em>, 12(4):461–463, 1941. <a class="reference external" href="https://doi.org/10.1214/aoms/1177731684">doi:10.1214/aoms/1177731684</a>.</p>
+</dd>
+<dt class="bibtex label" id="andrei1950kolmogorov"><span class="brackets">Kol50</span></dt>
+<dd><p>Andrei N. Kolmogorov. <em>Foundations of the Theory of Probability</em>. Chelsea Publishing Company, New York, 1950.</p>
+</dd>
+<dt class="bibtex label" id="kreinovich2004monte"><span class="brackets">KBF+04</span></dt>
+<dd><p>V Kreinovich, J Beck, C Ferregut, A Sanchez, GR Keller, M Averill, and SA Starks. Monte-carlo-type techniques for processing interval uncertainty, and their engineering applications. In <em>Proceedings of the workshop on reliable engineering computing</em>, 15–17. 2004.</p>
+</dd>
+<dt class="bibtex label" id="kreinovich2013"><span class="brackets">KLP13</span></dt>
+<dd><p>Vladik Kreinovich, Wolfram Luther, and Evgenija D. Popova. Special issue on “uncertainty modeling and analysis with intervals: foundations, tools, applications”. <em>Soft Computing</em>, 17(8):1315–1317, Aug 2013. <a class="reference external" href="https://doi.org/10.1007/s00500-013-1004-z">doi:10.1007/s00500-013-1004-z</a>.</p>
+</dd>
+<dt class="bibtex label" id="kruschke2014doing"><span class="brackets">Kru14</span></dt>
+<dd><p>John Kruschke. <em>Doing Bayesian data analysis: A tutorial with R, JAGS, and Stan</em>. Academic Press, 2014.</p>
+</dd>
+<dt class="bibtex label" id="lacerda2017interval"><span class="brackets">LC17</span></dt>
+<dd><p>Márcio J Lacerda and Luis G Crespo. Interval predictor models for data with measurement uncertainty. In <em>American Control Conference (ACC), 2017</em>, 1487–1492. IEEE, 2017. <a class="reference external" href="https://doi.org/10.23919/ACC.2017.7963163">doi:10.23919/ACC.2017.7963163</a>.</p>
+</dd>
+<dt class="bibtex label" id="madry2017towards"><span class="brackets">MMS+17</span></dt>
+<dd><p>Aleksander Madry, Aleksandar Makelov, Ludwig Schmidt, Dimitris Tsipras, and Adrian Vladu. Towards deep learning models resistant to adversarial attacks. <em>ICML 2017 Workshop on Principled Approaches to Deep Learning</em>, 2017.</p>
+</dd>
+<dt class="bibtex label" id="makino2003taylor"><span class="brackets">MB03</span></dt>
+<dd><p>Kyoko Makino and Martin Berz. Taylor models and other validated functional inclusion methods. <em>International Journal of Pure and Applied Mathematics</em>, 6:239–316, 2003.</p>
+</dd>
+<dt class="bibtex label" id="maskell2008bayesian"><span class="brackets">Mas08</span></dt>
+<dd><p>Simon Maskell. A Bayesian approach to fusing uncertain, imprecise and conflicting information. <em>Information Fusion</em>, 9(2):259–277, 2008. <a class="reference external" href="https://doi.org/10.1016/j.inffus.2007.02.003">doi:10.1016/j.inffus.2007.02.003</a>.</p>
+</dd>
+<dt class="bibtex label" id="melchers2018structural"><span class="brackets">MB18</span></dt>
+<dd><p>Robert E Melchers and André T Beck. <em>Structural reliability analysis and prediction</em>. John Wiley &amp; Sons, 2018.</p>
+</dd>
+<dt class="bibtex label" id="meyer2017notes"><span class="brackets">Mey17</span></dt>
+<dd><p>David Meyer. Notes on maximization of inner products over norm balls. 2017. URL: <a class="reference external" href="http://www.1-4-5.net/~dmm/ml/sgn.pdf">http://www.1-4-5.net/~dmm/ml/sgn.pdf</a> (visited on 2019-05-02).</p>
+</dd>
+<dt class="bibtex label" id="montgomery2009new"><span class="brackets">Mon09</span></dt>
+<dd><p>Victoria Montgomery. <em>New statistical metliods in risk assessment by probability bounds</em>. PhD thesis, Durham University, 2009.</p>
+</dd>
+<dt class="bibtex label" id="mooreintroduction2009"><span class="brackets">MKC09</span></dt>
+<dd><p>Ramon E. Moore, R. Baker Kearfott, and Michael J. Cloud. <em>Introduction to interval analysis</em>. Society for Industrial and Applied Mathematics, 2009. <a class="reference external" href="https://doi.org/10.1137/1.9780898717716.bm">doi:10.1137/1.9780898717716.bm</a>.</p>
+</dd>
+<dt class="bibtex label" id="neal2012bayesian"><span class="brackets">Nea12</span></dt>
+<dd><p>Radford M Neal. <em>Bayesian learning for neural networks</em>. Volume 118. Springer Science &amp; Business Media, 2012. <a class="reference external" href="https://doi.org/10.1007/978-1-4612-0745-0">doi:10.1007/978-1-4612-0745-0</a>.</p>
+</dd>
+<dt class="bibtex label" id="nedialkov2004interval"><span class="brackets">NKS04</span></dt>
+<dd><p>Nedialko S Nedialkov, Vladik Kreinovich, and Scott A Starks. Interval arithmetic, affine arithmetic, Taylor series methods: why, what next? <em>Numerical Algorithms</em>, 37(1-4):325–336, 2004. <a class="reference external" href="https://doi.org/10.1023/B:NUMA.0000049478.42605.cf">doi:10.1023/B:NUMA.0000049478.42605.cf</a>.</p>
+</dd>
+<dt class="bibtex label" id="ng2002discriminative"><span class="brackets">NJ02</span></dt>
+<dd><p>Andrew Y Ng and Michael I Jordan. On discriminative vs. generative classifiers: a comparison of logistic regression and naive bayes. In <em>Advances in neural information processing systems</em>, 841–848. 2002.</p>
+</dd>
+<dt class="bibtex label" id="oakley2010shelf"><span class="brackets">OOHagan10</span></dt>
+<dd><p>JE Oakley and A O’Hagan. SHELF: The Sheffield Elicitation Framework (Version 2.0). School of Mathematics and Statistics, University of Sheffield. 2010. URL: <a class="reference external" href="http://www.tonyohagan.co.uk/shelf/">http://www.tonyohagan.co.uk/shelf/</a>.</p>
+</dd>
+<dt class="bibtex label" id="patelli2014uncertainty"><span class="brackets">PABA14</span></dt>
+<dd><p>Edoardo Patelli, Diego A Alvarez, Matteo Broggi, and Marco de Angelis. Uncertainty management in multidisciplinary design of critical safety systems. <em>Journal of Aerospace Information Systems</em>, 12(1):140–169, 2014. <a class="reference external" href="https://doi.org/10.2514/1.I010273">doi:10.2514/1.I010273</a>.</p>
+</dd>
+<dt class="bibtex label" id="patelli2017cossan"><span class="brackets">PBTS17</span></dt>
+<dd><p>Edoardo Patelli, Matteo Broggi, Silvia Tolo, and Jonathan Sadeghi. Cossan software: a multidisciplinary and collaborative software for uncertainty quantification. In <em>2nd ECCOMAS Thematic Conference on Uncertainty Quantification in Computational Sciences and Engineering</em>, number UNCECOMP 2017. 2017. <a class="reference external" href="https://doi.org/10.7712/120217.5364.16982">doi:10.7712/120217.5364.16982</a>.</p>
+</dd>
+<dt class="bibtex label" id="patelli2010global"><span class="brackets">PPSchueller10</span></dt>
+<dd><p>Edoardo Patelli, Helmut J Pradlwarter, and Gerhart I Schuëller. Global sensitivity of structural variability by random sampling. <em>Computer Physics Communications</em>, 181(12):2072–2081, 2010. <a class="reference external" href="https://doi.org/10.1016/j.cpc.2010.08.007">doi:10.1016/j.cpc.2010.08.007</a>.</p>
+</dd>
+<dt class="bibtex label" id="patelliopencossan"><span class="brackets">PTGW+18</span></dt>
+<dd><p>Edoardo Patelli, Silvia Tolo, Hindolo George-Williams, Jonathan Sadeghi, Roberto Rocchetta, Marco de Angelis, and Matteo Broggi. Opencossan 2.0: an efficient computational toolbox for risk, reliability and resilience analysis. In <em>Proceedings of the joint ASCE ICVRAM ISUMA UNCERTAINTIES conference</em>. 2018. URL: <a class="reference external" href="http://icvramisuma2018.org/cd/web/PDF/ICVRAMISUMA2018-0022.PDF">http://icvramisuma2018.org/cd/web/PDF/ICVRAMISUMA2018-0022.PDF</a>.</p>
+</dd>
+<dt class="bibtex label" id="patino2004interval"><span class="brackets">PatinoEBL04</span></dt>
+<dd><p>Raquel E Patiño-Escarcina, Benjamín R Callejas Bedregal, and Aarão Lyra. Interval computing in neural networks: one layer interval neural networks. In <em>International Conference on Intelligent Information Technology</em>, 68–75. Springer, 2004. <a class="reference external" href="https://doi.org/10.1007/978-3-540-30561-3_8">doi:10.1007/978-3-540-30561-3_8</a>.</p>
+</dd>
+<dt class="bibtex label" id="perretg"><span class="brackets">PRW18</span></dt>
+<dd><p>G. Perret, S. Rahman, and D. Wicaksono. Deterministic sampling and gaussian process metamodel approach applied to a station black out accident model. In <em>ANS Best Estimate Plus Uncertainty International Conference (BEPU 2018)</em>. 2018.</p>
+</dd>
+<dt class="bibtex label" id="press1992numeric"><span class="brackets">PFTV92</span></dt>
+<dd><p>William H Press, Brian P Flannery, Saul A Teukolsky, and William T Vetterling. Numeric recipes in c: the art of scientific computing. 1992.</p>
+</dd>
+<dt class="bibtex label" id="prinja-2016"><span class="brackets">POSP16</span></dt>
+<dd><p>Nawal K. Prinja, Azeezat Ogunbadejo, Jonathan Sadeghi, and Edoardo Patelli. Structural reliability of pre-stressed concrete containments. <em>Nuclear Engineering and Design</em>, December 2016. <a class="reference external" href="https://doi.org/10.1016/j.nucengdes.2016.11.036">doi:10.1016/j.nucengdes.2016.11.036</a>.</p>
+</dd>
+<dt class="bibtex label" id="qiu-probabilistic-2008"><span class="brackets">QYE08</span></dt>
+<dd><p>Zhiping Qiu, Di Yang, and Isaac Elishakoff. Probabilistic interval reliability of structural systems. <em>International Journal of Solids and Structures</em>, 45(10):2850–2860, 2008. <a class="reference external" href="https://doi.org/10.1016/j.ijsolstr.2008.01.005">doi:10.1016/j.ijsolstr.2008.01.005</a>.</p>
+</dd>
+<dt class="bibtex label" id="rocchetta2017stochastic"><span class="brackets">RP17</span></dt>
+<dd><p>Roberto Rocchetta and Edoardo Patelli. Stochastic analysis and reliability-cost optimization of distributed generators and air source heat pumps. In <em>System Reliability and Safety (ICSRS), 2017 2nd International Conference on</em>, 31–35. IEEE, 2017. <a class="reference external" href="https://doi.org/10.1109/ICSRS.2017.8272792">doi:10.1109/ICSRS.2017.8272792</a>.</p>
+</dd>
+<dt class="bibtex label" id="rocco2002fast"><span class="brackets">RM02</span></dt>
+<dd><p>Claudio M Rocco and José Alı́ Moreno. Fast monte carlo reliability evaluation using support vector machine. <em>Reliability Engineering &amp; System Safety</em>, 76(3):237–243, 2002. <a class="reference external" href="https://doi.org/10.1016/S0951-8320(02)00015-7">doi:10.1016/S0951-8320(02)00015-7</a>.</p>
+</dd>
+<dt class="bibtex label" id="ross2014first"><span class="brackets">Ros14</span></dt>
+<dd><p>Sheldon Ross. <em>A first course in probability</em>. Pearson, 2014.</p>
+</dd>
+<dt class="bibtex label" id="rubinstein2016simulation"><span class="brackets">RK16</span></dt>
+<dd><p>Reuven Y Rubinstein and Dirk P Kroese. <em>Simulation and the Monte Carlo method</em>. Volume 10. John Wiley &amp; Sons, 2016.</p>
+</dd>
+<dt class="bibtex label" id="ruder2016overview"><span class="brackets">Rud16</span></dt>
+<dd><p>Sebastian Ruder. An overview of gradient descent optimization algorithms. <em>arXiv preprint arXiv:1609.04747</em>, 2016.</p>
+</dd>
+<dt class="bibtex label" id="sadeghi-pyipm"><span class="brackets">Sad18</span></dt>
+<dd><p>Jonathan Sadeghi. PyIPM. <em>GitHub repository</em>, 2018. URL: <a class="reference external" href="https://github.com/JCSadeghi/PyIPM">https://github.com/JCSadeghi/PyIPM</a>, <a class="reference external" href="https://doi.org/10.5281/zenodo.3349670">doi:10.5281/zenodo.3349670</a>.</p>
+</dd>
+<dt class="bibtex label" id="sadeghi2020uncertainty"><span class="brackets">Sad20</span></dt>
+<dd><p>Jonathan Sadeghi. <em>Uncertainty Modelling for Scarce and Imprecise Data in Engineering Applications</em>. PhD thesis, University of Liverpool, 2020. <a class="reference external" href="https://doi.org/10.17638/03089368">doi:10.17638/03089368</a>.</p>
+</dd>
+<dt class="bibtex label" id="sadeghi2019efficient"><span class="brackets">SDAP19</span></dt>
+<dd><p>Jonathan Sadeghi, Marco De Angelis, and Edoardo Patelli. Efficient training of interval neural networks for imprecise training data. <em>Neural Networks</em>, 118:338–351, 2019.</p>
+</dd>
+<dt class="bibtex label" id="sadeghi2020analytic"><span class="brackets">SDAP20</span></dt>
+<dd><p>Jonathan Sadeghi, Marco De Angelis, and Edoardo Patelli. Analytic probabilistic safety analysis under severe uncertainty. <em>ASCE-ASME Journal of Risk and Uncertainty in Engineering Systems, Part A: Civil Engineering</em>, 6(1):04019019, 2020.</p>
+</dd>
+<dt class="bibtex label" id="sadeghi2020robust"><span class="brackets">SdAP20</span></dt>
+<dd><p>Jonathan Sadeghi, Marco de Angelis, and Edoardo Patelli. Robust propagation of probability boxes by interval predictor models. <em>Structural Safety</em>, 82:101889, 2020.</p>
+</dd>
+<dt class="bibtex label" id="sadeghi-2018"><span class="brackets">SdeAngelisP18</span></dt>
+<dd><p>Jonathan Sadeghi, Marco de Angelis, and Edoardo Patelli. Frequentist history matching with interval predictor models. <em>Applied Mathematical Modelling</em>, 61:29–48, September 2018. <a class="reference external" href="https://doi.org/10.1016/j.apm.2018.04.003">doi:10.1016/j.apm.2018.04.003</a>.</p>
+</dd>
+<dt class="bibtex label" id="saltelli2004sensitivity"><span class="brackets">STCR04</span></dt>
+<dd><p>Andrea Saltelli, Stefano Tarantola, Francesca Campolongo, and Marco Ratto. <em>Sensitivity Analysis in Practice: A Guide to Assessing Scientific Models</em>. John Wiley &amp; Sons, 2004. <a class="reference external" href="https://doi.org/10.1002/0470870958">doi:10.1002/0470870958</a>.</p>
+</dd>
+<dt class="bibtex label" id="schueller1987critical"><span class="brackets">SchuellerS87</span></dt>
+<dd><p>Gerhart Iwo Schuëller and Reinhard Stix. A critical appraisal of methods to determine failure probabilities. <em>Structural Safety</em>, 4(4):293–309, 1987. <a class="reference external" href="https://doi.org/10.1016/0167-4730(87)90004-X">doi:10.1016/0167-4730(87)90004-X</a>.</p>
+</dd>
+<dt class="bibtex label" id="schobi2017surrogate"><span class="brackets">Schobi17</span></dt>
+<dd><p>Roland Schöbi. <em>Surrogate models for uncertainty quantification in the context of imprecise probability modelling</em>. PhD thesis, ETH Zurich, 2017.</p>
+</dd>
+<dt class="bibtex label" id="schobi2017structural"><span class="brackets">SchobiS17</span></dt>
+<dd><p>Roland Schöbi and Bruno Sudret. Structural reliability analysis for p-boxes using multi-level meta-models. <em>Probabilistic Engineering Mechanics</em>, 48:27–38, 2017. <a class="reference external" href="https://doi.org/10.1016/j.probengmech.2017.04.001">doi:10.1016/j.probengmech.2017.04.001</a>.</p>
+</dd>
+<dt class="bibtex label" id="shao1997structural"><span class="brackets">SM97</span></dt>
+<dd><p>Shaowen Shao and Yoshisada Murotsu. Structural reliability analysis using a neural network. <em>JSME International Journal Series A Solid Mechanics and Material Engineering</em>, 40(3):242–246, 1997. <a class="reference external" href="https://doi.org/10.1299/jsmea.40.242">doi:10.1299/jsmea.40.242</a>.</p>
+</dd>
+<dt class="bibtex label" id="srivastava2014dropout"><span class="brackets">SHK+14</span></dt>
+<dd><p>Nitish Srivastava, Geoffrey Hinton, Alex Krizhevsky, Ilya Sutskever, and Ruslan Salakhutdinov. Dropout: a simple way to prevent neural networks from overfitting. <em>The Journal of Machine Learning Research</em>, 15(1):1929–1958, 2014.</p>
+</dd>
+<dt class="bibtex label" id="stolfi2003introduction"><span class="brackets">SdF03</span></dt>
+<dd><p>Jorge Stolfi and Luiz Henrique de Figueiredo. An introduction to affine arithmetic. <em>Trends in Applied and Computational Mathematics</em>, 4(3):297–312, 2003.</p>
+</dd>
+<dt class="bibtex label" id="sudret2008global"><span class="brackets">Sud08</span></dt>
+<dd><p>Bruno Sudret. Global sensitivity analysis using polynomial chaos expansions. <em>Reliability engineering &amp; system safety</em>, 93(7):964–979, 2008. <a class="reference external" href="https://doi.org/10.1016/j.ress.2007.04.002">doi:10.1016/j.ress.2007.04.002</a>.</p>
+</dd>
+<dt class="bibtex label" id="sudret2012meta"><span class="brackets">Sud12</span></dt>
+<dd><p>Bruno Sudret. Meta-models for structural reliability and uncertainty quantification. In <em>“Asian-Pacific Symposium on Structural Reliability and its Applications”</em>, 1–24. 2012.</p>
+</dd>
+<dt class="bibtex label" id="sundararajan1995expert"><span class="brackets">Sun95</span></dt>
+<dd><p>C Sundararajan. Expert opinion in probabilistic structural mechanics. In <em>Probabilistic Structural Mechanics Handbook</em>, pages 261–279. Springer, 1995. <a class="reference external" href="https://doi.org/10.1007/978-1-4615-1771-9_12">doi:10.1007/978-1-4615-1771-9_12</a>.</p>
+</dd>
+<dt class="bibtex label" id="sundararajan2012probabilistic"><span class="brackets">Sun12</span></dt>
+<dd><p>C Raj Sundararajan. <em>Probabilistic structural mechanics handbook: theory and industrial applications</em>. Springer Science &amp; Business Media, 2012. <a class="reference external" href="https://doi.org/10.1007/978-1-4615-1771-9">doi:10.1007/978-1-4615-1771-9</a>.</p>
+</dd>
+<dt class="bibtex label" id="tarantola2005inverse"><span class="brackets">Tar05</span></dt>
+<dd><p>Albert Tarantola. <em>Inverse problem theory and methods for model parameter estimation</em>. Volume 89. SIAM, 2005. <a class="reference external" href="https://doi.org/10.1137/1.9780898717921">doi:10.1137/1.9780898717921</a>.</p>
+</dd>
+<dt class="bibtex label" id="tarantola2006random"><span class="brackets">TGM06</span></dt>
+<dd><p>Stefano Tarantola, Debora Gatelli, and Thierry Alex Mara. Random balance designs for the estimation of first order global sensitivity indices. <em>Reliability Engineering &amp; System Safety</em>, 91(6):717–727, 2006. <a class="reference external" href="https://doi.org/10.1016/j.ress.2005.06.003">doi:10.1016/j.ress.2005.06.003</a>.</p>
+</dd>
+<dt class="bibtex label" id="tolo2019robust"><span class="brackets">TTB+19</span></dt>
+<dd><p>Silvia Tolo, Xiange Tian, Nils Bausch, Victor Becerra, TV Santhosh, Gopika Vinod, and Edoardo Patelli. Robust on-line diagnosis tool for the early accident detection in nuclear power plants. <em>Reliability Engineering &amp; System Safety</em>, 186:110–119, 2019. <a class="reference external" href="https://doi.org/10.1016/j.ress.2019.02.015">doi:10.1016/j.ress.2019.02.015</a>.</p>
+</dd>
+<dt class="bibtex label" id="troffaes2018imprecise"><span class="brackets">Tro18</span></dt>
+<dd><p>Matthias CM Troffaes. Imprecise Monte Carlo simulation and iterative importance sampling for the estimation of lower previsions. <em>International Journal of Approximate Reasoning</em>, 101:31–48, 2018. <a class="reference external" href="https://doi.org/10.1016/j.ijar.2018.06.009">doi:10.1016/j.ijar.2018.06.009</a>.</p>
+</dd>
+<dt class="bibtex label" id="uhlmann1995dynamic"><span class="brackets">Uhl95</span></dt>
+<dd><p>Jeffrey K Uhlmann. <em>Dynamic map building and localization: New theoretical foundations</em>. PhD thesis, University of Oxford Oxford, 1995.</p>
+</dd>
+<dt class="bibtex label" id="vapnik2015"><span class="brackets">VC15</span></dt>
+<dd><p>V. N. Vapnik and A. Ya. Chervonenkis. <em>On the Uniform Convergence of Relative Frequencies of Events to Their Probabilities</em>, pages 11–30. Springer International Publishing, Cham, 2015. <a class="reference external" href="https://doi.org/10.1007/978-3-319-21852-6_3">doi:10.1007/978-3-319-21852-6_3</a>.</p>
+</dd>
+<dt class="bibtex label" id="wan2000unscented"><span class="brackets">WVDM00</span></dt>
+<dd><p>Eric A Wan and Rudolph Van Der Merwe. The unscented kalman filter for nonlinear estimation. In <em>Proceedings of the IEEE 2000 Adaptive Systems for Signal Processing, Communications, and Control Symposium (Cat. No. 00EX373)</em>, 153–158. Ieee, 2000. <a class="reference external" href="https://doi.org/10.1109/ASSPCC.2000.882463">doi:10.1109/ASSPCC.2000.882463</a>.</p>
+</dd>
+<dt class="bibtex label" id="wang2018mixtrain"><span class="brackets">WCAJ18</span></dt>
+<dd><p>Shiqi Wang, Yizheng Chen, Ahmed Abdou, and Suman Jana. Mixtrain: scalable training of formally robust neural networks. <em>arXiv preprint arXiv:1811.02625</em>, 2018.</p>
+</dd>
+<dt class="bibtex label" id="wilks1941determination"><span class="brackets">Wil41</span></dt>
+<dd><p>Samuel S Wilks. Determination of sample sizes for setting tolerance limits. <em>The Annals of Mathematical Statistics</em>, 12(1):91–96, 1941. <a class="reference external" href="https://doi.org/10.1214/aoms/1177731788">doi:10.1214/aoms/1177731788</a>.</p>
+</dd>
+<dt class="bibtex label" id="zadeh1979validity"><span class="brackets">Zad79</span></dt>
+<dd><p>L Zadeh. On the validity of dempster’s rule of combination, memo m 79/24. <em>Univ. of California, Berkeley</em>, 1979.</p>
+</dd>
+<dt class="bibtex label" id="zhangpreliminary"><span class="brackets">ZLXJ18</span></dt>
+<dd><p>Han Zhang, Yabing Li, Jianjun Xiao, and Thomas Jordan. Preliminary study of condensation heat transfer uncertainty quantification using cfd code gasflow-mpi. In <em>ANS Best Estimate Plus Uncertainty International Conference (BEPU 2018)</em>. 2018.</p>
+</dd>
+<dt class="bibtex label" id="scenarioiterative2019"><span class="brackets">GarattiCampi19</span></dt>
+<dd><p>S. Garatti and M. C. Campi. Complexity-based modulation of the data-set in scenario optimization. In <em>2019 18th European Control Conference (ECC)</em>, volume, 1386–1391. June 2019. <a class="reference external" href="https://doi.org/10.23919/ECC.2019.8796160">doi:10.23919/ECC.2019.8796160</a>.</p>
+</dd>
+<dt class="bibtex label" id="sematech2012handbook"><span class="brackets">NISTSEMATECH12</span></dt>
+<dd><p>NIST/SEMATECH. E-handbook of statistical methods. <span><a class="reference external" href="#"></a></span>http://www.itl.nist.gov/div898/handbook, 2012.</p>
+</dd>
+<dt class="bibtex label" id="us2009guidance"><span class="brackets">USNRCommission09</span></dt>
+<dd><p>US Nuclear Regulatory Commission. Guidance on the treatment of uncertainties associated with pras in risk-informed decision making. <em>NUREG-1855</em>, March 2009.</p>
+</dd>
+<dt class="bibtex label" id="nureg2201"><span class="brackets">USNRCommission16</span></dt>
+<dd><p>US Nuclear Regulatory Commission. Probabilistic risk assessment and regulatory decision making: some frequently asked questions. <em>NUREG-2201</em>, September 2016.</p>
+</dd>
+</dl>
+</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="conclusion.html" title="previous page">Conclusion</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

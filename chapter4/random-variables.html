@@ -1,0 +1,1038 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reliability analysis with random variables &#8212; Uncertainty Modelling for Engineers</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Convex set models for reliability" href="convex-set.html" />
+    <link rel="prev" title="Reliability Analysis" href="chapter4.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/FORM.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Uncertainty Modelling for Engineers</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   How to use this book
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../outline.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../chapter2/chapter2.html">
+   Models of Uncertainty
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/probabilistic.html">
+     Probabilistic models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/sets.html">
+     Set-based models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/imprecise.html">
+     Imprecise probabilistic models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/creating.html">
+     Creating models in practice
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/summary.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../chapter3/chapter3.html">
+   Machine Learning of Regression Models
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/parametric-models.html">
+     Parametric regression models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/non-parametric-models.html">
+     Non-parametric models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/learning-bounds.html">
+     Learning bounds on a model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/conclusion.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="chapter4.html">
+   Reliability Analysis
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Reliability analysis with random variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="convex-set.html">
+     Convex set models for reliability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="probability-boxes.html">
+     Reliability analysis with probability boxes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="summary.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../conclusion.html">
+   Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../zbibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/chapter4/random-variables.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers/issues/new?title=Issue%20on%20page%20%2Fchapter4/random-variables.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers/edit/master/chapter4/random-variables.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/uncertainty-for-engineers/uncertainty-modelling-for-engineers/master?urlpath=tree/chapter4/random-variables.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/uncertainty-for-engineers/uncertainty-modelling-for-engineers/blob/master/chapter4/random-variables.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-definition">
+   Problem definition
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reliability-theory">
+     Reliability theory
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reliability-based-design-optimisation">
+     Reliability based design optimisation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sensitivity-analysis">
+     Sensitivity analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methods-to-compute-the-failure-probability">
+   Methods to compute the failure probability
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#monte-carlo-simulation">
+     Monte Carlo simulation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#efficient-sampling-strategies">
+     Efficient sampling strategies
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#first-order-reliability-method">
+     First Order Reliability Method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#line-sampling">
+     Line sampling
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#importance-sampling">
+     Importance sampling
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#subset-simulation">
+     Subset simulation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metamodels">
+     Metamodels
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#worked-example-first-order-reliability-analysis-method-form">
+   Worked example : First order reliability analysis method (FORM)
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="reliability-analysis-with-random-variables">
+<h1>Reliability analysis with random variables<a class="headerlink" href="#reliability-analysis-with-random-variables" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="problem-definition">
+<h2>Problem definition<a class="headerlink" href="#problem-definition" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="reliability-theory">
+<span id="sec-reliability-theory"></span><h3>Reliability theory<a class="headerlink" href="#reliability-theory" title="Permalink to this headline">¶</a></h3>
+<p>The aim of structural reliability analysis is to compute the probability
+that the performance of a system is less than some specified threshold;
+this probability is known as the failure probability of the system.
+Firstly, the performance of the system, <span class="math notranslate nohighlight">\(g({\boldsymbol{x}})\)</span>, is
+defined as a function of the vector of system variables,
+<span class="math notranslate nohighlight">\(\boldsymbol{x} = (x_1, x_2,\ldots,x_i,\ldots)\)</span>. The performance
+function is negative when the system fails, and otherwise positive. Then
+the failure probability can be found by solving the integral</p>
+<div class="math notranslate nohighlight" id="equation-eqn-pf">
+<span class="eqno">(21)<a class="headerlink" href="#equation-eqn-pf" title="Permalink to this equation">¶</a></span>\[P_f=P(g({\boldsymbol{x}})&lt;0) = \int \mathbb{I}_f({\boldsymbol{x}}) f_X({\boldsymbol{x}}) d{\boldsymbol{x}},\]</div>
+<p>where the indicator function, <span class="math notranslate nohighlight">\(\mathbb{I}_f({\boldsymbol{x}})\)</span>, is
+defined as <span class="math notranslate nohighlight">\(\mathbb{I}_f({\boldsymbol{x}}) = \left\{\begin{array}{lr}
+        1, &amp; \text{for } g({\boldsymbol{x}})&lt;0\\
+        0, &amp; \text{for } g({\boldsymbol{x}})\ge0
+        \end{array}\right\} ,\)</span> and the probability density function of
+the system random variables is <span class="math notranslate nohighlight">\(f_X({\boldsymbol{x}})\)</span>
+<a class="bibtex reference internal" href="../zbibliography.html#melchers2018structural" id="id1">[MB18]</a>. It is common for the performance function to
+be defined in the load resistance form, e.g.</p>
+<div class="math notranslate nohighlight" id="equation-eqn-load-resistance">
+<span class="eqno">(22)<a class="headerlink" href="#equation-eqn-load-resistance" title="Permalink to this equation">¶</a></span>\[g(\boldsymbol{x}) = \sum_{i\in R} x_i - \sum_{i\in L} x_i,\]</div>
+<p>where <span class="math notranslate nohighlight">\(R\)</span> are indices corresponding to resistance factors and <span class="math notranslate nohighlight">\(L\)</span> are
+indices corresponding to load factors, so that the system fails when the
+sum of loads is greater than the sum of resistances <a class="bibtex reference internal" href="../zbibliography.html#prinja-2016" id="id2">[POSP16]</a>. When
+the resistance and load are balanced, <span class="math notranslate nohighlight">\(g(\boldsymbol{x})=0\)</span> and the
+system is on the interface of the safety and failure regions. The limit
+state surface is specified by the <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span> for which
+<span class="math notranslate nohighlight">\(g(\boldsymbol{x})=0\)</span>.</p>
+<p>In fault tree analysis the failure event of a system is written in terms
+of failure events for smaller subsystems or components, using Boolean
+algebra. Probability arithmetic can be used with the fault tree to
+combine failure probabilities for individual subsystems to obtain the
+failure probability for the whole system. This requires knowledge of the
+dependencies between the probability of failure events for the
+considered sub-systems <a class="bibtex reference internal" href="../zbibliography.html#melchers2018structural" id="id3">[MB18]</a>.</p>
+</div>
+<div class="section" id="reliability-based-design-optimisation">
+<h3>Reliability based design optimisation<a class="headerlink" href="#reliability-based-design-optimisation" title="Permalink to this headline">¶</a></h3>
+<p>In reliability based design optimisation (RBDO), a cost function, e.g.
+the weight or construction cost of the system, is minimised subject to
+the constraint that the failure probability of the system does not fall
+below a certain value. The reliability based design optimisation problem
+can be stated as the optimisation program</p>
+<div class="math notranslate nohighlight" id="equation-eqn-rbdo">
+<span class="eqno">(23)<a class="headerlink" href="#equation-eqn-rbdo" title="Permalink to this equation">¶</a></span>\[\operatorname{argmin}{\{\text{cost}(\boldsymbol{d}): P_f(\boldsymbol{d})&lt;P_\text{target} \}},\]</div>
+<p>where <span class="math notranslate nohighlight">\(\boldsymbol{d}\)</span> is the vector of design variables,
+<span class="math notranslate nohighlight">\(\text{cost}(\boldsymbol{d})\)</span> is the cost function of the design,
+<span class="math notranslate nohighlight">\(P_f(\boldsymbol{d})\)</span> is the failure probability of the design, and
+<span class="math notranslate nohighlight">\(P_\text{target}\)</span> is the target failure probability. Usually the vector
+of design variables, <span class="math notranslate nohighlight">\(\boldsymbol{d}\)</span>, will be parameters of the random
+variables, <span class="math notranslate nohighlight">\(f_X({\boldsymbol{x}})\)</span>, associated with the resistance, such
+that <a class="reference internal" href="#equation-eqn-rbdo">(23)</a> usually finds a balance between a cost effective
+design and a design where the resistance of the system is sufficiently
+greater than the load <a class="bibtex reference internal" href="../zbibliography.html#melchers2018structural" id="id4">[MB18]</a>.</p>
+<p>In engineering practice the model of the structure is often
+computationally expensive to evaluate, and therefore it may be more
+convenient to find a sub-optimal solution to
+<a class="reference internal" href="#equation-eqn-rbdo">(23)</a>, by designing the structure based on engineering
+judgement. Approximate rules of thumb, such as partial safety factors,
+allow the reliability of the system to be constrained approximately
+using analytical equations <a class="bibtex reference internal" href="../zbibliography.html#melchers2018structural" id="id5">[MB18]</a>. Then the full
+reliability analysis can be performed with the proposed design to ensure
+that the reliability of the system satisfies the constraints in
+<a class="reference internal" href="#equation-eqn-rbdo">(23)</a>. Hence a safe and efficient design can be obtained
+with reduced computational effort.</p>
+</div>
+<div class="section" id="sensitivity-analysis">
+<h3>Sensitivity analysis<a class="headerlink" href="#sensitivity-analysis" title="Permalink to this headline">¶</a></h3>
+<p>Sensitivity analysis allows the effect of each uncertain variable on the
+variability of the model response to be quantified. This can be achieved
+either by local methods, which describe variability of the model
+response at the expected value of the system variables, or global
+methods, which describe the total variability of the model response.</p>
+<p>Local sensitivity analysis is often achieved by evaluating the first
+derivative of the model response with respect to the system variables.
+Similarly, <a class="bibtex reference internal" href="../zbibliography.html#birnbaum1968importance" id="id6">[Bir68]</a> defines component importance as the
+partial derivative of the system reliability with respect to the
+reliability of the component.</p>
+<p>Global sensitivity analysis is usually performed by evaluating the Sobol
+indices,</p>
+<div class="math notranslate nohighlight" id="equation-eqn-sobol">
+<span class="eqno">(24)<a class="headerlink" href="#equation-eqn-sobol" title="Permalink to this equation">¶</a></span>\[S_i = \frac{\operatorname{Var}_{x_i}(\mathbb{E}_{x_{\sim i}}(g(\boldsymbol{x})))}{Var(g(\boldsymbol{x}))},\]</div>
+<p>which describe the contribution of the variance of <span class="math notranslate nohighlight">\(x_i\)</span> to the total
+variance of the model response <span class="math notranslate nohighlight">\(g(\boldsymbol{x})\)</span>, when only <span class="math notranslate nohighlight">\(x_i\)</span> is
+varied. <span class="math notranslate nohighlight">\(x_{\sim i}\)</span> represents all random variables other than <span class="math notranslate nohighlight">\(x_i\)</span>.
+The Total Effect indices, given by</p>
+<div class="math notranslate nohighlight" id="equation-eqn-total-sensitivity">
+<span class="eqno">(25)<a class="headerlink" href="#equation-eqn-total-sensitivity" title="Permalink to this equation">¶</a></span>\[T_i = 1 - \frac{\operatorname{Var}_{x_{\sim i}}(\mathbb{E}_{x_i}(g(\boldsymbol{x})))}{Var(g(\boldsymbol{x}))},\]</div>
+<p>include the effect of interactions caused by varying <span class="math notranslate nohighlight">\(x_i\)</span> whilst
+varying other variables <a class="bibtex reference internal" href="../zbibliography.html#saltelli2004sensitivity" id="id7">[STCR04]</a>.</p>
+<p>The most simple way to evaluate the Sobol indices and total effect
+indices is by using a Monte Carlo estimator for the expectation and
+variance terms in <a class="reference internal" href="#equation-eqn-sobol">(24)</a> and
+<a class="reference internal" href="#equation-eqn-total-sensitivity">(25)</a>. In some cases, for example when the
+model has too many parameters or the model is very computationally
+expensive, it is necessary to use a more complex method to compute the
+Sobol and total sensitivity indices. For example, the upper bound of the
+total sensitivity index can be efficiently calculated by integrating the
+local sensitivity analysis over the whole space of the inputs
+<a class="bibtex reference internal" href="../zbibliography.html#patelli2010global" id="id8">[PPSchueller10]</a>, and the Sobol indices can be efficiently
+calculated by use of the Fourier Amplitude Sensitivity Testing (FAST)
+method <a class="bibtex reference internal" href="../zbibliography.html#tarantola2006random" id="id9">[TGM06]</a>.</p>
+</div>
+</div>
+<div class="section" id="methods-to-compute-the-failure-probability">
+<span id="sec-compute-failure-prob"></span><h2>Methods to compute the failure probability<a class="headerlink" href="#methods-to-compute-the-failure-probability" title="Permalink to this headline">¶</a></h2>
+<p>In some circumstances the failure probability can be computed
+analytically, for example when the system variables <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span> are
+normally distributed and the performance function is linear
+<a class="bibtex reference internal" href="../zbibliography.html#melchers2018structural" id="id10">[MB18]</a>. However, often a closed form solution of
+<a class="reference internal" href="#equation-eqn-pf">(21)</a> is
+not available and hence alternative methods must be used.</p>
+<div class="section" id="monte-carlo-simulation">
+<h3>Monte Carlo simulation<a class="headerlink" href="#monte-carlo-simulation" title="Permalink to this headline">¶</a></h3>
+<p>In general, the failure probability can be computed by Monte Carlo
+simulation, as discussed for general functions in
+<a class="reference internal" href="../chapter2/chapter2.html#ch-uncertainty-models"><span class="std std-ref">Models of Uncertainty</span></a>. The Monte Carlo estimator for the
+failure probability is</p>
+<div class="math notranslate nohighlight" id="equation-eqn-mc-estimator">
+<span class="eqno">(26)<a class="headerlink" href="#equation-eqn-mc-estimator" title="Permalink to this equation">¶</a></span>\[$\hat{P}_f = \frac{1}{N} \sum_{i=1}^{N} \mathbb{I}_f({\boldsymbol{x}}^{(i)}),\]</div>
+<p>where <span class="math notranslate nohighlight">\(N\)</span> samples, <span class="math notranslate nohighlight">\({\boldsymbol{x}}^{(i)}\)</span>, are drawn from the the
+probability density function of the system random variables
+<span class="math notranslate nohighlight">\(f_X({\boldsymbol{x}})\)</span>. The coefficient of variation of the failure
+probability estimator is
+<span class="math notranslate nohighlight">\(\operatorname{CoV}[\hat{P}_f] = \sqrt{\frac{1-P_f}{N P_f}}.\)</span>
+Therefore, obtaining order of magnitude estimates of <span class="math notranslate nohighlight">\(P_f\)</span> with Monte
+Carlo simulation requires at least <span class="math notranslate nohighlight">\(\frac{1}{P_f}\)</span> samples, and for an
+accurate estimate even more samples are required. If <span class="math notranslate nohighlight">\(P_f\)</span> is small and
+<span class="math notranslate nohighlight">\(g(\boldsymbol{x})\)</span> is expensive to evaluate then the number of samples
+required is unreasonably large, and more efficient strategies are
+required to evaluate <span class="math notranslate nohighlight">\(P_f\)</span>.</p>
+</div>
+<div class="section" id="efficient-sampling-strategies">
+<h3>Efficient sampling strategies<a class="headerlink" href="#efficient-sampling-strategies" title="Permalink to this headline">¶</a></h3>
+<p>Several sampling strategies have been proposed to choose a set of
+samples which can be used to reduce the variance of the Monte Carlo
+estimator in
+<a class="reference internal" href="#equation-eqn-mc-estimator">(26)</a> without expending additional computational
+effort. Low-discrepancy sampling strategies aim to choose a set of
+samples which cover the sampling domain with the desired density. This
+is often not the case with a small random set of samples, which may fall
+disproportionately in one area of the sampling domain before the law of
+large numbers takes effect. Stratified Sampling strategies, such as
+Latin Hypercube Sampling divide the probability density of the system
+variables into an <span class="math notranslate nohighlight">\(n\)</span>-dimensional grid, where each grid element contains
+equal probability density. Then a sample may be chosen at random in each
+grid element, resulting in a set of samples which covers the sampling
+domain well. For linear functions it can be shown that this sampling
+strategy has a lower variance than the traditional Monte Carlo estimator
+<a class="bibtex reference internal" href="../zbibliography.html#iman2001appendixa" id="id11">[Ima14]</a>. The main disadvantage of efficient sampling
+strategies is that the reduction in the coefficient of variation is
+small when compared to other techniques, e.g. Line Sampling.</p>
+</div>
+<div class="section" id="first-order-reliability-method">
+<h3>First Order Reliability Method<a class="headerlink" href="#first-order-reliability-method" title="Permalink to this headline">¶</a></h3>
+<p>The First Order Reliability Method (FORM) allows the probability of
+failure of a system to be computed without Monte Carlo simulation.
+Assuming the system variables are distributed normally and
+independently, the probability of failure can be obtained analytically
+if the performance function, <span class="math notranslate nohighlight">\(g(\boldsymbol{x})\)</span>, is linear. If the
+performance function is not linear, a Taylor expansion can be used to
+find a linear approximation of the limit state function as shown in
+<a class="reference internal" href="#fig-form"><span class="std std-ref">A diagram of the First Order Reliability Method for two system
+variables, shown with random variables in the standard normal
+space.</span></a>. If
+the system random variables are not normally distributed then a
+transformation must first be applied to the random variables and the
+limit state function, so that FORM can be applied
+<a class="bibtex reference internal" href="../zbibliography.html#melchers2018structural" id="id12">[MB18]</a>.</p>
+<p>The performance function, <span class="math notranslate nohighlight">\(g(\boldsymbol{x})\)</span>, is written as the Taylor
+series expansion</p>
+<div class="math notranslate nohighlight" id="equation-eqn-taylor">
+<span class="eqno">(27)<a class="headerlink" href="#equation-eqn-taylor" title="Permalink to this equation">¶</a></span>\[g(\boldsymbol{x}) = g(\boldsymbol{x}^*) + (\boldsymbol{x}-\boldsymbol{x}^*)\nabla g(\boldsymbol{x}^*)+\ldots = (\boldsymbol{x}-\boldsymbol{x}^*)\nabla g(\boldsymbol{x}^*)+\ldots,\]</div>
+<p>about the point <span class="math notranslate nohighlight">\(\boldsymbol{x}^*\)</span>, which is usually chosen to be the
+point on the limit state surface with the highest probability density.
+This point is known as the design point, and can be obtained by solving
+the optimisation program
+<span class="math notranslate nohighlight">\(\boldsymbol{x}^* = \operatorname{argmin}_{\boldsymbol{x}} \{|\boldsymbol{x}|^2: g(\boldsymbol{x})=0 \}.\)</span>
+Alternatively, using the assumption of a linear performance function,
+the design point can be determined using the gradient of the performance
+function. The reliability index is defined as
+<span class="math notranslate nohighlight">\(\beta = \sqrt{|\boldsymbol{x}^*|^2}\)</span>, and in the case of normally
+distributed random variables and a linear limit state function
+<span class="math notranslate nohighlight">\(P_f = \phi(-\beta)\)</span>. This can be shown by observing that when
+<span class="math notranslate nohighlight">\(\boldsymbol{x}^*\)</span> has a standard normal distribution and
+<span class="math notranslate nohighlight">\(g(\boldsymbol{x})\)</span> is linear (as in
+<a class="reference internal" href="#equation-eqn-taylor">(27)</a>, the system performance will have a normal
+distribution with mean
+<span class="math notranslate nohighlight">\(\mathbb{E}_{\boldsymbol{x}} (g(\boldsymbol{x})) =  ( \mathbb{E}_{\boldsymbol{x}} (\boldsymbol{x}) -\boldsymbol{x}^*)\nabla g(\boldsymbol{x}^*) =  -\boldsymbol{x}^*\nabla g(\boldsymbol{x}^*)\)</span>
+and variance
+<span class="math notranslate nohighlight">\(\operatorname{Var}_{\boldsymbol{x}} (g(\boldsymbol{x})) = |\nabla g(\boldsymbol{x}^*)|^2.\)</span>
+Therefore, since
+<span class="math notranslate nohighlight">\(\boldsymbol{x}^* = \beta \frac{\nabla g(\boldsymbol{x}^*)}{\sqrt{ |\nabla g(\boldsymbol{x}^*)|^2}}\)</span>,
+<span class="math notranslate nohighlight">\(P_f = \phi\left(\frac{-\mathbb{E}_{\boldsymbol{x}} (g(\boldsymbol{x}))}{\sqrt{\operatorname{Var}_{\boldsymbol{x}} (g(\boldsymbol{x}))}}\right)\)</span>
+leads to the desired expression.</p>
+<p>A similar method relying on a more accurate approximation of the limit
+state function is the Second Order Reliability Method.</p>
+<p>The main advantage of FORM is the small number of samples required to
+estimate the failure probability. The main disadvantage of FORM is that
+for non-linear limit state surfaces the method is likely to be extremely
+inaccurate, due to the degradation of the Taylor series approximation
+for limit state surfaces with high curvature. Non-linear limit state
+surfaces are often induced by the transformation of the system’s random
+variables to the standard normal space.</p>
+<div class="figure align-default" id="fig-form">
+<a class="reference internal image-reference" href="../_images/form.png"><img alt="../_images/form.png" src="../_images/form.png" style="height: 150px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">A diagram of the First Order Reliability Method for two system
+variables, shown with random variables in the standard normal
+space.</span><a class="headerlink" href="#fig-form" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="line-sampling">
+<h3>Line sampling<a class="headerlink" href="#line-sampling" title="Permalink to this headline">¶</a></h3>
+<p>The fundamental idea behind Line Sampling is to refine estimates
+obtained from the First-order reliability method (FORM), which may be
+incorrect due to the non-linearity of the limit state function.
+Conceptually, this is achieved by averaging the result of different FORM
+simulations <a class="bibtex reference internal" href="../zbibliography.html#de2015advanced" id="id13">[dAPB15]</a>. Firstly, the approximate direction of the
+failure region from the origin in standard normal space must be
+determined. This is known as the importance direction. It is usually
+obtained by finding the design point, by approximate means if necessary.
+Following this, samples are randomly generated in the standard normal
+space and lines are drawn parallel to the importance direction in order
+to compute the distance to the limit state function, which enables the
+probability of failure to be estimated for each sample.</p>
+<p>For each sample of <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span>, the probability of failure in the
+line parallel to the important direction is defined as:
+<span class="math notranslate nohighlight">\(P_f(\boldsymbol{x}) = \int^\infty_{-\infty} \mathbb{I}(\boldsymbol{x}+\beta \boldsymbol{\alpha}) d \beta,\)</span>
+where <span class="math notranslate nohighlight">\(\boldsymbol{\alpha}\)</span> is the importance direction, and <span class="math notranslate nohighlight">\(\phi\)</span> is
+the probability density function of a Gaussian distribution (and <span class="math notranslate nohighlight">\(\beta\)</span>
+is a real number). In practice, the roots of a nonlinear function must
+be found to estimate the partial probabilities of failure along each
+line. This is either done by interpolation of a few samples along the
+line, or by using the Newton-Raphson method. The global probability of
+failure is the mean of the probability of failure on the lines:
+<span class="math notranslate nohighlight">\(P_f = \frac{1}{N_L} \sum_i^{N_L} P_f^{(i)}\)</span> where <span class="math notranslate nohighlight">\(N_L\)</span> is the total
+number of lines used in the analysis, and <span class="math notranslate nohighlight">\(P_f^{(i)}\)</span> are the partial
+probabilities of failure estimated along all the lines.</p>
+<p>For problems in which the dependence of the performance function is only
+moderately non-linear with respect to the parameters modelled as random
+variables, setting the importance direction as the gradient vector of
+the performance function in the underlying standard normal space leads
+to highly efficient Line Sampling. <a class="bibtex reference internal" href="../zbibliography.html#de2015efficient" id="id14">[DA15]</a> describes
+enhancements which can be made to Line Sampling to increase the
+efficiency. For example, the solution of the Newton-Raphson search used
+on the previous line can be used to inform the search on the next line,
+if the lines are sorted by proximity. In addition, the importance
+direction can be updated during simulation based on the completed subset
+of lines.</p>
+<p>The Line Sampling methodology is more expensive than FORM, but far less
+expensive than Monte Carlo simulation. It is likely to perform poorly
+for highly non-linear limit state surfaces, but in general offers a good
+balance between accuracy and computational expense.</p>
+</div>
+<div class="section" id="importance-sampling">
+<h3>Importance sampling<a class="headerlink" href="#importance-sampling" title="Permalink to this headline">¶</a></h3>
+<p>In Importance Sampling, samples are drawn from a distribution with a
+higher density in the failure region and then re-weighted to obtain a
+Monte Carlo estimator with reduced variance. The re-weighted estimator
+is written as</p>
+<div class="math notranslate nohighlight" id="equation-eqn-importance-sampling">
+<span class="eqno">(28)<a class="headerlink" href="#equation-eqn-importance-sampling" title="Permalink to this equation">¶</a></span>\[P_f = \int h(\boldsymbol{x}) \frac{\mathbb{I}_f({\boldsymbol{x}}) f_X({\boldsymbol{x}})}{h(\boldsymbol{x})} d{\boldsymbol{x}}
+    = \frac{1}{N} \sum_{i=1}^{N} \frac{\mathbb{I}_f({\boldsymbol{x}_i}) f_X({\boldsymbol{x}_i})}{h(\boldsymbol{x}_i)},\]</div>
+<p>where <span class="math notranslate nohighlight">\(\boldsymbol{x}_i\)</span> are
+drawn from the proposal density <span class="math notranslate nohighlight">\(h(\boldsymbol{x})\)</span>. The optimal
+proposal density, which results in the greatest reduction of the
+variance of the estimator is</p>
+<div class="math notranslate nohighlight" id="equation-eqn-optimal-density">
+<span class="eqno">(29)<a class="headerlink" href="#equation-eqn-optimal-density" title="Permalink to this equation">¶</a></span>\[h(\boldsymbol{x})_\text{optimal} = \frac{\mathbb{I}_f({\boldsymbol{x}}) f_X({\boldsymbol{x}})}{P_f},\]</div>
+<p>which is not useful in practice because of the dependence on the
+quantity to be estimated, <span class="math notranslate nohighlight">\(P_f\)</span>. However, the optimal proposal density
+can be used to motivate the choice of the proposal density in practice.
+An appropriate <span class="math notranslate nohighlight">\(h(\boldsymbol{x})\)</span> can be chosen by finding the design
+point with an approximate method and centring the proposal density on
+the design point, since
+<a class="reference internal" href="#equation-eqn-optimal-density">(29)</a> indicates that the failure region has a
+higher proposal density. A complete discussion of the technique is given
+in <a class="bibtex reference internal" href="../zbibliography.html#schueller1987critical" id="id15">[SchuellerS87]</a> and <a class="bibtex reference internal" href="../zbibliography.html#melchers2018structural" id="id16">[MB18]</a>.</p>
+<p>Importance Sampling is useful as it offers an unbiased estimator which
+can estimate the failure probability with few samples. The main
+difficultly is determining the proposal distribution
+<span class="math notranslate nohighlight">\(h(\boldsymbol{x})\)</span>. This is usually achieved by engineering judgement
+and knowledge of the design point.</p>
+</div>
+<div class="section" id="subset-simulation">
+<h3>Subset simulation<a class="headerlink" href="#subset-simulation" title="Permalink to this headline">¶</a></h3>
+<p>Subset simulation aims to calculate <span class="math notranslate nohighlight">\(P_f\)</span> by decomposing the space of
+the random variables into several intermediate failure events with
+decreasing failure probability. The conditional probabilities for the
+intermediate failure regions can then be used to calculate <span class="math notranslate nohighlight">\(P_f\)</span> which
+is given by <span class="math notranslate nohighlight">\(P_f = P(F_m) = P(F_m) \prod^{m-1}_{i=1} P(F_{i+1}|F_i)\)</span>
+where <span class="math notranslate nohighlight">\(F_i\)</span> represents intermediate failure event <span class="math notranslate nohighlight">\(i\)</span>. By making the
+conditional probability of samples falling in the intermediate failure
+regions large, the coefficient of variation of each individual failure
+event can be minimised, hence minimising the coefficient of variation of
+<span class="math notranslate nohighlight">\(P_f\)</span>. Markov chains are used to generate conditional samples between
+intermediate failure regions in order to calculate <span class="math notranslate nohighlight">\(P(F_{i+1}|F_i)\)</span>. A
+complete description of the method is given in <a class="bibtex reference internal" href="../zbibliography.html#au2001estimation" id="id17">[AB01]</a>.</p>
+<p>The main advantage of Subset Simulation is that it can estimate failure
+probabilities for non-linear limit state surfaces in a black box manner
+with relatively low computational expense. However,
+<a class="bibtex reference internal" href="../zbibliography.html#breitung2019geometry" id="id18">[Bre19]</a> shows that subset simulation is not accurate for
+some limit state surfaces, for example limit state surfaces with
+multiple importance directions.</p>
+</div>
+<div class="section" id="metamodels">
+<h3>Metamodels<a class="headerlink" href="#metamodels" title="Permalink to this headline">¶</a></h3>
+<p>If inexpensive samples of <span class="math notranslate nohighlight">\(g(\boldsymbol{x})\)</span> or
+<span class="math notranslate nohighlight">\(\mathbb{I}_f(\boldsymbol{x})\)</span> are available then the estimator
+<span class="math notranslate nohighlight">\(\hat{P}_f\)</span> can be evaluated trivially. Therefore, the problem of
+estimating <span class="math notranslate nohighlight">\(P_f\)</span> can be effectively reduced to a machine learning
+problem. In the case of modelling <span class="math notranslate nohighlight">\(g(\boldsymbol{x})\)</span>, the problem is
+one of regression. In the case of modelling
+<span class="math notranslate nohighlight">\(\mathbb{I}_f(\boldsymbol{x})\)</span>, the problem is classification of the
+failure region. A machine learning model which fulfils this purpose is
+known as a metamodel or surrogate model.</p>
+<p>In the literature many machine learning techniques have been applied to
+the reliability analysis problem: linear regression (known as the
+response surface methodology) <a class="bibtex reference internal" href="../zbibliography.html#bucher1990fast" id="id19">[BB90]</a>, support vector machines
+<a class="bibtex reference internal" href="../zbibliography.html#rocco2002fast" id="id20">[RM02]</a>, polynomial chaos expansions
+<a class="bibtex reference internal" href="../zbibliography.html#berveiller2006stochastic" id="id21">[BSL06]</a>, neural networks <a class="bibtex reference internal" href="../zbibliography.html#shao1997structural" id="id22">[SM97]</a> and
+Gaussian process emulators (sometimes known as Kriging)
+<a class="bibtex reference internal" href="../zbibliography.html#kaymaz2005application" id="id23">[Kay05]</a>. Neural networks and Gaussian processes have
+the advantage of being able to quantify their uncertainty accurately, so
+the required number of training samples can be assessed. Polynomial
+chaos expansions allow the sensitivity indices of <span class="math notranslate nohighlight">\(g(\boldsymbol{x})\)</span> to
+be computed analytically from the trained metamodel <a class="bibtex reference internal" href="../zbibliography.html#sudret2008global" id="id24">[Sud08]</a>.
+In <a class="bibtex reference internal" href="../zbibliography.html#sadeghi-2019" id="id25">[FSB+19]</a>, Interval Predictor Models are used to solve the reliability analysis problem.</p>
+<p>In general, the most useful metamodels produce the most accurate
+estimates of <span class="math notranslate nohighlight">\(P_f\)</span>, whilst requiring the smallest number of training
+samples. An ‘experimental design’ specifies where the samples of
+<span class="math notranslate nohighlight">\(g(\boldsymbol{x})\)</span> will be made for training. Usually a uniform design
+is chosen, but other sampling strategies can be used <a class="bibtex reference internal" href="../zbibliography.html#sudret2012meta" id="id26">[Sud12]</a>.
+Active learning can be used to sequentially choose the samples required
+to train the metamodel. These samples are usually chosen based on where
+the uncertainty of the metamodel is largest. In adaptive Kriging Monte
+Carlo simulation (AK-MCS) the samples are chosen at points with large
+uncertainty, close to the limit state surface. This strategy achieves
+state of the art efficiency <a class="bibtex reference internal" href="../zbibliography.html#echard2011ak" id="id27">[EGL11]</a>. This strategy is known as
+active learning, and the function which is used to choose the subsequent
+sample is known as the probability of misclassification acquisition
+function.</p>
+<p>The main advantage of metamodels is that the estimator for the failure
+probability based on the metamodel can be made arbitrarily accurate. The
+main disadvantage is that the metamodel introduces uncertainties, so the
+problem is effectively shifted to trying to create an accurate metamodel
+with a small number of samples.</p>
+</div>
+</div>
+<div class="section" id="worked-example-first-order-reliability-analysis-method-form">
+<h2>Worked example : First order reliability analysis method (FORM)<a class="headerlink" href="#worked-example-first-order-reliability-analysis-method-form" title="Permalink to this headline">¶</a></h2>
+<p>For the simple example of a cantilever beam with a point load, <span class="math notranslate nohighlight">\(F\)</span>, at any point on the beam, the maximum deflection of the end of the beam is given by
+<span class="math notranslate nohighlight">\(\delta_{max}=\frac{F a^2}{6 E I} (3l-a)\)</span>,
+where <span class="math notranslate nohighlight">\(I\)</span> is the moment of inertia of the beam, <span class="math notranslate nohighlight">\(a\)</span> is the distance of the point load from the fixed end of the beam, <span class="math notranslate nohighlight">\(l\)</span> is the length of the beam and <span class="math notranslate nohighlight">\(E\)</span> is the modulus of elasticity of the beam <a class="bibtex reference internal" href="../zbibliography.html#goodno2016mechanics" id="id28">[GG16b]</a>.
+<span class="math notranslate nohighlight">\(E\)</span>, <span class="math notranslate nohighlight">\(I\)</span> and <span class="math notranslate nohighlight">\(a\)</span> were fixed, and <span class="math notranslate nohighlight">\(l\)</span> and <span class="math notranslate nohighlight">\(F\)</span> were given by random variables with normal distributions.
+The chosen values of the parameters are shown below:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Distribution</p></th>
+<th class="head"><p>Mean</p></th>
+<th class="head"><p>Standard Deviation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(E\)</span></p></td>
+<td><p>Fixed</p></td>
+<td><p>200000 N/mm<span class="math notranslate nohighlight">\(^2\)</span></p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(I\)</span></p></td>
+<td><p>Fixed</p></td>
+<td><p>78125000 mm<span class="math notranslate nohighlight">\(^4\)</span></p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(l\)</span></p></td>
+<td><p>Normal</p></td>
+<td><p>5000 mm</p></td>
+<td><p>20 mm</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(a\)</span></p></td>
+<td><p>Fixed</p></td>
+<td><p>3000 mm</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(F\)</span></p></td>
+<td><p>Normal</p></td>
+<td><p>30000 N</p></td>
+<td><p>20 N</p></td>
+</tr>
+</tbody>
+</table>
+<p>It is assumed that the beam ‘fails’ when the maximum deflection is greater than 35 mm.</p>
+<p>First we need to determine the reliability index (<span class="math notranslate nohighlight">\(\beta\)</span>). This can be achieved by several methods:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using optimisation</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="k">def</span> <span class="nf">deflection</span><span class="p">(</span><span class="n">force</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">elasticity</span><span class="p">,</span> <span class="n">inertia</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Deflection of a cantilever beam</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        force: Force</span>
+<span class="sd">        distance: Distance of the point load from the fixed end of the beam</span>
+<span class="sd">        elasticity: Modulus of elasticity of the beam</span>
+<span class="sd">        inertia: Beam moment of inertia</span>
+<span class="sd">        length: Beam length</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        deflection</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">force</span> <span class="o">*</span> <span class="n">distance</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">length</span> <span class="o">-</span> <span class="n">distance</span><span class="p">)</span>
+            <span class="o">/</span> <span class="p">(</span><span class="mi">6</span> <span class="o">*</span> <span class="n">elasticity</span> <span class="o">*</span> <span class="n">inertia</span><span class="p">))</span>
+
+
+<span class="n">performance_threshold</span> <span class="o">=</span> <span class="mi">35</span>
+
+
+<span class="k">def</span> <span class="nf">performance</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">force</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">performance_threshold</span>
+            <span class="o">-</span> <span class="n">deflection</span><span class="p">(</span><span class="n">force</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="mi">200000</span><span class="p">,</span> <span class="mi">78125000</span><span class="p">,</span> <span class="n">length</span><span class="p">))</span>
+
+
+<span class="n">mean_l</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="n">std_l</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">mean_F</span> <span class="o">=</span> <span class="mi">30000</span>
+<span class="n">std_F</span> <span class="o">=</span> <span class="mi">20</span>
+
+
+<span class="k">def</span> <span class="nf">normalise</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Transform variable to standard normal space</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">variable</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span> <span class="o">/</span> <span class="n">std</span>
+
+
+<span class="k">def</span> <span class="nf">unnormalise</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Transform variable from standard normal space</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">variable</span> <span class="o">*</span> <span class="n">std</span> <span class="o">+</span> <span class="n">mean</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">force</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">normalise</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">mean_l</span><span class="p">,</span> <span class="n">std_l</span><span class="p">),</span> <span class="n">normalise</span><span class="p">(</span><span class="n">force</span><span class="p">,</span> <span class="n">mean_F</span><span class="p">,</span> <span class="n">std_F</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">inverse_transform</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">force</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">unnormalise</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">mean_l</span><span class="p">,</span> <span class="n">std_l</span><span class="p">),</span>
+            <span class="n">unnormalise</span><span class="p">(</span><span class="n">force</span><span class="p">,</span> <span class="n">mean_F</span><span class="p">,</span> <span class="n">std_F</span><span class="p">))</span>
+
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>
+    <span class="n">x0</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">constraints</span><span class="o">=</span><span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">NonlinearConstraint</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">performance</span><span class="p">(</span><span class="o">*</span><span class="n">inverse_transform</span><span class="p">(</span><span class="o">*</span><span class="n">x</span><span class="p">)),</span> <span class="n">lb</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ub</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">fun</span>
+<span class="n">design_point</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">x</span>
+<span class="n">P_f</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="o">-</span><span class="n">beta</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">P_f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0058112134307528535
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using gradient of performance function</span>
+
+<span class="k">def</span> <span class="nf">gradient_performance_function_lf</span><span class="p">(</span><span class="n">force</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">elasticity</span><span class="p">,</span> <span class="n">inertia</span><span class="p">,</span>
+                                     <span class="n">length</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Gradient of performance function with respect to l and F</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        force: Force</span>
+<span class="sd">        distance: Distance of the point load from the fixed end of the beam</span>
+<span class="sd">        elasticity: Modulus of elasticity of the beam</span>
+<span class="sd">        inertia: Beam moment of inertia</span>
+<span class="sd">        length: Beam length</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dg_dl</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="o">*</span> <span class="n">force</span> <span class="o">*</span> <span class="n">distance</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">6</span> <span class="o">*</span> <span class="n">elasticity</span> <span class="o">*</span> <span class="n">inertia</span><span class="p">)</span>
+    <span class="n">dg_dF</span> <span class="o">=</span> <span class="o">-</span><span class="n">distance</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">length</span> <span class="o">-</span> <span class="n">distance</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">6</span> <span class="o">*</span> <span class="n">elasticity</span> <span class="o">*</span> <span class="n">inertia</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dg_dl</span><span class="p">,</span> <span class="n">dg_dF</span><span class="p">])</span>
+
+
+<span class="k">def</span> <span class="nf">unnormalised_gradient_at_mean</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">force</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">gradient_performance_function_lf</span><span class="p">(</span><span class="n">force</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="mi">200000</span><span class="p">,</span> <span class="mi">78125000</span><span class="p">,</span>
+                                            <span class="n">length</span><span class="p">)</span>
+
+
+<span class="n">gradient_at_mean</span> <span class="o">=</span> <span class="n">unnormalised_gradient_at_mean</span><span class="p">(</span>
+    <span class="o">*</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">mean_l</span><span class="p">,</span> <span class="n">mean_F</span><span class="p">))</span>
+<span class="n">importance_direction</span> <span class="o">=</span> <span class="o">-</span> <span class="n">gradient_at_mean</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">gradient_at_mean</span><span class="p">)</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="n">performance</span><span class="p">(</span><span class="n">mean_l</span><span class="p">,</span> <span class="n">mean_F</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">gradient_at_mean</span><span class="p">)</span>
+<span class="n">design_point</span> <span class="o">=</span> <span class="n">importance_direction</span> <span class="o">*</span> <span class="n">beta</span>
+<span class="n">P_f</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="o">-</span><span class="n">beta</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">P_f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.008363326195416835
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check result using Monte Carlo</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">1000000</span>
+<span class="n">samples_standardised</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">samples_l</span><span class="p">,</span> <span class="n">samples_F</span> <span class="o">=</span> <span class="n">inverse_transform</span><span class="p">(</span>
+    <span class="n">samples_standardised</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">samples_standardised</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">P_f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">performance</span><span class="p">(</span><span class="n">samples_l</span><span class="p">,</span> <span class="n">samples_F</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">P_f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.005767
+</pre></div>
+</div>
+</div>
+</div>
+<p>Below, a plot is shown of the model:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">limit_state_F</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">elasticity</span><span class="p">,</span> <span class="n">inertia</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Parametric equation for limit state surface for F as a function of l</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="mi">35</span> <span class="o">/</span> <span class="p">(</span><span class="n">distance</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">length</span> <span class="o">-</span> <span class="n">distance</span><span class="p">)</span>
+                 <span class="o">/</span> <span class="p">(</span><span class="mi">6</span> <span class="o">*</span> <span class="n">elasticity</span> <span class="o">*</span> <span class="n">inertia</span><span class="p">))</span>
+
+
+<span class="c1"># Plot the limit state surface - where performance function is zero</span>
+<span class="n">x_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">unnormalised_x</span> <span class="o">=</span> <span class="n">unnormalise</span><span class="p">(</span><span class="n">x_plot</span><span class="p">,</span> <span class="n">mean_l</span><span class="p">,</span> <span class="n">std_l</span><span class="p">)</span>
+<span class="n">limit_state</span> <span class="o">=</span> <span class="n">limit_state_F</span><span class="p">(</span><span class="n">unnormalised_x</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="mi">200000</span><span class="p">,</span> <span class="mi">78125000</span><span class="p">)</span>
+<span class="n">normalised_limit_state</span> <span class="o">=</span> <span class="n">normalise</span><span class="p">(</span><span class="n">limit_state</span><span class="p">,</span> <span class="n">mean_F</span><span class="p">,</span> <span class="n">std_F</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_plot</span><span class="p">,</span> <span class="n">normalised_limit_state</span><span class="p">)</span>
+<span class="c1"># Shade failure region - to the right of limit state surface</span>
+<span class="c1"># (performance function &lt; 0)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x_plot</span><span class="p">,</span> <span class="n">normalised_limit_state</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c1"># Plot some samples from the Monte Carlo simulation</span>
+<span class="n">n_samples_to_plot</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">samples_standardised</span><span class="p">[:</span><span class="n">n_samples_to_plot</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">samples_standardised</span><span class="p">[:</span><span class="n">n_samples_to_plot</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;y&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Plot beta - the line linking design point with the origin</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">design_point</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">design_point</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+
+<span class="c1"># Set plot properties</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;l&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;F&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/random-variables_6_0.png" src="../_images/random-variables_6_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapter4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="chapter4.html" title="previous page">Reliability Analysis</a>
+    <a class='right-next' id="next-link" href="convex-set.html" title="next page">Convex set models for reliability</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

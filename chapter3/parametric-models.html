@@ -1,0 +1,877 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parametric regression models &#8212; Uncertainty Modelling for Engineers</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Non-parametric models" href="non-parametric-models.html" />
+    <link rel="prev" title="Machine Learning of Regression Models" href="chapter3.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/FORM.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Uncertainty Modelling for Engineers</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   How to use this book
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../outline.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../chapter2/chapter2.html">
+   Models of Uncertainty
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/probabilistic.html">
+     Probabilistic models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/sets.html">
+     Set-based models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/imprecise.html">
+     Imprecise probabilistic models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/creating.html">
+     Creating models in practice
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter2/summary.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="chapter3.html">
+   Machine Learning of Regression Models
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Parametric regression models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="non-parametric-models.html">
+     Non-parametric models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="learning-bounds.html">
+     Learning bounds on a model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="conclusion.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../chapter4/chapter4.html">
+   Reliability Analysis
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/random-variables.html">
+     Reliability analysis with random variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/convex-set.html">
+     Convex set models for reliability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/probability-boxes.html">
+     Reliability analysis with probability boxes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/summary.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../conclusion.html">
+   Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../zbibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/chapter3/parametric-models.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers/issues/new?title=Issue%20on%20page%20%2Fchapter3/parametric-models.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers/edit/master/chapter3/parametric-models.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/uncertainty-for-engineers/uncertainty-modelling-for-engineers/master?urlpath=tree/chapter3/parametric-models.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/uncertainty-for-engineers/uncertainty-modelling-for-engineers/blob/master/chapter3/parametric-models.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bayesian-parameter-learning">
+   Bayesian parameter learning
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#defining-a-data-likelihood">
+     Defining a data likelihood
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#performing-the-bayesian-computation">
+     Performing the Bayesian computation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#computational-methods">
+     Computational methods
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#validation">
+   Validation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-bias-variance-tradeoff">
+   The bias-variance tradeoff
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#worked-example-linear-regression">
+   Worked example : linear regression
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="parametric-regression-models">
+<h1>Parametric regression models<a class="headerlink" href="#parametric-regression-models" title="Permalink to this headline">¶</a></h1>
+<p>Typically when learning a regression model, one wishes to obtain a
+estimate of the relationship between the two variables, in addition to a
+measure of uncertainty in this relationship. Typically this is achieved
+by specifying a function relating the two variables, and then using
+Machine Learning techniques to calibrate parameters of that function
+based on sampled data. The function can be specified based on expert
+knowledge, or alternatively a very general function is chosen.</p>
+<p>The most simple regression models usually consist of the inner product
+of a parameter vector and a vector of ‘features’, such that the model
+output’s dependency on the parameters to be calibrated is linear. The
+features, usually known as the basis, are a function of the input
+variables, which may be non-linear. Models of this form are amenable to
+computation, and in general a wide variety of functions can be expressed
+in this way. In this formulation the output of the model is given by
+<span class="math notranslate nohighlight">\(f(x, \boldsymbol{p}) = \sum_i p_i \phi_i(x),\)</span> where <span class="math notranslate nohighlight">\(x\)</span> and
+<span class="math notranslate nohighlight">\(f(x,\boldsymbol{p})\)</span> represent the input and output to the regression
+model, respectively, <span class="math notranslate nohighlight">\(p_i\)</span> are the parameters of the model to be
+calibrated which are components of the vector <span class="math notranslate nohighlight">\(\boldsymbol{p}\)</span>, and
+<span class="math notranslate nohighlight">\(\phi_i(x)\)</span> is the basis <a class="bibtex reference internal" href="../zbibliography.html#friedman2001elements" id="id1">[FHT01]</a>. Let <span class="math notranslate nohighlight">\(x\)</span> be a vector in
+<span class="math notranslate nohighlight">\(\mathbb{R}^N\)</span>, with components <span class="math notranslate nohighlight">\(x_i\)</span>.</p>
+<p>The basis should be chosen based on prior knowledge and engineering
+judgement. Basis functions are either global or local. A local basis
+consists of radial functions, which only depend upon the distance from a
+certain point, i.e. <span class="math notranslate nohighlight">\(\phi(x) = \phi(|x|)\)</span>. The Gaussian basis is a
+common radial basis function, where
+<span class="math notranslate nohighlight">\(\phi_i(x) = \exp{(-\epsilon_i (x-c_i)^2)}\)</span>. <span class="math notranslate nohighlight">\(\epsilon_i\)</span> and <span class="math notranslate nohighlight">\(c_i\)</span> are
+parameters which can be set based on knowledge of the physical process
+being modelled or learnt from data at the same time as <span class="math notranslate nohighlight">\(p_i\)</span>, though
+this is more difficult because <span class="math notranslate nohighlight">\(f(x)\)</span> has non-linear dependency on these
+parameters. The Gaussian basis function tends to zero far away from
+<span class="math notranslate nohighlight">\(c_i\)</span>. On the other hand, a global basis consists of functions which in
+general are non-zero at all points in the input space. For example, the
+global polynomial basis of the form <span class="math notranslate nohighlight">\(\phi_i(x) = \prod_i x_i^{l_i}\)</span>,
+with indices <span class="math notranslate nohighlight">\(l_i\)</span> chosen based on engineering judgement, is nonzero
+everywhere except for <span class="math notranslate nohighlight">\(x=0\)</span>.</p>
+<p>Polynomial Chaos Expansions offer a principled way to choose basis
+functions. Polynomial Chaos Expansions are a class of regression model
+with a basis consisting of polynomials which are orthogonal to each
+other, i.e. their inner product is zero with respect to a probability
+distribution over their inputs
+(<span class="math notranslate nohighlight">\(\int_{\mathbb{R}^N} \phi_i(x) \phi_j(x) p(x) dx = 0 \forall i\neq j\)</span>)
+<a class="bibtex reference internal" href="../zbibliography.html#schobi2017surrogate" id="id2">[Schobi17]</a>.</p>
+<p>In order to learn more complex functions, a more complex function
+representation is needed, with the ability to model arbitrary
+non-linearities in the model parameters to be learned. Neural networks
+are a widely used regression model which fulfil this purpose
+<a class="bibtex reference internal" href="../zbibliography.html#friedman2001elements" id="id3">[FHT01]</a>. Neural networks consist of neurons which apply
+an inner product between the input and a parameter vector, and then
+apply an arbitrary non-linearity, before feeding into other neurons,
+until finally the result is outputted. These computational neurons are
+organised into layers, which is equivalent to multiplying the input by a
+parameter matrix (known as a weight matrix), rather than a vector. The
+way in which layers are connected can lead to desirable properties, for
+example spatial invariance of particular layers over the input when the
+input is an image, i.e. a matrix. This is equivalent to repeating
+parameters in the weight matrix. The most simple way to connect the
+layers is to allow each layer to be completely connected to the
+subsequent layer, which is known as the feedforward architecture. Layer
+<span class="math notranslate nohighlight">\(i\)</span> of a feed-forward neural network is given by</p>
+<div class="math notranslate nohighlight" id="equation-eq-net">
+<span class="eqno">(9)<a class="headerlink" href="#equation-eq-net" title="Permalink to this equation">¶</a></span>\[f_{i}(x, W)=\operatorname{act}{(W_{i} f_{i-1}(x))},\]</div>
+<p>where <span class="math notranslate nohighlight">\(f_{i}(x, W)\)</span> is a vector (which is the input vector <span class="math notranslate nohighlight">\(x\)</span> when
+<span class="math notranslate nohighlight">\(i=0\)</span>, i.e. <span class="math notranslate nohighlight">\(f_0(x) = 0\)</span>), <span class="math notranslate nohighlight">\(\operatorname{act}\)</span> is a non-linear
+activation function, and <span class="math notranslate nohighlight">\(W_{i}\)</span> is the <span class="math notranslate nohighlight">\(i\)</span>th weight matrix. The
+activation function is typically the hyperbolic tangent function, the
+soft-max function or the rectified linear function. A diagram of a
+feed-forward neural network is shown in
+<a class="reference internal" href="#fig-net-diagram"><span class="std std-ref">A diagram of a feed-forward neural network with three hidden layers,
+each with a width of three neurons. The activation function, which is
+applied to the weighted sum of the inputs to each neuron, is not
+shown.</span></a>. <a class="bibtex reference internal" href="../zbibliography.html#sundararajan2012probabilistic" id="id4">[Sun12]</a>
+demonstrates how neural networks can be trained to replicate the
+opinions of expert engineers on the probability of failure of particular
+pipe welds in a power plant.</p>
+<div class="figure align-default" id="fig-net-diagram">
+<a class="reference internal image-reference" href="../_images/neural_network_diagram.png"><img alt="../_images/neural_network_diagram.png" src="../_images/neural_network_diagram.png" style="height: 150px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">A diagram of a feed-forward neural network with three hidden layers,
+each with a width of three neurons. The activation function, which is
+applied to the weighted sum of the inputs to each neuron, is not
+shown.</span><a class="headerlink" href="#fig-net-diagram" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="bayesian-parameter-learning">
+<h2>Bayesian parameter learning<a class="headerlink" href="#bayesian-parameter-learning" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="defining-a-data-likelihood">
+<h3>Defining a data likelihood<a class="headerlink" href="#defining-a-data-likelihood" title="Permalink to this headline">¶</a></h3>
+<p>It is common to define a probability distribution based on the output of
+a regression model, and then use the probability calculus introduced in
+Chapter <a class="reference internal" href="../chapter2/chapter2.html#ch-uncertainty-models"><span class="std std-ref">Models of Uncertainty</span></a> to learn distributions over the
+parameters of the regression model. For simple models it is usually
+assumed that the output <span class="math notranslate nohighlight">\(f(x)\)</span> of the model is some meaningful parameter
+of the distribution, e.g. the mean of a normal distribution:
+<span class="math notranslate nohighlight">\(p(y|x, \boldsymbol{p}) =  \mathcal{N}(f(x, \boldsymbol{p}),\,\sigma^{2}),\)</span>
+where <span class="math notranslate nohighlight">\(\sigma\)</span> is the scale parameter of the normal distribution, which
+should be learned form data. This results in a model where the level of
+uncertainty in <span class="math notranslate nohighlight">\(p(y|x)\)</span> does not depend on the input to the model. This
+is known as a homoscedastic model of uncertainty.</p>
+<p>Sometimes it is desirable to explicitly allow the uncertainty in the
+predictions to depend on <span class="math notranslate nohighlight">\(x\)</span>. This is known as heteroscedastic
+uncertainty <a class="bibtex reference internal" href="../zbibliography.html#gal2016uncertainty" id="id5">[Gal16b]</a>. In this case it can be useful to
+define a model where other parameters of the distribution depend on <span class="math notranslate nohighlight">\(x\)</span>,
+i.e. we define
+<span class="math notranslate nohighlight">\(p(y|x, \boldsymbol{p}) =  \mathcal{N}(f_1(x, \boldsymbol{p}_1),\, f_2(x, \boldsymbol{p}_2)^{2}),\)</span>
+where <span class="math notranslate nohighlight">\(f_1(x, \boldsymbol{p}_1)\)</span> and <span class="math notranslate nohighlight">\(f_2(x, \boldsymbol{p}_2)\)</span> are
+different functions with different parameter sets, <span class="math notranslate nohighlight">\(\boldsymbol{p}_1\)</span>
+and <span class="math notranslate nohighlight">\(\boldsymbol{p}_2\)</span>.</p>
+<p>Any valid probability distribution can be used in a similar way, for
+example the Dirac delta function can be used to define
+<span class="math notranslate nohighlight">\(p(y|x, W, u) =  \delta(y - f_{i}(x, u, W)),\)</span> where <span class="math notranslate nohighlight">\(f_{i}(x)\)</span> is the
+output of a neural network, where in this case the input layer is a
+function of the true input and a random vector of noise, i.e.
+<span class="math notranslate nohighlight">\(f_0(x, u, W) = \operatorname{concatenate}(x, u)\)</span> where
+<span class="math notranslate nohighlight">\(u \sim \mathcal{U}(0,1)\)</span>. This is a very popular formulation in Machine
+Learning for Computer Vision <a class="bibtex reference internal" href="../zbibliography.html#goodfellow2014generative" id="id6">[GPAM+14]</a>
+<a class="bibtex reference internal" href="../zbibliography.html#doersch2016tutorial" id="id7">[Doe16]</a>, because <span class="math notranslate nohighlight">\(p(y|x, W, u)\)</span> can now be used to learn
+a very general probability density in a computationally tractable way,
+since
+<span class="math notranslate nohighlight">\(p(y|x, W) = \int{\delta(y - f_{i}(x, u, W)) \mathcal{U}(0,1) d u}\)</span> can
+be evaluated easily using a Monte Carlo estimator during inference of
+the posterior distribution.</p>
+</div>
+<div class="section" id="performing-the-bayesian-computation">
+<h3>Performing the Bayesian computation<a class="headerlink" href="#performing-the-bayesian-computation" title="Permalink to this headline">¶</a></h3>
+<p>Using a set of <span class="math notranslate nohighlight">\(n\)</span> training samples,
+<span class="math notranslate nohighlight">\(\mathcal{X}_\text{train} = \{ \{x^{(1)}, y^{(1)}\}, ..., \{x^{(n)}, y^{(n)}\} \}\)</span>,
+one can learn a distribution over <span class="math notranslate nohighlight">\(\boldsymbol{p}\)</span> in the same way as in
+Chapter <a class="reference internal" href="../chapter2/chapter2.html#ch-uncertainty-models"><span class="std std-ref">Models of Uncertainty</span></a> by using</p>
+<div class="math notranslate nohighlight" id="equation-eqn-bayes-law-ml">
+<span class="eqno">(10)<a class="headerlink" href="#equation-eqn-bayes-law-ml" title="Permalink to this equation">¶</a></span>\[P(\boldsymbol{p} | \mathcal{X}_\text{train}) =
+    \frac{P(\mathcal{X}_\text{train} | \boldsymbol{p}) p(\boldsymbol{p})}{P(\mathcal{X}_\text{train})} =
+    \frac{ \prod_i P(x^{(i)}, y^{(i)}| \boldsymbol{p}) p(\boldsymbol{p})}{P(\mathcal{X}_\text{train})} =
+    \frac{ \prod_i p(y^{(i)}| x^{(i)}, \boldsymbol{p}) p(x^{(i)}) p( \boldsymbol{p})}{P(\mathcal{X}_\text{train})}
+    ,\]</div>
+<p>where the data likelihood can be written as
+<span class="math notranslate nohighlight">\(P(\mathcal{X}_\text{train} | \boldsymbol{p}) = \prod_i p(y^{(i)}, x^{(i)}| \boldsymbol{p})\)</span>
+by assuming independence of training samples, <span class="math notranslate nohighlight">\(p(\boldsymbol{p})\)</span>
+represents a prior distribution on <span class="math notranslate nohighlight">\(\boldsymbol{p}\)</span>,
+<span class="math notranslate nohighlight">\(p(x^{(i)}, \boldsymbol{p})=p(x^{(i)}) p(\boldsymbol{p})\)</span> by assuming
+independence of <span class="math notranslate nohighlight">\(\boldsymbol{p}\)</span> and the sampled inputs, and
+<span class="math notranslate nohighlight">\(P(\mathcal{X}_\text{train}) =  \int{ \prod_i p(y^{(i)}| x^{(i)}, \boldsymbol{p}) p(x^{(i)}, \boldsymbol{p}) d\boldsymbol{p}}\)</span>
+acts as a normalising constant. As in
+Chapter <a class="reference internal" href="../chapter2/chapter2.html#ch-uncertainty-models"><span class="std std-ref">Models of Uncertainty</span></a>, the posterior distribution on
+<span class="math notranslate nohighlight">\(\boldsymbol{p}\)</span> will tend to concentrate around one point as more data
+is received.</p>
+<p>The maximum likelihood and maximum a posteriori estimators described in
+Chapter <a class="reference internal" href="../chapter2/chapter2.html#ch-uncertainty-models"><span class="std std-ref">Models of Uncertainty</span></a> are equally applicable here. These
+estimators are evaluated by minimising so-called loss functions
+(objective functions). The maximum a posteriori estimator for
+<span class="math notranslate nohighlight">\(\boldsymbol{p}\)</span> is obtained by evaluating
+<span class="math notranslate nohighlight">\(\boldsymbol{p}_{\text{MAP}} = \max_{\boldsymbol{p}} P(\boldsymbol{p} | \mathcal{X}_\text{train})\)</span>,
+where
+<span class="math notranslate nohighlight">\(P(\boldsymbol{p} | \mathcal{X}_\text{train}) \propto P(\mathcal{X}_\text{train} | \boldsymbol{p}) P(\boldsymbol{p}) = \mathcal{L}_\text{MAP} (\boldsymbol{p})\)</span>.
+The maximum likelihood estimator for <span class="math notranslate nohighlight">\(\boldsymbol{p}\)</span> is obtained by
+evaluating
+<span class="math notranslate nohighlight">\(\boldsymbol{p}_\text{ML} = \max_{\boldsymbol{p}} \mathcal{L}_\text{ML} (\boldsymbol{p}) = \max_{\boldsymbol{p}} P(\mathcal{X}_\text{train} | \boldsymbol{p})\)</span>.
+The maximum likelihood estimator is equivalent to the maximum
+a posteriori estimator when a uniform prior distribution is used. Using
+a normal distribution for the data likelihood leads to the well known
+mean squared error or <span class="math notranslate nohighlight">\(\ell_2\)</span> norm loss function when the maximum
+likelihood estimator is used. Using a polynomial basis with the mean
+squared error loss function leads to ordinary least squares regression.
+If a normal distribution prior is used then this leads to an <span class="math notranslate nohighlight">\(\ell_2\)</span>
+weight regularisation (squared penalty) in the maximum a posteriori loss
+function. In a similar way, most sensible loss functions which aim to
+estimate point values for parameters have a Bayesian interpretation.</p>
+</div>
+<div class="section" id="computational-methods">
+<h3>Computational methods<a class="headerlink" href="#computational-methods" title="Permalink to this headline">¶</a></h3>
+<p>In practice, the most common way to create regression models is to
+evaluate the estimators <span class="math notranslate nohighlight">\(\boldsymbol{p}_\text{ML}\)</span> or
+<span class="math notranslate nohighlight">\(\boldsymbol{p}_\text{MAP}\)</span> with Stochastic Gradient Ascent, which
+maximises the logarithm of the relevant probability distribution (or
+equivalently by using Stochastic Gradient Descent to minimise the
+negative of the log posterior). This is computationally tractable even
+for high dimensional <span class="math notranslate nohighlight">\(\boldsymbol{p}\)</span>, since usually the gradient of
+<span class="math notranslate nohighlight">\(\log{P(\boldsymbol{p} | \mathcal{X}_\text{train})}\)</span> is known
+analytically. Gradient Descent methods are a class of optimisation
+methods which adjust the value for a parameter at each step of the
+algorithm by subtracting a small learning rate constant, <span class="math notranslate nohighlight">\(\eta\)</span>,
+multiplied by the gradient of the loss, <span class="math notranslate nohighlight">\(\mathcal{L}\)</span>, with respect to
+the trainable parameter, i.e.
+<span class="math notranslate nohighlight">\(p_i \gets p_i + \eta \frac{\partial \mathcal{L}}{\partial p_i}.\)</span> This
+is repeated for a set number of iterations until the algorithm has
+converged. Stochastic Gradient Descent approximates the product of
+likelihoods in the loss function by evaluating the likelihood for one
+different sampled data point at each iteration. This is effective since
+the expectation of the loss used in Stochastic Gradient Descent will
+still be equal to the true value of the loss function. In this case, the
+learning rate constant must be reduced to ensure convergence, which
+means many iterations of the algorithm are required to ensure a good
+estimate for the parameters is obtained. Mini-batches, where the
+likelihood is evaluated for a small set of data points at each
+iteration, can be used to achieve good convergence at higher learning
+rates, whilst decreasing the required computational time, since a GPU
+can be used <a class="bibtex reference internal" href="../zbibliography.html#ruder2016overview" id="id8">[Rud16]</a>. Various improvements to Stochastic
+Gradient Descent aim to ensure that the optimiser reaches a true minimum
+of the loss function, a particularly common improvement being the ADAM
+optimiser <a class="bibtex reference internal" href="../zbibliography.html#kingma2014adam" id="id9">[KB14]</a>.</p>
+<p>Using the maximum likelihood and maximum a posteriori estimators can
+allow some estimate of the uncertainty in the model to be made, but this
+uncertainty is an underestimate of the true model uncertainty. For very
+simple regression models, MCMC can be used to obtain the full posterior
+distribution on <span class="math notranslate nohighlight">\(\boldsymbol{p}\)</span>, however this is usually intractable
+for models with large parameter sets. As an alternative, variational
+inference can be used to minimise the difference between the
+<span class="math notranslate nohighlight">\(P(\boldsymbol{p} | \mathcal{X}_\text{train})\)</span> and an approximating
+posterior distribution, as described in
+Chapter <a class="reference internal" href="../chapter2/chapter2.html#ch-uncertainty-models"><span class="std std-ref">Models of Uncertainty</span></a>. Note that
+<span class="math notranslate nohighlight">\(P(\boldsymbol{p} | \mathcal{X}_\text{train})\)</span> must be differentiable in
+<span class="math notranslate nohighlight">\(\boldsymbol{p}\)</span> for this to be possible. Using Bayes’ law to infer
+posterior distributions over the weights of a neural network is referred
+to as training a Bayesian neural network, and this is almost always
+achieved by using variational inference <a class="bibtex reference internal" href="../zbibliography.html#blundell2015weight" id="id10">[BCKW15]</a>.</p>
+<p>The technique of dropout sampling has been shown to improve the
+performance of Stochastic Gradient Descent solvers, by improving the
+performance on validation tests <a class="bibtex reference internal" href="../zbibliography.html#srivastava2014dropout" id="id11">[SHK+14]</a>. Dropout
+sampling involves randomly setting a fraction, <span class="math notranslate nohighlight">\(p_\text{dropout}\)</span> of the
+weights to zero during each training iteration. For particular choices
+of activation function, when an <span class="math notranslate nohighlight">\(l_2\)</span> penalty on the weights is used in
+the loss function, it can be shown that dropout sampling is equivalent
+to variational inference on a Bayesian neural network, where a Bernoulli
+distribution is used as the approximating posterior distribution
+<a class="bibtex reference internal" href="../zbibliography.html#gal2016dropout" id="id12">[GG16a]</a>. In order for the approximating posterior distribution
+to be an accurate representation of the true posterior distribution, it
+is necessary to adjust the dropout probability, <span class="math notranslate nohighlight">\(p_\text{dropout}\)</span>.
+Rather than repeatedly performing training with different dropout
+probabilities, it is more efficient to make the dropout probability a
+parameter which can be optimised during training, by making the loss
+differentiable in terms of the dropout probability. This can be achieved
+with concrete dropout, where a continuous approximation of the Bernoulli
+distribution is used <a class="bibtex reference internal" href="../zbibliography.html#gal2017concrete" id="id13">[GHK17]</a>.</p>
+</div>
+</div>
+<div class="section" id="validation">
+<h2>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h2>
+<p>As was the case with generative uncertainty models in
+Chapter <a class="reference internal" href="../chapter2/chapter2.html#ch-uncertainty-models"><span class="std std-ref">Models of Uncertainty</span></a>, it is necessary to validate
+Regression Models. For probabilistic regression models this involves
+many of the same techniques which are applied when validating generative
+models. However, validating conditional probability densities presents
+additional challenges; although the model’s predicted probabilities may
+be correctly calibrated on average, the model may be overly certain in
+some areas of the input domain and too uncertain in other areas. For
+example, using a regression model with homoscedastic uncertainty on a
+dataset where the uncertainty is heteroscedastic may predict the correct
+mean squared error on average <a class="bibtex reference internal" href="../zbibliography.html#gal-github" id="id14">[Gal16a]</a>, but the model evidence will
+be lower than for a more appropriate model.</p>
+<p>To briefly recap the content from
+<a class="reference internal" href="../chapter2/creating.html#sec-validation-uq"><span class="std std-ref">Validating a trained model</span></a>, before training one should split the
+data into training and test data sets, and then begin the validation by
+applying sanity checks. For example, a posterior predictive check could
+be used, where data is sampled from the trained model and compared to
+the training data. Alternatively, one could produce a plot of the
+normalised residuals, where the difference between the model output and
+the training and test data divided by predicted standard deviation
+(<span class="math notranslate nohighlight">\(\frac{y-y^{(i)}}{\sqrt{\operatorname{Var}_{p(y|x^{(i)})}(y)}}\)</span>) is
+plotted against the model output. Then more formal methods can be used,
+for example the Bayes factor can be computed as in
+<a class="reference internal" href="../chapter2/creating.html#equation-eqn-bayes-factor">(8)</a>, to compare several models
+<a class="bibtex reference internal" href="../zbibliography.html#friedman2001elements" id="id15">[FHT01]</a>. This is similar to comparing the negative
+logarithmic predictive density of different models on the test sets,
+which is equal to the Mahalanobis distance for Gaussian predicted
+probability densities. It is essential to compare the value of the loss
+(the negative logarithmic predictive density) between the test and
+training data sets. If the value of the loss is much higher on the test
+data set it is likely that the model is over-fitting the data, and will
+not generalise well to new data. One may also wish to compute the
+expected variance of the Model’s predictions
+(<span class="math notranslate nohighlight">\(\int{ \operatorname{Var}_{p(y|x)}(y) p(x) dx}\)</span>), as it is likely that
+this can be compared to the expected uncertainty of a subject matter
+expect in order to appraise the performance of the model. If the
+uncertainty is too high it is likely that the model is under-fitting the
+data so the model complexity should be increased.</p>
+</div>
+<div class="section" id="the-bias-variance-tradeoff">
+<h2>The bias-variance tradeoff<a class="headerlink" href="#the-bias-variance-tradeoff" title="Permalink to this headline">¶</a></h2>
+<p>Bayesian techniques rely upon priors to control the complexity of a
+regression model. Well chosen priors prevent learning too much
+information from a sample of data, and hence prevent overfitting by
+restricting the effective learning capacity of the model. The issue of
+underfitting is usually addressed by giving the model as much complexity
+as is possible and necessary to reduce the bias of the model, in order
+to ensure that the model is able to represent the desired function in
+principle. Then, overfitting is prevented by using a well chosen prior
+to reduce the variance of the fitted model. Non-Bayesian machine
+learning techniques often arbitrarily introduce mechanisms to constrain
+model complexity such as weight penalties; these techniques are
+unnecessary in the Bayesian paradigm due to the effect of prior
+distributions, which are in some cases equivalent to weight penalties.
+Bootstrapping (averaging over maximum likelihood models trained on
+re-sampled selections of the training data) is often used to reduce the
+variance of the trained model. <a class="bibtex reference internal" href="../zbibliography.html#friedman2001elements" id="id16">[FHT01]</a> describes how
+bootstrapping can also be seen as a method to compute maximum likelihood
+estimates of difficult to compute quantities like the standard error in
+an estimator, and an alternative implementation of maximum a posteriori
+estimation for the case of an uninformative prior. For certain
+likelihood functions and priors the bootstrap distribution can be seen
+as an approximate Bayesian posterior distribution.</p>
+<p>The Vapnik-Chervonenkis (VC) dimension, which represents the complexity
+of a classification model, can be used to derive a bound between the
+test error and training error of a classification model (i.e. where <span class="math notranslate nohighlight">\(y\)</span>
+is a binary outcome) <a class="bibtex reference internal" href="../zbibliography.html#vapnik2015" id="id17">[VC15]</a>. Similar bounds exist for regression
+models. This means that the test error can be established without
+partitioning the data. We do not use the VC dimension in this thesis
+because it is difficult to calculate in practice, but we return to the
+idea of calculating a bound on the test error of a model without
+partitioning the data in
+<a class="reference internal" href="learning-bounds.html#sec-scenario"><span class="std std-ref">Validating models with the scenario approach</span></a>.</p>
+</div>
+<div class="section" id="worked-example-linear-regression">
+<h2>Worked example : linear regression<a class="headerlink" href="#worked-example-linear-regression" title="Permalink to this headline">¶</a></h2>
+<p>We wish to measure the relationship between the rainfall in London on a particular day and the number of umbrellas sold on that day.</p>
+<p>The daya collected from 5 randomly selected days is shown below:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Day</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Rainfall (mm)</p></td>
+<td><p>0</p></td>
+<td><p>5.5</p></td>
+<td><p>10</p></td>
+<td><p>12</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>Umbrellas sold</p></td>
+<td><p>50</p></td>
+<td><p>20000</p></td>
+<td><p>110000</p></td>
+<td><p>140000</p></td>
+<td><p>60000</p></td>
+</tr>
+</tbody>
+</table>
+<p>We choose to fit a quadratic function, because we believe that the relationship between the variables is approximately quadratic for reasonable values of rainfall, and assume that the measurement noise is Gaussian.
+Using the notation in this Chapter, this corresponds to the model <span class="math notranslate nohighlight">\(f(x, \boldsymbol{p}) = \sum_{i=0}^{i=2} p_i x^i,\)</span> i.e. <span class="math notranslate nohighlight">\(\phi_i(x)=x^i\)</span> and likelihood <span class="math notranslate nohighlight">\(p(y|x, \boldsymbol{p}) =  \mathcal{N}(f(x, \boldsymbol{p}),\,\sigma^{2})\)</span>.</p>
+<p>The most simple method of solving this problem involves using <a class="reference external" href="https://en.wikipedia.org/w/index.php?title=Linear_regression&amp;oldid=988641392#Least-squares_estimation_and_related_techniques">least squares estimation</a> in sklearn.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">PolynomialFeatures</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span>
+
+<span class="n">rainfall</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">umbrellas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">110000</span><span class="p">,</span> <span class="mi">140000</span><span class="p">,</span> <span class="mi">60000</span><span class="p">])</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">PolynomialFeatures</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">LinearRegression</span><span class="p">())</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">rainfall</span><span class="p">,</span> <span class="n">umbrellas</span><span class="p">)</span>
+
+<span class="n">residuals</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">rainfall</span><span class="p">)</span> <span class="o">-</span> <span class="n">umbrellas</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">residuals</span><span class="p">)</span>
+
+<span class="n">x_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_plot</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_plot</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mean&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_plot</span><span class="p">)</span> <span class="o">-</span> <span class="n">sigma</span><span class="p">,</span>
+                 <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_plot</span><span class="p">)</span> <span class="o">+</span> <span class="n">sigma</span><span class="p">,</span>
+                 <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;1-Sigma Bound&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">rainfall</span><span class="p">,</span> <span class="n">umbrellas</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Training Data&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Rainfall /mm&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Umbrellas sold&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/parametric-models_2_0.png" src="../_images/parametric-models_2_0.png" />
+</div>
+</div>
+<p>The regressed quadratic regression model with Gaussian distributed errors is shown by the shaded region.</p>
+<p>We may wish to add some sort of prior distribution for the model parameters, i.e. <span class="math notranslate nohighlight">\(p_0 \sim \mathcal{N}(0, \sigma = 0.1)\)</span> and <span class="math notranslate nohighlight">\(p_1 \sim \mathcal{N}(0, \sigma = 0.1)\)</span>, so the constant and linear terms should make minimal contribution to the model.</p>
+<p>To find the maximum a posteriori values for the model parameters we can minimise the loss function:
+<span class="math notranslate nohighlight">\(\mathcal{L} = \frac{(y - f(x, \boldsymbol{p}))^2}{2\sigma^2} - \sigma \sqrt{2 \pi} + 0.5 p_1^2 + 0.5 p_2^2\)</span></p>
+<p>Since the data points are independent we sum the loss for each data point.
+We rescale the data in order to improve the performance of the optimiser.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scale</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">umbrellas_rescaled</span> <span class="o">=</span> <span class="n">umbrellas</span> <span class="o">/</span> <span class="n">scale</span>
+
+
+<span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">p0</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">p1</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">p2</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Quadratic Model</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x: Input variable</span>
+<span class="sd">        p0: Parameter</span>
+<span class="sd">        p1: Parameter</span>
+<span class="sd">        p2: Parameter</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">p0</span> <span class="o">+</span> <span class="n">p1</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">p2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+
+
+<span class="k">def</span> <span class="nf">prior</span><span class="p">(</span><span class="n">p0</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">p1</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">p2</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Equal up to a constant to the log gaussian prior on p0 and p1</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">p0</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="mf">0.01</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">p1</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="mf">0.01</span>
+
+
+<span class="k">def</span> <span class="nf">loss</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">p0</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">p1</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">p2</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+         <span class="n">sigma</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Per datapoint loss</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">((</span><span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sigma</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="o">+</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">+</span> <span class="n">prior</span><span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">total_loss</span><span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Sum loss for all datapoints&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="n">loss</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
+                   <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">rainfall</span><span class="p">,</span> <span class="n">umbrellas_rescaled</span><span class="p">)])</span>
+
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">total_loss</span><span class="p">(</span><span class="o">*</span><span class="n">x</span><span class="p">),</span> <span class="n">x0</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+
+<span class="k">def</span> <span class="nf">model_predict</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">scale</span> <span class="o">*</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">result</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">result</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">scale</span> <span class="o">*</span> <span class="n">result</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="n">x_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_plot</span><span class="p">,</span> <span class="n">model_predict</span><span class="p">(</span><span class="n">x_plot</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mean&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">model_predict</span><span class="p">(</span><span class="n">x_plot</span><span class="p">)</span> <span class="o">-</span> <span class="n">sigma</span><span class="p">,</span>
+                 <span class="n">model_predict</span><span class="p">(</span><span class="n">x_plot</span><span class="p">)</span> <span class="o">+</span> <span class="n">sigma</span><span class="p">,</span>
+                 <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;1-Sigma Bound&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">rainfall</span><span class="p">,</span> <span class="n">umbrellas</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Training Data&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Rainfall /mm&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Umbrellas sold&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/parametric-models_4_0.png" src="../_images/parametric-models_4_0.png" />
+</div>
+</div>
+<p>Of course, fitting such a model with gradient descent in a library such as <code class="docutils literal notranslate"><span class="pre">pytorch</span></code> would be more efficient.</p>
+<p>Why might this model be a poor choice?
+Consider the large rainfall limits and support of the likelihood function.
+What might be a better model?</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapter3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="chapter3.html" title="previous page">Machine Learning of Regression Models</a>
+    <a class='right-next' id="next-link" href="non-parametric-models.html" title="next page">Non-parametric models</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

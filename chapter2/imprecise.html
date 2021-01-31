@@ -1,0 +1,672 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Imprecise probabilistic models of uncertainty &#8212; Uncertainty Modelling for Engineers</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Creating models in practice" href="creating.html" />
+    <link rel="prev" title="Set-based models of uncertainty" href="sets.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/FORM.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Uncertainty Modelling for Engineers</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   How to use this book
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../outline.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="chapter2.html">
+   Models of Uncertainty
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="probabilistic.html">
+     Probabilistic models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sets.html">
+     Set-based models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Imprecise probabilistic models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="creating.html">
+     Creating models in practice
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="summary.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../chapter3/chapter3.html">
+   Machine Learning of Regression Models
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/parametric-models.html">
+     Parametric regression models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/non-parametric-models.html">
+     Non-parametric models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/learning-bounds.html">
+     Learning bounds on a model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/conclusion.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../chapter4/chapter4.html">
+   Reliability Analysis
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/random-variables.html">
+     Reliability analysis with random variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/convex-set.html">
+     Convex set models for reliability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/probability-boxes.html">
+     Reliability analysis with probability boxes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/summary.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../conclusion.html">
+   Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../zbibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/chapter2/imprecise.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers/issues/new?title=Issue%20on%20page%20%2Fchapter2/imprecise.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers/edit/master/chapter2/imprecise.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/uncertainty-for-engineers/uncertainty-modelling-for-engineers/master?urlpath=tree/chapter2/imprecise.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/uncertainty-for-engineers/uncertainty-modelling-for-engineers/blob/master/chapter2/imprecise.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probability-boxes">
+   Probability Boxes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#computation-with-probability-boxes">
+   Computation with Probability Boxes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#worked-example-imprecise-probability-theory">
+   Worked example : imprecise probability theory
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#worked-example-computation-with-an-imprecise-probabilistic-model">
+   Worked example : Computation with an imprecise probabilistic model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dempster-shafer-structures">
+   Dempster-Shafer structures
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="imprecise-probabilistic-models-of-uncertainty">
+<h1>Imprecise probabilistic models of uncertainty<a class="headerlink" href="#imprecise-probabilistic-models-of-uncertainty" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="probability-boxes">
+<h2>Probability Boxes<a class="headerlink" href="#probability-boxes" title="Permalink to this headline">¶</a></h2>
+<p>Probability boxes generalise probability distributions and intervals;
+they model a set of cumulative distribution functions. Probability boxes
+are used to communicate epistemic uncertainty in the precise form of a
+probability distribution <a class="bibtex reference internal" href="../zbibliography.html#sandia2002constructing" id="id1">[FKG+03]</a>. In the particular
+limiting cases of no epistemic uncertainty and no aleatory uncertainty,
+traditional CDFs and intervals can be recovered from the probability
+box, respectively.</p>
+<p>Broadly speaking, probability boxes can be split into two types.
+Distribution-free probability boxes consist of an envelope defined by
+two CDFs. Any CDF contained within the envelope is permitted, i.e. the
+probability box contains all cumulative distribution functions <span class="math notranslate nohighlight">\(F(x)\)</span>
+which satisfy the envelope condition
+<span class="math notranslate nohighlight">\(\underline{F}(x) \le F(x) \le \overline{F}(x) \forall x\)</span>.</p>
+<p>Distributional probability boxes consist of a conventional probability
+distribution where at least one parameter of the distribution is given
+as an interval rather than a crisp value, i.e. the probability box is
+given by the probability distribution <span class="math notranslate nohighlight">\(p_{\theta}(x)\)</span> with parameters
+<span class="math notranslate nohighlight">\(\theta \in \Theta\)</span>, where <span class="math notranslate nohighlight">\(\Theta\)</span> is a hyper-rectangular convex set.
+It is possible to perform a conversion from distributional probability
+boxes to distribution-free probability boxes, by finding a
+distribution-free probability box which encloses the distributional
+probability box. This conversion results in the loss of information
+about the distribution types enclosed, and hence the conversion can not
+be easily reversed. The envelope of a distributional probability box,
+which will be a distribution-free probability box, can be obtained by
+evaluating</p>
+<div class="math notranslate nohighlight">
+\[[\underline{F}(x), \overline{F}(x)] = [\min_\theta{F_\theta(x)}, \max_\theta{F_\theta(x)}],\]</div>
+<p>where <span class="math notranslate nohighlight">\(F_\theta(x)\)</span> is the CDF corresponding to the probability
+distribution <span class="math notranslate nohighlight">\(p_\theta(x)\)</span>.</p>
+</div>
+<div class="section" id="computation-with-probability-boxes">
+<h2>Computation with Probability Boxes<a class="headerlink" href="#computation-with-probability-boxes" title="Permalink to this headline">¶</a></h2>
+<p>Probability boxes are a specific case of a random set
+<a class="bibtex reference internal" href="../zbibliography.html#de2015efficient" id="id2">[DA15]</a><a class="bibtex reference internal" href="../zbibliography.html#alvarez2006calculation" id="id3">[Alv06]</a>, and therefore when they are
+propagated through a calculation their propagation can be decomposed
+into two distinct parts; the propagation of a set of epistemic uncertain
+variables which fall within an uncertain hyper-rectangle
+<span class="math notranslate nohighlight">\(\theta \in \Theta\)</span>, and the propagation of an aleatory set of variables
+<span class="math notranslate nohighlight">\(\alpha\)</span>, which are associated with a probability distribution. The
+result of propagation through the model is a probability box, rather
+than a single CDF. The propagation is non-trivial since the epistemic
+variables are intervals and have no probability distribution, which
+means that conventional Monte Carlo simulation cannot be applied. Two
+methods are commonly used to propagate probability boxes: Double Loop
+Monte Carlo (sometimes referred to as search or optimisation of the
+epistemic space), and integration of the aleatory variables
+<a class="bibtex reference internal" href="../zbibliography.html#patelli2014uncertainty" id="id4">[PABA14]</a>.</p>
+<p>For a distributional probability box the upper and lower expectation are
+defined by</p>
+<div class="math notranslate nohighlight" id="equation-eqn-upper-expectation">
+<span class="eqno">(5)<a class="headerlink" href="#equation-eqn-upper-expectation" title="Permalink to this equation">¶</a></span>\[\operatorname{\overline{\mathbb{E}}}[g(X)] = \max_{\theta \in \Theta} \int_{\mathbb{R}^N} g(x) p_{\theta}(x) dx \]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\operatorname{\underline{\mathbb{E}}}[g(X)] = \min_{\theta \in \Theta} \int_{\mathbb{R}^N} g(x) p_{\theta}(x) dx.\]</div>
+<p>If <span class="math notranslate nohighlight">\(g(x)\)</span> is linear or easily approximated by a Taylor series then
+similar approximation techniques to those discussed for probability
+distributions earlier in the chapter can be applied.</p>
+<p>In the general case, to accurately approximate the upper expectation in
+<a class="reference internal" href="#equation-eqn-upper-expectation">(5)</a> we can use the Monte Carlo estimator
+from
+<a class="reference internal" href="probabilistic.html#equation-eqn-monte-carlo-estimator">(2)</a> inside an optimisation routine:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-double-loop-mc">
+<span class="eqno">(6)<a class="headerlink" href="#equation-eqn-double-loop-mc" title="Permalink to this equation">¶</a></span>\[\operatorname{\overline{\mathbb{E}}}[g(X)] = \max_{\theta \in \Theta} \frac{1}{M} \sum_{i=1}^M g(x_{(i)}) ,\]</div>
+<p>where <span class="math notranslate nohighlight">\(x_{(1)}, \ldots, x_{(M)}\)</span> are drawn from <span class="math notranslate nohighlight">\(p_\theta(x)\)</span>. This is
+known as Double Loop Monte Carlo simulation, and can be applied only in
+the case of distributional probability boxes. This estimator can be
+shown to have a positive bias <a class="bibtex reference internal" href="../zbibliography.html#troffaes2018imprecise" id="id5">[Tro18]</a>. As is the case
+with computation with interval models, it is necessary to use a
+non-linear optimisation routine to evaluate the outer loop in the
+general case.</p>
+<p>The Double Loop Monte Carlo method can be modified to propagate
+distribution-free probability boxes by drawing the samples required for
+<a class="reference internal" href="#equation-eqn-double-loop-mc">(6)</a> from a monotonically increasing
+staircase function, which is parameterised by <span class="math notranslate nohighlight">\(\theta\)</span> and satisfies the
+envelope condition for the probability box under consideration. However,
+this approach will be computationally inefficient in general since a
+high dimensionality <span class="math notranslate nohighlight">\(\theta\)</span> would be required to approximate the
+probability box with sufficient accuracy, and therefore another approach
+is required.</p>
+<p>For a distribution-free probability box note that one can sample
+intervals from the probability box by generating random numbers between
+0 and 1 and applying inverse transform sampling to <span class="math notranslate nohighlight">\(\overline{F}\)</span> and
+<span class="math notranslate nohighlight">\(\underline{F}\)</span>, i.e. generate sampled intervals
+<span class="math notranslate nohighlight">\([\underline{x}, \overline{x}] = [\underline{F}^{-1}(\alpha), \overline{F}^{-1}(\alpha)]\)</span>
+by sampling <span class="math notranslate nohighlight">\(\alpha \sim \mathcal{U}(0, 1)\)</span>, where <span class="math notranslate nohighlight">\(\underline{F}^{-1}\)</span>
+and <span class="math notranslate nohighlight">\(\overline{F}^{-1}\)</span> are the inverse CDFs of the probability box
+envelopes and <span class="math notranslate nohighlight">\(\mathcal{U}\)</span> is the uniform distribution. The process of
+generating a single sample is known as taking the <span class="math notranslate nohighlight">\(\alpha\)</span> cut, and the
+sampled intervals constitute focal elements <a class="bibtex reference internal" href="../zbibliography.html#de2015efficient" id="id6">[DA15]</a>. This
+process is shown in <a class="reference internal" href="#fig-alpha-cut"><span class="std std-numref">Fig. 1</span></a>. One can then propagate these intervals
+through <span class="math notranslate nohighlight">\(g(x)\)</span> using the techniques described for intervals in the
+previous section, e.g. using the natural interval extension of <span class="math notranslate nohighlight">\(g(x)\)</span>,
+or using black-box optimisation. Therefore one can calculate the upper
+expectation as</p>
+<div class="math notranslate nohighlight">
+\[\operatorname{\overline{\mathbb{E}}}[g(X)] = \frac{1}{M} \sum_{i=1}^M \max_{x \in [\underline{x}_{(i)}, \overline{x}_{(i)}]}{g(x)},\]</div>
+<p>where <span class="math notranslate nohighlight">\([\underline{x}_{(i)}, \overline{x}_{(i)}]\)</span> are the intervals
+generated from inverse transform sampling. In this thesis we dedicate
+most of our attention to the case of Double Loop Monte Carlo simulation
+for distributional probability boxes.</p>
+<div class="figure align-default" id="fig-alpha-cut">
+<a class="reference internal image-reference" href="../_images/pbox_sampling.png"><img alt="../_images/pbox_sampling.png" src="../_images/pbox_sampling.png" style="height: 150px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Obtaining samples from a probability
+box.</span><a class="headerlink" href="#fig-alpha-cut" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="worked-example-imprecise-probability-theory">
+<h2>Worked example : imprecise probability theory<a class="headerlink" href="#worked-example-imprecise-probability-theory" title="Permalink to this headline">¶</a></h2>
+<p>The amount of rainfall in mm on a particular day is given by the normal probability box <span class="math notranslate nohighlight">\(p_\mu(x) = \mathcal{N}(\mu,\sigma=1), \mu \in [9, 11]\)</span>.</p>
+<p>What is the probability of less than 8mm of rainfall?</p>
+<p>The probability of less than a certain amount of rainfall is obtained by integrating the probability density function up to that amount.
+However, a probability box is composed of many probability density functions.
+Therefore we must find the maximum and minimum such value.
+This is equivalent to evaluating the maximum and minimum cumulative density function at that value.</p>
+<p><span class="math notranslate nohighlight">\(P(\text{rainfall}&lt;8mm) &lt; \max_{\mu \in [9, 11]}{\int_{-\infty}^{8mm} p_\mu(x) dx} = \overline{F}(x=8mm)\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(\text{rainfall}&lt;8mm) &gt; \min_{\mu \in [9, 11]}{\int_{-\infty}^{8mm} p_\mu(x) dx} = \underline{F}(x=8mm)\)</span></p>
+<p>Below, we show various probability density functions contained in the probability box.
+Then the upper and lower bounding CDFs are evaluated at the desired value.
+This works because the CDF increases monotonically in the mean parameter, and only one parameter is being varied.
+Such a normally distributed probability box, where only the mean is varied is sometimes known as a ‘combed’ probability box.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Upper probability: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lower probability: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)))</span>
+
+<span class="n">plot_x_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plot_x_range_integrate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">plot_x_range</span><span class="p">,</span>
+        <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">plot_x_range</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">9</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(),</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x /mm&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;p(x)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plot_x_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_x_range</span><span class="p">,</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">plot_x_range</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_x_range</span><span class="p">,</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">plot_x_range</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x /mm&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;F(x)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matplotlib is building the font cache; this may take a moment.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Upper probability: 0.15865525393145707
+Lower probability: 0.0013498980316300933
+</pre></div>
+</div>
+<img alt="../_images/imprecise_2_2.png" src="../_images/imprecise_2_2.png" />
+<img alt="../_images/imprecise_2_3.png" src="../_images/imprecise_2_3.png" />
+</div>
+</div>
+</div>
+<div class="section" id="worked-example-computation-with-an-imprecise-probabilistic-model">
+<h2>Worked example : Computation with an imprecise probabilistic model<a class="headerlink" href="#worked-example-computation-with-an-imprecise-probabilistic-model" title="Permalink to this headline">¶</a></h2>
+<p>Again, the amount of rainfall in mm on a particular day is given by the normal random variable  <span class="math notranslate nohighlight">\(p_\mu(x) = \mathcal{N}(\mu,\sigma=1), \mu \in [9, 11]\)</span>.
+It is known that the number of umbrellas sold in London on a particular day is given by <span class="math notranslate nohighlight">\(g(x) = 1000 x^2\)</span>.</p>
+<p>Estimate the number of umbrellas sold in London given our uncertain model of rainfall.</p>
+<div class="math notranslate nohighlight">
+\[\text{Umbrellas sold} \in [\min_{\mu \in [9, 11]}{\int_{-\infty}^{\infty} p(x) 1000 x^2 dx}, \max_{\mu \in [9, 11]}{\int_{-\infty}^{\infty} p(x) 1000 x^2 dx}]\]</div>
+<p>Analytically evaluating this integral in a popular computer algebra system yields <span class="math notranslate nohighlight">\(\text{Umbrellas sold}\in[82000,122000]\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First try double loop Monte Carlo integration</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">1000</span>
+
+
+<span class="k">def</span> <span class="nf">mc_sim</span><span class="p">(</span><span class="n">mu</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Performs a Monte Carlo simulation for number of umbrellas sold.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        mu: Mean of random variable</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">samples_x</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">mu</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="mi">1000</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">samples_x</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">samples_x</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n_samples</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="n">min_mu</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">max_mu</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="n">mid_mu</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">min_mu</span> <span class="o">+</span> <span class="n">max_mu</span><span class="p">)</span>
+
+<span class="n">min_mean_umbrellas</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">brute</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">mc_sim</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="n">ranges</span><span class="o">=</span><span class="p">((</span><span class="n">min_mu</span><span class="p">,</span> <span class="n">max_mu</span><span class="p">),),</span>
+    <span class="n">finish</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="n">neg_max_mean_umbrellas</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">brute</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">mc_sim</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="n">ranges</span><span class="o">=</span><span class="p">((</span><span class="n">min_mu</span><span class="p">,</span> <span class="n">max_mu</span><span class="p">),),</span>
+    <span class="n">finish</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The expected number of umbrellas sold falls in the interval: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">min_mean_umbrellas</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="n">neg_max_mean_umbrellas</span><span class="p">[</span><span class="mi">1</span><span class="p">]]))</span>
+
+<span class="n">error</span> <span class="o">=</span> <span class="n">mc_sim</span><span class="p">(</span><span class="n">mid_mu</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The error of this Monte Carlo estimator is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">error</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The expected number of umbrellas sold falls in the interval: [83042.06485753003, 122352.48032888005]
+The error of this Monte Carlo estimator is 665.9052265294849
+</pre></div>
+</div>
+</div>
+</div>
+<p>Good agreement is obtained with the analytic calculation.
+Note that the probabilistic calculation from <a class="reference internal" href="probabilistic.html#sec-umbrella-example-1"><span class="std std-ref">Worked example : Computation with a probabilistic model</span></a> falls inside the stated bounds.
+When performing double loop Monte Carlo simulation as above one must take care to choose an outer loop optimiser which is robust to a stochastic objective function.</p>
+<p>Notice in the above code example we use a <code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">x:</span></code> to define an <em>anonymous function</em> to access only the first output of the Monte Carlo simulation function for convenience.</p>
+</div>
+<div class="section" id="dempster-shafer-structures">
+<h2>Dempster-Shafer structures<a class="headerlink" href="#dempster-shafer-structures" title="Permalink to this headline">¶</a></h2>
+<p>A Dempster-Shafer Structure is another form of imprecise probability
+model which has been widely applied in engineering
+<a class="bibtex reference internal" href="../zbibliography.html#rocchetta2017stochastic" id="id7">[RP17]</a>. In this thesis we do not use Dempster-Shafer
+structures, however we briefly outline the model and the relationship to
+probability boxes here for context. A Dempster-Shafer (DS) structure
+represents the assignment of probability mass to intervals rather than
+point values, as is the case with probability density functions.</p>
+<p>Consider the case where probability mass has been assigned to intervals
+on the real line,
+<span class="math notranslate nohighlight">\(\{ ([\underline{x}_{(1)}, \overline{x}_{(1)}], p_{(1)}), \ldots , ([\underline{x}_{(n)}, \overline{x}_{(n)}], p_{(n)}) \}\)</span>,
+where <span class="math notranslate nohighlight">\(\sum_{i=1}^n p_{(i)} = 1\)</span>. We can define two measures called
+belief and plausibility which bound the probability mass contained in a
+particular interval. The belief measure is defined by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\operatorname{bel}(A) = \sum_{\substack{i \\ [\underline{x}_{(i)}, \overline{x}_{(i)}] \subseteq A}} p_{(i)} ,\end{split}\]</div>
+<p>and the plausibility measure is defined by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\operatorname{pls}(A) = \sum_{\substack{i \\ [\underline{x}_{(i)}, \overline{x}_{(i)}] \cap A \ne \emptyset}} p_{(i)},\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\operatorname{bel}(A) \le P(A) \le \operatorname{pls}(A)\)</span> and
+<span class="math notranslate nohighlight">\(\operatorname{pls}(A) = 1 - \operatorname{bel}(\overline{A})\)</span>, and
+<span class="math notranslate nohighlight">\(\subseteq\)</span> represents a subset. For a particular DS structure,
+<a class="bibtex reference internal" href="../zbibliography.html#sandia2002constructing" id="id8">[FKG+03]</a> define an associated probability box using</p>
+<div class="math notranslate nohighlight">
+\[\overline{F}(x) = \sum_{\underline{x}_{(n)} \le x} p_{(i)}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\underline{F}(x) = \sum_{\overline{x}_{(n)} &lt; x} p_{(i)}.\]</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapter2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="sets.html" title="previous page">Set-based models of uncertainty</a>
+    <a class='right-next' id="next-link" href="creating.html" title="next page">Creating models in practice</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

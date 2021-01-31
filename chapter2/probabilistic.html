@@ -1,0 +1,775 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Probabilistic models of uncertainty &#8212; Uncertainty Modelling for Engineers</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Set-based models of uncertainty" href="sets.html" />
+    <link rel="prev" title="Models of Uncertainty" href="chapter2.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/FORM.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Uncertainty Modelling for Engineers</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   How to use this book
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../outline.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="chapter2.html">
+   Models of Uncertainty
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Probabilistic models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sets.html">
+     Set-based models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="imprecise.html">
+     Imprecise probabilistic models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="creating.html">
+     Creating models in practice
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="summary.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../chapter3/chapter3.html">
+   Machine Learning of Regression Models
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/parametric-models.html">
+     Parametric regression models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/non-parametric-models.html">
+     Non-parametric models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/learning-bounds.html">
+     Learning bounds on a model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/conclusion.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../chapter4/chapter4.html">
+   Reliability Analysis
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/random-variables.html">
+     Reliability analysis with random variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/convex-set.html">
+     Convex set models for reliability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/probability-boxes.html">
+     Reliability analysis with probability boxes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/summary.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../conclusion.html">
+   Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../zbibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/chapter2/probabilistic.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers/issues/new?title=Issue%20on%20page%20%2Fchapter2/probabilistic.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers/edit/master/chapter2/probabilistic.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/uncertainty-for-engineers/uncertainty-modelling-for-engineers/master?urlpath=tree/chapter2/probabilistic.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/uncertainty-for-engineers/uncertainty-modelling-for-engineers/blob/master/chapter2/probabilistic.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#worked-example-elementary-probability-theory">
+   Worked example : elementary probability theory
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   Worked example : elementary probability theory
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#computation-with-probabilistic-models">
+   Computation with Probabilistic Models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#worked-example-computation-with-a-probabilistic-model">
+   Worked example : Computation with a probabilistic model
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="probabilistic-models-of-uncertainty">
+<h1>Probabilistic models of uncertainty<a class="headerlink" href="#probabilistic-models-of-uncertainty" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Probabilistic models of uncertainty require the definition of a
+probability space, which is given by <span class="math notranslate nohighlight">\((\Omega, \mathcal{F}, P)\)</span>, where
+<span class="math notranslate nohighlight">\(\Omega\)</span> represents the space of all possible outcomes (the sample
+space), <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> is a <span class="math notranslate nohighlight">\(\sigma\)</span> algebra representing the set of
+events, where each event is a set containing outcomes, and
+<span class="math notranslate nohighlight">\(P \in [0, 1]\)</span> represents probabilities which are assigned to the events
+in <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> <a class="bibtex reference internal" href="../zbibliography.html#jaynes2003probability" id="id1">[Jay03]</a>. Note that the probability
+assigned to the space of all outcomes is 1, <span class="math notranslate nohighlight">\(P(\Omega) = 1\)</span>, and the
+probability of the empty set of outcomes is zero, <span class="math notranslate nohighlight">\(P(\emptyset) = 0\)</span>. By
+definition, for an outcome <span class="math notranslate nohighlight">\(\omega\in \Omega\)</span> and its complementary
+outcome <span class="math notranslate nohighlight">\(\omega^C\)</span>, their intersection is the empty set,
+<span class="math notranslate nohighlight">\(\omega \cap \omega^C = \emptyset\)</span>, and their union is equal to the
+entire sample space, <span class="math notranslate nohighlight">\(\omega \cup \omega^C = \Omega\)</span>. It follows that
+<span class="math notranslate nohighlight">\(P(\omega) + P(\omega^C) = 1\)</span>.</p>
+<p>The aim of defining the probability space is usually to obtain the
+random variable <span class="math notranslate nohighlight">\(X\colon \Omega \to E\)</span>, which is a function from the set
+of outcomes <span class="math notranslate nohighlight">\(\Omega\)</span> to the measurable space <span class="math notranslate nohighlight">\(E\)</span>. The probability that
+<span class="math notranslate nohighlight">\(X\)</span> takes a value falling inside in the set <span class="math notranslate nohighlight">\(S\)</span> is given by</p>
+<p>\begin{equation}
+\operatorname {Pr} (X \in S) = P({\omega\in \Omega|X(\omega) \in S}).
+\end{equation}
+When the measurable space is the real line, <span class="math notranslate nohighlight">\(E = \mathbb{R}\)</span>, the
+cumulative distribution function (CDF) can be obtained by calculating
+the probability of the event that that <span class="math notranslate nohighlight">\(X\)</span> is less than a particular
+value <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(\{X&lt;x\}\)</span>. Therefore the cumulative distribution function is
+given by</p>
+<div class="math notranslate nohighlight">
+\[F_X(x) = P(X \le x).\]</div>
+<p>The well known probability
+distribution function (PDF) of the variable, <span class="math notranslate nohighlight">\(p_X(x)\)</span>, is the gradient
+of the cumulative distribution function,
+<span class="math notranslate nohighlight">\(p_X(x) = \frac{d F_X(x)}{d x}\)</span>. The probability density represents the
+relative likelihood of a random variable taking a particular value. Note
+that, as follows from our definition, the cumulative distribution must
+increase monotonically with <span class="math notranslate nohighlight">\(x\)</span>, and as such the probability density
+function is always positive. In addition, the integral of the
+probability density function over the whole real line will always be
+equal to 1, since <span class="math notranslate nohighlight">\(\lim_{x \to \infty}F_X(x) = 1\)</span> and
+<span class="math notranslate nohighlight">\(\lim_{x \to -\infty}F_X(x) = 0\)</span> <a class="bibtex reference internal" href="../zbibliography.html#ross2014first" id="id2">[Ros14]</a>.</p>
+<p>Note that important properties of the random variable are summarised by
+the mean of the random variable,</p>
+<div class="math notranslate nohighlight">
+\[\mu_X = \operatorname{\mathbb{E}}[X] = \int_\mathbb{R} x p_X(x) dx,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\operatorname{\mathbb{E}}\)</span> is the expectation operator, and the
+variance</p>
+<div class="math notranslate nohighlight">
+\[\operatorname{Var}(X) = \operatorname{\mathbb{E}}[(X - \mu_X)^2] = \int_\mathbb{R} (x-\mu_X)^2 p_X(x) dx,\]</div>
+<p>which is sometimes quoted in terms of the standard deviation,
+<span class="math notranslate nohighlight">\(\sigma_X = \sqrt{\operatorname{Var}(x) }\)</span> <a class="bibtex reference internal" href="../zbibliography.html#ross2014first" id="id3">[Ros14]</a>. The
+standard deviation is sometimes expressed as the coefficient of
+variation of a varible (<span class="math notranslate nohighlight">\(CoV\)</span>), which is defined as
+<span class="math notranslate nohighlight">\(\text{CoV} = \frac{\mu_X}{\sigma_X}\)</span>.</p>
+<p>In practical calculations, one is not usually concerned with the
+probability space <span class="math notranslate nohighlight">\((\Omega, \mathcal{F}, P)\)</span>, because defining either
+the probability distribution function or cumulative distribution
+function by assigning probability density to the possible values for <span class="math notranslate nohighlight">\(X\)</span>
+is usually sufficient for calculations to proceed. The measure theoretic
+framework for probability theory which we have summarised here was
+introduced by <a class="bibtex reference internal" href="../zbibliography.html#andrei1950kolmogorov" id="id4">[Kol50]</a>. An equivalent theory was derived by
+extending Boolean logic to assign quantitative values of truthfulness to
+statements, termed plausibilities, in the seminal work of
+<a class="bibtex reference internal" href="../zbibliography.html#jaynes2003probability" id="id5">[Jay03]</a>.</p>
+<p>The probability of an event may be considered in terms of probabilities
+of sub-events, for example if <span class="math notranslate nohighlight">\(A=A_1\cap A_2\)</span>, where <span class="math notranslate nohighlight">\(\cap\)</span> represents
+the logical and operation, then <span class="math notranslate nohighlight">\(P(A) = P(A_1 \cap A_2)\)</span>. This can be
+evaluated as <span class="math notranslate nohighlight">\(P(A_1\cap A_2) = P(A_1|A_2) P(A_2)\)</span>, by definition.
+<span class="math notranslate nohighlight">\(P(A_1|A_2)\)</span> is the probability that <span class="math notranslate nohighlight">\(A_1\)</span> is true, given that <span class="math notranslate nohighlight">\(A_2\)</span> is
+true. The dependence between <span class="math notranslate nohighlight">\(A_1\)</span> and <span class="math notranslate nohighlight">\(A_2\)</span> is encoded in <span class="math notranslate nohighlight">\(P(A_1|A_2)\)</span>;
+<span class="math notranslate nohighlight">\(P(A_1|A_2)=P(A_1)\)</span> if <span class="math notranslate nohighlight">\(A_1\)</span> and <span class="math notranslate nohighlight">\(A_2\)</span> are independent events, so that
+<span class="math notranslate nohighlight">\(P(A)=P(A_1)P(A_2)\)</span>. If the dependence is not known then bounds for
+<span class="math notranslate nohighlight">\(P(A)\)</span> can be established, and this is discussed in
+<a class="bibtex reference internal" href="../zbibliography.html#sadeghi2020analytic" id="id6">[SDAP20]</a>. Similar bounds are available for the logical
+or operation, <span class="math notranslate nohighlight">\(\cup\)</span>.</p>
+<p>One may model dependencies between variables by considering the joint
+distribution over more than one variable, e.g.
+<span class="math notranslate nohighlight">\(p(x_1, x_2) = P(X_1 = x_1 \cap X_2 = x_2)\)</span>, where <span class="math notranslate nohighlight">\(X_1\)</span> and <span class="math notranslate nohighlight">\(X_2\)</span> are
+two random variables. Traditionally, a generative model is defined as a
+joint probability distribution. One may summarise the properties of a
+joint distribution using the co-variance between two variables</p>
+<div class="math notranslate nohighlight">
+\[\operatorname{cov}(X_1, X_2) = \operatorname{\mathbb{E}}[(X_1 - \mu_{X_1})(X_2 - \mu_{X_2})] = \int_\mathbb{R} \int_\mathbb{R} (x_1-\mu_{X_1})(x_2-\mu_{X_2}) p(x_1, x_2) d x_1 d x_2.\]</div>
+<p>Taking the co-variance of a variable with itself yields the variable’s
+variance, <span class="math notranslate nohighlight">\(\operatorname{cov}(X_1, X_1) = \operatorname{Var}(X_1)\)</span>
+<a class="bibtex reference internal" href="../zbibliography.html#ross2014first" id="id7">[Ros14]</a>.</p>
+</div>
+<div class="section" id="worked-example-elementary-probability-theory">
+<h2>Worked example : elementary probability theory<a class="headerlink" href="#worked-example-elementary-probability-theory" title="Permalink to this headline">¶</a></h2>
+<p>The amount of rainfall in mm on a particular day is given by the normal random variable <span class="math notranslate nohighlight">\(p(x) = \mathcal{N}(\mu=10,\sigma=1)\)</span></p>
+<p>What is the probability of less than 8mm of rainfall?</p>
+<p>The probability of less than a certain amount of rainfall is obtained by integrating the probability density function up to that amount. This is equivalent to the cumulative density function at that value.</p>
+<p><span class="math notranslate nohighlight">\(P(\text{rainfall}&lt;8mm) = \int_{-\infty}^{8mm} p(x) dx = F(x=8mm)\)</span></p>
+<p>In the following code snippet we evaluate the CDF of the random variable using <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>.
+Then we plot the PDF and CDF of the random variable using <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> and show the relevant integrated area of the random variable in red.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+
+<span class="n">plot_x_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plot_x_range_integrate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_x_range</span><span class="p">,</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">plot_x_range</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span>
+    <span class="n">plot_x_range_integrate</span><span class="p">,</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">plot_x_range_integrate</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;red&quot;</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x /mm&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;p(x)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plot_x_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_x_range</span><span class="p">,</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">plot_x_range</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x /mm&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;F(x)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.022750131948179195
+</pre></div>
+</div>
+<img alt="../_images/probabilistic_2_1.png" src="../_images/probabilistic_2_1.png" />
+<img alt="../_images/probabilistic_2_2.png" src="../_images/probabilistic_2_2.png" />
+</div>
+</div>
+<p>Do you notice anything strange about this model? The probability of a negative amount of rainfall is small, but non-zero. Can you think of a way to change the support of the probability distribution and thereby improve the model?</p>
+</div>
+<div class="section" id="id8">
+<h2>Worked example : elementary probability theory<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>Consider two events: a patient having a disease <span class="math notranslate nohighlight">\(A_P\)</span>, and the patient testing positive for the disease <span class="math notranslate nohighlight">\(A_T\)</span>. The two events are associated with the probabilities <span class="math notranslate nohighlight">\(P(A_P)=0.001\)</span> for the patient having the disease, <span class="math notranslate nohighlight">\(P(A_T)=0.1\)</span> for a random patient testing positive and <span class="math notranslate nohighlight">\(P(A_T|A_P)=x\)</span> for the patient testing positive if they have the disease. Plot the probability that a patient has the disease if they test posititive, <span class="math notranslate nohighlight">\(P(A_P|A_T)\)</span>, as a function of <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<p>We know <span class="math notranslate nohighlight">\(P(A_P|A_T)=\frac{P(A_P\cap A_T)}{P(A_T)} = \frac{P(A_T|A_P) P(A_P)}{P(A_T)}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prob_infected</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="n">prob_positive_test</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+
+<span class="k">def</span> <span class="nf">prob_true_positive</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">prob_infected</span> <span class="o">/</span> <span class="n">prob_positive_test</span>
+
+
+<span class="n">plot_x_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_x_range</span><span class="p">,</span> <span class="n">prob_true_positive</span><span class="p">(</span><span class="n">plot_x_range</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$P(A_T|A_P)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$P(A_P|A_T)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/probabilistic_5_0.png" src="../_images/probabilistic_5_0.png" />
+</div>
+</div>
+<p>So even with a perfect test, <span class="math notranslate nohighlight">\(P(A_T|A_P)=1\)</span>, the probability of having the disease after testing positive is only 0.01. This makes sense because very few people have the disease but the probability of the test being positive is much higher, i.e. 0.1 &gt;&gt; 0.001</p>
+<p>This is clear when we plot the number of false positives, <span class="math notranslate nohighlight">\(P({A_P}^C|A_T) = 1-P({A_P}|A_T)\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_x_range</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">prob_true_positive</span><span class="p">(</span><span class="n">plot_x_range</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$P(A_T|A_P)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$P(</span><span class="si">{A_P}</span><span class="s2">^C|A_T)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/probabilistic_7_0.png" src="../_images/probabilistic_7_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="computation-with-probabilistic-models">
+<span id="sec-probabilstic-computation"></span><h2>Computation with Probabilistic Models<a class="headerlink" href="#computation-with-probabilistic-models" title="Permalink to this headline">¶</a></h2>
+<p>The expectation (mean value) of a general function <span class="math notranslate nohighlight">\(g(x)\)</span> with respect
+to an uncertain variable, which is modelled with a probability
+distribution <span class="math notranslate nohighlight">\(p(x)\)</span>, can be evaluated as</p>
+<div class="math notranslate nohighlight" id="equation-eqn-expectation">
+<span class="eqno">(1)<a class="headerlink" href="#equation-eqn-expectation" title="Permalink to this equation">¶</a></span>\[\operatorname{\mathbb{E}}[g(X)] = \int_{\mathbb{R}^N} g(x) p(x) dx, \]</div>
+<p>where we now allow <span class="math notranslate nohighlight">\(x\)</span> to have multiple components.</p>
+<p>In the most general case, one can draw realisations, known as samples,
+from the random variable by selecting values for the variable in the
+ratio of their assigned probability densities. Given <span class="math notranslate nohighlight">\(M\)</span> samples drawn
+from <span class="math notranslate nohighlight">\(p(x)\)</span>, <span class="math notranslate nohighlight">\(\{ x_{(1)}, \ldots, x_{(M)} \}\)</span>,
+<span class="math notranslate nohighlight">\(\operatorname{\mathbb{E}}[g(X)]\)</span> can be approximated by the Monte Carlo
+estimator</p>
+<div class="math notranslate nohighlight" id="equation-eqn-monte-carlo-estimator">
+<span class="eqno">(2)<a class="headerlink" href="#equation-eqn-monte-carlo-estimator" title="Permalink to this equation">¶</a></span>\[\operatorname{\mathbb{E}}[g(X)] \approx I = \frac{1}{M} \sum_{i=1}^M g(x_{(i)}). \]</div>
+<p>The error of the Monte Carlo
+estimator is given by</p>
+<div class="math notranslate nohighlight">
+\[\frac{\sigma_g}{\sqrt{M}} = \frac{\sqrt{\sum_{i=1}^M (g(x_{(i)}) - I)^2}}{\sqrt{M (M-1)}},\]</div>
+<p>where <span class="math notranslate nohighlight">\(\sigma_g^2\)</span> is the unbiased sample estimator of the variance of <span class="math notranslate nohighlight">\(g\)</span>
+<a class="bibtex reference internal" href="../zbibliography.html#rubinstein2016simulation" id="id9">[RK16]</a>. Clearly the error in the estimator
+decreases with <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{M}}\)</span>, so collecting more samples will
+slowly decrease the error in the estimator <a class="bibtex reference internal" href="../zbibliography.html#press1992numeric" id="id10">[PFTV92]</a>. However
+in many circumstances collecting more samples of <span class="math notranslate nohighlight">\(M\)</span> is not feasible,
+and <span class="math notranslate nohighlight">\(\sigma_g\)</span> may be large.</p>
+<p>Therefore, in practice, more efficient methods are used to compute the
+expectation. In <a class="reference internal" href="../chapter4/chapter4.html#ch-reliability-analysis"><span class="std std-ref">Reliability Analysis</span></a> efficient methods for solving a
+specific form of this integral from engineering reliability analysis
+will be explained. However, it is useful to note there are some more
+general efficient approaches for computing an approximation of the
+expectation in
+<a class="reference internal" href="#equation-eqn-expectation">(1)</a>.</p>
+<p>For example, provided that <span class="math notranslate nohighlight">\(g(x)\)</span> can be differentiated, one can attempt
+to approximate the expectation in
+<a class="reference internal" href="#equation-eqn-expectation">(1)</a> with a Taylor expansion</p>
+<div class="math notranslate nohighlight">
+\[\operatorname{\mathbb{E}}[g(X)] = \operatorname{\mathbb{E}}[ g (\mu_X + (X - \mu_X ) ) ]  \approx \operatorname{\mathbb{E}} [g(\mu_X) + g'(\mu_X) ( X-\mu_X ) + \frac{1}{2}g''(\mu_X) ( X - \mu_X )^2 \ldots ],\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu_X\)</span> is the mean of random variable <span class="math notranslate nohighlight">\(X\)</span>. When <span class="math notranslate nohighlight">\(g(x)\)</span> is linear,
+the the expectation in
+<a class="reference internal" href="#equation-eqn-expectation">(1)</a> can therefore be calculated trivially,
+since <span class="math notranslate nohighlight">\(X - \mu_X = 0\)</span> and <span class="math notranslate nohighlight">\(g''(x) = 0\)</span>. If <span class="math notranslate nohighlight">\(g(x)\)</span> is non-linear then
+using the approximation
+<span class="math notranslate nohighlight">\(\operatorname{\mathbb{E}}[g(X)] \approx \operatorname{\mathbb{E}} [g(\mu_X)]\)</span>
+is correct only to first order <a class="bibtex reference internal" href="../zbibliography.html#wan2000unscented" id="id11">[WVDM00]</a>. At the expense of
+generality, the expectation is evaluated using only two evaluations of
+<span class="math notranslate nohighlight">\(g(x)\)</span>, which is a clear advantage when <span class="math notranslate nohighlight">\(g(x)\)</span> is expensive to evaluate,
+or the computation of <span class="math notranslate nohighlight">\(\operatorname{\mathbb{E}}[g(X)]\)</span> is required
+quickly. This idea is applied to engineering in the Kalman Filter and
+Extended Kalman Filter <a class="bibtex reference internal" href="../zbibliography.html#wan2000unscented" id="id12">[WVDM00]</a>.</p>
+<p><a class="bibtex reference internal" href="../zbibliography.html#uhlmann1995dynamic" id="id13">[Uhl95]</a> proposed a more accurate approximate method for
+approximating the expectation in
+<a class="reference internal" href="#equation-eqn-expectation">(1)</a> which requires few evaluations of <span class="math notranslate nohighlight">\(g(x)\)</span>,
+and does not require <span class="math notranslate nohighlight">\(g(x)\)</span> to be differentiated. The Unscented
+Transformation, sometimes referred to as deterministic sampling,
+requires the computation of so called sigma points which are specially
+chosen represent the covariance of the input distributions. It is then
+only required to compute <span class="math notranslate nohighlight">\(g(x)\)</span> for these sigma points, after which a
+weighted average is used to obtain the approximation of the expectation
+in <a class="reference internal" href="#equation-eqn-expectation">(1)</a>. <a class="bibtex reference internal" href="../zbibliography.html#wan2000unscented" id="id14">[WVDM00]</a> demonstrate that the
+Unscented Transformation is accurate to at least second order, but
+potentially to third or forth order in some cases. The number of sigma
+points required, and hence the cost of the computation, depends linearly
+on the dimensionality of <span class="math notranslate nohighlight">\(x\)</span>. Although this approach is more generally
+applicable and accurate than the Taylor Series method, the Unscented
+Transformation is limited to use cases where <span class="math notranslate nohighlight">\(x\)</span> has reasonably low
+dimensionality, because otherwise too many evaluations of <span class="math notranslate nohighlight">\(g(x)\)</span> are
+required. The method has been applied to engineering in the Unscented
+filter <a class="bibtex reference internal" href="../zbibliography.html#wan2000unscented" id="id15">[WVDM00]</a> and uncertainty quantification in the nuclear
+industry by <a class="bibtex reference internal" href="../zbibliography.html#zhangpreliminary" id="id16">[ZLXJ18]</a> and <a class="bibtex reference internal" href="../zbibliography.html#perretg" id="id17">[PRW18]</a>.</p>
+<p>In order to avoid these approximations, techniques can be used to obtain
+more accurate approximations of <span class="math notranslate nohighlight">\(g(x)\)</span> in specific cases (metamodels),
+or alternatively efficient sampling strategies can be used. This is
+discussed in <a class="reference internal" href="../chapter4/chapter4.html#ch-reliability-analysis"><span class="std std-ref">Reliability Analysis</span></a> for application to reliability
+analysis.</p>
+</div>
+<div class="section" id="worked-example-computation-with-a-probabilistic-model">
+<span id="sec-umbrella-example-1"></span><h2>Worked example : Computation with a probabilistic model<a class="headerlink" href="#worked-example-computation-with-a-probabilistic-model" title="Permalink to this headline">¶</a></h2>
+<p>Again, the amount of rainfall in mm on a particular day is given by the normal random variable <span class="math notranslate nohighlight">\(p(x) = \mathcal{N}(\mu=10,\sigma=1)\)</span>.
+It is known that the number of umbrellas sold in London on a particular day is given by <span class="math notranslate nohighlight">\(g(x) = 1000 x^2\)</span>.</p>
+<p>Estimate the number of umbrellas sold in London given our uncertain model of rainfall.</p>
+<div class="math notranslate nohighlight">
+\[\text{Umbrellas sold} = \int_{-\infty}^{\infty} p(x) 1000 x^2 dx\]</div>
+<p>Analytically evaluating this integral in a popular computer algebra system yields <span class="math notranslate nohighlight">\(\text{Umbrellas sold}=101000\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First try Monte Carlo integration</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">samples_x</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="mi">1000</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+
+
+<span class="n">umbrellas_sold</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">samples_x</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We expect that </span><span class="si">{}</span><span class="s2"> umbrellas were sold&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">umbrellas_sold</span><span class="p">))</span>
+
+<span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">samples_x</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n_samples</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The error of this Monte Carlo estimator is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">error</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>We expect that 101287.30984936524 umbrellas were sold
+The error of this Monte Carlo estimator is 2063.720321793903
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">{}</span></code> in a string with <code class="docutils literal notranslate"><span class="pre">.format()</span></code> is a compact and readable method of inserting a quantity into a print statement. The scipy stats library is used for the random variables, and the expectation is taken using <code class="docutils literal notranslate"><span class="pre">np.mean</span></code>.</p>
+<p>Note that we divide the standard deviation from numpy by <span class="math notranslate nohighlight">\(M-1\)</span>, since the output of <code class="docutils literal notranslate"><span class="pre">np.std</span></code> is the standard deviation and <em>not</em> the unbiased estimator for sample standard deviation.</p>
+<p>Most importantly the Monte Carlo simulation agrees with the analytic result!</p>
+<p>We can plot how the result changes with an increasing number of samples.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">monte_carlo_simulation</span><span class="p">(</span><span class="n">n_samples</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Monte Carlo Simulation for number of umbrellas sold in London on a</span>
+<span class="sd">      particular day</span>
+<span class="sd">        Args:</span>
+<span class="sd">            n_samples (int): Number of samples to be made in Monte Carlo</span>
+<span class="sd">              simulation</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Number of umbrellas sold (float): The expected number of umbrellas</span>
+<span class="sd">              sold</span>
+<span class="sd">            error (float): The error in the estimated number of umbrellas sold</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">samples_x</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="mi">1000</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+
+    <span class="n">umbrellas_sold</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">samples_x</span><span class="p">))</span>
+
+    <span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">samples_x</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n_samples</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">umbrellas_sold</span><span class="p">,</span> <span class="n">error</span>
+
+
+<span class="n">number_of_samples</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">100000</span><span class="p">]</span>
+<span class="n">simulation_results</span> <span class="o">=</span> <span class="p">[</span><span class="n">monte_carlo_simulation</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">number_of_samples</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">number_of_samples</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">simulation_results</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100000</span><span class="p">],</span> <span class="p">[</span><span class="mi">101000</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">number_of_samples</span><span class="p">,</span> <span class="o">*</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">simulation_results</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Number of samples&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Umbrellas sold&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/probabilistic_12_0.png" src="../_images/probabilistic_12_0.png" />
+</div>
+</div>
+<p>Notice that all simulation results are within 3 standard deviations of the true value.</p>
+<p>The true value from the analytic calculation is shown with an orange line. The simulation results and error bars are shown in green.</p>
+<p>Note that we used several useful features of python in the above code.</p>
+<p>We use a docstring below the function definition to explain what the purpose of the function is and the expected inputs and outputs.</p>
+<p>Note that the defined function returns two outputs - these are treated like a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> object when inserted into the list. <code class="docutils literal notranslate"><span class="pre">zip(*simulation_results)</span></code> converts the list of tuples into a tuple of lists.</p>
+<p>As in the previous example, the sampling is vectorised (i.e. no loop is used in generating the samples for each simulation) to reduce the time required for computation.</p>
+<p>A <em>list comprehension</em> is used to tidily obtain the results from the Monte Carlo simulation and put these into a list.</p>
+<p>To reduce the number of samples required we now evaluate the integral using a Taylor Series.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="mi">1000</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+
+
+<span class="k">def</span> <span class="nf">g_dash_dash</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="mi">1000</span> <span class="o">*</span> <span class="mi">2</span>
+
+
+<span class="n">loc</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">zero_order_taylor_series</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="n">loc</span><span class="p">)</span>
+<span class="c1"># first order contribution is zero!</span>
+<span class="n">second_order_term</span> <span class="o">=</span> <span class="n">g_dash_dash</span><span class="p">(</span><span class="n">loc</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">scale</span>
+<span class="n">taylor_series_umbrellas</span> <span class="o">=</span> <span class="n">zero_order_taylor_series</span> <span class="o">+</span> <span class="n">second_order_term</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Taylor series - umbrellas sold: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">taylor_series_umbrellas</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Taylor series - umbrellas sold: 101000.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>The correct result is obtained exactly! This is because the third and higher derivatives of <span class="math notranslate nohighlight">\(g(x)\)</span> are zero!</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapter2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="chapter2.html" title="previous page">Models of Uncertainty</a>
+    <a class='right-next' id="next-link" href="sets.html" title="next page">Set-based models of uncertainty</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

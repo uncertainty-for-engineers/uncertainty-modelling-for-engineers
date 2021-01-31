@@ -1,0 +1,625 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Set-based models of uncertainty &#8212; Uncertainty Modelling for Engineers</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Imprecise probabilistic models of uncertainty" href="imprecise.html" />
+    <link rel="prev" title="Probabilistic models of uncertainty" href="probabilistic.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/FORM.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Uncertainty Modelling for Engineers</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   How to use this book
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../outline.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="chapter2.html">
+   Models of Uncertainty
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="probabilistic.html">
+     Probabilistic models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Set-based models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="imprecise.html">
+     Imprecise probabilistic models of uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="creating.html">
+     Creating models in practice
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="summary.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../chapter3/chapter3.html">
+   Machine Learning of Regression Models
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/parametric-models.html">
+     Parametric regression models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/non-parametric-models.html">
+     Non-parametric models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/learning-bounds.html">
+     Learning bounds on a model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter3/conclusion.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../chapter4/chapter4.html">
+   Reliability Analysis
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/random-variables.html">
+     Reliability analysis with random variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/convex-set.html">
+     Convex set models for reliability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/probability-boxes.html">
+     Reliability analysis with probability boxes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter4/summary.html">
+     Chapter summary
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../conclusion.html">
+   Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../zbibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/chapter2/sets.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers/issues/new?title=Issue%20on%20page%20%2Fchapter2/sets.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers/edit/master/chapter2/sets.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/uncertainty-for-engineers/uncertainty-modelling-for-engineers/master?urlpath=tree/chapter2/sets.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/uncertainty-for-engineers/uncertainty-modelling-for-engineers/blob/master/chapter2/sets.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interval-models-of-uncertainty">
+   Interval models of uncertainty
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#worked-example-interval-models">
+   Worked example : Interval Models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convex-set-models-of-uncertainty">
+   Convex set models of uncertainty
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="set-based-models-of-uncertainty">
+<h1>Set-based models of uncertainty<a class="headerlink" href="#set-based-models-of-uncertainty" title="Permalink to this headline">¶</a></h1>
+<p>The two most common set-based models of uncertainty are convex sets and
+interval models. The popularity of these models can be attributed to the
+computational simplifications they enable, relative to non-convex set
+models of uncertainty. Set-based models are a method of characterising
+uncertainty, without describing the level of belief for each distinct
+value, as in probabilistic models. Alternatively, they can be seen as an
+initial way of prescribing the support for an as-yet undetermined
+probabilistic model.<a class="footnote-reference brackets" href="#id19" id="id1">2</a></p>
+<div class="section" id="interval-models-of-uncertainty">
+<h2>Interval models of uncertainty<a class="headerlink" href="#interval-models-of-uncertainty" title="Permalink to this headline">¶</a></h2>
+<p>An interval model of uncertainty is a set of numbers where any number
+falling between the upper and lower bounds of the interval is included
+in the set. In the interval notation, an interval uncertainty model is
+given by
+<span class="math notranslate nohighlight">\(X = [\underline{x}, \overline{x}] = \{x \in \mathbb{R} \mid \underline{x} \le x \le \overline{x} \}\)</span>
+<a class="bibtex reference internal" href="../zbibliography.html#mooreintroduction2009" id="id2">[MKC09]</a>. Note that interval models can also be defined
+for the case where the endpoints are excluded from the intervals, and in
+this case regular brackets are used instead of square brackets. Interval
+models can be re-parameterised in terms of their centre and interval
+radius, <span class="math notranslate nohighlight">\(c = \frac{\overline{x} + \underline{x}}{2}\)</span> and
+<span class="math notranslate nohighlight">\(r = \frac{\overline{x} - \underline{x}}{2}\)</span>. Interval models usually
+don’t express dependency between multiple variables.</p>
+<p>Note that when using an interval model of uncertainty, the relative
+likelihoods of different values of the variable are unknown and
+therefore it is impossible to draw precise samples from the model in the
+same sense that one draws samples from a probability distribution. Put
+simply, an interval model represents complete lack of knowledge, apart
+from the bounds. For this reason, they are often preferred for modelling
+severe epistemic uncertainty, sometimes known as incertitude, rather
+than aleatory uncertainty, where the ability to model the variability of
+a quantity is the main focus <a class="bibtex reference internal" href="../zbibliography.html#kreinovich2013" id="id3">[KLP13]</a>.</p>
+<p>Basic computation with interval models is typically computationally
+inexpensive since one can rely upon interval arithmetic for elementary
+operations. Complex functions and computer codes can be ‘converted’ to
+accept interval inputs by applying the so-called natural extension,
+where arithmetic operations are converted to interval arithmetic and
+real valued inputs are replaced with interval values
+<a class="bibtex reference internal" href="../zbibliography.html#mooreintroduction2009" id="id4">[MKC09]</a>. However, applying the natural interval
+extension can result in gradual widening of the prediction interval
+during propagation through the code, due to repeated appearance of the
+same variables <a class="bibtex reference internal" href="../zbibliography.html#mooreintroduction2009" id="id5">[MKC09]</a>.</p>
+<p>In many cases, one can create a Taylor expansion for <span class="math notranslate nohighlight">\(g(x)\)</span> up to terms
+of a specific order in <span class="math notranslate nohighlight">\(x\)</span>, and then use an interval bound for the
+rounding error to rigorously and accurately bound <span class="math notranslate nohighlight">\(g(x)\)</span>
+<a class="bibtex reference internal" href="../zbibliography.html#hansen1975generalized" id="id6">[Han75]</a> <a class="bibtex reference internal" href="../zbibliography.html#makino2003taylor" id="id7">[MB03]</a> <a class="bibtex reference internal" href="../zbibliography.html#nedialkov2004interval" id="id8">[NKS04]</a>.
+Intermediate linear Taylor models may be combined together to yield
+relatively tight bounds on the output with reduced computational
+expense, since computing the maximum of a multivariate linear function
+over a set of intervals is trivial. Engineers could choose to neglect
+the modelling of the remainder in cases where a rigorous bounding of the
+range of <span class="math notranslate nohighlight">\(g(x)\)</span> over <span class="math notranslate nohighlight">\(X\)</span> is not required, or the Taylor model is
+sufficiently accurate. Alternatively, if <span class="math notranslate nohighlight">\(g(x)\)</span> is represented a
+Bernstein polynomial, bounds on the range of <span class="math notranslate nohighlight">\(g(x)\)</span> over <span class="math notranslate nohighlight">\(X\)</span> can be
+obtained analytically <a class="bibtex reference internal" href="../zbibliography.html#crespo2012unifying" id="id9">[CGK12]</a>.</p>
+<p>For complex functions or computer codes it may not be possible to
+rewrite the code in terms of interval arithmetic, as the code may be
+‘black-box’ and therefore inaccessible. In these cases it may be
+necessary to rely upon numerical optimisation to compute approximate
+bounds on the range of <span class="math notranslate nohighlight">\(g(x)\)</span>. For example, if one wishes to make
+predictions about the output of a model <span class="math notranslate nohighlight">\(g(x)\)</span> for
+<span class="math notranslate nohighlight">\(x \in [\underline{x}, \overline{x}]\)</span> then one must evaluate</p>
+<div class="math notranslate nohighlight" id="equation-eqn-interval-prop">
+<span class="eqno">(3)<a class="headerlink" href="#equation-eqn-interval-prop" title="Permalink to this equation">¶</a></span>\[    [\min_{x \in [\underline{x}, \overline{x}]} g(x), \max_{x \in [\underline{x}, \overline{x}]} g(x)].\]</div>
+<p>For general <span class="math notranslate nohighlight">\(g(x)\)</span>, a non-linear optimiser with the ability to respect
+bounds must be used to solve
+<a class="reference internal" href="#equation-eqn-interval-prop">(3)</a>, for example Bayesian optimisation or a
+genetic algorithm. A brute force search could also be used to solve
+<a class="reference internal" href="#equation-eqn-interval-prop">(3)</a>. If <span class="math notranslate nohighlight">\(g(x)\)</span> is convex, then one may apply
+convex optimisation routines <a class="bibtex reference internal" href="../zbibliography.html#boyd2004convex" id="id10">[BV04]</a>. Due to the curse of
+dimensionality this optimisation becomes more difficult when there are
+many interval variables to be propagated, since the complexity for many
+convex optimisation algorithms increases with the dimensionality of the
+problem <a class="bibtex reference internal" href="../zbibliography.html#bubeck2015convex" id="id11">[B+15]</a>.</p>
+<p>The method of Cauchy deviates offers an efficient alternative to
+computing finite difference gradients of <span class="math notranslate nohighlight">\(g(x)\)</span> in order to apply a
+Taylor expansion for black-box functions <a class="bibtex reference internal" href="../zbibliography.html#kreinovich2004monte" id="id12">[KBF+04]</a>. The
+Cauchy deviates method evaluates <span class="math notranslate nohighlight">\(g(x)\)</span> for a set of transformed samples
+drawn from Cauchy distributions and then uses the property that the
+linear combination of Cauchy distributed random variables is also Cauchy
+distributed with a known distribution parameter to bound <span class="math notranslate nohighlight">\(g(x)\)</span>.</p>
+</div>
+<div class="section" id="worked-example-interval-models">
+<h2>Worked example : Interval Models<a class="headerlink" href="#worked-example-interval-models" title="Permalink to this headline">¶</a></h2>
+<p>This time, the model of rainfall will be given by an interval.
+Imagine the rainfall in London on a particular day is known to be bounded in the interval <span class="math notranslate nohighlight">\(x \in [-9, 11]\)</span>.</p>
+<p>Again the number of umbrellas sold is given by <span class="math notranslate nohighlight">\(1000 x^2\)</span>.</p>
+<p>To bound the number of umbrellas sold we must evaluate
+<span class="math notranslate nohighlight">\([\min_{x \in [-9, 11]} 1000 x^2, \max_{x \in [-9, 11]} 1000 x^2]\)</span></p>
+<p>This can be evaluated analytically since <span class="math notranslate nohighlight">\(x^2\)</span> is monotonic in <span class="math notranslate nohighlight">\(x\)</span> for positive <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span>
+
+
+<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="mi">1000</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+
+
+<span class="n">min_x</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">max_x</span> <span class="o">=</span> <span class="mi">11</span>
+
+<span class="n">umbrellas_sold</span> <span class="o">=</span> <span class="p">[</span><span class="n">g</span><span class="p">(</span><span class="n">min_x</span><span class="p">),</span> <span class="n">g</span><span class="p">(</span><span class="n">max_x</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The number of umbrellas sold falls in the interval: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+    <span class="n">umbrellas_sold</span><span class="p">))</span>
+
+<span class="n">x_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_grid</span><span class="p">,</span> <span class="n">g</span><span class="p">(</span><span class="n">x_grid</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="n">min_x</span><span class="p">,</span> <span class="n">max_x</span><span class="p">],</span> <span class="n">g</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">min_x</span><span class="p">,</span> <span class="n">max_x</span><span class="p">])),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Rainfall /mm&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Umbrellas sold&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of umbrellas sold falls in the interval: [81000, 121000]
+</pre></div>
+</div>
+<img alt="../_images/sets_2_1.png" src="../_images/sets_2_1.png" />
+</div>
+</div>
+<p>This can also be evaluated approximately using a taylor series (shown in green):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">g_dash</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="mi">1000</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+
+
+<span class="n">x_mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">max_x</span> <span class="o">+</span> <span class="n">min_x</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+
+
+<span class="k">def</span> <span class="nf">taylor_expansion</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">g</span><span class="p">(</span><span class="n">x_mid</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_mid</span><span class="p">)</span> <span class="o">*</span> <span class="n">g_dash</span><span class="p">(</span><span class="n">x_mid</span><span class="p">)</span>
+
+
+<span class="n">x_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_grid</span><span class="p">,</span> <span class="n">g</span><span class="p">(</span><span class="n">x_grid</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_grid</span><span class="p">,</span> <span class="n">taylor_expansion</span><span class="p">(</span><span class="n">x_grid</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="n">min_x</span><span class="p">,</span> <span class="n">max_x</span><span class="p">],</span> <span class="n">g</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">min_x</span><span class="p">,</span> <span class="n">max_x</span><span class="p">])),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Rainfall /mm&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Umbrellas sold&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">umbrellas_sold</span> <span class="o">=</span> <span class="p">[</span><span class="n">taylor_expansion</span><span class="p">(</span><span class="n">min_x</span><span class="p">),</span> <span class="n">taylor_expansion</span><span class="p">(</span><span class="n">max_x</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The number of umbrellas sold falls in the interval: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+    <span class="n">umbrellas_sold</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/sets_4_0.png" src="../_images/sets_4_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of umbrellas sold falls in the interval: [80000.0, 120000.0]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally we use black box optimisation in <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> to evaluate the interval model:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_umbrellas</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="n">x_mid</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">[(</span><span class="n">min_x</span><span class="p">,</span> <span class="n">max_x</span><span class="p">)])</span>
+<span class="n">neg_max_umbrellas</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>
+                                            <span class="n">x0</span><span class="o">=</span><span class="n">x_mid</span><span class="p">,</span>
+                                            <span class="n">bounds</span><span class="o">=</span><span class="p">[(</span><span class="n">min_x</span><span class="p">,</span> <span class="n">max_x</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The number of umbrellas sold falls in the interval: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">min_umbrellas</span><span class="o">.</span><span class="n">fun</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="n">neg_max_umbrellas</span><span class="o">.</span><span class="n">fun</span><span class="p">[</span><span class="mi">0</span><span class="p">]]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of umbrellas sold falls in the interval: [81000.0, 121000.0]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="convex-set-models-of-uncertainty">
+<h2>Convex set models of uncertainty<a class="headerlink" href="#convex-set-models-of-uncertainty" title="Permalink to this headline">¶</a></h2>
+<p>A convex set is defined as a set where, for any two points in the set,
+all points along the connecting line between the two points are also
+included in the set. Convex sets are useful as they are in many ways
+similar to interval models, but allow dependencies to be modelled
+between variables. <a class="bibtex reference internal" href="../zbibliography.html#ben2013convex" id="id13">[BHE13]</a> provide examples of how convex set
+models may be used in engineering practice. There is a deep connection
+between interval models and convex set models. An interval model with
+multiple variables would be represented as the specific case of a
+hyper-rectangular convex set. In addition, affine transformations of
+hyper-rectangular convex sets result in a class of models known as
+zonotopes <a class="bibtex reference internal" href="../zbibliography.html#stolfi2003introduction" id="id14">[SdF03]</a>.</p>
+<p>The smallest convex set containing a particular set of data points is
+termed the convex hull of the dataset. Computing the convex hull of a
+dataset has complexity
+<span class="math notranslate nohighlight">\(\mathcal{O}(n\log{n} + n^{\lfloor \frac{d}{2} \rfloor})\)</span>
+<a class="bibtex reference internal" href="../zbibliography.html#chazelle1993" id="id15">[Cha93]</a>, where <span class="math notranslate nohighlight">\(\lfloor \cdot \rfloor\)</span> is the floor operator
+which rounds a real number down to the nearest integer, and therefore in
+practice one often learns a simplified representation of the convex set
+with desirable computational properties.</p>
+<p><span class="math notranslate nohighlight">\(\ell_p\)</span> ellipsoids (for <span class="math notranslate nohighlight">\(p&gt;1\)</span>) are a particularly useful case of a
+convex set, because they can be easily manipulated in calculations
+<a class="bibtex reference internal" href="../zbibliography.html#wang2018mixtrain" id="id16">[WCAJ18]</a>. An <span class="math notranslate nohighlight">\(\ell_p\)</span> ellipsoid is given by the set
+<span class="math notranslate nohighlight">\(X = \{ x \mid \left\| x - c\right\| _{p, w} \le r \}\)</span>, where the
+weighted <span class="math notranslate nohighlight">\(\ell_p\)</span> norm is
+<span class="math notranslate nohighlight">\(\left\| x \right\| _{p, w} = (\sum^{N}_{i=1} |w_i x_i|^p)^{\frac{1}{p}}\)</span>,
+<span class="math notranslate nohighlight">\(x_i\)</span> are variables in a set of dimensionality <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(c\in\mathbb{R}^N\)</span>
+represents the centre point of the set, and <span class="math notranslate nohighlight">\(w_i\)</span> are weights
+controlling the relative uncertainty in each variable <a class="bibtex reference internal" href="../zbibliography.html#huang2008" id="id17">[HH08]</a>. <span class="math notranslate nohighlight">\(p\)</span>
+can be adjusted to control the correlation between the variables. The
+case <span class="math notranslate nohighlight">\(\ell_\infty\)</span> corresponds to the hyper-rectangle (interval) model,
+where there is no correlation between variables. When <span class="math notranslate nohighlight">\(p\)</span> is decreased
+the variables become more correlated.</p>
+<p>Computation with convex set models is performed in the same way as with
+interval models, except the bounds on <span class="math notranslate nohighlight">\(x\)</span> are replaced with convex
+constraints:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-convex-set-prop">
+<span class="eqno">(4)<a class="headerlink" href="#equation-eqn-convex-set-prop" title="Permalink to this equation">¶</a></span>\[[\min_{x} \{ g(x): x \in X\}, \max_{x} \{g(x): x \in X\}], \]</div>
+<p>where <span class="math notranslate nohighlight">\(X\)</span> is a convex
+set. If <span class="math notranslate nohighlight">\(g(x)\)</span> is linear with known gradient, and <span class="math notranslate nohighlight">\(X\)</span> is a hyper-sphere
+or hyper-rectangle, then this optimisation program in
+<a class="reference internal" href="#equation-eqn-convex-set-prop">(4)</a> admits an analytic solution
+<a class="bibtex reference internal" href="../zbibliography.html#meyer2017notes" id="id18">[Mey17]</a>. If the convex set is small then the analytic solution
+may be a reasonable solution when used with a Taylor expansion for
+<span class="math notranslate nohighlight">\(g(x)\)</span>, as with interval uncertainty models.</p>
+<hr class="docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="id19"><span class="brackets"><a class="fn-backref" href="#id1">2</a></span></dt>
+<dd><p>The support of a distribution is the set of values for which the
+probability measure is non-zero.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapter2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="probabilistic.html" title="previous page">Probabilistic models of uncertainty</a>
+    <a class='right-next' id="next-link" href="imprecise.html" title="next page">Imprecise probabilistic models of uncertainty</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
