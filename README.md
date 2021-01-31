@@ -2,6 +2,8 @@
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+![pre-commit](https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers/workflows/pre-commit/badge.svg?branch=main)
+![deploy](https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers/workflows/deploy/badge.svg?branch=main)
 
 This repository contains the source code for Uncertainty Modelling for Engineers.
 
