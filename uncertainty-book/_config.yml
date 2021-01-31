@@ -1,0 +1,19 @@
+#######################################################################################
+# A default configuration that will be loaded for all jupyter books
+# See the documentation for help and more options:
+# https://jupyterbook.org/customize/config.html
+
+#######################################################################################
+# Book settings
+title                       : Uncertainty Modelling for Engineers
+logo                        : FORM.png
+author                      :
+copyright                   : "2020"  # Copyright year to be placed in the footer
+repository:
+  url: https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers
+html:
+  use_repository_button: true
+  use_issues_button: true
+  use_edit_page_button: true
+launch_buttons:
+  colab_url: "https://colab.research.google.com"

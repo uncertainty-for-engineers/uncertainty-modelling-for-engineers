@@ -1,0 +1,8 @@
+jupyter-book
+matplotlib
+numpy
+ghp-import
+PyIPM
+scipy
+sklearn
+sphinxcontrib-bibtex==1.0.0

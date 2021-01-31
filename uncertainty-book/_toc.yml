@@ -1,0 +1,23 @@
+- file: intro
+- file: outline
+- file: chapter2/chapter2
+  sections:
+    - file: chapter2/probabilistic
+    - file: chapter2/sets
+    - file: chapter2/imprecise
+    - file: chapter2/creating
+    - file: chapter2/summary
+- file: chapter3/chapter3
+  sections:
+    - file: chapter3/parametric-models
+    - file: chapter3/non-parametric-models
+    - file: chapter3/learning-bounds
+    - file: chapter3/conclusion
+- file: chapter4/chapter4
+  sections:
+    - file: chapter4/random-variables
+    - file: chapter4/convex-set
+    - file: chapter4/probability-boxes
+    - file: chapter4/summary
+- file: conclusion
+- file: zbibliography
