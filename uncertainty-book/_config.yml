@@ -11,6 +11,8 @@ author                      :
 copyright                   : "2020"  # Copyright year to be placed in the footer
 repository:
   url: https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers
+  path_to_book: uncertainty-book  # Optional path to your book, relative to the repository root
+  branch: main
 html:
   use_repository_button: true
   use_issues_button: true
