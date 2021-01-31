@@ -1,4 +1,7 @@
 # Uncertainty Modelling for Engineers
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 This repository contains the source code for Uncertainty Modelling for Engineers.
 
@@ -32,3 +35,23 @@ The html version of the book is hosted on the `gh-pages` branch of this repo. A 
 ## Credits
 
 This project is created using the excellent open source [Jupyter Book project](https://jupyterbook.org/) and the [executablebooks/cookiecutter-jupyter-book template](https://github.com/executablebooks/cookiecutter-jupyter-book).
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://jcsadeghi.github.io/"><img src="https://avatars.githubusercontent.com/u/23333857?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jonathan Sadeghi</b></sub></a><br /><a href="https://github.com/uncertainty-for-engineers/uncertainty-modelling-for-engineers/commits?author=JCSadeghi" title="Documentation">📖</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
