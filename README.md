@@ -2,8 +2,7 @@
 
 This repository contains the source code for Uncertainty Modelling for Engineers.
 
-The book can be read online *here* . Alternatively a pdf is available here.  
-TODO: Update links when project made public
+The book can be read online [here](https://uncertainty-for-engineers.github.io/uncertainty-modelling-for-engineers/).
 
 ## How to make a contribution
 
