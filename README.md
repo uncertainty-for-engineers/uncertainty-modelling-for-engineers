@@ -58,3 +58,12 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+## How to cite
+
+You can reference this book through the project's Zenodo archive using DOI:
+[10.5281/zenodo.4483793](https://doi.org/10.5281/zenodo.4483793).
+
+The citation will look something like:
+
+> Jonathan Sadeghi. (2021, January 31). Uncertainty Modelling for Engineers: Version 0.1.1 (Version v0.1.1). Zenodo. http://doi.org/10.5281/zenodo.4484026
