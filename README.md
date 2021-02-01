@@ -1,5 +1,5 @@
 # Uncertainty Modelling for Engineers
-[![DOI](https://zenodo.org/badge/334695748.svg)](https://zenodo.org/badge/latestdoi/334695748)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4483793.svg)](https://doi.org/10.5281/zenodo.4483793)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
