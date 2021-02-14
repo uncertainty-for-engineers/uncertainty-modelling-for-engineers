@@ -1,9 +1,7 @@
 (ch:machine_learning)=
-Machine Learning of Regression Models
-=====================================
+# Machine Learning of Regression Models
 
-Overview of regression models
------------------------------
+## Overview of regression models
 
 Regression models differ from generative uncertainty models in that they
 model the effect of one variable on another variable. In the language of

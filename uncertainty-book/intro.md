@@ -1,6 +1,6 @@
 # Uncertainty Modelling for Engineers
-
-## How to use this book
+ 
+**How to use this book**
 
 This book is intended to serve as a practical introduction to uncertainty quantification for engineers.
 It is intended to be particularly useful for those beginning a graduate course of study.
@@ -10,8 +10,8 @@ After reading the book and studying the worked examples you should be able to im
 The text of the book is largely adapted from {cite}`sadeghi2020uncertainty`.
 
 I have included interactive code examples in python. Where possible the code examples use primitive python datatypes and commonly used packages for clarity.
-
-## How to make a contribution
+ 
+**How to make a contribution**
 
 This book is an open source project; all readers are heartily invited to contribute with corrections and improvements.
 
@@ -24,7 +24,7 @@ Do not commit the output files from the build process.
 You may have to install the project requirements, if you have not already done so.
 Once you are happy with your changes you should commit and push your changes, then make a pull request which we can review.
 
-## How to cite
+**How to cite**
 
 You can reference this book through the project's Zenodo archive using DOI: 
 [10.5281/zenodo.4483793](https://doi.org/10.5281/zenodo.4483793). 

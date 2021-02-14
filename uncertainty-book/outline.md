@@ -1,8 +1,6 @@
-Introduction
-============
+# Introduction
 
-Motivation
-----------
+## Motivation
 
 ### Uncertainty in engineering simulation
 
