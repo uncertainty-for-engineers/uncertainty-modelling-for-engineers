@@ -1,12 +1,8 @@
-name: deploy
+name: pull-build
 
-on:
-  # Trigger the workflow on push to main branch
-  push:
-    branches:
-      - main
+on: [pull_request]
 
-# This job installs dependencies, build the book, and pushes it to `gh-pages`
+# This job installs dependencies and builds the book
 jobs:
   build-and-deploy-book:
     runs-on: ${{ matrix.os }}
@@ -43,10 +39,3 @@ jobs:
         run: >
           mv uncertainty-book/_build/latex/python.pdf
           uncertainty-book/_build/html/uncertainty-book.pdf
-
-      # Deploy the book's HTML to gh-pages branch
-      - name: GitHub Pages action
-        uses: peaceiris/actions-gh-pages@v3.6.1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: uncertainty-book/_build/html

@@ -10,7 +10,9 @@ After reading the book and studying the worked examples you should be able to im
 The text of the book is largely adapted from {cite}`sadeghi2020uncertainty`.
 
 I have included interactive code examples in python. Where possible the code examples use primitive python datatypes and commonly used packages for clarity.
- 
+
+A pdf of the book can be downloaded from [here](https://uncertainty-for-engineers.github.io/uncertainty-modelling-for-engineers/uncertainty-book.pdf).
+
 **How to make a contribution**
 
 This book is an open source project; all readers are heartily invited to contribute with corrections and improvements.
