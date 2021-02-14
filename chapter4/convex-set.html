@@ -45,8 +45,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -54,6 +52,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Reliability analysis with probability boxes" href="probability-boxes.html" />
@@ -348,9 +348,9 @@ finalised.</p>
 given by the interval
 <span class="math notranslate nohighlight">\([\min_{\boldsymbol{x} \in X}{g(\boldsymbol{x})}, \max_{\boldsymbol{x} \in X}g(\boldsymbol{x})]\)</span>,
 which can be determined by the methods discussed in
-<a class="reference internal" href="../chapter2/sets.html#sec-set-based"><span class="std std-ref">Convex set models of uncertainty</span></a> <a class="bibtex reference internal" href="../zbibliography.html#elishakoff2010optimization" id="id1">[EO10]</a>. For a system
+<a class="reference internal" href="../chapter2/sets.html#sec-set-based"><span class="std std-ref">Convex set models of uncertainty</span></a> <a class="bibtex reference internal" href="../zbibliography.html#elishakoff2010optimization" id="id1">[97]</a>. For a system
 with response <span class="math notranslate nohighlight">\({g}_\text{load}(x)\)</span> which must not exceed
-<span class="math notranslate nohighlight">\(g_\text{threshold}\)</span>, <a class="bibtex reference internal" href="../zbibliography.html#ben1994convex" id="id2">[BH94]</a> proposes a non-probabilistic figure
+<span class="math notranslate nohighlight">\(g_\text{threshold}\)</span>, <a class="bibtex reference internal" href="../zbibliography.html#ben1994convex" id="id2">[98]</a> proposes a non-probabilistic figure
 of merit,
 <span class="math notranslate nohighlight">\(R_\text{non-probabilistic} = 1 - \frac{\overline{g}_\text{load}(\boldsymbol{x})}{g_\text{threshold}},\)</span>
 where

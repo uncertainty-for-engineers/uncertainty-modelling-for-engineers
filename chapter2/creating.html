@@ -45,8 +45,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -54,6 +52,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Chapter summary" href="summary.html" />
@@ -412,19 +412,19 @@ after the theoretical uncertainty framework is chosen, since the set of
 hypotheses included in the uncertainty model has a strong affect on the
 conclusions drawn from analysis.</p>
 <p>For example, consider the following problem proposed by
-<a class="bibtex reference internal" href="../zbibliography.html#zadeh1979validity" id="id1">[Zad79]</a> two doctors examine a patient, but differ in their
+<a class="bibtex reference internal" href="../zbibliography.html#zadeh1979validity" id="id1">[3]</a> two doctors examine a patient, but differ in their
 diagnoses. Doctor A believes the patient has a 99% chance of meningitis
 and 1% chance of concussion. Doctor B believes the patient has a 99%
 chance of tumor and 1% chance of concussion. Since the doctors’
 diagnoses strongly conflict with each other, a naïve application of
 Bayesian probability concludes that the patient most likely has
 concussion. Zadeh proposes that this problem can be solved with fuzzy
-logic. However, <a class="bibtex reference internal" href="../zbibliography.html#maskell2008bayesian" id="id2">[Mas08]</a> shows that Bayesian probabilities
+logic. However, <a class="bibtex reference internal" href="../zbibliography.html#maskell2008bayesian" id="id2">[4]</a> shows that Bayesian probabilities
 can, in fact, be used to solve the problem, by allowing the model to
 consider that the doctors may have made a mistake in their estimations
 of probabilities.</p>
-<p>Another interesting example is demonstrated by <a class="bibtex reference internal" href="../zbibliography.html#balch2016corrector" id="id3">[Bal16]</a> and
-<a class="bibtex reference internal" href="../zbibliography.html#balch2017satellite" id="id4">[BMF19]</a>; it is shown that using probability distributions to
+<p>Another interesting example is demonstrated by <a class="bibtex reference internal" href="../zbibliography.html#balch2016corrector" id="id3">[5]</a> and
+<a class="bibtex reference internal" href="../zbibliography.html#balch2017satellite" id="id4">[6]</a>; it is shown that using probability distributions to
 represent epistemic uncertainty in satellite conjunction analysis does
 not provide a useful description of the likelihood of collision between
 satellites, since the likelihood of collision appears to decrease when
@@ -451,7 +451,7 @@ obtained by applying Bayes’ law:</p>
 acts as a normalising constant, and the data likelihood can be written
 as <span class="math notranslate nohighlight">\(P(\mathcal{X}_\text{train} | \theta) = \prod_i p(x^{(i)} | \theta)\)</span>
 by assuming independence of training samples. This approach, known as
-Bayesian Hierarchical Modelling <a class="bibtex reference internal" href="../zbibliography.html#gelman2013bayesian" id="id5">[GSC+13]</a>, has desirable
+Bayesian Hierarchical Modelling <a class="bibtex reference internal" href="../zbibliography.html#gelman2013bayesian" id="id5">[7]</a>, has desirable
 properties. For example, the epistemic uncertainty on <span class="math notranslate nohighlight">\(\theta\)</span> will
 decrease as more data becomes available which will be observed as a
 ‘concentration’ of the posterior distribution for <span class="math notranslate nohighlight">\(\theta\)</span> around one
@@ -466,7 +466,7 @@ where <span class="math notranslate nohighlight">\(f(\theta)\)</span> is an arbi
 which we may not know the gradient, and <span class="math notranslate nohighlight">\(p(x^{(i)} | \theta)\)</span> is a
 simple probability density, for example a normal distribution, and
 <span class="math notranslate nohighlight">\(\delta(x)\)</span> is the Dirac delta function. This setting is referred to as
-an ‘inverse problem’ <a class="bibtex reference internal" href="../zbibliography.html#tarantola2005inverse" id="id6">[Tar05]</a>.</p>
+an ‘inverse problem’ <a class="bibtex reference internal" href="../zbibliography.html#tarantola2005inverse" id="id6">[8]</a>.</p>
 <p>The probability distributions over <span class="math notranslate nohighlight">\(\theta\)</span> represent epistemic
 uncertainty in <span class="math notranslate nohighlight">\(\theta\)</span>, whilst the data likelihood,
 <span class="math notranslate nohighlight">\(p(x^{(i)} | \theta)\)</span>, represents the natural stochasticity (aleatory
@@ -477,18 +477,18 @@ should be set to an appropriate uninformative distribution. The
 distribution used for the uninformative prior should be chosen based on
 physical considerations regarding the parameter of interest, but is
 often somewhat arbitrarily assumed to be uniform
-<a class="bibtex reference internal" href="../zbibliography.html#jaynes2003probability" id="id7">[Jay03]</a>.</p>
+<a class="bibtex reference internal" href="../zbibliography.html#jaynes2003probability" id="id7">[1]</a>.</p>
 <p>The prior distribution is not the only place where prior knowledge
 enters into the probabilistic model; the model specification, i.e. the
 data likelihood, represents another form of prior knowledge which must
-be carefully considered with this approach <a class="bibtex reference internal" href="../zbibliography.html#jaynes2003probability" id="id8">[Jay03]</a>. It
+be carefully considered with this approach <a class="bibtex reference internal" href="../zbibliography.html#jaynes2003probability" id="id8">[1]</a>. It
 is particularly important to decide which parameters in the likelihood
 function should be modelled as uncertain, e.g. if the likelihood is
 assumed to be a Gaussian density, will a value be assumed for the
 standard deviation of the distribution, or will this be an element of
 <span class="math notranslate nohighlight">\(\theta\)</span>, and hence an uncertain parameter?</p>
 <p>We can derive point estimates for <span class="math notranslate nohighlight">\(\theta\)</span> from the Bayesian approach
-<a class="bibtex reference internal" href="../zbibliography.html#friedman2001elements" id="id9">[FHT01]</a>. The maximum a posteriori estimator for <span class="math notranslate nohighlight">\(\theta\)</span>
+<a class="bibtex reference internal" href="../zbibliography.html#friedman2001elements" id="id9">[9]</a>. The maximum a posteriori estimator for <span class="math notranslate nohighlight">\(\theta\)</span>
 is obtained by evaluating
 <span class="math notranslate nohighlight">\(\theta_\text{MAP} = \max_\theta P(\theta | \mathcal{X}_\text{train})\)</span>,
 where
@@ -509,7 +509,7 @@ derivatives with respect to parameters <span class="math notranslate nohighlight
 approximation. This estimate is exact in some well known cases, e.g. the
 case of a Gaussian likelihood and prior, where the optimisation loss
 (the logarithm of the posterior) becomes the mean squared error
-<a class="bibtex reference internal" href="../zbibliography.html#tarantola2005inverse" id="id10">[Tar05]</a>.</p>
+<a class="bibtex reference internal" href="../zbibliography.html#tarantola2005inverse" id="id10">[8]</a>.</p>
 <p>In many cases the full posterior for <span class="math notranslate nohighlight">\(\theta\)</span> can be calculated
 analytically, for example where a conjugate prior is used so that the
 posterior distribution has the same functional form as the prior
@@ -520,23 +520,23 @@ or other approximate numerical techniques are used.</p>
 <p>An MCMC algorithm constructs a Markov chain with the desired
 distribution as its equilibrium distribution, so that if the Markov
 chain is simulated for a sufficient time then the samples drawn are from
-the posterior distribution <a class="bibtex reference internal" href="../zbibliography.html#gelman2013bayesian" id="id11">[GSC+13]</a>. MCMC methods typically
+the posterior distribution <a class="bibtex reference internal" href="../zbibliography.html#gelman2013bayesian" id="id11">[7]</a>. MCMC methods typically
 do not require the gradient of the posterior to be known, and are hence
 applicable to a wide class of problems. Unfortunately, MCMC simulation
 can be computationally infeasible when <span class="math notranslate nohighlight">\(\theta\)</span> has high dimensionality,
 or when the training dataset is large. Recently, efficient sampling
 based algorithms have been proposed to combat this problem
-<a class="bibtex reference internal" href="../zbibliography.html#green2017estimating" id="id12">[GM17]</a>.</p>
+<a class="bibtex reference internal" href="../zbibliography.html#green2017estimating" id="id12">[10]</a>.</p>
 <p>As an alternative to MCMC based methods, Variational Inference can be
 used to find the closest match between an approximating parametric
 ‘proposal’ distribution and the true posterior distribution. This method
 typically requires the gradient of the likelihood function to be known,
 but scales very well to high dimensionality problems
-<a class="bibtex reference internal" href="../zbibliography.html#blundell2015weight" id="id13">[BCKW15]</a>.</p>
+<a class="bibtex reference internal" href="../zbibliography.html#blundell2015weight" id="id13">[11]</a>.</p>
 <p>Approximate Bayesian Computation is an efficient computational method
 which can be used to sample from an approximation of the posterior
 distribution in the case that the likelihood is too expensive to compute
-<a class="bibtex reference internal" href="../zbibliography.html#csillery2010approximate" id="id14">[CsilleryBGFranccois10]</a>. <a class="bibtex reference internal" href="../zbibliography.html#sadeghi-2018" id="id15">[SdeAngelisP18]</a> demonstrate a similar method,
+<a class="bibtex reference internal" href="../zbibliography.html#csillery2010approximate" id="id14">[12]</a>. <a class="bibtex reference internal" href="../zbibliography.html#sadeghi-2018" id="id15">[13]</a> demonstrate a similar method,
 where the true likelihood probability density function is replaced by an
 interval with associated probability, and show that bounds on the
 likelihood function can still be obtained in this case.</p>
@@ -592,7 +592,7 @@ small probability.</p>
 <span class="math notranslate nohighlight">\([\min_i{x_{(i)}},\max_i{x_{(i)}}]\)</span> when <span class="math notranslate nohighlight">\(x\)</span> is one dimensional) can be
 used to produce a prediction interval with coverage probability
 <span class="math notranslate nohighlight">\(\frac{n-1}{n+1}\)</span>, i.e. the probability that <span class="math notranslate nohighlight">\(x_{(n+1)}\)</span> will fall
-inside the prediction interval <a class="bibtex reference internal" href="../zbibliography.html#wilks1941determination" id="id16">[Wil41]</a>. A tighter
+inside the prediction interval <a class="bibtex reference internal" href="../zbibliography.html#wilks1941determination" id="id16">[14]</a>. A tighter
 prediction interval, with a lower coverage probability of
 <span class="math notranslate nohighlight">\(\frac{n + 1 - 2j}{n + 1}\)</span> can be obtained by using the <span class="math notranslate nohighlight">\(j\)</span>-th smallest
 and largest values in the dataset.</p>
@@ -610,10 +610,10 @@ in many cases it is possible to obtain bounds on the posterior
 parameters given interval data. For example, if a Gaussian density is
 used for the likelihood and prior, then one may obtain bounds on the
 posterior normal distribution parameters analytically
-<a class="bibtex reference internal" href="../zbibliography.html#montgomery2009new" id="id17">[Mon09]</a>.</p>
+<a class="bibtex reference internal" href="../zbibliography.html#montgomery2009new" id="id17">[15]</a>.</p>
 <p>The standard Bayesian paradigm can also be made robust by considering a
 set of prior distributions. This is known as Robust Bayes
-<a class="bibtex reference internal" href="../zbibliography.html#berger1985statistical" id="id18">[Ber85]</a>. Again, bounds on the posterior parameters are
+<a class="bibtex reference internal" href="../zbibliography.html#berger1985statistical" id="id18">[16]</a>. Again, bounds on the posterior parameters are
 available analytically in many cases, e.g. the Imprecise Dirichlet
 model.</p>
 <p>Probability boxes can also be obtained by creating so-called confidence
@@ -621,7 +621,7 @@ structures, which are encoded as probability boxes. Confidence boxes
 encode confidence intervals at all confidence levels. The binomial
 confidence bounds, which bound the success probability of a binomial
 random variable, are a particularly useful example which can be found by
-inverting the CDF of a binomial random variable <a class="bibtex reference internal" href="../zbibliography.html#ferson2014computing" id="id19">[FORaweB14]</a>.</p>
+inverting the CDF of a binomial random variable <a class="bibtex reference internal" href="../zbibliography.html#ferson2014computing" id="id19">[17]</a>.</p>
 </div>
 <div class="section" id="creating-non-parametric-imprecise-probability-models">
 <h3>Creating non-parametric imprecise probability models<a class="headerlink" href="#creating-non-parametric-imprecise-probability-models" title="Permalink to this headline">¶</a></h3>
@@ -634,34 +634,34 @@ empirical cumulative distribution function (eCDF), which is given by</p>
 <p>where
 <span class="math notranslate nohighlight">\(\mathbb{I}\)</span> is the indicator function, which is equal to <span class="math notranslate nohighlight">\(1\)</span> if the
 subscript statement is satisfied, and is otherwise equal to zero
-<a class="bibtex reference internal" href="../zbibliography.html#kolmogoroff1941confidence" id="id20">[Kol41]</a>. The eCDF is effectively the random
+<a class="bibtex reference internal" href="../zbibliography.html#kolmogoroff1941confidence" id="id20">[18]</a>. The eCDF is effectively the random
 variable which is formed by assigning probability density equally at the
 point value of each sample, and hence when plotted the eCDF looks like a
 staircase function. The eCDF can be generalised to the case of imprecise
 sampled data, by considering a separate eCDF for the upper and lower
 bounds of the samples. These upper and lower bounds represent the
 envelope of a probability box, and hence an empirical probability box is
-obtained <a class="bibtex reference internal" href="../zbibliography.html#sandia2002constructing" id="id21">[FKG+03]</a>.</p>
+obtained <a class="bibtex reference internal" href="../zbibliography.html#sandia2002constructing" id="id21">[19]</a>.</p>
 <p>So-called concentration inequalities can be used to obtain bounds on the
 CDF of a random variable with a certain confidence. A probability box
 can be obtained for the random variable by choosing a cutoff confidence,
 such that the CDFs at that confidence will form the envelope of the
-probability box <a class="bibtex reference internal" href="../zbibliography.html#sandia2002constructing" id="id22">[FKG+03]</a>.</p>
+probability box <a class="bibtex reference internal" href="../zbibliography.html#sandia2002constructing" id="id22">[19]</a>.</p>
 <p>The Kolmogorov-Smirnov statistic can be used to measure the confidence
 that the true CDF of a random variable differs by more than a certain
 probability from the eCDF obtained from sampled data (i.e. the vertical
-distance between the CDFs is compared) <a class="bibtex reference internal" href="../zbibliography.html#sematech2012handbook" id="id23">[NISTSEMATECH12]</a>. The
+distance between the CDFs is compared) <a class="bibtex reference internal" href="../zbibliography.html#sematech2012handbook" id="id23">[20]</a>. The
 Kolmogorov-Smirnov statistic is given by</p>
 <div class="math notranslate nohighlight">
 \[D = \sup_x |S_n(x) - F(x)|,\]</div>
 <p>where <span class="math notranslate nohighlight">\(F(x)\)</span> is the true CDF and the values for <span class="math notranslate nohighlight">\(D\)</span> can be obtained from
-<a class="bibtex reference internal" href="../zbibliography.html#kolmogoroff1941confidence" id="id24">[Kol41]</a>. Now a set of CDFs can be found with
+<a class="bibtex reference internal" href="../zbibliography.html#kolmogoroff1941confidence" id="id24">[18]</a>. Now a set of CDFs can be found with
 associated confidence. The Kolmogorov-Smirnov statistic can be applied
 to eCDF bounds obtained by considering imprecise data
-<a class="bibtex reference internal" href="../zbibliography.html#sandia2002constructing" id="id25">[FKG+03]</a>.</p>
+<a class="bibtex reference internal" href="../zbibliography.html#sandia2002constructing" id="id25">[19]</a>.</p>
 <p>Chebyshev’s inequality bounds the probability density of a random
 variable which can fall more than a certain number of standard
-deviations from the mean <a class="bibtex reference internal" href="../zbibliography.html#ross2014first" id="id26">[Ros14]</a>. Therefore knowledge of the
+deviations from the mean <a class="bibtex reference internal" href="../zbibliography.html#ross2014first" id="id26">[21]</a>. Therefore knowledge of the
 mean and standard deviation of a random variable imposes bounds on its
 CDF. Chebyshev’s inequality is given by</p>
 <div class="math notranslate nohighlight">
@@ -676,7 +676,7 @@ standard deviation of the random variable.</p>
 <p>When insufficient data is available to create a satisfactory uncertainty
 model using the techniques described in the previous section, one may
 resort to creating a model based on the opinions of experts. This
-process is known as expert elicitation <a class="bibtex reference internal" href="../zbibliography.html#sundararajan1995expert" id="id27">[Sun95]</a>. In
+process is known as expert elicitation <a class="bibtex reference internal" href="../zbibliography.html#sundararajan1995expert" id="id27">[22]</a>. In
 this section we briefly outline how various uncertainty models can be
 obtained from expert opinion, in order to further justify and provide
 context for the uncertainty models used in this thesis. Expert
@@ -694,8 +694,8 @@ opinions of experts should be considered and assessed quantitatively.</p>
 <p>When eliciting multiple expert opinions one must attempt to aggregate
 the opinions of experts, regardless of the model chosen. Usually the
 opinions of experts are fused using quantitative rules
-<a class="bibtex reference internal" href="../zbibliography.html#sundararajan1995expert" id="id28">[Sun95]</a>, and feedback may be given to the experts in
-order to allow their opinions to be changed. <a class="bibtex reference internal" href="../zbibliography.html#oakley2010shelf" id="id29">[OOHagan10]</a> propose
+<a class="bibtex reference internal" href="../zbibliography.html#sundararajan1995expert" id="id28">[22]</a>, and feedback may be given to the experts in
+order to allow their opinions to be changed. <a class="bibtex reference internal" href="../zbibliography.html#oakley2010shelf" id="id29">[23]</a> propose
 the SHELF framework which gives specific rules for how the opinions of
 experts should be elicited, and proposes that the opinions should be
 aggregated by a rational unbiased observer during the elicitation
@@ -713,7 +713,7 @@ probability box prior, as discussed in
 example interval bounds on a parameter may be available from physical
 considerations. Alternatively, experts may prefer to specify their
 estimates as intervals, or may feel more comfortable specifying bounding
-CDFs (i.e. probability boxes). <a class="bibtex reference internal" href="../zbibliography.html#sandia2002constructing" id="id30">[FKG+03]</a> discuss several
+CDFs (i.e. probability boxes). <a class="bibtex reference internal" href="../zbibliography.html#sandia2002constructing" id="id30">[19]</a> discuss several
 methods for aggregating probability boxes which can be chosen based on
 the desired properties of the analysis.</p>
 </div>
@@ -740,11 +740,11 @@ probability then we expect that they occur 90% of the time in reality.
 This can be verified by plotting the test data relative to the trained
 distribution. One method of achieving this is ‘binning’ the data into a
 histogram, and visually comparing the histogram to the plotted
-distribution for the trained model <a class="bibtex reference internal" href="../zbibliography.html#gelman2013bayesian" id="id31">[GSC+13]</a>.</p>
+distribution for the trained model <a class="bibtex reference internal" href="../zbibliography.html#gelman2013bayesian" id="id31">[7]</a>.</p>
 <p>One may use the test set, <span class="math notranslate nohighlight">\(\mathcal{X}_\text{test}\)</span>, to compute various
 statistics of the model. For example, classical statistical tests can be
 used, such as the <span class="math notranslate nohighlight">\(\chi^2\)</span> summary statistic for the sum of squared
-errors which represents goodness of fit <a class="bibtex reference internal" href="../zbibliography.html#gelman2013bayesian" id="id32">[GSC+13]</a>. The test
+errors which represents goodness of fit <a class="bibtex reference internal" href="../zbibliography.html#gelman2013bayesian" id="id32">[7]</a>. The test
 set can be used to compute the negative logarithmic predictive density
 for the model, i.e.
 <span class="math notranslate nohighlight">\(-\log{P(\mathcal{X}_\text{test} | \text{Model})} = -\log{\mathbb{E}_{P(\theta | \mathcal{X}_\text{train})} P(\mathcal{X}_\text{test} | \theta)}\)</span>,
@@ -761,20 +761,20 @@ obtained in training
 (<span class="math notranslate nohighlight">\(P(\mathcal{X}_\text{train} | \text{Model}) = \mathbb{E}_{P(\theta | \mathcal{X}_\text{train})} P(\mathcal{X}_\text{train} | \theta) = \int P(\mathcal{X}_\text{train} | \theta) P(\theta | \mathcal{X}_\text{train}) d\theta\)</span>).
 If the Bayes factor is greater than one then <span class="math notranslate nohighlight">\(\text{Model}_1\)</span> is
 preferred, otherwise one should choose <span class="math notranslate nohighlight">\(\text{Model}_2\)</span>
-<a class="bibtex reference internal" href="../zbibliography.html#kruschke2014doing" id="id33">[Kru14]</a>. When <span class="math notranslate nohighlight">\(P(\text{Model}_2)=P(\text{Model}_1)\)</span> the
+<a class="bibtex reference internal" href="../zbibliography.html#kruschke2014doing" id="id33">[24]</a>. When <span class="math notranslate nohighlight">\(P(\text{Model}_2)=P(\text{Model}_1)\)</span> the
 prior belief in each model is equal and the Bayes factor becomes equal
 to the likelihood ratio. The likelihood ratio can also be computed for
 the test data set. One can also generate new data by sampling from the
 distribution
 <span class="math notranslate nohighlight">\(\mathbb{E}_{P(\theta | \mathcal{X}_\text{train})} p(x | \theta)\)</span> and
 comparing this to the training and test data. This is known as a
-posterior predictive check <a class="bibtex reference internal" href="../zbibliography.html#gelman2013bayesian" id="id34">[GSC+13]</a>.</p>
+posterior predictive check <a class="bibtex reference internal" href="../zbibliography.html#gelman2013bayesian" id="id34">[7]</a>.</p>
 </div>
 <div class="section" id="validating-non-probabilistic-models">
 <h3>Validating non-probabilistic models<a class="headerlink" href="#validating-non-probabilistic-models" title="Permalink to this headline">¶</a></h3>
 <p>If a convex-set or interval based model is compared to crisp data then
 one can check that all elements of the test set
-<span class="math notranslate nohighlight">\(\mathcal{X}_\text{test}\)</span> fall within the model. <a class="bibtex reference internal" href="../zbibliography.html#ferson2009validation" id="id35">[FOG09]</a>
+<span class="math notranslate nohighlight">\(\mathcal{X}_\text{test}\)</span> fall within the model. <a class="bibtex reference internal" href="../zbibliography.html#ferson2009validation" id="id35">[25]</a>
 proposes that interval models are validated against interval data using
 the metric for comparison of two sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -785,7 +785,7 @@ of <span class="math notranslate nohighlight">\(\mathcal{X}_\text{test}\)</span>
 element <span class="math notranslate nohighlight">\(B \in \mathcal{X}_\text{test}\)</span> could be used to validate
 against the entire test set, i.e.
 <span class="math notranslate nohighlight">\(\frac{1}{N_\text{test}} \sum_{B \in \mathcal{X}_\text{test}} \Delta(A,B)\)</span>.</p>
-<p>Following this, <a class="bibtex reference internal" href="../zbibliography.html#ferson2009validation" id="id36">[FOG09]</a> proposes a generalisation of the
+<p>Following this, <a class="bibtex reference internal" href="../zbibliography.html#ferson2009validation" id="id36">[25]</a> proposes a generalisation of the
 Wasserstein distance to measure the distance between an eCDF and a
 probability box, as a probability box validation metric. The proposed
 metric, termed mean absolute difference of deviates, is given by</p>

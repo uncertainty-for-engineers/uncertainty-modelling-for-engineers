@@ -45,8 +45,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -54,6 +52,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Non-parametric models" href="non-parametric-models.html" />
@@ -380,7 +380,7 @@ in this way. In this formulation the output of the model is given by
 <span class="math notranslate nohighlight">\(f(x,\boldsymbol{p})\)</span> represent the input and output to the regression
 model, respectively, <span class="math notranslate nohighlight">\(p_i\)</span> are the parameters of the model to be
 calibrated which are components of the vector <span class="math notranslate nohighlight">\(\boldsymbol{p}\)</span>, and
-<span class="math notranslate nohighlight">\(\phi_i(x)\)</span> is the basis <a class="bibtex reference internal" href="../zbibliography.html#friedman2001elements" id="id1">[FHT01]</a>. Let <span class="math notranslate nohighlight">\(x\)</span> be a vector in
+<span class="math notranslate nohighlight">\(\phi_i(x)\)</span> is the basis <a class="bibtex reference internal" href="../zbibliography.html#friedman2001elements" id="id1">[9]</a>. Let <span class="math notranslate nohighlight">\(x\)</span> be a vector in
 <span class="math notranslate nohighlight">\(\mathbb{R}^N\)</span>, with components <span class="math notranslate nohighlight">\(x_i\)</span>.</p>
 <p>The basis should be chosen based on prior knowledge and engineering
 judgement. Basis functions are either global or local. A local basis
@@ -403,12 +403,12 @@ with a basis consisting of polynomials which are orthogonal to each
 other, i.e. their inner product is zero with respect to a probability
 distribution over their inputs
 (<span class="math notranslate nohighlight">\(\int_{\mathbb{R}^N} \phi_i(x) \phi_j(x) p(x) dx = 0 \forall i\neq j\)</span>)
-<a class="bibtex reference internal" href="../zbibliography.html#schobi2017surrogate" id="id2">[Schobi17]</a>.</p>
+<a class="bibtex reference internal" href="../zbibliography.html#schobi2017surrogate" id="id2">[85]</a>.</p>
 <p>In order to learn more complex functions, a more complex function
 representation is needed, with the ability to model arbitrary
 non-linearities in the model parameters to be learned. Neural networks
 are a widely used regression model which fulfil this purpose
-<a class="bibtex reference internal" href="../zbibliography.html#friedman2001elements" id="id3">[FHT01]</a>. Neural networks consist of neurons which apply
+<a class="bibtex reference internal" href="../zbibliography.html#friedman2001elements" id="id3">[9]</a>. Neural networks consist of neurons which apply
 an inner product between the input and a parameter vector, and then
 apply an arbitrary non-linearity, before feeding into other neurons,
 until finally the result is outputted. These computational neurons are
@@ -429,10 +429,7 @@ activation function, and <span class="math notranslate nohighlight">\(W_{i}\)</s
 activation function is typically the hyperbolic tangent function, the
 soft-max function or the rectified linear function. A diagram of a
 feed-forward neural network is shown in
-<a class="reference internal" href="#fig-net-diagram"><span class="std std-ref">A diagram of a feed-forward neural network with three hidden layers,
-each with a width of three neurons. The activation function, which is
-applied to the weighted sum of the inputs to each neuron, is not
-shown.</span></a>. <a class="bibtex reference internal" href="../zbibliography.html#sundararajan2012probabilistic" id="id4">[Sun12]</a>
+<a class="reference internal" href="#fig-net-diagram"><span class="std std-numref">Fig. 2</span></a>. <a class="bibtex reference internal" href="../zbibliography.html#sundararajan2012probabilistic" id="id4">[86]</a>
 demonstrates how neural networks can be trained to replicate the
 opinions of expert engineers on the probability of failure of particular
 pipe welds in a power plant.</p>
@@ -460,7 +457,7 @@ uncertainty in <span class="math notranslate nohighlight">\(p(y|x)\)</span> does
 is known as a homoscedastic model of uncertainty.</p>
 <p>Sometimes it is desirable to explicitly allow the uncertainty in the
 predictions to depend on <span class="math notranslate nohighlight">\(x\)</span>. This is known as heteroscedastic
-uncertainty <a class="bibtex reference internal" href="../zbibliography.html#gal2016uncertainty" id="id5">[Gal16b]</a>. In this case it can be useful to
+uncertainty <a class="bibtex reference internal" href="../zbibliography.html#gal2016uncertainty" id="id5">[87]</a>. In this case it can be useful to
 define a model where other parameters of the distribution depend on <span class="math notranslate nohighlight">\(x\)</span>,
 i.e. we define
 <span class="math notranslate nohighlight">\(p(y|x, \boldsymbol{p}) =  \mathcal{N}(f_1(x, \boldsymbol{p}_1),\, f_2(x, \boldsymbol{p}_2)^{2}),\)</span>
@@ -474,8 +471,8 @@ output of a neural network, where in this case the input layer is a
 function of the true input and a random vector of noise, i.e.
 <span class="math notranslate nohighlight">\(f_0(x, u, W) = \operatorname{concatenate}(x, u)\)</span> where
 <span class="math notranslate nohighlight">\(u \sim \mathcal{U}(0,1)\)</span>. This is a very popular formulation in Machine
-Learning for Computer Vision <a class="bibtex reference internal" href="../zbibliography.html#goodfellow2014generative" id="id6">[GPAM+14]</a>
-<a class="bibtex reference internal" href="../zbibliography.html#doersch2016tutorial" id="id7">[Doe16]</a>, because <span class="math notranslate nohighlight">\(p(y|x, W, u)\)</span> can now be used to learn
+Learning for Computer Vision <a class="bibtex reference internal" href="../zbibliography.html#goodfellow2014generative" id="id6">[88]</a>
+<a class="bibtex reference internal" href="../zbibliography.html#doersch2016tutorial" id="id7">[89]</a>, because <span class="math notranslate nohighlight">\(p(y|x, W, u)\)</span> can now be used to learn
 a very general probability density in a computationally tractable way,
 since
 <span class="math notranslate nohighlight">\(p(y|x, W) = \int{\delta(y - f_{i}(x, u, W)) \mathcal{U}(0,1) d u}\)</span> can
@@ -555,10 +552,10 @@ estimate for the parameters is obtained. Mini-batches, where the
 likelihood is evaluated for a small set of data points at each
 iteration, can be used to achieve good convergence at higher learning
 rates, whilst decreasing the required computational time, since a GPU
-can be used <a class="bibtex reference internal" href="../zbibliography.html#ruder2016overview" id="id8">[Rud16]</a>. Various improvements to Stochastic
+can be used <a class="bibtex reference internal" href="../zbibliography.html#ruder2016overview" id="id8">[90]</a>. Various improvements to Stochastic
 Gradient Descent aim to ensure that the optimiser reaches a true minimum
 of the loss function, a particularly common improvement being the ADAM
-optimiser <a class="bibtex reference internal" href="../zbibliography.html#kingma2014adam" id="id9">[KB14]</a>.</p>
+optimiser <a class="bibtex reference internal" href="../zbibliography.html#kingma2014adam" id="id9">[91]</a>.</p>
 <p>Using the maximum likelihood and maximum a posteriori estimators can
 allow some estimate of the uncertainty in the model to be made, but this
 uncertainty is an underestimate of the true model uncertainty. For very
@@ -573,17 +570,17 @@ Chapter <a class="reference internal" href="../chapter2/chapter2.html#ch-uncerta
 <span class="math notranslate nohighlight">\(\boldsymbol{p}\)</span> for this to be possible. Using Bayes’ law to infer
 posterior distributions over the weights of a neural network is referred
 to as training a Bayesian neural network, and this is almost always
-achieved by using variational inference <a class="bibtex reference internal" href="../zbibliography.html#blundell2015weight" id="id10">[BCKW15]</a>.</p>
+achieved by using variational inference <a class="bibtex reference internal" href="../zbibliography.html#blundell2015weight" id="id10">[11]</a>.</p>
 <p>The technique of dropout sampling has been shown to improve the
 performance of Stochastic Gradient Descent solvers, by improving the
-performance on validation tests <a class="bibtex reference internal" href="../zbibliography.html#srivastava2014dropout" id="id11">[SHK+14]</a>. Dropout
+performance on validation tests <a class="bibtex reference internal" href="../zbibliography.html#srivastava2014dropout" id="id11">[92]</a>. Dropout
 sampling involves randomly setting a fraction, <span class="math notranslate nohighlight">\(p_\text{dropout}\)</span> of the
 weights to zero during each training iteration. For particular choices
 of activation function, when an <span class="math notranslate nohighlight">\(l_2\)</span> penalty on the weights is used in
 the loss function, it can be shown that dropout sampling is equivalent
 to variational inference on a Bayesian neural network, where a Bernoulli
 distribution is used as the approximating posterior distribution
-<a class="bibtex reference internal" href="../zbibliography.html#gal2016dropout" id="id12">[GG16a]</a>. In order for the approximating posterior distribution
+<a class="bibtex reference internal" href="../zbibliography.html#gal2016dropout" id="id12">[93]</a>. In order for the approximating posterior distribution
 to be an accurate representation of the true posterior distribution, it
 is necessary to adjust the dropout probability, <span class="math notranslate nohighlight">\(p_\text{dropout}\)</span>.
 Rather than repeatedly performing training with different dropout
@@ -591,7 +588,7 @@ probabilities, it is more efficient to make the dropout probability a
 parameter which can be optimised during training, by making the loss
 differentiable in terms of the dropout probability. This can be achieved
 with concrete dropout, where a continuous approximation of the Bernoulli
-distribution is used <a class="bibtex reference internal" href="../zbibliography.html#gal2017concrete" id="id13">[GHK17]</a>.</p>
+distribution is used <a class="bibtex reference internal" href="../zbibliography.html#gal2017concrete" id="id13">[94]</a>.</p>
 </div>
 </div>
 <div class="section" id="validation">
@@ -606,7 +603,7 @@ be correctly calibrated on average, the model may be overly certain in
 some areas of the input domain and too uncertain in other areas. For
 example, using a regression model with homoscedastic uncertainty on a
 dataset where the uncertainty is heteroscedastic may predict the correct
-mean squared error on average <a class="bibtex reference internal" href="../zbibliography.html#gal-github" id="id14">[Gal16a]</a>, but the model evidence will
+mean squared error on average <a class="bibtex reference internal" href="../zbibliography.html#gal-github" id="id14">[95]</a>, but the model evidence will
 be lower than for a more appropriate model.</p>
 <p>To briefly recap the content from
 <a class="reference internal" href="../chapter2/creating.html#sec-validation-uq"><span class="std std-ref">Validating a trained model</span></a>, before training one should split the
@@ -620,7 +617,7 @@ the training and test data divided by predicted standard deviation
 plotted against the model output. Then more formal methods can be used,
 for example the Bayes factor can be computed as in
 <a class="reference internal" href="../chapter2/creating.html#equation-eqn-bayes-factor">(8)</a>, to compare several models
-<a class="bibtex reference internal" href="../zbibliography.html#friedman2001elements" id="id15">[FHT01]</a>. This is similar to comparing the negative
+<a class="bibtex reference internal" href="../zbibliography.html#friedman2001elements" id="id15">[9]</a>. This is similar to comparing the negative
 logarithmic predictive density of different models on the test sets,
 which is equal to the Mahalanobis distance for Gaussian predicted
 probability densities. It is essential to compare the value of the loss
@@ -652,7 +649,7 @@ unnecessary in the Bayesian paradigm due to the effect of prior
 distributions, which are in some cases equivalent to weight penalties.
 Bootstrapping (averaging over maximum likelihood models trained on
 re-sampled selections of the training data) is often used to reduce the
-variance of the trained model. <a class="bibtex reference internal" href="../zbibliography.html#friedman2001elements" id="id16">[FHT01]</a> describes how
+variance of the trained model. <a class="bibtex reference internal" href="../zbibliography.html#friedman2001elements" id="id16">[9]</a> describes how
 bootstrapping can also be seen as a method to compute maximum likelihood
 estimates of difficult to compute quantities like the standard error in
 an estimator, and an alternative implementation of maximum a posteriori
@@ -662,7 +659,7 @@ as an approximate Bayesian posterior distribution.</p>
 <p>The Vapnik-Chervonenkis (VC) dimension, which represents the complexity
 of a classification model, can be used to derive a bound between the
 test error and training error of a classification model (i.e. where <span class="math notranslate nohighlight">\(y\)</span>
-is a binary outcome) <a class="bibtex reference internal" href="../zbibliography.html#vapnik2015" id="id17">[VC15]</a>. Similar bounds exist for regression
+is a binary outcome) <a class="bibtex reference internal" href="../zbibliography.html#vapnik2015" id="id17">[96]</a>. Similar bounds exist for regression
 models. This means that the test error can be established without
 partitioning the data. We do not use the VC dimension in this thesis
 because it is difficult to calculate in practice, but we return to the

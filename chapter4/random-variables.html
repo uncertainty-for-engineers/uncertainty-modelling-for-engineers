@@ -45,8 +45,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -54,6 +52,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Convex set models for reliability" href="convex-set.html" />
@@ -414,13 +414,13 @@ defined as <span class="math notranslate nohighlight">\(\mathbb{I}_f({\boldsymbo
         0, &amp; \text{for } g({\boldsymbol{x}})\ge0
         \end{array}\right\} ,\)</span> and the probability density function of
 the system random variables is <span class="math notranslate nohighlight">\(f_X({\boldsymbol{x}})\)</span>
-<a class="bibtex reference internal" href="../zbibliography.html#melchers2018structural" id="id1">[MB18]</a>. It is common for the performance function to
+<a class="bibtex reference internal" href="../zbibliography.html#melchers2018structural" id="id1">[106]</a>. It is common for the performance function to
 be defined in the load resistance form, e.g.</p>
 <div class="math notranslate nohighlight" id="equation-eqn-load-resistance">
 <span class="eqno">(22)<a class="headerlink" href="#equation-eqn-load-resistance" title="Permalink to this equation">¶</a></span>\[g(\boldsymbol{x}) = \sum_{i\in R} x_i - \sum_{i\in L} x_i,\]</div>
 <p>where <span class="math notranslate nohighlight">\(R\)</span> are indices corresponding to resistance factors and <span class="math notranslate nohighlight">\(L\)</span> are
 indices corresponding to load factors, so that the system fails when the
-sum of loads is greater than the sum of resistances <a class="bibtex reference internal" href="../zbibliography.html#prinja-2016" id="id2">[POSP16]</a>. When
+sum of loads is greater than the sum of resistances <a class="bibtex reference internal" href="../zbibliography.html#prinja-2016" id="id2">[107]</a>. When
 the resistance and load are balanced, <span class="math notranslate nohighlight">\(g(\boldsymbol{x})=0\)</span> and the
 system is on the interface of the safety and failure regions. The limit
 state surface is specified by the <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span> for which
@@ -431,7 +431,7 @@ algebra. Probability arithmetic can be used with the fault tree to
 combine failure probabilities for individual subsystems to obtain the
 failure probability for the whole system. This requires knowledge of the
 dependencies between the probability of failure events for the
-considered sub-systems <a class="bibtex reference internal" href="../zbibliography.html#melchers2018structural" id="id3">[MB18]</a>.</p>
+considered sub-systems <a class="bibtex reference internal" href="../zbibliography.html#melchers2018structural" id="id3">[106]</a>.</p>
 </div>
 <div class="section" id="reliability-based-design-optimisation">
 <h3>Reliability based design optimisation<a class="headerlink" href="#reliability-based-design-optimisation" title="Permalink to this headline">¶</a></h3>
@@ -450,14 +450,14 @@ of design variables, <span class="math notranslate nohighlight">\(\boldsymbol{d}
 variables, <span class="math notranslate nohighlight">\(f_X({\boldsymbol{x}})\)</span>, associated with the resistance, such
 that <a class="reference internal" href="#equation-eqn-rbdo">(23)</a> usually finds a balance between a cost effective
 design and a design where the resistance of the system is sufficiently
-greater than the load <a class="bibtex reference internal" href="../zbibliography.html#melchers2018structural" id="id4">[MB18]</a>.</p>
+greater than the load <a class="bibtex reference internal" href="../zbibliography.html#melchers2018structural" id="id4">[106]</a>.</p>
 <p>In engineering practice the model of the structure is often
 computationally expensive to evaluate, and therefore it may be more
 convenient to find a sub-optimal solution to
 <a class="reference internal" href="#equation-eqn-rbdo">(23)</a>, by designing the structure based on engineering
 judgement. Approximate rules of thumb, such as partial safety factors,
 allow the reliability of the system to be constrained approximately
-using analytical equations <a class="bibtex reference internal" href="../zbibliography.html#melchers2018structural" id="id5">[MB18]</a>. Then the full
+using analytical equations <a class="bibtex reference internal" href="../zbibliography.html#melchers2018structural" id="id5">[106]</a>. Then the full
 reliability analysis can be performed with the proposed design to ensure
 that the reliability of the system satisfies the constraints in
 <a class="reference internal" href="#equation-eqn-rbdo">(23)</a>. Hence a safe and efficient design can be obtained
@@ -472,7 +472,7 @@ response at the expected value of the system variables, or global
 methods, which describe the total variability of the model response.</p>
 <p>Local sensitivity analysis is often achieved by evaluating the first
 derivative of the model response with respect to the system variables.
-Similarly, <a class="bibtex reference internal" href="../zbibliography.html#birnbaum1968importance" id="id6">[Bir68]</a> defines component importance as the
+Similarly, <a class="bibtex reference internal" href="../zbibliography.html#birnbaum1968importance" id="id6">[108]</a> defines component importance as the
 partial derivative of the system reliability with respect to the
 reliability of the component.</p>
 <p>Global sensitivity analysis is usually performed by evaluating the Sobol
@@ -486,7 +486,7 @@ The Total Effect indices, given by</p>
 <div class="math notranslate nohighlight" id="equation-eqn-total-sensitivity">
 <span class="eqno">(25)<a class="headerlink" href="#equation-eqn-total-sensitivity" title="Permalink to this equation">¶</a></span>\[T_i = 1 - \frac{\operatorname{Var}_{x_{\sim i}}(\mathbb{E}_{x_i}(g(\boldsymbol{x})))}{Var(g(\boldsymbol{x}))},\]</div>
 <p>include the effect of interactions caused by varying <span class="math notranslate nohighlight">\(x_i\)</span> whilst
-varying other variables <a class="bibtex reference internal" href="../zbibliography.html#saltelli2004sensitivity" id="id7">[STCR04]</a>.</p>
+varying other variables <a class="bibtex reference internal" href="../zbibliography.html#saltelli2004sensitivity" id="id7">[109]</a>.</p>
 <p>The most simple way to evaluate the Sobol indices and total effect
 indices is by using a Monte Carlo estimator for the expectation and
 variance terms in <a class="reference internal" href="#equation-eqn-sobol">(24)</a> and
@@ -496,9 +496,9 @@ expensive, it is necessary to use a more complex method to compute the
 Sobol and total sensitivity indices. For example, the upper bound of the
 total sensitivity index can be efficiently calculated by integrating the
 local sensitivity analysis over the whole space of the inputs
-<a class="bibtex reference internal" href="../zbibliography.html#patelli2010global" id="id8">[PPSchueller10]</a>, and the Sobol indices can be efficiently
+<a class="bibtex reference internal" href="../zbibliography.html#patelli2010global" id="id8">[110]</a>, and the Sobol indices can be efficiently
 calculated by use of the Fourier Amplitude Sensitivity Testing (FAST)
-method <a class="bibtex reference internal" href="../zbibliography.html#tarantola2006random" id="id9">[TGM06]</a>.</p>
+method <a class="bibtex reference internal" href="../zbibliography.html#tarantola2006random" id="id9">[111]</a>.</p>
 </div>
 </div>
 <div class="section" id="methods-to-compute-the-failure-probability">
@@ -506,7 +506,7 @@ method <a class="bibtex reference internal" href="../zbibliography.html#tarantol
 <p>In some circumstances the failure probability can be computed
 analytically, for example when the system variables <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span> are
 normally distributed and the performance function is linear
-<a class="bibtex reference internal" href="../zbibliography.html#melchers2018structural" id="id10">[MB18]</a>. However, often a closed form solution of
+<a class="bibtex reference internal" href="../zbibliography.html#melchers2018structural" id="id10">[106]</a>. However, often a closed form solution of
 <a class="reference internal" href="#equation-eqn-pf">(21)</a> is
 not available and hence alternative methods must be used.</p>
 <div class="section" id="monte-carlo-simulation">
@@ -516,7 +516,7 @@ simulation, as discussed for general functions in
 <a class="reference internal" href="../chapter2/chapter2.html#ch-uncertainty-models"><span class="std std-ref">Models of Uncertainty</span></a>. The Monte Carlo estimator for the
 failure probability is</p>
 <div class="math notranslate nohighlight" id="equation-eqn-mc-estimator">
-<span class="eqno">(26)<a class="headerlink" href="#equation-eqn-mc-estimator" title="Permalink to this equation">¶</a></span>\[$\hat{P}_f = \frac{1}{N} \sum_{i=1}^{N} \mathbb{I}_f({\boldsymbol{x}}^{(i)}),\]</div>
+<span class="eqno">(26)<a class="headerlink" href="#equation-eqn-mc-estimator" title="Permalink to this equation">¶</a></span>\[\hat{P}_f = \frac{1}{N} \sum_{i=1}^{N} \mathbb{I}_f({\boldsymbol{x}}^{(i)}),\]</div>
 <p>where <span class="math notranslate nohighlight">\(N\)</span> samples, <span class="math notranslate nohighlight">\({\boldsymbol{x}}^{(i)}\)</span>, are drawn from the the
 probability density function of the system random variables
 <span class="math notranslate nohighlight">\(f_X({\boldsymbol{x}})\)</span>. The coefficient of variation of the failure
@@ -546,7 +546,7 @@ equal probability density. Then a sample may be chosen at random in each
 grid element, resulting in a set of samples which covers the sampling
 domain well. For linear functions it can be shown that this sampling
 strategy has a lower variance than the traditional Monte Carlo estimator
-<a class="bibtex reference internal" href="../zbibliography.html#iman2001appendixa" id="id11">[Ima14]</a>. The main disadvantage of efficient sampling
+<a class="bibtex reference internal" href="../zbibliography.html#iman2001appendixa" id="id11">[112]</a>. The main disadvantage of efficient sampling
 strategies is that the reduction in the coefficient of variation is
 small when compared to other techniques, e.g. Line Sampling.</p>
 </div>
@@ -559,13 +559,11 @@ independently, the probability of failure can be obtained analytically
 if the performance function, <span class="math notranslate nohighlight">\(g(\boldsymbol{x})\)</span>, is linear. If the
 performance function is not linear, a Taylor expansion can be used to
 find a linear approximation of the limit state function as shown in
-<a class="reference internal" href="#fig-form"><span class="std std-ref">A diagram of the First Order Reliability Method for two system
-variables, shown with random variables in the standard normal
-space.</span></a>. If
+<a class="reference internal" href="#fig-form"><span class="std std-numref">Fig. 5</span></a>. If
 the system random variables are not normally distributed then a
 transformation must first be applied to the random variables and the
 limit state function, so that FORM can be applied
-<a class="bibtex reference internal" href="../zbibliography.html#melchers2018structural" id="id12">[MB18]</a>.</p>
+<a class="bibtex reference internal" href="../zbibliography.html#melchers2018structural" id="id12">[106]</a>.</p>
 <p>The performance function, <span class="math notranslate nohighlight">\(g(\boldsymbol{x})\)</span>, is written as the Taylor
 series expansion</p>
 <div class="math notranslate nohighlight" id="equation-eqn-taylor">
@@ -614,7 +612,7 @@ space.</span><a class="headerlink" href="#fig-form" title="Permalink to this ima
 obtained from the First-order reliability method (FORM), which may be
 incorrect due to the non-linearity of the limit state function.
 Conceptually, this is achieved by averaging the result of different FORM
-simulations <a class="bibtex reference internal" href="../zbibliography.html#de2015advanced" id="id13">[dAPB15]</a>. Firstly, the approximate direction of the
+simulations <a class="bibtex reference internal" href="../zbibliography.html#de2015advanced" id="id13">[113]</a>. Firstly, the approximate direction of the
 failure region from the origin in standard normal space must be
 determined. This is known as the importance direction. It is usually
 obtained by finding the design point, by approximate means if necessary.
@@ -639,7 +637,7 @@ probabilities of failure estimated along all the lines.</p>
 moderately non-linear with respect to the parameters modelled as random
 variables, setting the importance direction as the gradient vector of
 the performance function in the underlying standard normal space leads
-to highly efficient Line Sampling. <a class="bibtex reference internal" href="../zbibliography.html#de2015efficient" id="id14">[DA15]</a> describes
+to highly efficient Line Sampling. <a class="bibtex reference internal" href="../zbibliography.html#de2015efficient" id="id14">[26]</a> describes
 enhancements which can be made to Line Sampling to increase the
 efficiency. For example, the solution of the Newton-Raphson search used
 on the previous line can be used to inform the search on the next line,
@@ -674,7 +672,7 @@ point with an approximate method and centring the proposal density on
 the design point, since
 <a class="reference internal" href="#equation-eqn-optimal-density">(29)</a> indicates that the failure region has a
 higher proposal density. A complete discussion of the technique is given
-in <a class="bibtex reference internal" href="../zbibliography.html#schueller1987critical" id="id15">[SchuellerS87]</a> and <a class="bibtex reference internal" href="../zbibliography.html#melchers2018structural" id="id16">[MB18]</a>.</p>
+in <a class="bibtex reference internal" href="../zbibliography.html#schueller1987critical" id="id15">[114]</a> and <a class="bibtex reference internal" href="../zbibliography.html#melchers2018structural" id="id16">[106]</a>.</p>
 <p>Importance Sampling is useful as it offers an unbiased estimator which
 can estimate the failure probability with few samples. The main
 difficultly is determining the proposal distribution
@@ -694,11 +692,11 @@ regions large, the coefficient of variation of each individual failure
 event can be minimised, hence minimising the coefficient of variation of
 <span class="math notranslate nohighlight">\(P_f\)</span>. Markov chains are used to generate conditional samples between
 intermediate failure regions in order to calculate <span class="math notranslate nohighlight">\(P(F_{i+1}|F_i)\)</span>. A
-complete description of the method is given in <a class="bibtex reference internal" href="../zbibliography.html#au2001estimation" id="id17">[AB01]</a>.</p>
+complete description of the method is given in <a class="bibtex reference internal" href="../zbibliography.html#au2001estimation" id="id17">[115]</a>.</p>
 <p>The main advantage of Subset Simulation is that it can estimate failure
 probabilities for non-linear limit state surfaces in a black box manner
 with relatively low computational expense. However,
-<a class="bibtex reference internal" href="../zbibliography.html#breitung2019geometry" id="id18">[Bre19]</a> shows that subset simulation is not accurate for
+<a class="bibtex reference internal" href="../zbibliography.html#breitung2019geometry" id="id18">[116]</a> shows that subset simulation is not accurate for
 some limit state surfaces, for example limit state surfaces with
 multiple importance directions.</p>
 </div>
@@ -715,27 +713,27 @@ failure region. A machine learning model which fulfils this purpose is
 known as a metamodel or surrogate model.</p>
 <p>In the literature many machine learning techniques have been applied to
 the reliability analysis problem: linear regression (known as the
-response surface methodology) <a class="bibtex reference internal" href="../zbibliography.html#bucher1990fast" id="id19">[BB90]</a>, support vector machines
-<a class="bibtex reference internal" href="../zbibliography.html#rocco2002fast" id="id20">[RM02]</a>, polynomial chaos expansions
-<a class="bibtex reference internal" href="../zbibliography.html#berveiller2006stochastic" id="id21">[BSL06]</a>, neural networks <a class="bibtex reference internal" href="../zbibliography.html#shao1997structural" id="id22">[SM97]</a> and
+response surface methodology) <a class="bibtex reference internal" href="../zbibliography.html#bucher1990fast" id="id19">[117]</a>, support vector machines
+<a class="bibtex reference internal" href="../zbibliography.html#rocco2002fast" id="id20">[118]</a>, polynomial chaos expansions
+<a class="bibtex reference internal" href="../zbibliography.html#berveiller2006stochastic" id="id21">[119]</a>, neural networks <a class="bibtex reference internal" href="../zbibliography.html#shao1997structural" id="id22">[120]</a> and
 Gaussian process emulators (sometimes known as Kriging)
-<a class="bibtex reference internal" href="../zbibliography.html#kaymaz2005application" id="id23">[Kay05]</a>. Neural networks and Gaussian processes have
+<a class="bibtex reference internal" href="../zbibliography.html#kaymaz2005application" id="id23">[121]</a>. Neural networks and Gaussian processes have
 the advantage of being able to quantify their uncertainty accurately, so
 the required number of training samples can be assessed. Polynomial
 chaos expansions allow the sensitivity indices of <span class="math notranslate nohighlight">\(g(\boldsymbol{x})\)</span> to
-be computed analytically from the trained metamodel <a class="bibtex reference internal" href="../zbibliography.html#sudret2008global" id="id24">[Sud08]</a>.
-In <a class="bibtex reference internal" href="../zbibliography.html#sadeghi-2019" id="id25">[FSB+19]</a>, Interval Predictor Models are used to solve the reliability analysis problem.</p>
+be computed analytically from the trained metamodel <a class="bibtex reference internal" href="../zbibliography.html#sudret2008global" id="id24">[122]</a>.
+In <a class="bibtex reference internal" href="../zbibliography.html#sadeghi-2019" id="id25">[123]</a>, Interval Predictor Models are used to solve the reliability analysis problem.</p>
 <p>In general, the most useful metamodels produce the most accurate
 estimates of <span class="math notranslate nohighlight">\(P_f\)</span>, whilst requiring the smallest number of training
 samples. An ‘experimental design’ specifies where the samples of
 <span class="math notranslate nohighlight">\(g(\boldsymbol{x})\)</span> will be made for training. Usually a uniform design
-is chosen, but other sampling strategies can be used <a class="bibtex reference internal" href="../zbibliography.html#sudret2012meta" id="id26">[Sud12]</a>.
+is chosen, but other sampling strategies can be used <a class="bibtex reference internal" href="../zbibliography.html#sudret2012meta" id="id26">[124]</a>.
 Active learning can be used to sequentially choose the samples required
 to train the metamodel. These samples are usually chosen based on where
 the uncertainty of the metamodel is largest. In adaptive Kriging Monte
 Carlo simulation (AK-MCS) the samples are chosen at points with large
 uncertainty, close to the limit state surface. This strategy achieves
-state of the art efficiency <a class="bibtex reference internal" href="../zbibliography.html#echard2011ak" id="id27">[EGL11]</a>. This strategy is known as
+state of the art efficiency <a class="bibtex reference internal" href="../zbibliography.html#echard2011ak" id="id27">[125]</a>. This strategy is known as
 active learning, and the function which is used to choose the subsequent
 sample is known as the probability of misclassification acquisition
 function.</p>
@@ -750,7 +748,7 @@ with a small number of samples.</p>
 <h2>Worked example : First order reliability analysis method (FORM)<a class="headerlink" href="#worked-example-first-order-reliability-analysis-method-form" title="Permalink to this headline">¶</a></h2>
 <p>For the simple example of a cantilever beam with a point load, <span class="math notranslate nohighlight">\(F\)</span>, at any point on the beam, the maximum deflection of the end of the beam is given by
 <span class="math notranslate nohighlight">\(\delta_{max}=\frac{F a^2}{6 E I} (3l-a)\)</span>,
-where <span class="math notranslate nohighlight">\(I\)</span> is the moment of inertia of the beam, <span class="math notranslate nohighlight">\(a\)</span> is the distance of the point load from the fixed end of the beam, <span class="math notranslate nohighlight">\(l\)</span> is the length of the beam and <span class="math notranslate nohighlight">\(E\)</span> is the modulus of elasticity of the beam <a class="bibtex reference internal" href="../zbibliography.html#goodno2016mechanics" id="id28">[GG16b]</a>.
+where <span class="math notranslate nohighlight">\(I\)</span> is the moment of inertia of the beam, <span class="math notranslate nohighlight">\(a\)</span> is the distance of the point load from the fixed end of the beam, <span class="math notranslate nohighlight">\(l\)</span> is the length of the beam and <span class="math notranslate nohighlight">\(E\)</span> is the modulus of elasticity of the beam <a class="bibtex reference internal" href="../zbibliography.html#goodno2016mechanics" id="id28">[126]</a>.
 <span class="math notranslate nohighlight">\(E\)</span>, <span class="math notranslate nohighlight">\(I\)</span> and <span class="math notranslate nohighlight">\(a\)</span> were fixed, and <span class="math notranslate nohighlight">\(l\)</span> and <span class="math notranslate nohighlight">\(F\)</span> were given by random variables with normal distributions.
 The chosen values of the parameters are shown below:</p>
 <table class="colwidths-auto table">

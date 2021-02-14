@@ -45,8 +45,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -54,6 +52,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Creating models in practice" href="creating.html" />
@@ -355,7 +355,7 @@
 <p>Probability boxes generalise probability distributions and intervals;
 they model a set of cumulative distribution functions. Probability boxes
 are used to communicate epistemic uncertainty in the precise form of a
-probability distribution <a class="bibtex reference internal" href="../zbibliography.html#sandia2002constructing" id="id1">[FKG+03]</a>. In the particular
+probability distribution <a class="bibtex reference internal" href="../zbibliography.html#sandia2002constructing" id="id1">[19]</a>. In the particular
 limiting cases of no epistemic uncertainty and no aleatory uncertainty,
 traditional CDFs and intervals can be recovered from the probability
 box, respectively.</p>
@@ -386,7 +386,7 @@ distribution <span class="math notranslate nohighlight">\(p_\theta(x)\)</span>.<
 <div class="section" id="computation-with-probability-boxes">
 <h2>Computation with Probability Boxes<a class="headerlink" href="#computation-with-probability-boxes" title="Permalink to this headline">¶</a></h2>
 <p>Probability boxes are a specific case of a random set
-<a class="bibtex reference internal" href="../zbibliography.html#de2015efficient" id="id2">[DA15]</a><a class="bibtex reference internal" href="../zbibliography.html#alvarez2006calculation" id="id3">[Alv06]</a>, and therefore when they are
+<a class="bibtex reference internal" href="../zbibliography.html#de2015efficient" id="id2">[26]</a><a class="bibtex reference internal" href="../zbibliography.html#alvarez2006calculation" id="id3">[27]</a>, and therefore when they are
 propagated through a calculation their propagation can be decomposed
 into two distinct parts; the propagation of a set of epistemic uncertain
 variables which fall within an uncertain hyper-rectangle
@@ -399,7 +399,7 @@ means that conventional Monte Carlo simulation cannot be applied. Two
 methods are commonly used to propagate probability boxes: Double Loop
 Monte Carlo (sometimes referred to as search or optimisation of the
 epistemic space), and integration of the aleatory variables
-<a class="bibtex reference internal" href="../zbibliography.html#patelli2014uncertainty" id="id4">[PABA14]</a>.</p>
+<a class="bibtex reference internal" href="../zbibliography.html#patelli2014uncertainty" id="id4">[28]</a>.</p>
 <p>For a distributional probability box the upper and lower expectation are
 defined by</p>
 <div class="math notranslate nohighlight" id="equation-eqn-upper-expectation">
@@ -419,7 +419,7 @@ from
 <p>where <span class="math notranslate nohighlight">\(x_{(1)}, \ldots, x_{(M)}\)</span> are drawn from <span class="math notranslate nohighlight">\(p_\theta(x)\)</span>. This is
 known as Double Loop Monte Carlo simulation, and can be applied only in
 the case of distributional probability boxes. This estimator can be
-shown to have a positive bias <a class="bibtex reference internal" href="../zbibliography.html#troffaes2018imprecise" id="id5">[Tro18]</a>. As is the case
+shown to have a positive bias <a class="bibtex reference internal" href="../zbibliography.html#troffaes2018imprecise" id="id5">[29]</a>. As is the case
 with computation with interval models, it is necessary to use a
 non-linear optimisation routine to evaluate the outer loop in the
 general case.</p>
@@ -441,7 +441,7 @@ by sampling <span class="math notranslate nohighlight">\(\alpha \sim \mathcal{U}
 and <span class="math notranslate nohighlight">\(\overline{F}^{-1}\)</span> are the inverse CDFs of the probability box
 envelopes and <span class="math notranslate nohighlight">\(\mathcal{U}\)</span> is the uniform distribution. The process of
 generating a single sample is known as taking the <span class="math notranslate nohighlight">\(\alpha\)</span> cut, and the
-sampled intervals constitute focal elements <a class="bibtex reference internal" href="../zbibliography.html#de2015efficient" id="id6">[DA15]</a>. This
+sampled intervals constitute focal elements <a class="bibtex reference internal" href="../zbibliography.html#de2015efficient" id="id6">[26]</a>. This
 process is shown in <a class="reference internal" href="#fig-alpha-cut"><span class="std std-numref">Fig. 1</span></a>. One can then propagate these intervals
 through <span class="math notranslate nohighlight">\(g(x)\)</span> using the techniques described for intervals in the
 previous section, e.g. using the natural interval extension of <span class="math notranslate nohighlight">\(g(x)\)</span>,
@@ -571,8 +571,8 @@ It is known that the number of umbrellas sold in London on a particular day is g
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The expected number of umbrellas sold falls in the interval: [80923.45324099618, 122853.88711171725]
-The error of this Monte Carlo estimator is 627.6423244081865
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The expected number of umbrellas sold falls in the interval: [83624.56042338964, 122054.53838793973]
+The error of this Monte Carlo estimator is 634.3794836241027
 </pre></div>
 </div>
 </div>
@@ -586,7 +586,7 @@ When performing double loop Monte Carlo simulation as above one must take care t
 <h2>Dempster-Shafer structures<a class="headerlink" href="#dempster-shafer-structures" title="Permalink to this headline">¶</a></h2>
 <p>A Dempster-Shafer Structure is another form of imprecise probability
 model which has been widely applied in engineering
-<a class="bibtex reference internal" href="../zbibliography.html#rocchetta2017stochastic" id="id7">[RP17]</a>. In this thesis we do not use Dempster-Shafer
+<a class="bibtex reference internal" href="../zbibliography.html#rocchetta2017stochastic" id="id7">[30]</a>. In this thesis we do not use Dempster-Shafer
 structures, however we briefly outline the model and the relationship to
 probability boxes here for context. A Dempster-Shafer (DS) structure
 represents the assignment of probability mass to intervals rather than
@@ -605,7 +605,7 @@ particular interval. The belief measure is defined by</p>
 <p>where <span class="math notranslate nohighlight">\(\operatorname{bel}(A) \le P(A) \le \operatorname{pls}(A)\)</span> and
 <span class="math notranslate nohighlight">\(\operatorname{pls}(A) = 1 - \operatorname{bel}(\overline{A})\)</span>, and
 <span class="math notranslate nohighlight">\(\subseteq\)</span> represents a subset. For a particular DS structure,
-<a class="bibtex reference internal" href="../zbibliography.html#sandia2002constructing" id="id8">[FKG+03]</a> define an associated probability box using</p>
+<a class="bibtex reference internal" href="../zbibliography.html#sandia2002constructing" id="id8">[19]</a> define an associated probability box using</p>
 <div class="math notranslate nohighlight">
 \[\overline{F}(x) = \sum_{\underline{x}_{(n)} \le x} p_{(i)}\]</div>
 <p>and</p>

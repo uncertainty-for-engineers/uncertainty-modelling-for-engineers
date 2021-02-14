@@ -45,8 +45,6 @@
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -338,10 +336,10 @@
 invaluable tool for the design and analysis of systems. Simulation
 allows engineers to bridge the gap between theoretical models of systems
 and empirical evidence, whilst making predictions about yet to be
-constructed systems <a class="bibtex reference internal" href="zbibliography.html#patelliopencossan" id="id1">[PTGW+18]</a>. Some important applications of
-this include structural engineering <a class="bibtex reference internal" href="zbibliography.html#sundararajan2012probabilistic" id="id2">[Sun12]</a>,
-aeronautical structures <a class="bibtex reference internal" href="zbibliography.html#sundararajan2012probabilistic" id="id3">[Sun12]</a>, and petroleum
-reservoir engineering <a class="bibtex reference internal" href="zbibliography.html#sadeghi-2018" id="id4">[SdeAngelisP18]</a>.</p>
+constructed systems <a class="bibtex reference internal" href="zbibliography.html#patelliopencossan" id="id1">[127]</a>. Some important applications of
+this include structural engineering <a class="bibtex reference internal" href="zbibliography.html#sundararajan2012probabilistic" id="id2">[86]</a>,
+aeronautical structures <a class="bibtex reference internal" href="zbibliography.html#sundararajan2012probabilistic" id="id3">[86]</a>, and petroleum
+reservoir engineering <a class="bibtex reference internal" href="zbibliography.html#sadeghi-2018" id="id4">[13]</a>.</p>
 <p>The engineer’s theoretical model of the system’s physics can be defined
 by a mathematical function or a more complex simulation, and this
 theoretical model will depend upon associated parameters which determine
@@ -365,7 +363,7 @@ becomes uncertain. In essence, this motivates the well known structural
 reliability analysis problem, where we wish to calculate the probability
 that the system under uncertainty doesn’t meet a specified objective,
 which is referred to as the failure probability of the system
-<a class="bibtex reference internal" href="zbibliography.html#melchers2018structural" id="id5">[MB18]</a>.</p>
+<a class="bibtex reference internal" href="zbibliography.html#melchers2018structural" id="id5">[106]</a>.</p>
 </div>
 <div class="section" id="reliability-engineering">
 <span id="rel-engineering-intro"></span><h3>Reliability engineering<a class="headerlink" href="#reliability-engineering" title="Permalink to this headline">¶</a></h3>
@@ -374,7 +372,7 @@ many techniques to solve the reliability analysis problem. Most
 generally, Monte Carlo simulation can solve any reliability analysis
 problem with arbitrary accuracy, given sufficient samples of the
 uncertain system parameters and evaluations of the system model
-<a class="bibtex reference internal" href="zbibliography.html#melchers2018structural" id="id6">[MB18]</a>. If the failure probability of the system is
+<a class="bibtex reference internal" href="zbibliography.html#melchers2018structural" id="id6">[106]</a>. If the failure probability of the system is
 small, which is typical in most realistic engineering problems, then the
 number of model evaluations required increases significantly, and
 creates a bottleneck to the calculation. Therefore, in practice, more
@@ -383,7 +381,7 @@ for expensive computational models with many inputs. These include
 approximate methods, e.g. the First Order Reliability Method (FORM) and
 advanced simulation techniques, e.g. line sampling, which require fewer
 samples of the system model
-<a class="bibtex reference internal" href="zbibliography.html#sundararajan2012probabilistic" id="id7">[Sun12]</a> <a class="bibtex reference internal" href="zbibliography.html#de2015efficient" id="id8">[DA15]</a>.</p>
+<a class="bibtex reference internal" href="zbibliography.html#sundararajan2012probabilistic" id="id7">[86]</a> <a class="bibtex reference internal" href="zbibliography.html#de2015efficient" id="id8">[26]</a>.</p>
 <p>Alternatively, since the cost of the analysis depends strongly upon the
 cost of evaluating the system model, one may attempt to replace the
 expensive system model with a cheaper surrogate, known as a metamodel.
@@ -393,7 +391,7 @@ representation of the true model. Well known metamodels applied in
 reliability engineering include neural networks, response surfaces
 (polynomial regression), polynomial chaos, and Kriging (Gaussian process
 emulators)
-<a class="bibtex reference internal" href="zbibliography.html#sundararajan2012probabilistic" id="id9">[Sun12]</a> <a class="bibtex reference internal" href="zbibliography.html#schobi2017surrogate" id="id10">[Schobi17]</a> <a class="bibtex reference internal" href="zbibliography.html#gomes" id="id11">[Gom19]</a>. If the
+<a class="bibtex reference internal" href="zbibliography.html#sundararajan2012probabilistic" id="id9">[86]</a> <a class="bibtex reference internal" href="zbibliography.html#schobi2017surrogate" id="id10">[85]</a> <a class="bibtex reference internal" href="zbibliography.html#gomes" id="id11">[129]</a>. If the
 metamodel is inaccurate then this can introduce additional uncertainty
 into the calculation, and typically this must be traded off against time
 required to create the metamodel. In any case, the uncertainty in the
@@ -409,22 +407,22 @@ chosen uncertainty model is also, to an extent, an engineering
 judgement. This judgement is usually based on the type of uncertainty
 being modelled, and usually two types of uncertainty are considered;
 epistemic uncertainty and aleatory uncertainty
-<a class="bibtex reference internal" href="zbibliography.html#gal2016uncertainty" id="id12">[Gal16b]</a> <a class="bibtex reference internal" href="zbibliography.html#de2015efficient" id="id13">[DA15]</a>. Broadly speaking, epistemic
+<a class="bibtex reference internal" href="zbibliography.html#gal2016uncertainty" id="id12">[87]</a> <a class="bibtex reference internal" href="zbibliography.html#de2015efficient" id="id13">[26]</a>. Broadly speaking, epistemic
 uncertainty represents uncertainty which originates from a lack of
 knowledge, and aleatory uncertainty represents uncertainty which
-originates from natural variability, i.e. stochasticity.<a class="footnote-reference brackets" href="#id24" id="id14">2</a> Again, some
+originates from natural variability, i.e. stochasticity.<a class="footnote-reference brackets" href="#id24" id="id14">1</a> Again, some
 guidelines are available in design standards or regulations, for example
 the United States Nuclear Regulatory Commission often suggests using
-Bayesian probability theory <a class="bibtex reference internal" href="zbibliography.html#us2009guidance" id="id15">[USNRCommission09]</a> <a class="bibtex reference internal" href="zbibliography.html#nureg2201" id="id16">[USNRCommission16]</a>.</p>
+Bayesian probability theory <a class="bibtex reference internal" href="zbibliography.html#us2009guidance" id="id15">[130]</a> <a class="bibtex reference internal" href="zbibliography.html#nureg2201" id="id16">[131]</a>.</p>
 <p>Bayesian probability theory is a logically consistent method of
 reasoning under uncertainty, though it has been shown to lack empirical
-justification in some circumstances, e.g. <a class="bibtex reference internal" href="zbibliography.html#balch2017satellite" id="id17">[BMF19]</a>. Efficient
+justification in some circumstances, e.g. <a class="bibtex reference internal" href="zbibliography.html#balch2017satellite" id="id17">[6]</a>. Efficient
 computational methods exist to identify many probabilistic models for
 uncertain variables in the Bayesian paradigm, in addition to convenient
-analytic techniques <a class="bibtex reference internal" href="zbibliography.html#jaynes2003probability" id="id18">[Jay03]</a>. In recent decades, several
+analytic techniques <a class="bibtex reference internal" href="zbibliography.html#jaynes2003probability" id="id18">[1]</a>. In recent decades, several
 extensions to the traditional probabilistic models for uncertainty have
 been proposed, e.g. Dempster-Shafter Theory, probability boxes, and
-random sets <a class="bibtex reference internal" href="zbibliography.html#de2015efficient" id="id19">[DA15]</a> <a class="bibtex reference internal" href="zbibliography.html#sandia2002constructing" id="id20">[FKG+03]</a> (often referred
+random sets <a class="bibtex reference internal" href="zbibliography.html#de2015efficient" id="id19">[26]</a> <a class="bibtex reference internal" href="zbibliography.html#sandia2002constructing" id="id20">[19]</a> (often referred
 to as specific manifestations of <em>imprecise probabilities</em>). These
 methods enable reasoning with imprecise data and a severe lack of prior
 information.</p>
@@ -438,7 +436,7 @@ parameter. In such cases an engineer may wish to check the sensitivity
 of their model’s predictions to the chosen prior, and it is therefore
 essential that the engineer can accurately represent uncertainty in
 their prior belief about a parameter
-<a class="bibtex reference internal" href="zbibliography.html#berger1984robust" id="id21">[Ber84]</a> <a class="bibtex reference internal" href="zbibliography.html#berger1994overview" id="id22">[BMP+94]</a>. Crucially, imprecise
+<a class="bibtex reference internal" href="zbibliography.html#berger1984robust" id="id21">[132]</a> <a class="bibtex reference internal" href="zbibliography.html#berger1994overview" id="id22">[133]</a>. Crucially, imprecise
 probabilities offer a method of reasoning with uncertainty which is more
 flexible and hence requires fewer assumptions than traditional
 probabilistic methods.</p>
@@ -447,7 +445,7 @@ practice introduces some new difficulties. Since the uncertainty model
 is more complex, the computational techniques required to perform
 computations are also more complex. Typically, this computation involves
 some optimisation in addition to the already expensive Monte Carlo
-simulation <a class="bibtex reference internal" href="zbibliography.html#de2015efficient" id="id23">[DA15]</a>. Hence, in recent years, researchers have
+simulation <a class="bibtex reference internal" href="zbibliography.html#de2015efficient" id="id23">[26]</a>. Hence, in recent years, researchers have
 described techniques to solve the reliability analysis problem with
 imprecise probability models which apply similar approximations to those
 used in the straightforward probabilistic case.</p>
@@ -477,9 +475,9 @@ calculate the probability that the performance of a system under the
 influence of uncertainty meets a particular design condition.
 State-of-the-art techniques for efficiently solving this problem with
 random variables and probability box variables are reviewed.</p>
-<hr class="docutils" />
+<hr class="footnotes docutils" />
 <dl class="footnote brackets">
-<dt class="label" id="id24"><span class="brackets"><a class="fn-backref" href="#id14">2</a></span></dt>
+<dt class="label" id="id24"><span class="brackets"><a class="fn-backref" href="#id14">1</a></span></dt>
 <dd><p>Note that in some cases this distinction is unclear. For example
 when a very simple model is used for the behaviour of a coin, the
 outcome of the coin flip may appear to be random. However, one could

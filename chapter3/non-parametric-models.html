@@ -45,8 +45,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -321,7 +319,7 @@ prior distribution over functions at training time. This is achieved by
 learning so-called ‘Kernel hyper-parameters’ from the training data set,
 which specify a Gaussian Process Prior. Inference is performed at test
 time by applying Bayes’ law to this prior with the available data
-<a class="bibtex reference internal" href="../zbibliography.html#diaz2011gaussian" id="id1">[DDlO11]</a>. The process of performing computation inference at
+<a class="bibtex reference internal" href="../zbibliography.html#diaz2011gaussian" id="id1">[79]</a>. The process of performing computation inference at
 test time is referred to as lazy learning (as opposed to eager learning
 presented in the previous section, where the inference happens during
 training, and only a single pass through the network is required to make
@@ -331,23 +329,23 @@ training data is noise-free and hence the relevant function can be
 learned from very few samples. Gaussian Processes are particularly
 useful for global optimisation of non-linear functions, because the
 predictive uncertainty can be used to decide where the next sample
-should be chosen <a class="bibtex reference internal" href="../zbibliography.html#frazier2018tutorial" id="id2">[Fra18]</a>. Gaussian processes are not used
+should be chosen <a class="bibtex reference internal" href="../zbibliography.html#frazier2018tutorial" id="id2">[80]</a>. Gaussian processes are not used
 in this thesis (except for as a comparison in some of the numerical
 examples), but we will briefly describe how they relate to the Bayesian
 parametric models discussed in this Chapter.</p>
 <p>It can be shown that a single layer Bayesian neural network, with an
 infinite number of neurons in the layer, is equivalent to a Gaussian
 Process, and can therefore be used as a more convenient alternative,
-since the inference is performed at training time <a class="bibtex reference internal" href="../zbibliography.html#neal2012bayesian" id="id3">[Nea12]</a>.
+since the inference is performed at training time <a class="bibtex reference internal" href="../zbibliography.html#neal2012bayesian" id="id3">[81]</a>.
 Variational approximations can be made for Gaussian Processes to make
 the inference computationally tractable for large data sets and deep
-architectures <a class="bibtex reference internal" href="../zbibliography.html#hensman2013gaussian" id="id4">[HFL13]</a>. Neural Processes learn a
+architectures <a class="bibtex reference internal" href="../zbibliography.html#hensman2013gaussian" id="id4">[82]</a>. Neural Processes learn a
 distribution over functions in a similar way to Gaussian processes, but
 with significantly reduced computational expense since only a forward
 pass through the neural network is required at test time
-<a class="bibtex reference internal" href="../zbibliography.html#garnelo2018neural" id="id5">[GSR+18]</a>. Neural Processes are useful for meta-learning
+<a class="bibtex reference internal" href="../zbibliography.html#garnelo2018neural" id="id5">[83]</a>. Neural Processes are useful for meta-learning
 (learning to learn). For example, they were used to learn how to predict
-2D views of 3D spaces, given limited training data <a class="bibtex reference internal" href="../zbibliography.html#eslami2018neural" id="id6">[ERB+18]</a>.</p>
+2D views of 3D spaces, given limited training data <a class="bibtex reference internal" href="../zbibliography.html#eslami2018neural" id="id6">[84]</a>.</p>
 </div>
 
     <script type="text/x-thebe-config">

@@ -45,8 +45,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -54,6 +52,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Chapter summary" href="conclusion.html" />
@@ -381,7 +381,7 @@ range of the output. Such models are known as interval predictor models.
 Sometimes the predicted intervals have an associated confidence level
 (or a bound on the confidence level), and as such they can be considered
 as bounds on the quantiles of a random variable
-<a class="bibtex reference internal" href="../zbibliography.html#dabney2017distributional" id="id1">[DRBM17]</a>. Typically the obtained intervals represent
+<a class="bibtex reference internal" href="../zbibliography.html#dabney2017distributional" id="id1">[55]</a>. Typically the obtained intervals represent
 an outer approximation, i.e. the intervals are overly wide and hence
 conservative in an engineering sense. An interval predictor model can be
 seen as prescribing the support of a Random Predictor Model, which is
@@ -425,9 +425,9 @@ model, which is difficult to determine exactly) is required.</p>
 training data (i.e. where the training data inputs are given in the form
 <span class="math notranslate nohighlight">\(x^{(i)} \in [\underline{x}^{(i)}, \overline{x}^{(i)}]\)</span> due to epistemic
 uncertainty or some other reason) fits into the scenario optimisation
-framework coherently <a class="bibtex reference internal" href="../zbibliography.html#lacerda2017interval" id="id2">[LC17]</a>. This can be seen as
+framework coherently <a class="bibtex reference internal" href="../zbibliography.html#lacerda2017interval" id="id2">[56]</a>. This can be seen as
 equivalent to defending against the attack model of adversarial examples
-considered by <a class="bibtex reference internal" href="../zbibliography.html#madry2017towards" id="id3">[MMS+17]</a>, where the network is trained to produce
+considered by <a class="bibtex reference internal" href="../zbibliography.html#madry2017towards" id="id3">[57]</a>, where the network is trained to produce
 the same outputs for small perturbations of the input data. The
 framework also permits robustness against uncertainty in training
 outputs, i.e. <span class="math notranslate nohighlight">\(y^{(i)} \in [\underline{y}^{(i)}, \overline{y}^{(i)}]\)</span>,
@@ -448,7 +448,7 @@ parameter dependency <a class="reference internal" href="#equation-eq-2">(12)</a
 where <span class="math notranslate nohighlight">\(\phi (x)\)</span> is a basis (polynomial and radial bases are commonly
 used), and <span class="math notranslate nohighlight">\(\boldsymbol{p}\)</span> is a member of a convex parameter set. The
 convex parameter set is usually assumed to be either ellipsoidal or
-hyper-rectangular <a class="bibtex reference internal" href="../zbibliography.html#campi2009interval" id="id4">[CCG09]</a>. <a class="bibtex reference internal" href="../zbibliography.html#crespo-interval-2016" id="id5">[CKG16]</a>
+hyper-rectangular <a class="bibtex reference internal" href="../zbibliography.html#campi2009interval" id="id4">[58]</a>. <a class="bibtex reference internal" href="../zbibliography.html#crespo-interval-2016" id="id5">[59]</a>
 demonstrates that hyper-rectangular parameters sets result in an IPM
 with bounds with a convenient analytical form. The hyper-rectangular
 parameter uncertainty set can be defined as
@@ -480,23 +480,16 @@ bounds on the IPM, by solving the linear and convex optimisation problem</p>
 <p>The constraints ensure that all data points to be fitted lie within the
 bounds and that the upper bound is greater than the lower bound. This
 combination of objective function and constraints is linear and convex
-<a class="bibtex reference internal" href="../zbibliography.html#crespo-interval-2016" id="id6">[CKG16]</a>. In this thesis all interval predictor models
+<a class="bibtex reference internal" href="../zbibliography.html#crespo-interval-2016" id="id6">[59]</a>. In this thesis all interval predictor models
 have polynomial bases, i.e. <span class="math notranslate nohighlight">\(\phi(x)=\left[1,x^{i_2},x^{i_3},...\right]\)</span>
 with <span class="math notranslate nohighlight">\(x=[x_a,x_b,...]\)</span> and <span class="math notranslate nohighlight">\(i_j=[i_{j,a},i_{j,b},...]\)</span> with <span class="math notranslate nohighlight">\(i_j\ne i_k\)</span>
 for <span class="math notranslate nohighlight">\(j\ne k\)</span>.</p>
 <p>For illustrative purposes an example degree 2 IPM is shown without
 training data points in
-<a class="reference internal" href="#fig-sub1"><span class="std std-ref">The IPM’s hyper rectangular uncertainty set plotted in ‘parameter
-space’. The uniformly sampled parameter vectors of the polynomials shown
-in fig:sub2.</span></a>. The hyper rectangular uncertainty set
+<a class="reference internal" href="#fig-sub1"><span class="std std-numref">Fig. 3</span></a>. The hyper rectangular uncertainty set
 corresponding to the IPM in
-<a class="reference internal" href="#fig-sub1"><span class="std std-ref">The IPM’s hyper rectangular uncertainty set plotted in ‘parameter
-space’. The uniformly sampled parameter vectors of the polynomials shown
-in fig:sub2.</span></a> is plotted in
-<a class="reference internal" href="#fig-sub2"><span class="std std-ref">The IPM’s hyper rectangular uncertainty set plotted in ‘parameter
-space’. The uniformly sampled parameter vectors of the polynomials shown
-in fig:sub1 are displayed as points in the uncertain
-set.</span></a>. The
+<a class="reference internal" href="#fig-sub1"><span class="std std-numref">Fig. 3</span></a> is plotted in
+<a class="reference internal" href="#fig-sub2"><span class="std std-numref">Fig. 4</span></a>. The
 discontinuity observed in the upper and lower bounds is a consequence of
 the chosen basis, and can be avoided by choosing a basis where
 <span class="math notranslate nohighlight">\(\phi(x)=|\phi(x)|\)</span>.</p>
@@ -504,18 +497,13 @@ the chosen basis, and can be avoided by choosing a basis where
 <a class="reference internal image-reference" href="../_images/ipm_explain_1.png"><img alt="../_images/ipm_explain_1.png" src="../_images/ipm_explain_1.png" style="height: 150px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">The IPM’s hyper rectangular uncertainty set plotted in ‘parameter
 space’. The uniformly sampled parameter vectors of the polynomials shown
-in <a class="reference internal" href="#fig-sub2"><span class="std std-ref">The IPM’s hyper rectangular uncertainty set plotted in ‘parameter
-space’. The uniformly sampled parameter vectors of the polynomials shown
-in fig:sub1 are displayed as points in the uncertain
-set.</span></a>.</span><a class="headerlink" href="#fig-sub1" title="Permalink to this image">¶</a></p>
+in <a class="reference internal" href="#fig-sub2"><span class="std std-numref">Fig. 4</span></a>.</span><a class="headerlink" href="#fig-sub1" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="fig-sub2">
 <a class="reference internal image-reference" href="../_images/IPM_explain_2.png"><img alt="../_images/IPM_explain_2.png" src="../_images/IPM_explain_2.png" style="height: 150px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">The IPM’s hyper rectangular uncertainty set plotted in ‘parameter
 space’. The uniformly sampled parameter vectors of the polynomials shown
-in <a class="reference internal" href="#fig-sub1"><span class="std std-ref">The IPM’s hyper rectangular uncertainty set plotted in ‘parameter
-space’. The uniformly sampled parameter vectors of the polynomials shown
-in fig:sub2.</span></a> are displayed as points in the uncertain
+in <a class="reference internal" href="#fig-sub1"><span class="std std-numref">Fig. 3</span></a> are displayed as points in the uncertain
 set.</span><a class="headerlink" href="#fig-sub2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
@@ -530,11 +518,11 @@ represents the number of optimisation variables and <span class="math notranslat
 represents the number of constraints in the optimisation (which in this
 case scales linearly with the number of training data points), and hence
 the method does not scale well to IPMs with large numbers of trainable
-parameters <a class="bibtex reference internal" href="../zbibliography.html#boyd2004convex" id="id7">[BV04]</a>.</p>
+parameters <a class="bibtex reference internal" href="../zbibliography.html#boyd2004convex" id="id7">[45]</a>.</p>
 <p>Neural networks enable uncertainty models to be created with vast
 numbers of parameters in a feasible computational time. Neural networks
-with interval outputs were proposed by <a class="bibtex reference internal" href="../zbibliography.html#ishibuchi1993architecture" id="id8">[ITO93]</a>, and
-further described by <a class="bibtex reference internal" href="../zbibliography.html#huang1998robust" id="id9">[HZH98]</a>. In these papers the learning
+with interval outputs were proposed by <a class="bibtex reference internal" href="../zbibliography.html#ishibuchi1993architecture" id="id8">[60]</a>, and
+further described by <a class="bibtex reference internal" href="../zbibliography.html#huang1998robust" id="id9">[61]</a>. In these papers the learning
 takes place by identifying the weights <span class="math notranslate nohighlight">\(W\)</span>, which solve the following
 program:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ishibuchi">
@@ -548,14 +536,14 @@ constraints. In general, penalty methods require careful choice of
 hyper-parameters to guarantee convergence. These neural networks act in
 a similar way to interval predictor models, however the interval neural
 networks do not attempt to use the training data set to bound
-<span class="math notranslate nohighlight">\(\epsilon\)</span>. <a class="bibtex reference internal" href="../zbibliography.html#freitag2011recurrent" id="id10">[FGK11]</a> define similar networks with fuzzy
+<span class="math notranslate nohighlight">\(\epsilon\)</span>. <a class="bibtex reference internal" href="../zbibliography.html#freitag2011recurrent" id="id10">[62]</a> define similar networks with fuzzy
 parameters to operate on fuzzy data. The fuzzy neural networks are
 trained by minimising a least square loss function (a set inclusion
 constraint is not used), which can also be applied to time series data
 sets. These approaches are very different from the approach of
-<a class="bibtex reference internal" href="../zbibliography.html#patino2004interval" id="id11">[PatinoEBL04]</a>, where a traditional neural network loss function is
+<a class="bibtex reference internal" href="../zbibliography.html#patino2004interval" id="id11">[63]</a>, where a traditional neural network loss function is
 intervalised using interval arithmetic.</p>
-<p><a class="bibtex reference internal" href="../zbibliography.html#campi2015non" id="id12">[CGR15]</a> extended the scenario approach to non-convex optimisation
+<p><a class="bibtex reference internal" href="../zbibliography.html#campi2015non" id="id12">[64]</a> extended the scenario approach to non-convex optimisation
 programs, and hence applied the approach to a single layer neural
 network, with a constant width interval prediction, which was trained
 using the interior-point algorithm in Matlab. In other words the
@@ -573,12 +561,12 @@ optimisation program in
 <a class="reference internal" href="#equation-constantline">(15)</a> can also be obtained by finding the neural
 network weights which minimise the so-called maximum-error loss:</p>
 <div class="math notranslate nohighlight" id="equation-max-error-loss">
-<span class="eqno">(16)<a class="headerlink" href="#equation-max-error-loss" title="Permalink to this equation">¶</a></span>\[\mathcal{L}_{\text{max-error}} = \max_{i} |y^{(i)}-\hat{y}(x^{(i)})|, %\equiv \lim_{p \rightarrow \infty} \left( \sum_i |y^{(i)}-\hat{y}(x^{(i)})|^{p} \right) ^{\frac{1}{p}},\]</div>
+<span class="eqno">(16)<a class="headerlink" href="#equation-max-error-loss" title="Permalink to this equation">¶</a></span>\[\mathcal{L}_{\text{max-error}} = \max_{i} |y^{(i)}-\hat{y}(x^{(i)})|, \equiv \lim_{p \rightarrow \infty} \left( \sum_i |y^{(i)}-\hat{y}(x^{(i)})|^{p} \right) ^{\frac{1}{p}},\]</div>
 <p>where <span class="math notranslate nohighlight">\(h\)</span> is the minimum value of the loss.
 It is trivial to show this is true, since the set inclusion constraint
 in <a class="reference internal" href="#equation-constantline">(15)</a> requires that <span class="math notranslate nohighlight">\(h\)</span> is larger than the absolute
-error for each data point in the training set <a class="bibtex reference internal" href="../zbibliography.html#care201871" id="id13">[CareC18]</a>.</p>
-<p>In <a class="bibtex reference internal" href="../zbibliography.html#sadeghi2019efficient" id="id14">[SDAP19]</a> a back propagation algorithm for Neural Networks with interval predictions is proposed.
+error for each data point in the training set <a class="bibtex reference internal" href="../zbibliography.html#care201871" id="id13">[65]</a>.</p>
+<p>In <a class="bibtex reference internal" href="../zbibliography.html#sadeghi2019efficient" id="id14">[66]</a> a back propagation algorithm for Neural Networks with interval predictions is proposed.
 A modified maximum-error loss is used.
 The approach can accommodate incertitude in the training data.
 A key result is that, by using minibatches, the complexity of the proposed approach does not directly depend upon the number of training data points as with other Interval Predictor Model methods.</p>
@@ -621,12 +609,12 @@ confidence-reliability relationship: by decreasing
 <span class="math notranslate nohighlight">\(\epsilon\)</span> slightly, <span class="math notranslate nohighlight">\(1-\beta\)</span> can be made to be insignificantly small.
 Other tighter bounds exist in the more recent scenario optimisation
 literature, e.g.
-<a class="bibtex reference internal" href="../zbibliography.html#calafiore2010random" id="id15">[Cal10]</a> <a class="bibtex reference internal" href="../zbibliography.html#campi2008exact" id="id16">[CG08]</a> <a class="bibtex reference internal" href="../zbibliography.html#alamo2015randomized" id="id17">[ATLR15]</a>, for
+<a class="bibtex reference internal" href="../zbibliography.html#calafiore2010random" id="id15">[67]</a> <a class="bibtex reference internal" href="../zbibliography.html#campi2008exact" id="id16">[68]</a> <a class="bibtex reference internal" href="../zbibliography.html#alamo2015randomized" id="id17">[69]</a>, for
 example</p>
 <div class="math notranslate nohighlight" id="equation-ch3-reliability">
 <span class="eqno">(18)<a class="headerlink" href="#equation-ch3-reliability" title="Permalink to this equation">¶</a></span>\[\beta = \sum_{i=0}^{d-1} \binom{n}{i} \epsilon^i (1-\epsilon)^{n-i}.\]</div>
 <p>Crucially the assessment of <span class="math notranslate nohighlight">\(V(\hat{z}_n)\)</span> is possible a priori,
-although other techniques exist <a class="bibtex reference internal" href="../zbibliography.html#barrera2016chance" id="id18">[BHdMM+16]</a>. <a class="bibtex reference internal" href="../zbibliography.html#care2015scenario" id="id19">[CareGC15]</a>
+although other techniques exist <a class="bibtex reference internal" href="../zbibliography.html#barrera2016chance" id="id18">[70]</a>. <a class="bibtex reference internal" href="../zbibliography.html#care2015scenario" id="id19">[71]</a>
 analyse the reliability of solutions of the maximum error loss functions
 (<a class="reference internal" href="#equation-max-error-loss">(16)</a>) in the scenario framework when <span class="math notranslate nohighlight">\(\hat{y}(x)\)</span>
 is convex in <span class="math notranslate nohighlight">\(x\)</span> and the function weights.</p>
@@ -634,7 +622,7 @@ is convex in <span class="math notranslate nohighlight">\(x\)</span> and the fun
 that the number of support constraints (the number of constraints which
 if removed result in a more optimal solution) for a convex program is
 always bounded by the dimensionality of the design variable.
-<a class="bibtex reference internal" href="../zbibliography.html#campi2018wait" id="id20">[CG18]</a> explore this connection for convex programs in further
+<a class="bibtex reference internal" href="../zbibliography.html#campi2018wait" id="id20">[72]</a> explore this connection for convex programs in further
 detail, by analysing the number of support constraints after a solution
 is obtained. In fact, the bound in
 <a class="reference internal" href="#equation-ch3-reliability">(18)</a> if often overly conservative, because in
@@ -648,7 +636,7 @@ constraints <span class="math notranslate nohighlight">\(s^*_n\)</span> such tha
 <span class="eqno">(19)<a class="headerlink" href="#equation-wait" title="Permalink to this equation">¶</a></span>\[\frac{\beta}{n+1}\sum_{m=k}^n{\binom{m}{k}t^{m-k}-\binom{n}{k}t^{n-k}}=0\]</div>
 <p>has one solution, <span class="math notranslate nohighlight">\(t(k)\)</span> in the interval <span class="math notranslate nohighlight">\([0,1]\)</span>.</p>
 <p>This idea has a deep connection with the concept of regularisation in
-machine learning <a class="bibtex reference internal" href="../zbibliography.html#campi2013random" id="id21">[CCare13]</a>. <a class="bibtex reference internal" href="../zbibliography.html#scenarioiterative2019" id="id22">[GarattiCampi19]</a> demonstrates
+machine learning <a class="bibtex reference internal" href="../zbibliography.html#campi2013random" id="id21">[73]</a>. <a class="bibtex reference internal" href="../zbibliography.html#scenarioiterative2019" id="id22">[74]</a> demonstrates
 how the number of support constraints of a scenario program can be used
 to iteratively increase the number of sampled constraints, which
 requires fewer sampled constraints in total than
@@ -660,7 +648,7 @@ section.</p>
 </div>
 <div class="section" id="non-convex-case">
 <h3>Non-convex case<a class="headerlink" href="#non-convex-case" title="Permalink to this headline">¶</a></h3>
-<p><a class="bibtex reference internal" href="../zbibliography.html#campi2018general" id="id23">[CGR18]</a> provide the following bound for the non-convex case:
+<p><a class="bibtex reference internal" href="../zbibliography.html#campi2018general" id="id23">[75]</a> provide the following bound for the non-convex case:
 <span class="math notranslate nohighlight">\(P^n(V(\hat{z}_n)&gt;\epsilon(s))&lt;\beta,\)</span> where</p>
 <div class="math notranslate nohighlight" id="equation-thebound">
 <span class="eqno">(20)<a class="headerlink" href="#equation-thebound" title="Permalink to this equation">¶</a></span>\[\begin{split}\epsilon(s)=
@@ -674,7 +662,7 @@ bound is similar to the convex case since in general increasing <span class="mat
 should increase the size of the support set.</p>
 <p>Finding the cardinality of the support set is in general a
 computationally expensive task, since the scenario program must be
-solved <span class="math notranslate nohighlight">\(n\)</span> times. <a class="bibtex reference internal" href="../zbibliography.html#campi2015non" id="id24">[CGR15]</a> present a time-efficient algorithm which
+solved <span class="math notranslate nohighlight">\(n\)</span> times. <a class="bibtex reference internal" href="../zbibliography.html#campi2015non" id="id24">[64]</a> present a time-efficient algorithm which
 only requires that the scenario problem is solved <span class="math notranslate nohighlight">\(s\)</span> times.</p>
 </div>
 <div class="section" id="a-posteriori-frequentist-analysis">
@@ -721,7 +709,7 @@ methods which are often used with neural networks.</p>
 </div>
 <div class="section" id="software-for-interval-predictor-models">
 <h2>Software for interval predictor models<a class="headerlink" href="#software-for-interval-predictor-models" title="Permalink to this headline">¶</a></h2>
-<p><a class="bibtex reference internal" href="../zbibliography.html#patelli2017cossan" id="id25">[PBTS17]</a> describe the first open source software
+<p><a class="bibtex reference internal" href="../zbibliography.html#patelli2017cossan" id="id25">[76]</a> describe the first open source software
 implementation of interval predictor models in the generalised
 uncertainty quantification software OpenCossan, which is
 written in Matlab. The OpenCossan software
@@ -731,8 +719,8 @@ IPMs to be automatically trained as approximations of expensive
 engineering models, and then used in other engineering calculations,
 e.g. design optimisation. A partial Python port of the
 OpenCossan IPM code was released as open source software
-by <a class="bibtex reference internal" href="../zbibliography.html#sadeghi-pyipm" id="id26">[Sad18]</a>.</p>
-<p>The introduced software has been applied in <a class="bibtex reference internal" href="../zbibliography.html#brandt2017meta" id="id27">[BBH+17]</a>, to study
+by <a class="bibtex reference internal" href="../zbibliography.html#sadeghi-pyipm" id="id26">[77]</a>.</p>
+<p>The introduced software has been applied in <a class="bibtex reference internal" href="../zbibliography.html#brandt2017meta" id="id27">[78]</a>, to study
 fatigue damage estimation of offshore wind turbines jacket substructure.</p>
 </div>
 <div class="section" id="worked-example-linear-regression">
@@ -775,18 +763,17 @@ Therefore we will generate training data from a toy function <span class="math n
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     pcost       dcost       gap    pres   dres   k/t
- 0: -1.4552e-11 -1.8917e-10  2e+06  1e-01  1e+02  1e+00
- 1:  1.4889e+04  1.6774e+04  1e+06  6e-02  5e+01  2e+03
- 2:  2.2993e+04  2.3031e+04  5e+04  3e-03  2e+00  4e+01
- 3:  1.9627e+04  1.9658e+04  2e+04  9e-04  8e-01  3e+01
- 4:  1.9526e+04  1.9552e+04  6e+03  4e-04  3e-01  3e+01
- 5:  1.9192e+04  1.9198e+04  1e+03  8e-05  7e-02  6e+00
- 6:  1.9152e+04  1.9153e+04  3e+02  2e-05  2e-02  2e+00
- 7:  1.9136e+04  1.9137e+04  7e+01  4e-06  3e-03  3e-01
- 8:  1.9135e+04  1.9135e+04  2e+01  1e-06  1e-03  9e-02
- 9:  1.9134e+04  1.9134e+04  2e-01  1e-08  1e-05  1e-03
-10:  1.9134e+04  1.9134e+04  2e-03  1e-10  1e-07  1e-05
-11:  1.9134e+04  1.9134e+04  2e-05  1e-12  1e-09  1e-07
+ 0: -2.8194e-13 -1.8172e-11  2e+06  1e-01  1e+02  1e+00
+ 1:  2.1141e+04  2.4015e+04  7e+05  4e-02  3e+01  3e+03
+ 2:  2.3040e+04  2.3065e+04  4e+04  2e-03  2e+00  3e+01
+ 3:  1.9652e+04  1.9664e+04  1e+04  8e-04  5e-01  1e+01
+ 4:  1.9848e+04  1.9871e+04  8e+03  6e-04  4e-01  2e+01
+ 5:  1.9293e+04  1.9296e+04  9e+02  6e-05  5e-02  3e+00
+ 6:  1.9264e+04  1.9265e+04  2e+02  1e-05  9e-03  6e-01
+ 7:  1.9253e+04  1.9253e+04  2e+01  2e-06  1e-03  9e-02
+ 8:  1.9252e+04  1.9252e+04  2e-01  2e-08  1e-05  1e-03
+ 9:  1.9252e+04  1.9252e+04  2e-03  2e-10  1e-07  1e-05
+10:  1.9252e+04  1.9252e+04  2e-05  2e-12  1e-09  1e-07
 Optimal solution found.
 </pre></div>
 </div>

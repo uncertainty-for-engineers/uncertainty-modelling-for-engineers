@@ -45,8 +45,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -54,6 +52,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Set-based models of uncertainty" href="sets.html" />
@@ -358,7 +358,7 @@ probability space, which is given by <span class="math notranslate nohighlight">
 space), <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> is a <span class="math notranslate nohighlight">\(\sigma\)</span> algebra representing the set of
 events, where each event is a set containing outcomes, and
 <span class="math notranslate nohighlight">\(P \in [0, 1]\)</span> represents probabilities which are assigned to the events
-in <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> <a class="bibtex reference internal" href="../zbibliography.html#jaynes2003probability" id="id1">[Jay03]</a>. Note that the probability
+in <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> <a class="bibtex reference internal" href="../zbibliography.html#jaynes2003probability" id="id1">[1]</a>. Note that the probability
 assigned to the space of all outcomes is 1, <span class="math notranslate nohighlight">\(P(\Omega) = 1\)</span>, and the
 probability of the empty set of outcomes is zero, <span class="math notranslate nohighlight">\(P(\emptyset) = 0\)</span>. By
 definition, for an outcome <span class="math notranslate nohighlight">\(\omega\in \Omega\)</span> and its complementary
@@ -390,7 +390,7 @@ increase monotonically with <span class="math notranslate nohighlight">\(x\)</sp
 function is always positive. In addition, the integral of the
 probability density function over the whole real line will always be
 equal to 1, since <span class="math notranslate nohighlight">\(\lim_{x \to \infty}F_X(x) = 1\)</span> and
-<span class="math notranslate nohighlight">\(\lim_{x \to -\infty}F_X(x) = 0\)</span> <a class="bibtex reference internal" href="../zbibliography.html#ross2014first" id="id2">[Ros14]</a>.</p>
+<span class="math notranslate nohighlight">\(\lim_{x \to -\infty}F_X(x) = 0\)</span> <a class="bibtex reference internal" href="../zbibliography.html#ross2014first" id="id2">[21]</a>.</p>
 <p>Note that important properties of the random variable are summarised by
 the mean of the random variable,</p>
 <div class="math notranslate nohighlight">
@@ -400,7 +400,7 @@ variance</p>
 <div class="math notranslate nohighlight">
 \[\operatorname{Var}(X) = \operatorname{\mathbb{E}}[(X - \mu_X)^2] = \int_\mathbb{R} (x-\mu_X)^2 p_X(x) dx,\]</div>
 <p>which is sometimes quoted in terms of the standard deviation,
-<span class="math notranslate nohighlight">\(\sigma_X = \sqrt{\operatorname{Var}(x) }\)</span> <a class="bibtex reference internal" href="../zbibliography.html#ross2014first" id="id3">[Ros14]</a>. The
+<span class="math notranslate nohighlight">\(\sigma_X = \sqrt{\operatorname{Var}(x) }\)</span> <a class="bibtex reference internal" href="../zbibliography.html#ross2014first" id="id3">[21]</a>. The
 standard deviation is sometimes expressed as the coefficient of
 variation of a varible (<span class="math notranslate nohighlight">\(CoV\)</span>), which is defined as
 <span class="math notranslate nohighlight">\(\text{CoV} = \frac{\mu_X}{\sigma_X}\)</span>.</p>
@@ -410,10 +410,10 @@ the probability distribution function or cumulative distribution
 function by assigning probability density to the possible values for <span class="math notranslate nohighlight">\(X\)</span>
 is usually sufficient for calculations to proceed. The measure theoretic
 framework for probability theory which we have summarised here was
-introduced by <a class="bibtex reference internal" href="../zbibliography.html#andrei1950kolmogorov" id="id4">[Kol50]</a>. An equivalent theory was derived by
+introduced by <a class="bibtex reference internal" href="../zbibliography.html#andrei1950kolmogorov" id="id4">[31]</a>. An equivalent theory was derived by
 extending Boolean logic to assign quantitative values of truthfulness to
 statements, termed plausibilities, in the seminal work of
-<a class="bibtex reference internal" href="../zbibliography.html#jaynes2003probability" id="id5">[Jay03]</a>.</p>
+<a class="bibtex reference internal" href="../zbibliography.html#jaynes2003probability" id="id5">[1]</a>.</p>
 <p>The probability of an event may be considered in terms of probabilities
 of sub-events, for example if <span class="math notranslate nohighlight">\(A=A_1\cap A_2\)</span>, where <span class="math notranslate nohighlight">\(\cap\)</span> represents
 the logical and operation, then <span class="math notranslate nohighlight">\(P(A) = P(A_1 \cap A_2)\)</span>. This can be
@@ -423,7 +423,7 @@ true. The dependence between <span class="math notranslate nohighlight">\(A_1\)<
 <span class="math notranslate nohighlight">\(P(A_1|A_2)=P(A_1)\)</span> if <span class="math notranslate nohighlight">\(A_1\)</span> and <span class="math notranslate nohighlight">\(A_2\)</span> are independent events, so that
 <span class="math notranslate nohighlight">\(P(A)=P(A_1)P(A_2)\)</span>. If the dependence is not known then bounds for
 <span class="math notranslate nohighlight">\(P(A)\)</span> can be established, and this is discussed in
-<a class="bibtex reference internal" href="../zbibliography.html#sadeghi2020analytic" id="id6">[SDAP20]</a>. Similar bounds are available for the logical
+<a class="bibtex reference internal" href="../zbibliography.html#sadeghi2020analytic" id="id6">[32]</a>. Similar bounds are available for the logical
 or operation, <span class="math notranslate nohighlight">\(\cup\)</span>.</p>
 <p>One may model dependencies between variables by considering the joint
 distribution over more than one variable, e.g.
@@ -435,7 +435,7 @@ joint distribution using the co-variance between two variables</p>
 \[\operatorname{cov}(X_1, X_2) = \operatorname{\mathbb{E}}[(X_1 - \mu_{X_1})(X_2 - \mu_{X_2})] = \int_\mathbb{R} \int_\mathbb{R} (x_1-\mu_{X_1})(x_2-\mu_{X_2}) p(x_1, x_2) d x_1 d x_2.\]</div>
 <p>Taking the co-variance of a variable with itself yields the variable’s
 variance, <span class="math notranslate nohighlight">\(\operatorname{cov}(X_1, X_1) = \operatorname{Var}(X_1)\)</span>
-<a class="bibtex reference internal" href="../zbibliography.html#ross2014first" id="id7">[Ros14]</a>.</p>
+<a class="bibtex reference internal" href="../zbibliography.html#ross2014first" id="id7">[21]</a>.</p>
 </div>
 <div class="section" id="worked-example-elementary-probability-theory">
 <h2>Worked example : elementary probability theory<a class="headerlink" href="#worked-example-elementary-probability-theory" title="Permalink to this headline">¶</a></h2>
@@ -548,9 +548,9 @@ estimator is given by</p>
 <div class="math notranslate nohighlight">
 \[\frac{\sigma_g}{\sqrt{M}} = \frac{\sqrt{\sum_{i=1}^M (g(x_{(i)}) - I)^2}}{\sqrt{M (M-1)}},\]</div>
 <p>where <span class="math notranslate nohighlight">\(\sigma_g^2\)</span> is the unbiased sample estimator of the variance of <span class="math notranslate nohighlight">\(g\)</span>
-<a class="bibtex reference internal" href="../zbibliography.html#rubinstein2016simulation" id="id9">[RK16]</a>. Clearly the error in the estimator
+<a class="bibtex reference internal" href="../zbibliography.html#rubinstein2016simulation" id="id9">[33]</a>. Clearly the error in the estimator
 decreases with <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{M}}\)</span>, so collecting more samples will
-slowly decrease the error in the estimator <a class="bibtex reference internal" href="../zbibliography.html#press1992numeric" id="id10">[PFTV92]</a>. However
+slowly decrease the error in the estimator <a class="bibtex reference internal" href="../zbibliography.html#press1992numeric" id="id10">[34]</a>. However
 in many circumstances collecting more samples of <span class="math notranslate nohighlight">\(M\)</span> is not feasible,
 and <span class="math notranslate nohighlight">\(\sigma_g\)</span> may be large.</p>
 <p>Therefore, in practice, more efficient methods are used to compute the
@@ -571,13 +571,13 @@ the the expectation in
 since <span class="math notranslate nohighlight">\(X - \mu_X = 0\)</span> and <span class="math notranslate nohighlight">\(g''(x) = 0\)</span>. If <span class="math notranslate nohighlight">\(g(x)\)</span> is non-linear then
 using the approximation
 <span class="math notranslate nohighlight">\(\operatorname{\mathbb{E}}[g(X)] \approx \operatorname{\mathbb{E}} [g(\mu_X)]\)</span>
-is correct only to first order <a class="bibtex reference internal" href="../zbibliography.html#wan2000unscented" id="id11">[WVDM00]</a>. At the expense of
+is correct only to first order <a class="bibtex reference internal" href="../zbibliography.html#wan2000unscented" id="id11">[35]</a>. At the expense of
 generality, the expectation is evaluated using only two evaluations of
 <span class="math notranslate nohighlight">\(g(x)\)</span>, which is a clear advantage when <span class="math notranslate nohighlight">\(g(x)\)</span> is expensive to evaluate,
 or the computation of <span class="math notranslate nohighlight">\(\operatorname{\mathbb{E}}[g(X)]\)</span> is required
 quickly. This idea is applied to engineering in the Kalman Filter and
-Extended Kalman Filter <a class="bibtex reference internal" href="../zbibliography.html#wan2000unscented" id="id12">[WVDM00]</a>.</p>
-<p><a class="bibtex reference internal" href="../zbibliography.html#uhlmann1995dynamic" id="id13">[Uhl95]</a> proposed a more accurate approximate method for
+Extended Kalman Filter <a class="bibtex reference internal" href="../zbibliography.html#wan2000unscented" id="id12">[35]</a>.</p>
+<p><a class="bibtex reference internal" href="../zbibliography.html#uhlmann1995dynamic" id="id13">[36]</a> proposed a more accurate approximate method for
 approximating the expectation in
 <a class="reference internal" href="#equation-eqn-expectation">(1)</a> which requires few evaluations of <span class="math notranslate nohighlight">\(g(x)\)</span>,
 and does not require <span class="math notranslate nohighlight">\(g(x)\)</span> to be differentiated. The Unscented
@@ -586,7 +586,7 @@ requires the computation of so called sigma points which are specially
 chosen represent the covariance of the input distributions. It is then
 only required to compute <span class="math notranslate nohighlight">\(g(x)\)</span> for these sigma points, after which a
 weighted average is used to obtain the approximation of the expectation
-in <a class="reference internal" href="#equation-eqn-expectation">(1)</a>. <a class="bibtex reference internal" href="../zbibliography.html#wan2000unscented" id="id14">[WVDM00]</a> demonstrate that the
+in <a class="reference internal" href="#equation-eqn-expectation">(1)</a>. <a class="bibtex reference internal" href="../zbibliography.html#wan2000unscented" id="id14">[35]</a> demonstrate that the
 Unscented Transformation is accurate to at least second order, but
 potentially to third or forth order in some cases. The number of sigma
 points required, and hence the cost of the computation, depends linearly
@@ -595,8 +595,8 @@ applicable and accurate than the Taylor Series method, the Unscented
 Transformation is limited to use cases where <span class="math notranslate nohighlight">\(x\)</span> has reasonably low
 dimensionality, because otherwise too many evaluations of <span class="math notranslate nohighlight">\(g(x)\)</span> are
 required. The method has been applied to engineering in the Unscented
-filter <a class="bibtex reference internal" href="../zbibliography.html#wan2000unscented" id="id15">[WVDM00]</a> and uncertainty quantification in the nuclear
-industry by <a class="bibtex reference internal" href="../zbibliography.html#zhangpreliminary" id="id16">[ZLXJ18]</a> and <a class="bibtex reference internal" href="../zbibliography.html#perretg" id="id17">[PRW18]</a>.</p>
+filter <a class="bibtex reference internal" href="../zbibliography.html#wan2000unscented" id="id15">[35]</a> and uncertainty quantification in the nuclear
+industry by <a class="bibtex reference internal" href="../zbibliography.html#zhangpreliminary" id="id16">[37]</a> and <a class="bibtex reference internal" href="../zbibliography.html#perretg" id="id17">[38]</a>.</p>
 <p>In order to avoid these approximations, techniques can be used to obtain
 more accurate approximations of <span class="math notranslate nohighlight">\(g(x)\)</span> in specific cases (metamodels),
 or alternatively efficient sampling strategies can be used. This is

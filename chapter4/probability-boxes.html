@@ -45,8 +45,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -54,6 +52,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Chapter summary" href="summary.html" />
@@ -375,7 +375,7 @@ with probability boxes, the objective is to compute the failure
 probability in the same sense as with traditional random variables in
 <a class="reference internal" href="random-variables.html#sec-reliability-theory"><span class="std std-ref">Reliability theory</span></a>. However, it is now impossible to
 compute an exact value for the failure probability; only bounds on the
-failure probability are available <a class="bibtex reference internal" href="../zbibliography.html#alvarez2007infinite" id="id1">[Alv07]</a>. For
+failure probability are available <a class="bibtex reference internal" href="../zbibliography.html#alvarez2007infinite" id="id1">[99]</a>. For
 distributional probability boxes,
 <span class="math notranslate nohighlight">\(f_{X_{\boldsymbol{\theta}}}({\boldsymbol{x}})\)</span> for
 <span class="math notranslate nohighlight">\(\boldsymbol{\theta} \in \Theta\)</span>, the bounds on the failure probability
@@ -394,7 +394,7 @@ where the aleatory variable <span class="math notranslate nohighlight">\(\alpha=
 uniformly distributed random vector with the same dimensionality as
 <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span>, and <span class="math notranslate nohighlight">\(\boldsymbol{\theta} \in \Theta\)</span> is the unit
 hyper-cube with the same dimensionality as <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span>
-<a class="bibtex reference internal" href="../zbibliography.html#de2015efficient" id="id2">[DA15]</a>. This enables the performance function
+<a class="bibtex reference internal" href="../zbibliography.html#de2015efficient" id="id2">[26]</a>. This enables the performance function
 <span class="math notranslate nohighlight">\(g(\boldsymbol{x})\)</span> to be rewritten in terms of <span class="math notranslate nohighlight">\(\boldsymbol{\alpha}\)</span>
 and <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span>, i.e.
 <span class="math notranslate nohighlight">\(g(\boldsymbol{\alpha}, \boldsymbol{\theta})\)</span>. Bounds on the failure
@@ -410,7 +410,7 @@ and
 <span class="math notranslate nohighlight">\(\overline{g}(\boldsymbol{\alpha}) = \max_{\boldsymbol{\theta} \in \Theta} g(\boldsymbol{\alpha}, \boldsymbol{\theta})\)</span></p>
 <p>By finding the envelope of a distributional probability box, the
 algorithm for computing the failure probability for the
-distribution-free case can be applied. As expected, <a class="bibtex reference internal" href="../zbibliography.html#fetz2016imprecise" id="id3">[FO16]</a>
+distribution-free case can be applied. As expected, <a class="bibtex reference internal" href="../zbibliography.html#fetz2016imprecise" id="id3">[100]</a>
 demonstrate that this results in overly conservative bounds on the
 failure probability, since clearly information is lost by taking the
 envelope of the distributional probability box. Therefore, only
@@ -433,24 +433,24 @@ where the samples <span class="math notranslate nohighlight">\(\boldsymbol{x}^{(
 from <span class="math notranslate nohighlight">\(f_{X_{\boldsymbol{\theta}}}({\boldsymbol{x}})\)</span>. This is the double
 loop Monte Carlo approach; an inner loop is used to compute a Monte
 Carlo estimator which is optimised over in the outer loop
-<a class="bibtex reference internal" href="../zbibliography.html#patelli2014uncertainty" id="id5">[PABA14]</a>. The outer loop optimisation can be evaluated
+<a class="bibtex reference internal" href="../zbibliography.html#patelli2014uncertainty" id="id5">[28]</a>. The outer loop optimisation can be evaluated
 using brute force grid sampling of <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span>, which is known
 as naïve double loop Monte Carlo simulation. It is usually more
 efficient to use an efficient global optimisation algorithm to evaluate
 the optimisation loop, such as Bayesian Optimisation, or a genetic
-algorithm <a class="bibtex reference internal" href="../zbibliography.html#de2015efficient" id="id6">[DA15]</a>.</p>
+algorithm <a class="bibtex reference internal" href="../zbibliography.html#de2015efficient" id="id6">[26]</a>.</p>
 <p>Evaluating the failure probability using double loop Monte Carlo
 simulation is computationally expensive, since now each inner loop Monte
 Carlo estimator must be computed multiple times. This is particularly
 the case when the problem dimensionality is large or the failure
-probability is small. <a class="bibtex reference internal" href="../zbibliography.html#troffaes2018imprecise" id="id7">[Tro18]</a> shows that the bias of the
+probability is small. <a class="bibtex reference internal" href="../zbibliography.html#troffaes2018imprecise" id="id7">[29]</a> shows that the bias of the
 estimator is negative, and the magnitude of the bias decreases as more
 samples are made.</p>
 </div>
 <div class="section" id="imprecise-first-order-reliability-method">
 <span id="sec-imprecise-form"></span><h3>Imprecise First Order Reliability Method<a class="headerlink" href="#imprecise-first-order-reliability-method" title="Permalink to this headline">¶</a></h3>
 <p>A generalisation of FORM for systems with components which are described
-by probability boxes was introduced by <a class="bibtex reference internal" href="../zbibliography.html#qiu-probabilistic-2008" id="id8">[QYE08]</a>. The
+by probability boxes was introduced by <a class="bibtex reference internal" href="../zbibliography.html#qiu-probabilistic-2008" id="id8">[101]</a>. The
 system’s performance function must be written in the load resistance
 form
 (<a class="reference internal" href="random-variables.html#equation-eqn-load-resistance">(22)</a>), and the system must have one strength
@@ -468,13 +468,13 @@ where
 and
 <span class="math notranslate nohighlight">\(\underline{\beta}=\frac{\underline{\mu}_R-\overline{\mu}_L}{\overline{\sigma}_L^2+\overline{\sigma}_R^2}.\)</span></p>
 <p>In more complex cases, one may need to solve an optimisation program to
-find the reliability index <a class="bibtex reference internal" href="../zbibliography.html#jiang2017probability" id="id9">[JZH17]</a>. For example, one
+find the reliability index <a class="bibtex reference internal" href="../zbibliography.html#jiang2017probability" id="id9">[102]</a>. For example, one
 could imagine a system which fails if the sum of many different products
 of probability box distributed variables falls below a threshold.</p>
 </div>
 <div class="section" id="line-sampling">
 <h3>Line sampling<a class="headerlink" href="#line-sampling" title="Permalink to this headline">¶</a></h3>
-<p><a class="bibtex reference internal" href="../zbibliography.html#de2015efficient" id="id10">[DA15]</a> describes two ways in which Line Sampling can be used
+<p><a class="bibtex reference internal" href="../zbibliography.html#de2015efficient" id="id10">[26]</a> describes two ways in which Line Sampling can be used
 to increase the efficiency of probability box propagation. Line Sampling
 can be applied as an alternative to the Monte Carlo estimator used to
 approximate the integral in the double loop approach
@@ -485,7 +485,7 @@ and lower performance functions in
 <a class="reference internal" href="#equation-eqn-random-set-lower">(32)</a> and
 <a class="reference internal" href="#equation-eqn-random-set-upper">(33)</a>. When Line Sampling is applied in the
 aleatory space, the importance direction updating strategy proposed by
-<a class="bibtex reference internal" href="../zbibliography.html#de2015efficient" id="id11">[DA15]</a> significantly increases the accuracy of the
+<a class="bibtex reference internal" href="../zbibliography.html#de2015efficient" id="id11">[26]</a> significantly increases the accuracy of the
 computation. Judged by number of samples required for computation, Line
 Sampling is close to the state of the art. However, Line Sampling is
 ineffective on highly non-linear limit state surfaces.</p>
@@ -496,13 +496,13 @@ ineffective on highly non-linear limit state surfaces.</p>
 <a class="reference internal" href="random-variables.html#equation-eqn-importance-sampling">(28)</a> can be applied to greatly reduce
 the number of samples required when computing the failure probability
 for a system subject to probability box random variables
-<a class="bibtex reference internal" href="../zbibliography.html#fetz2016imprecise" id="id12">[FO16]</a>. The bounds on the failure probability are given by
+<a class="bibtex reference internal" href="../zbibliography.html#fetz2016imprecise" id="id12">[100]</a>. The bounds on the failure probability are given by
 <span class="math notranslate nohighlight">\(\underline{P}_f=\min_{\boldsymbol{\theta} \in \Theta}{\int \mathbb{I}_f(\boldsymbol{x}) \frac{f_{X_{\boldsymbol{\theta}}}({\boldsymbol{x}})}{h(\boldsymbol{x})} h(\boldsymbol{x}) d\boldsymbol{x} } = \min_{\boldsymbol{\theta}} \frac{1}{N} \sum_{i=1}^N \mathbb{I}_f({\boldsymbol{x}}^{(i)}) \frac{f_{X_{\boldsymbol{\theta}}}({{\boldsymbol{x}}^{(i)}})}{h({\boldsymbol{x}}^{(i)})}\)</span>
 and
 <span class="math notranslate nohighlight">\(\overline{P}_f=\max_{\boldsymbol{\theta} \in \Theta}{\int \mathbb{I}_f(\boldsymbol{x}) \frac{f_{X_{\boldsymbol{\theta}}}({\boldsymbol{x}})}{h(\boldsymbol{x})} h(\boldsymbol{x}) d\boldsymbol{x} } = \max_{\boldsymbol{\theta}} \frac{1}{N} \sum_{i=1}^N \mathbb{I}_f({\boldsymbol{x}}^{(i)}) \frac{f_{X_{\boldsymbol{\theta}}}({{\boldsymbol{x}}^{(i)}})}{h({\boldsymbol{x}}^{(i)})},\)</span>
 where the samples <span class="math notranslate nohighlight">\({\boldsymbol{x}}^{(i)}\)</span> are drawn from the proposal
 distribution <span class="math notranslate nohighlight">\(h(\boldsymbol{x})\)</span>. The proposal distribution can be
-iteratively updated to provide more accurate results. <a class="bibtex reference internal" href="../zbibliography.html#decadt2019monte" id="id13">[DdCDB19]</a>
+iteratively updated to provide more accurate results. <a class="bibtex reference internal" href="../zbibliography.html#decadt2019monte" id="id13">[103]</a>
 demonstrates that the bias in both cases is negative and decreases in
 magnitude as more samples are collected. The Importance Sampling
 estimator requires a similar number of samples to Line Sampling.</p>
@@ -510,7 +510,7 @@ estimator requires a similar number of samples to Line Sampling.</p>
 <div class="section" id="multi-level-metamodels">
 <h3>Multi level metamodels<a class="headerlink" href="#multi-level-metamodels" title="Permalink to this headline">¶</a></h3>
 <p>Multilevel Metamodelling requires the creation of two Gaussian Process
-emulators <a class="bibtex reference internal" href="../zbibliography.html#schobi2017structural" id="id14">[SchobiS17]</a>. The first metamodel is created for
+emulators <a class="bibtex reference internal" href="../zbibliography.html#schobi2017structural" id="id14">[104]</a>. The first metamodel is created for
 the performance function in the space of the system variables
 <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span>, using Adaptive Kriging Monte Carlo simulation. The
 second metamodel is used to perform Bayesian Optimisation on the
@@ -521,7 +521,7 @@ is close to state of the art when judged by number of required samples.</p>
 </div>
 <div class="section" id="interval-predictor-models">
 <h3>Interval Predictor Models<a class="headerlink" href="#interval-predictor-models" title="Permalink to this headline">¶</a></h3>
-<p><a class="bibtex reference internal" href="../zbibliography.html#sadeghi2020robust" id="id15">[SdAP20]</a> uses an IPM as a metamodel to propagate probability boxes.
+<p><a class="bibtex reference internal" href="../zbibliography.html#sadeghi2020robust" id="id15">[105]</a> uses an IPM as a metamodel to propagate probability boxes.
 In the first two algorithms, the performance function is modelled as a function with unknown noise structure in the aleatory space and supplemented by a modified performance function.
 In the third algorithm, an Interval Predictor Model is constructed and a re-weighting strategy used to find bounds on the probability of failure.</p>
 </div>
