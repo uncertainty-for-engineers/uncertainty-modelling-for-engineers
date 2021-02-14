@@ -1,6 +1,5 @@
 
-Chapter summary
----------------
+## Chapter summary
 
 In this chapter we reviewed the application of the uncertainty models
 introduced in

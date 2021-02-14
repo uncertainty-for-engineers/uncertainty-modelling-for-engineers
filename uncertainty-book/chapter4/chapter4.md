@@ -1,6 +1,5 @@
 (ch:reliability_analysis)=
-Reliability Analysis
-====================
+# Reliability Analysis
 
 The purpose of reliability analysis is to study the performance and safe
 operation of a system subject to uncertainty.

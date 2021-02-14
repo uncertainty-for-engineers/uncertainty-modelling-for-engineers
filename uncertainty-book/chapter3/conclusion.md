@@ -1,5 +1,4 @@
-Chapter summary
----------------
+## Chapter summary
 
 This chapter presents a review of regression models with predictive
 uncertainty which can be used to describe the relationship between
