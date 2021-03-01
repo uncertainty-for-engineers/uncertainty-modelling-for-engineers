@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -44,7 +44,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -219,21 +219,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -251,7 +251,7 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -272,13 +272,13 @@
 </div>
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -302,11 +302,11 @@
     </div>
 </div>
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
         <div class="tocsection onthispage pt-5 pb-3">
             <i class="fas fa-list"></i> Contents
         </div>
@@ -355,6 +355,11 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#second-order-reliability-method">
+     Second Order Reliability Method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#line-sampling">
      Line sampling
     </a>
@@ -385,6 +390,7 @@
 
         </nav>
         
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -590,8 +596,6 @@ Therefore, since
 <span class="math notranslate nohighlight">\(\boldsymbol{x}^* = \beta \frac{\nabla g(\boldsymbol{x}^*)}{\sqrt{ |\nabla g(\boldsymbol{x}^*)|^2}}\)</span>,
 <span class="math notranslate nohighlight">\(P_f = \phi\left(\frac{-\mathbb{E}_{\boldsymbol{x}} (g(\boldsymbol{x}))}{\sqrt{\operatorname{Var}_{\boldsymbol{x}} (g(\boldsymbol{x}))}}\right)\)</span>
 leads to the desired expression.</p>
-<p>A similar method relying on a more accurate approximation of the limit
-state function is the Second Order Reliability Method.</p>
 <p>The main advantage of FORM is the small number of samples required to
 estimate the failure probability. The main disadvantage of FORM is that
 for non-linear limit state surfaces the method is likely to be extremely
@@ -606,13 +610,42 @@ variables, shown with random variables in the standard normal
 space.</span><a class="headerlink" href="#fig-form" title="Permalink to this image">¶</a></p>
 </div>
 </div>
+<div class="section" id="second-order-reliability-method">
+<h3>Second Order Reliability Method<a class="headerlink" href="#second-order-reliability-method" title="Permalink to this headline">¶</a></h3>
+<p>The estimate of the probability of failure obtained from the first order
+reliability method may be incorrect for nonlinear limit state functions.
+Therefore, a more accurate quadratic approximation to the limit state surface
+can be used.
+This is known as the second order reliability method (SORM).</p>
+<p><a class="bibtex reference internal" href="../zbibliography.html#breitung1984asymptotic" id="id13">[113]</a> <a class="bibtex reference internal" href="../zbibliography.html#breitung1994asymptotic" id="id14">[114]</a> shows that the probability of failure for
+quadratic limit state surfaces can be asymptotically approximated by</p>
+<div class="math notranslate nohighlight">
+\[P_f = \phi (-\beta) \prod^{n-1}_{i=1} (1- \beta \kappa_i)^{-\frac{1}{2}},\]</div>
+<p>for large <span class="math notranslate nohighlight">\(\beta\)</span> where <span class="math notranslate nohighlight">\(\kappa_i\)</span> are the principal curvatures of the limit
+state surface at the design point, which can be obtained either analytically or
+by using a computational procedure.
+<a class="bibtex reference internal" href="../zbibliography.html#breitung201571" id="id15">[115]</a> provides a recent review of the methodology.</p>
+<p>The advantage of this method is that it is possible to compute a more accurate
+estimate of the failure probability than with FORM, and with much lesser
+computational expense than Monte Carlo sampling.
+Extraordinarily, the approximation for <span class="math notranslate nohighlight">\(P_f\)</span> becomes more accurate for smaller
+failure probabilities, i.e. the opposite behaviour of Monte Carlo simulation.
+The disadvantage of the method is that limit state surfaces which are extremely
+non-linear will not be approximated well by a quadratic function, and hence
+the estimated failure probability will be incorrect.
+This disadvantage can be partially mitigated in some cases by combining multiple
+SORM estimates at different design points.
+In addition, in some cases numerically determining the principal curvatures can
+be problematic due to the additional evaluations of the performance function
+required relative to FORM.</p>
+</div>
 <div class="section" id="line-sampling">
 <h3>Line sampling<a class="headerlink" href="#line-sampling" title="Permalink to this headline">¶</a></h3>
 <p>The fundamental idea behind Line Sampling is to refine estimates
 obtained from the First-order reliability method (FORM), which may be
 incorrect due to the non-linearity of the limit state function.
 Conceptually, this is achieved by averaging the result of different FORM
-simulations <a class="bibtex reference internal" href="../zbibliography.html#de2015advanced" id="id13">[113]</a>. Firstly, the approximate direction of the
+simulations <a class="bibtex reference internal" href="../zbibliography.html#de2015advanced" id="id16">[116]</a>. Firstly, the approximate direction of the
 failure region from the origin in standard normal space must be
 determined. This is known as the importance direction. It is usually
 obtained by finding the design point, by approximate means if necessary.
@@ -637,7 +670,7 @@ probabilities of failure estimated along all the lines.</p>
 moderately non-linear with respect to the parameters modelled as random
 variables, setting the importance direction as the gradient vector of
 the performance function in the underlying standard normal space leads
-to highly efficient Line Sampling. <a class="bibtex reference internal" href="../zbibliography.html#de2015efficient" id="id14">[26]</a> describes
+to highly efficient Line Sampling. <a class="bibtex reference internal" href="../zbibliography.html#de2015efficient" id="id17">[26]</a> describes
 enhancements which can be made to Line Sampling to increase the
 efficiency. For example, the solution of the Newton-Raphson search used
 on the previous line can be used to inform the search on the next line,
@@ -672,7 +705,7 @@ point with an approximate method and centring the proposal density on
 the design point, since
 <a class="reference internal" href="#equation-eqn-optimal-density">(29)</a> indicates that the failure region has a
 higher proposal density. A complete discussion of the technique is given
-in <a class="bibtex reference internal" href="../zbibliography.html#schueller1987critical" id="id15">[114]</a> and <a class="bibtex reference internal" href="../zbibliography.html#melchers2018structural" id="id16">[106]</a>.</p>
+in <a class="bibtex reference internal" href="../zbibliography.html#schueller1987critical" id="id18">[117]</a> and <a class="bibtex reference internal" href="../zbibliography.html#melchers2018structural" id="id19">[106]</a>.</p>
 <p>Importance Sampling is useful as it offers an unbiased estimator which
 can estimate the failure probability with few samples. The main
 difficultly is determining the proposal distribution
@@ -692,11 +725,11 @@ regions large, the coefficient of variation of each individual failure
 event can be minimised, hence minimising the coefficient of variation of
 <span class="math notranslate nohighlight">\(P_f\)</span>. Markov chains are used to generate conditional samples between
 intermediate failure regions in order to calculate <span class="math notranslate nohighlight">\(P(F_{i+1}|F_i)\)</span>. A
-complete description of the method is given in <a class="bibtex reference internal" href="../zbibliography.html#au2001estimation" id="id17">[115]</a>.</p>
+complete description of the method is given in <a class="bibtex reference internal" href="../zbibliography.html#au2001estimation" id="id20">[118]</a>.</p>
 <p>The main advantage of Subset Simulation is that it can estimate failure
 probabilities for non-linear limit state surfaces in a black box manner
 with relatively low computational expense. However,
-<a class="bibtex reference internal" href="../zbibliography.html#breitung2019geometry" id="id18">[116]</a> shows that subset simulation is not accurate for
+<a class="bibtex reference internal" href="../zbibliography.html#breitung2019geometry" id="id21">[119]</a> shows that subset simulation is not accurate for
 some limit state surfaces, for example limit state surfaces with
 multiple importance directions.</p>
 </div>
@@ -713,27 +746,27 @@ failure region. A machine learning model which fulfils this purpose is
 known as a metamodel or surrogate model.</p>
 <p>In the literature many machine learning techniques have been applied to
 the reliability analysis problem: linear regression (known as the
-response surface methodology) <a class="bibtex reference internal" href="../zbibliography.html#bucher1990fast" id="id19">[117]</a>, support vector machines
-<a class="bibtex reference internal" href="../zbibliography.html#rocco2002fast" id="id20">[118]</a>, polynomial chaos expansions
-<a class="bibtex reference internal" href="../zbibliography.html#berveiller2006stochastic" id="id21">[119]</a>, neural networks <a class="bibtex reference internal" href="../zbibliography.html#shao1997structural" id="id22">[120]</a> and
+response surface methodology) <a class="bibtex reference internal" href="../zbibliography.html#bucher1990fast" id="id22">[120]</a>, support vector machines
+<a class="bibtex reference internal" href="../zbibliography.html#rocco2002fast" id="id23">[121]</a>, polynomial chaos expansions
+<a class="bibtex reference internal" href="../zbibliography.html#berveiller2006stochastic" id="id24">[122]</a>, neural networks <a class="bibtex reference internal" href="../zbibliography.html#shao1997structural" id="id25">[123]</a> and
 Gaussian process emulators (sometimes known as Kriging)
-<a class="bibtex reference internal" href="../zbibliography.html#kaymaz2005application" id="id23">[121]</a>. Neural networks and Gaussian processes have
+<a class="bibtex reference internal" href="../zbibliography.html#kaymaz2005application" id="id26">[124]</a>. Neural networks and Gaussian processes have
 the advantage of being able to quantify their uncertainty accurately, so
 the required number of training samples can be assessed. Polynomial
 chaos expansions allow the sensitivity indices of <span class="math notranslate nohighlight">\(g(\boldsymbol{x})\)</span> to
-be computed analytically from the trained metamodel <a class="bibtex reference internal" href="../zbibliography.html#sudret2008global" id="id24">[122]</a>.
-In <a class="bibtex reference internal" href="../zbibliography.html#sadeghi-2019" id="id25">[123]</a>, Interval Predictor Models are used to solve the reliability analysis problem.</p>
+be computed analytically from the trained metamodel <a class="bibtex reference internal" href="../zbibliography.html#sudret2008global" id="id27">[125]</a>.
+In <a class="bibtex reference internal" href="../zbibliography.html#sadeghi-2019" id="id28">[126]</a>, Interval Predictor Models are used to solve the reliability analysis problem.</p>
 <p>In general, the most useful metamodels produce the most accurate
 estimates of <span class="math notranslate nohighlight">\(P_f\)</span>, whilst requiring the smallest number of training
 samples. An ‘experimental design’ specifies where the samples of
 <span class="math notranslate nohighlight">\(g(\boldsymbol{x})\)</span> will be made for training. Usually a uniform design
-is chosen, but other sampling strategies can be used <a class="bibtex reference internal" href="../zbibliography.html#sudret2012meta" id="id26">[124]</a>.
+is chosen, but other sampling strategies can be used <a class="bibtex reference internal" href="../zbibliography.html#sudret2012meta" id="id29">[127]</a>.
 Active learning can be used to sequentially choose the samples required
 to train the metamodel. These samples are usually chosen based on where
 the uncertainty of the metamodel is largest. In adaptive Kriging Monte
 Carlo simulation (AK-MCS) the samples are chosen at points with large
 uncertainty, close to the limit state surface. This strategy achieves
-state of the art efficiency <a class="bibtex reference internal" href="../zbibliography.html#echard2011ak" id="id27">[125]</a>. This strategy is known as
+state of the art efficiency <a class="bibtex reference internal" href="../zbibliography.html#echard2011ak" id="id30">[128]</a>. This strategy is known as
 active learning, and the function which is used to choose the subsequent
 sample is known as the probability of misclassification acquisition
 function.</p>
@@ -748,7 +781,7 @@ with a small number of samples.</p>
 <h2>Worked example : First order reliability analysis method (FORM)<a class="headerlink" href="#worked-example-first-order-reliability-analysis-method-form" title="Permalink to this headline">¶</a></h2>
 <p>For the simple example of a cantilever beam with a point load, <span class="math notranslate nohighlight">\(F\)</span>, at any point on the beam, the maximum deflection of the end of the beam is given by
 <span class="math notranslate nohighlight">\(\delta_{max}=\frac{F a^2}{6 E I} (3l-a)\)</span>,
-where <span class="math notranslate nohighlight">\(I\)</span> is the moment of inertia of the beam, <span class="math notranslate nohighlight">\(a\)</span> is the distance of the point load from the fixed end of the beam, <span class="math notranslate nohighlight">\(l\)</span> is the length of the beam and <span class="math notranslate nohighlight">\(E\)</span> is the modulus of elasticity of the beam <a class="bibtex reference internal" href="../zbibliography.html#goodno2016mechanics" id="id28">[126]</a>.
+where <span class="math notranslate nohighlight">\(I\)</span> is the moment of inertia of the beam, <span class="math notranslate nohighlight">\(a\)</span> is the distance of the point load from the fixed end of the beam, <span class="math notranslate nohighlight">\(l\)</span> is the length of the beam and <span class="math notranslate nohighlight">\(E\)</span> is the modulus of elasticity of the beam <a class="bibtex reference internal" href="../zbibliography.html#goodno2016mechanics" id="id31">[129]</a>.
 <span class="math notranslate nohighlight">\(E\)</span>, <span class="math notranslate nohighlight">\(I\)</span> and <span class="math notranslate nohighlight">\(a\)</span> were fixed, and <span class="math notranslate nohighlight">\(l\)</span> and <span class="math notranslate nohighlight">\(F\)</span> were given by random variables with normal distributions.
 The chosen values of the parameters are shown below:</p>
 <table class="colwidths-auto table">
@@ -1003,15 +1036,15 @@ The chosen values of the parameters are shown below:</p>
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="chapter4.html" title="previous page">Reliability Analysis</a>
     <a class='right-next' id="next-link" href="convex-set.html" title="next page">Convex set models for reliability</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
