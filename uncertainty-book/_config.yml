@@ -17,7 +17,6 @@ html:
   use_repository_button: true
   use_issues_button: true
   use_edit_page_button: true
-  google_analytics_id: UA-190888707-1
 latex:
   latex_engine: xelatex
 bibtex_bibfiles:
